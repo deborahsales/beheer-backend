@@ -13,3 +13,319 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum FuncaoUsuario {
+  GESTOR
+  RH
+  COLABORADOR
+}
+
+model Usuario {
+  id Int @id @default(autoincrement())
+  cpf Int @unique
+  nome String
+  email String @unique
+  telefone String
+  dataNascimento DateTime
+  dataAdmissao DateTime
+  dataDesligamento DateTime?
+  cargo String
+  funcao FuncaoUsuario[] @default([])
+
+  cronogramasGerenciados Cronograma[] @relation("GestorUsuario")
+  demandasGerenciadas Demanda[] @relation("GestorDemanda")
+  avisosGerenciados Aviso[] @relation("GestorRHAviso")
+  comentariosPublicados Comentario[] @relation("UsuarioComentario")
+  pontosUsuario Ponto[] @relation("PontoUsuario")
+  prestacaoContasUsuario PretacaoContas[] @relation("PrestacaoContasUsuario")
+  atestadosUsuario Atestado[] @relation("AtestadoUsuario")
+  assinaturasUsuario Assinatura[] @relation("AssinaturaUsuario")
+  documentosUsuario Documento[] @relation("UsuarioDocumento")
+  ajustesUsuario AjustePonto[] @relation("UsuarioAjuste")
+  ajustesGerenciados GerenciamentoAjsutePonto[] @relation("UsuarioGerenciamentoPonto")
+  avisosUsuario AvisoUsuario[] @relation("UsuarioAviso")
+  gruposUsuario UsuarioGrupo[] @relation("GruposUsuario")
+  gruposGestor GrupoGestor[] @relation("GruposGestor")
+  demandasUsuario DemandaUsuario[] @relation("UsuarioDemandas")
+}
+
+enum PrioridadeDemanda {
+  BAIXA
+  MEDIA
+  ALTA
+}
+
+enum StatusDemanda {
+  CRIADA
+  INICIADA
+  ATRASADA
+  FINALIZADA
+}
+
+model Demanda {
+  id Int @id @default(autoincrement())
+  titulo String
+  descricao String
+  prazo DateTime?
+  status StatusDemanda
+  dateTimestamp DateTime
+  prioridade PrioridadeDemanda
+
+  cronogramaId  Int
+  cronograma Cronograma @relation("CronogramaDemanda", fields: [cronogramaId], references: [id])
+
+  gestorUsuarioId Int  
+  gestor Usuario @relation("GestorDemanda", fields: [gestorUsuarioId], references: [id])
+
+  comentariosDemanda Comentario[] @relation("DemandaComentario")
+  gruposDemanda DemandaGrupo[] @relation("GrupoDemandas")
+  usuariosDemanda DemandaUsuario[] @relation("DemandasUsuario")
+
+}
+
+model Cronograma {
+  id Int @id @default(autoincrement())
+  titulo String
+  descricao String
+  dateTimestamp DateTime
+
+  gestorUsuarioId Int
+  gestor Usuario @relation("GestorUsuario", fields: [gestorUsuarioId], references: [id])
+
+  demandasCronograma Demanda[] @relation("CronogramaDemanda")
+}
+
+model Aviso {
+  id Int @id @default(autoincrement())
+  assunto String
+  conteudo String
+  dateTimestamp DateTime
+
+  gestorRhUsuarioId Int
+  gestor Usuario @relation("GestorRHAviso", fields: [gestorRhUsuarioId], references: [id])
+
+  avisoUsuario AvisoUsuario[] @relation("AvisoUsuario")
+}
+
+model Grupo {
+  id Int @id @default(autoincrement())
+  nome String
+  descricao String
+
+  usuarios UsuarioGrupo[] @relation("UsuariosGrupo")
+  gestores GrupoGestor[] @relation("GestoresGrupo")
+  demandas DemandaGrupo[] @relation("DemandasGrupo")
+}
+
+model Comentario{
+  id Int @id @default(autoincrement())
+  conteudo String
+  dateTtimestamp DateTime
+  dataAlteracao DateTime?
+
+  demandaId Int
+  demanda Demanda @relation("DemandaComentario", fields: [demandaId], references: [id])
+
+  usuarioId Int
+  usuario Usuario @relation("UsuarioComentario", fields: [usuarioId], references: [id])
+}
+
+model Localizacao{
+  id Int @id @default(autoincrement())
+  latitude Float
+  longitude Float
+
+  pontoId Int @unique
+  ponto Ponto @relation("LocalizacaoPonto", fields: [pontoId], references: [id])
+}
+
+model Ponto {
+  id Int @id @default(autoincrement())
+  dateTimestamp DateTime
+  ip String
+  imagem String
+
+  usuarioId Int
+  usuario Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id])
+  
+  localizacao Localizacao? @relation("LocalizacaoPonto")
+  ajuste AjustePonto[] @relation("PontoAjuste")
+}
+
+model PretacaoContas {
+  id Int @id @default(autoincrement())
+  descricao String
+  data DateTime
+  valor Decimal
+  imagem String
+  dateTimestamp DateTime
+
+  usuarioId Int
+  usuario Usuario @relation("PrestacaoContasUsuario", fields: [usuarioId], references: [id])
+}
+
+enum DiaInteiro {
+  SIM
+  NAO
+}
+
+model Atestado {
+  id Int @id @default(autoincrement())
+  dateTimestamp DateTime
+  dataAtestado DateTime
+  horaInicio DateTime?
+  horaTermino DateTime?
+  diaInteiro DiaInteiro
+  imagem String
+
+  usuarioId Int
+  usuario Usuario @relation("AtestadoUsuario", fields: [usuarioId], references: [id])
+}
+
+enum StatusAssinatura {
+  ATIVA
+  INATIVA
+  CANCELADA
+}
+
+model Assinatura {
+  id Int @id @default(autoincrement())
+  assinatura String
+  dateTimestamp DateTime
+  status StatusAssinatura
+  ip String
+
+  certificadoDigitalId Int
+  certificadoDigital CertificadoDigital @relation("CertificadoAssinatura", fields: [certificadoDigitalId], references: [id])
+
+  usuarioId Int
+  usuario Usuario @relation("AssinaturaUsuario", fields: [usuarioId], references: [id])
+
+  documento_id Int @unique
+  documento Documento @relation("AssinaturaDocumento", fields: [documento_id], references: [id])
+}
+
+enum StatusCertificado {
+  VALIDO
+  EXPIRADO
+  REVOGADO
+  SUSPENSO
+  CANCELADO
+}
+
+model CertificadoDigital {
+  id Int @id @default(autoincrement())
+  certificado String
+  dataEmissao DateTime
+  dataValidade DateTime
+  status StatusCertificado
+
+  assinaturasCertificado Assinatura[] @relation("CertificadoAssinatura")
+}
+
+enum StatusDocumento {
+  ASSINADO
+  PENDENTE
+}
+
+model Documento{
+  id Int @id @default(autoincrement())
+  nome String
+  url String
+  hash String
+  dateTimestamp DateTime
+  status StatusDocumento
+
+  usuarioId Int
+  usuario Usuario @relation("UsuarioDocumento", fields: [usuarioId], references: [id])
+
+  assinaturaDocumento Assinatura? @relation("AssinaturaDocumento")
+}
+
+enum MotivoAjuste {
+  ERRO
+  DUPLICAÇÃO
+}
+
+enum StatusAjuste {
+  AJUSTADO
+  PENDENTE
+}
+
+model AjustePonto {
+  id Int @id @default(autoincrement())
+  horario DateTime
+  motivo MotivoAjuste
+  status StatusAjuste
+  dateTimestamp DateTime
+
+  usuarioId Int
+  usuario Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id])
+
+  pontoId Int
+  ponto Ponto @relation("PontoAjuste", fields: [pontoId], references: [id])
+
+  gerenciamentoAjuste GerenciamentoAjsutePonto[] @relation("PontoAjustado")
+}
+
+model GerenciamentoAjsutePonto {
+  status StatusAjuste
+  dateTimestamp DateTime
+
+  ajustePontoId Int @unique
+  ajustePonto AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id])
+
+  rhUsuarioId Int @unique
+  usuarioRh Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id])
+}
+
+enum StatusAviso {
+  LIDO
+  PENDENTE
+}
+
+model AvisoUsuario {
+  status StatusAviso
+  dateTimestamp DateTime
+
+  usuarioId Int @unique
+  usuario Usuario @relation("UsuarioAviso", fields: [usuarioId], references: [id])
+
+  avisoId Int @unique
+  aviso Aviso @relation("AvisoUsuario", fields: [avisoId], references: [id])
+}
+
+model UsuarioGrupo {
+  usuarioId Int @unique
+  usuario Usuario @relation("GruposUsuario", fields: [usuarioId], references: [id])
+
+  grupoId Int @unique
+  grupo Grupo @relation("UsuariosGrupo", fields: [grupoId], references: [id])
+}
+
+model GrupoGestor {
+  usuarioId Int @unique
+  usuario Usuario @relation("GruposGestor", fields: [usuarioId], references: [id])
+
+  grupoId Int @unique
+  grupo Grupo @relation("GestoresGrupo", fields: [grupoId], references: [id])
+
+}
+
+model DemandaGrupo {
+  demandaId Int @unique
+  demanda Demanda @relation("GrupoDemandas", fields: [demandaId], references: [id])
+
+  grupoId Int @unique
+  grupo Grupo @relation("DemandasGrupo", fields: [grupoId], references: [id])
+
+}
+
+model DemandaUsuario {
+  demandaId Int @unique
+  demanda Demanda @relation("DemandasUsuario", fields: [demandaId], references: [id])
+
+  
+  usuarioId Int @unique
+  usuario Usuario @relation("UsuarioDemandas", fields: [usuarioId], references: [id])
+}
