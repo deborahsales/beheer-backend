@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { DemandaController } from './demanda.controller';
+import { DemandaService } from './demanda.service';
 
 @Module({
-  controllers: [DemandaController]
+  controllers: [DemandaController],
+  providers: [DemandaService]
 })
 export class DemandaModule {}
