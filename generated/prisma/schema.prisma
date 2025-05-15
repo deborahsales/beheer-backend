@@ -71,8 +71,8 @@ model Demanda {
   dateTimestamp DateTime
   prioridade    PrioridadeDemanda
 
-  cronogramaId Int
-  cronograma   Cronograma @relation("CronogramaDemanda", fields: [cronogramaId], references: [id])
+  cronogramaId Int?
+  cronograma   Cronograma? @relation("CronogramaDemanda", fields: [cronogramaId], references: [id])
 
   gestorUsuarioId Int
   gestor          Usuario @relation("GestorDemanda", fields: [gestorUsuarioId], references: [id])
@@ -147,8 +147,8 @@ model Ponto {
   usuarioId Int
   usuario   Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id])
 
-  localizacao Localizacao?  @relation("LocalizacaoPonto")
-  ajuste      AjustePonto[] @relation("PontoAjuste")
+  localizacao Localizacao? @relation("LocalizacaoPonto")
+  ajuste      AjustePonto? @relation("PontoAjuste")
 }
 
 model PretacaoContas {
@@ -261,7 +261,7 @@ model AjustePonto {
   usuarioId Int
   usuario   Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id])
 
-  pontoId Int
+  pontoId Int   @unique
   ponto   Ponto @relation("PontoAjuste", fields: [pontoId], references: [id])
 
   gerenciamentoAjuste GerenciamentoAjsutePonto[] @relation("PontoAjustado")

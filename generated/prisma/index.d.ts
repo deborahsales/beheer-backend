@@ -3044,37 +3044,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type PontoCountOutputType
-   */
-
-  export type PontoCountOutputType = {
-    ajuste: number
-  }
-
-  export type PontoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ajuste?: boolean | PontoCountOutputTypeCountAjusteArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * PontoCountOutputType without action
-   */
-  export type PontoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PontoCountOutputType
-     */
-    select?: PontoCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * PontoCountOutputType without action
-   */
-  export type PontoCountOutputTypeCountAjusteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AjustePontoWhereInput
-  }
-
-
-  /**
    * Count Type CertificadoDigitalCountOutputType
    */
 
@@ -4906,7 +4875,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId: number | null
     gestorUsuarioId: number
     _count: DemandaCountAggregateOutputType | null
     _avg: DemandaAvgAggregateOutputType | null
@@ -4939,7 +4908,7 @@ export namespace Prisma {
     prioridade?: boolean
     cronogramaId?: boolean
     gestorUsuarioId?: boolean
-    cronograma?: boolean | CronogramaDefaultArgs<ExtArgs>
+    cronograma?: boolean | Demanda$cronogramaArgs<ExtArgs>
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
     comentariosDemanda?: boolean | Demanda$comentariosDemandaArgs<ExtArgs>
     gruposDemanda?: boolean | Demanda$gruposDemandaArgs<ExtArgs>
@@ -4957,7 +4926,7 @@ export namespace Prisma {
     prioridade?: boolean
     cronogramaId?: boolean
     gestorUsuarioId?: boolean
-    cronograma?: boolean | CronogramaDefaultArgs<ExtArgs>
+    cronograma?: boolean | Demanda$cronogramaArgs<ExtArgs>
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["demanda"]>
 
@@ -4971,7 +4940,7 @@ export namespace Prisma {
     prioridade?: boolean
     cronogramaId?: boolean
     gestorUsuarioId?: boolean
-    cronograma?: boolean | CronogramaDefaultArgs<ExtArgs>
+    cronograma?: boolean | Demanda$cronogramaArgs<ExtArgs>
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["demanda"]>
 
@@ -4989,7 +4958,7 @@ export namespace Prisma {
 
   export type DemandaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "descricao" | "prazo" | "status" | "dateTimestamp" | "prioridade" | "cronogramaId" | "gestorUsuarioId", ExtArgs["result"]["demanda"]>
   export type DemandaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cronograma?: boolean | CronogramaDefaultArgs<ExtArgs>
+    cronograma?: boolean | Demanda$cronogramaArgs<ExtArgs>
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
     comentariosDemanda?: boolean | Demanda$comentariosDemandaArgs<ExtArgs>
     gruposDemanda?: boolean | Demanda$gruposDemandaArgs<ExtArgs>
@@ -4997,18 +4966,18 @@ export namespace Prisma {
     _count?: boolean | DemandaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type DemandaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cronograma?: boolean | CronogramaDefaultArgs<ExtArgs>
+    cronograma?: boolean | Demanda$cronogramaArgs<ExtArgs>
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
   export type DemandaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cronograma?: boolean | CronogramaDefaultArgs<ExtArgs>
+    cronograma?: boolean | Demanda$cronogramaArgs<ExtArgs>
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
 
   export type $DemandaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Demanda"
     objects: {
-      cronograma: Prisma.$CronogramaPayload<ExtArgs>
+      cronograma: Prisma.$CronogramaPayload<ExtArgs> | null
       gestor: Prisma.$UsuarioPayload<ExtArgs>
       comentariosDemanda: Prisma.$ComentarioPayload<ExtArgs>[]
       gruposDemanda: Prisma.$DemandaGrupoPayload<ExtArgs>[]
@@ -5022,7 +4991,7 @@ export namespace Prisma {
       status: $Enums.StatusDemanda
       dateTimestamp: Date
       prioridade: $Enums.PrioridadeDemanda
-      cronogramaId: number
+      cronogramaId: number | null
       gestorUsuarioId: number
     }, ExtArgs["result"]["demanda"]>
     composites: {}
@@ -5418,7 +5387,7 @@ export namespace Prisma {
    */
   export interface Prisma__DemandaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    cronograma<T extends CronogramaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CronogramaDefaultArgs<ExtArgs>>): Prisma__CronogramaClient<$Result.GetResult<Prisma.$CronogramaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cronograma<T extends Demanda$cronogramaArgs<ExtArgs> = {}>(args?: Subset<T, Demanda$cronogramaArgs<ExtArgs>>): Prisma__CronogramaClient<$Result.GetResult<Prisma.$CronogramaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     gestor<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     comentariosDemanda<T extends Demanda$comentariosDemandaArgs<ExtArgs> = {}>(args?: Subset<T, Demanda$comentariosDemandaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ComentarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     gruposDemanda<T extends Demanda$gruposDemandaArgs<ExtArgs> = {}>(args?: Subset<T, Demanda$gruposDemandaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DemandaGrupoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -5854,6 +5823,25 @@ export namespace Prisma {
      * Limit how many Demandas to delete.
      */
     limit?: number
+  }
+
+  /**
+   * Demanda.cronograma
+   */
+  export type Demanda$cronogramaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cronograma
+     */
+    select?: CronogramaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cronograma
+     */
+    omit?: CronogramaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CronogramaInclude<ExtArgs> | null
+    where?: CronogramaWhereInput
   }
 
   /**
@@ -11750,7 +11738,6 @@ export namespace Prisma {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     localizacao?: boolean | Ponto$localizacaoArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
-    _count?: boolean | PontoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ponto"]>
 
   export type PontoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11784,7 +11771,6 @@ export namespace Prisma {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     localizacao?: boolean | Ponto$localizacaoArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
-    _count?: boolean | PontoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PontoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -11798,7 +11784,7 @@ export namespace Prisma {
     objects: {
       usuario: Prisma.$UsuarioPayload<ExtArgs>
       localizacao: Prisma.$LocalizacaoPayload<ExtArgs> | null
-      ajuste: Prisma.$AjustePontoPayload<ExtArgs>[]
+      ajuste: Prisma.$AjustePontoPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -12202,7 +12188,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     localizacao<T extends Ponto$localizacaoArgs<ExtArgs> = {}>(args?: Subset<T, Ponto$localizacaoArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    ajuste<T extends Ponto$ajusteArgs<ExtArgs> = {}>(args?: Subset<T, Ponto$ajusteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ajuste<T extends Ponto$ajusteArgs<ExtArgs> = {}>(args?: Subset<T, Ponto$ajusteArgs<ExtArgs>>): Prisma__AjustePontoClient<$Result.GetResult<Prisma.$AjustePontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12668,11 +12654,6 @@ export namespace Prisma {
      */
     include?: AjustePontoInclude<ExtArgs> | null
     where?: AjustePontoWhereInput
-    orderBy?: AjustePontoOrderByWithRelationInput | AjustePontoOrderByWithRelationInput[]
-    cursor?: AjustePontoWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: AjustePontoScalarFieldEnum | AjustePontoScalarFieldEnum[]
   }
 
   /**
@@ -26585,9 +26566,9 @@ export namespace Prisma {
     status?: EnumStatusDemandaFilter<"Demanda"> | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFilter<"Demanda"> | Date | string
     prioridade?: EnumPrioridadeDemandaFilter<"Demanda"> | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFilter<"Demanda"> | number
+    cronogramaId?: IntNullableFilter<"Demanda"> | number | null
     gestorUsuarioId?: IntFilter<"Demanda"> | number
-    cronograma?: XOR<CronogramaScalarRelationFilter, CronogramaWhereInput>
+    cronograma?: XOR<CronogramaNullableScalarRelationFilter, CronogramaWhereInput> | null
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     comentariosDemanda?: ComentarioListRelationFilter
     gruposDemanda?: DemandaGrupoListRelationFilter
@@ -26602,7 +26583,7 @@ export namespace Prisma {
     status?: SortOrder
     dateTimestamp?: SortOrder
     prioridade?: SortOrder
-    cronogramaId?: SortOrder
+    cronogramaId?: SortOrderInput | SortOrder
     gestorUsuarioId?: SortOrder
     cronograma?: CronogramaOrderByWithRelationInput
     gestor?: UsuarioOrderByWithRelationInput
@@ -26622,9 +26603,9 @@ export namespace Prisma {
     status?: EnumStatusDemandaFilter<"Demanda"> | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFilter<"Demanda"> | Date | string
     prioridade?: EnumPrioridadeDemandaFilter<"Demanda"> | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFilter<"Demanda"> | number
+    cronogramaId?: IntNullableFilter<"Demanda"> | number | null
     gestorUsuarioId?: IntFilter<"Demanda"> | number
-    cronograma?: XOR<CronogramaScalarRelationFilter, CronogramaWhereInput>
+    cronograma?: XOR<CronogramaNullableScalarRelationFilter, CronogramaWhereInput> | null
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     comentariosDemanda?: ComentarioListRelationFilter
     gruposDemanda?: DemandaGrupoListRelationFilter
@@ -26639,7 +26620,7 @@ export namespace Prisma {
     status?: SortOrder
     dateTimestamp?: SortOrder
     prioridade?: SortOrder
-    cronogramaId?: SortOrder
+    cronogramaId?: SortOrderInput | SortOrder
     gestorUsuarioId?: SortOrder
     _count?: DemandaCountOrderByAggregateInput
     _avg?: DemandaAvgOrderByAggregateInput
@@ -26659,7 +26640,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaWithAggregatesFilter<"Demanda"> | $Enums.StatusDemanda
     dateTimestamp?: DateTimeWithAggregatesFilter<"Demanda"> | Date | string
     prioridade?: EnumPrioridadeDemandaWithAggregatesFilter<"Demanda"> | $Enums.PrioridadeDemanda
-    cronogramaId?: IntWithAggregatesFilter<"Demanda"> | number
+    cronogramaId?: IntNullableWithAggregatesFilter<"Demanda"> | number | null
     gestorUsuarioId?: IntWithAggregatesFilter<"Demanda"> | number
   }
 
@@ -26964,7 +26945,7 @@ export namespace Prisma {
     usuarioId?: IntFilter<"Ponto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     localizacao?: XOR<LocalizacaoNullableScalarRelationFilter, LocalizacaoWhereInput> | null
-    ajuste?: AjustePontoListRelationFilter
+    ajuste?: XOR<AjustePontoNullableScalarRelationFilter, AjustePontoWhereInput> | null
   }
 
   export type PontoOrderByWithRelationInput = {
@@ -26975,7 +26956,7 @@ export namespace Prisma {
     usuarioId?: SortOrder
     usuario?: UsuarioOrderByWithRelationInput
     localizacao?: LocalizacaoOrderByWithRelationInput
-    ajuste?: AjustePontoOrderByRelationAggregateInput
+    ajuste?: AjustePontoOrderByWithRelationInput
   }
 
   export type PontoWhereUniqueInput = Prisma.AtLeast<{
@@ -26989,7 +26970,7 @@ export namespace Prisma {
     usuarioId?: IntFilter<"Ponto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     localizacao?: XOR<LocalizacaoNullableScalarRelationFilter, LocalizacaoWhereInput> | null
-    ajuste?: AjustePontoListRelationFilter
+    ajuste?: XOR<AjustePontoNullableScalarRelationFilter, AjustePontoWhereInput> | null
   }, "id">
 
   export type PontoOrderByWithAggregationInput = {
@@ -27391,6 +27372,7 @@ export namespace Prisma {
 
   export type AjustePontoWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    pontoId?: number
     AND?: AjustePontoWhereInput | AjustePontoWhereInput[]
     OR?: AjustePontoWhereInput[]
     NOT?: AjustePontoWhereInput | AjustePontoWhereInput[]
@@ -27399,11 +27381,10 @@ export namespace Prisma {
     status?: EnumStatusAjusteFilter<"AjustePonto"> | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFilter<"AjustePonto"> | Date | string
     usuarioId?: IntFilter<"AjustePonto"> | number
-    pontoId?: IntFilter<"AjustePonto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     ponto?: XOR<PontoScalarRelationFilter, PontoWhereInput>
     gerenciamentoAjuste?: GerenciamentoAjsutePontoListRelationFilter
-  }, "id">
+  }, "id" | "pontoId">
 
   export type AjustePontoOrderByWithAggregationInput = {
     id?: SortOrder
@@ -27878,7 +27859,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronograma: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
+    cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
     comentariosDemanda?: ComentarioCreateNestedManyWithoutDemandaInput
     gruposDemanda?: DemandaGrupoCreateNestedManyWithoutDemandaInput
@@ -27893,7 +27874,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
     gestorUsuarioId: number
     comentariosDemanda?: ComentarioUncheckedCreateNestedManyWithoutDemandaInput
     gruposDemanda?: DemandaGrupoUncheckedCreateNestedManyWithoutDemandaInput
@@ -27907,7 +27888,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronograma?: CronogramaUpdateOneRequiredWithoutDemandasCronogramaNestedInput
+    cronograma?: CronogramaUpdateOneWithoutDemandasCronogramaNestedInput
     gestor?: UsuarioUpdateOneRequiredWithoutDemandasGerenciadasNestedInput
     comentariosDemanda?: ComentarioUpdateManyWithoutDemandaNestedInput
     gruposDemanda?: DemandaGrupoUpdateManyWithoutDemandaNestedInput
@@ -27922,7 +27903,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
     comentariosDemanda?: ComentarioUncheckedUpdateManyWithoutDemandaNestedInput
     gruposDemanda?: DemandaGrupoUncheckedUpdateManyWithoutDemandaNestedInput
@@ -27937,7 +27918,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
     gestorUsuarioId: number
   }
 
@@ -27958,7 +27939,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -28234,7 +28215,7 @@ export namespace Prisma {
     imagem: string
     usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
     localizacao?: LocalizacaoCreateNestedOneWithoutPontoInput
-    ajuste?: AjustePontoCreateNestedManyWithoutPontoInput
+    ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUncheckedCreateInput = {
@@ -28244,7 +28225,7 @@ export namespace Prisma {
     imagem: string
     usuarioId: number
     localizacao?: LocalizacaoUncheckedCreateNestedOneWithoutPontoInput
-    ajuste?: AjustePontoUncheckedCreateNestedManyWithoutPontoInput
+    ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUpdateInput = {
@@ -28253,7 +28234,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
     localizacao?: LocalizacaoUpdateOneWithoutPontoNestedInput
-    ajuste?: AjustePontoUpdateManyWithoutPontoNestedInput
+    ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoUncheckedUpdateInput = {
@@ -28263,7 +28244,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     usuarioId?: IntFieldUpdateOperationsInput | number
     localizacao?: LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput
-    ajuste?: AjustePontoUncheckedUpdateManyWithoutPontoNestedInput
+    ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoCreateManyInput = {
@@ -29258,9 +29239,20 @@ export namespace Prisma {
     not?: NestedEnumPrioridadeDemandaFilter<$PrismaModel> | $Enums.PrioridadeDemanda
   }
 
-  export type CronogramaScalarRelationFilter = {
-    is?: CronogramaWhereInput
-    isNot?: CronogramaWhereInput
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type CronogramaNullableScalarRelationFilter = {
+    is?: CronogramaWhereInput | null
+    isNot?: CronogramaWhereInput | null
   }
 
   export type UsuarioScalarRelationFilter = {
@@ -29344,6 +29336,22 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPrioridadeDemandaFilter<$PrismaModel>
     _max?: NestedEnumPrioridadeDemandaFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type CronogramaCountOrderByAggregateInput = {
@@ -29554,6 +29562,11 @@ export namespace Prisma {
   export type LocalizacaoNullableScalarRelationFilter = {
     is?: LocalizacaoWhereInput | null
     isNot?: LocalizacaoWhereInput | null
+  }
+
+  export type AjustePontoNullableScalarRelationFilter = {
+    is?: AjustePontoWhereInput | null
+    isNot?: AjustePontoWhereInput | null
   }
 
   export type PontoCountOrderByAggregateInput = {
@@ -30895,10 +30908,12 @@ export namespace Prisma {
     set?: $Enums.PrioridadeDemanda
   }
 
-  export type CronogramaUpdateOneRequiredWithoutDemandasCronogramaNestedInput = {
+  export type CronogramaUpdateOneWithoutDemandasCronogramaNestedInput = {
     create?: XOR<CronogramaCreateWithoutDemandasCronogramaInput, CronogramaUncheckedCreateWithoutDemandasCronogramaInput>
     connectOrCreate?: CronogramaCreateOrConnectWithoutDemandasCronogramaInput
     upsert?: CronogramaUpsertWithoutDemandasCronogramaInput
+    disconnect?: CronogramaWhereInput | boolean
+    delete?: CronogramaWhereInput | boolean
     connect?: CronogramaWhereUniqueInput
     update?: XOR<XOR<CronogramaUpdateToOneWithWhereWithoutDemandasCronogramaInput, CronogramaUpdateWithoutDemandasCronogramaInput>, CronogramaUncheckedUpdateWithoutDemandasCronogramaInput>
   }
@@ -30951,6 +30966,14 @@ export namespace Prisma {
     update?: DemandaUsuarioUpdateWithWhereUniqueWithoutDemandaInput | DemandaUsuarioUpdateWithWhereUniqueWithoutDemandaInput[]
     updateMany?: DemandaUsuarioUpdateManyWithWhereWithoutDemandaInput | DemandaUsuarioUpdateManyWithWhereWithoutDemandaInput[]
     deleteMany?: DemandaUsuarioScalarWhereInput | DemandaUsuarioScalarWhereInput[]
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type ComentarioUncheckedUpdateManyWithoutDemandaNestedInput = {
@@ -31295,11 +31318,10 @@ export namespace Prisma {
     connect?: LocalizacaoWhereUniqueInput
   }
 
-  export type AjustePontoCreateNestedManyWithoutPontoInput = {
-    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput> | AjustePontoCreateWithoutPontoInput[] | AjustePontoUncheckedCreateWithoutPontoInput[]
-    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput | AjustePontoCreateOrConnectWithoutPontoInput[]
-    createMany?: AjustePontoCreateManyPontoInputEnvelope
-    connect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
+  export type AjustePontoCreateNestedOneWithoutPontoInput = {
+    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
+    connect?: AjustePontoWhereUniqueInput
   }
 
   export type LocalizacaoUncheckedCreateNestedOneWithoutPontoInput = {
@@ -31308,11 +31330,10 @@ export namespace Prisma {
     connect?: LocalizacaoWhereUniqueInput
   }
 
-  export type AjustePontoUncheckedCreateNestedManyWithoutPontoInput = {
-    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput> | AjustePontoCreateWithoutPontoInput[] | AjustePontoUncheckedCreateWithoutPontoInput[]
-    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput | AjustePontoCreateOrConnectWithoutPontoInput[]
-    createMany?: AjustePontoCreateManyPontoInputEnvelope
-    connect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
+  export type AjustePontoUncheckedCreateNestedOneWithoutPontoInput = {
+    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
+    connect?: AjustePontoWhereUniqueInput
   }
 
   export type UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput = {
@@ -31333,18 +31354,14 @@ export namespace Prisma {
     update?: XOR<XOR<LocalizacaoUpdateToOneWithWhereWithoutPontoInput, LocalizacaoUpdateWithoutPontoInput>, LocalizacaoUncheckedUpdateWithoutPontoInput>
   }
 
-  export type AjustePontoUpdateManyWithoutPontoNestedInput = {
-    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput> | AjustePontoCreateWithoutPontoInput[] | AjustePontoUncheckedCreateWithoutPontoInput[]
-    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput | AjustePontoCreateOrConnectWithoutPontoInput[]
-    upsert?: AjustePontoUpsertWithWhereUniqueWithoutPontoInput | AjustePontoUpsertWithWhereUniqueWithoutPontoInput[]
-    createMany?: AjustePontoCreateManyPontoInputEnvelope
-    set?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    disconnect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    delete?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    connect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    update?: AjustePontoUpdateWithWhereUniqueWithoutPontoInput | AjustePontoUpdateWithWhereUniqueWithoutPontoInput[]
-    updateMany?: AjustePontoUpdateManyWithWhereWithoutPontoInput | AjustePontoUpdateManyWithWhereWithoutPontoInput[]
-    deleteMany?: AjustePontoScalarWhereInput | AjustePontoScalarWhereInput[]
+  export type AjustePontoUpdateOneWithoutPontoNestedInput = {
+    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
+    upsert?: AjustePontoUpsertWithoutPontoInput
+    disconnect?: AjustePontoWhereInput | boolean
+    delete?: AjustePontoWhereInput | boolean
+    connect?: AjustePontoWhereUniqueInput
+    update?: XOR<XOR<AjustePontoUpdateToOneWithWhereWithoutPontoInput, AjustePontoUpdateWithoutPontoInput>, AjustePontoUncheckedUpdateWithoutPontoInput>
   }
 
   export type LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput = {
@@ -31357,18 +31374,14 @@ export namespace Prisma {
     update?: XOR<XOR<LocalizacaoUpdateToOneWithWhereWithoutPontoInput, LocalizacaoUpdateWithoutPontoInput>, LocalizacaoUncheckedUpdateWithoutPontoInput>
   }
 
-  export type AjustePontoUncheckedUpdateManyWithoutPontoNestedInput = {
-    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput> | AjustePontoCreateWithoutPontoInput[] | AjustePontoUncheckedCreateWithoutPontoInput[]
-    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput | AjustePontoCreateOrConnectWithoutPontoInput[]
-    upsert?: AjustePontoUpsertWithWhereUniqueWithoutPontoInput | AjustePontoUpsertWithWhereUniqueWithoutPontoInput[]
-    createMany?: AjustePontoCreateManyPontoInputEnvelope
-    set?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    disconnect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    delete?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    connect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
-    update?: AjustePontoUpdateWithWhereUniqueWithoutPontoInput | AjustePontoUpdateWithWhereUniqueWithoutPontoInput[]
-    updateMany?: AjustePontoUpdateManyWithWhereWithoutPontoInput | AjustePontoUpdateManyWithWhereWithoutPontoInput[]
-    deleteMany?: AjustePontoScalarWhereInput | AjustePontoScalarWhereInput[]
+  export type AjustePontoUncheckedUpdateOneWithoutPontoNestedInput = {
+    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
+    upsert?: AjustePontoUpsertWithoutPontoInput
+    disconnect?: AjustePontoWhereInput | boolean
+    delete?: AjustePontoWhereInput | boolean
+    connect?: AjustePontoWhereUniqueInput
+    update?: XOR<XOR<AjustePontoUpdateToOneWithWhereWithoutPontoInput, AjustePontoUpdateWithoutPontoInput>, AjustePontoUncheckedUpdateWithoutPontoInput>
   }
 
   export type UsuarioCreateNestedOneWithoutPrestacaoContasUsuarioInput = {
@@ -31967,6 +31980,33 @@ export namespace Prisma {
     _max?: NestedEnumPrioridadeDemandaFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -32161,7 +32201,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronograma: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
+    cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     comentariosDemanda?: ComentarioCreateNestedManyWithoutDemandaInput
     gruposDemanda?: DemandaGrupoCreateNestedManyWithoutDemandaInput
     usuariosDemanda?: DemandaUsuarioCreateNestedManyWithoutDemandaInput
@@ -32175,7 +32215,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
     comentariosDemanda?: ComentarioUncheckedCreateNestedManyWithoutDemandaInput
     gruposDemanda?: DemandaGrupoUncheckedCreateNestedManyWithoutDemandaInput
     usuariosDemanda?: DemandaUsuarioUncheckedCreateNestedManyWithoutDemandaInput
@@ -32246,7 +32286,7 @@ export namespace Prisma {
     ip: string
     imagem: string
     localizacao?: LocalizacaoCreateNestedOneWithoutPontoInput
-    ajuste?: AjustePontoCreateNestedManyWithoutPontoInput
+    ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUncheckedCreateWithoutUsuarioInput = {
@@ -32255,7 +32295,7 @@ export namespace Prisma {
     ip: string
     imagem: string
     localizacao?: LocalizacaoUncheckedCreateNestedOneWithoutPontoInput
-    ajuste?: AjustePontoUncheckedCreateNestedManyWithoutPontoInput
+    ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
 
   export type PontoCreateOrConnectWithoutUsuarioInput = {
@@ -32563,7 +32603,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFilter<"Demanda"> | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFilter<"Demanda"> | Date | string
     prioridade?: EnumPrioridadeDemandaFilter<"Demanda"> | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFilter<"Demanda"> | number
+    cronogramaId?: IntNullableFilter<"Demanda"> | number | null
     gestorUsuarioId?: IntFilter<"Demanda"> | number
   }
 
@@ -33649,7 +33689,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronograma: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
+    cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
     gruposDemanda?: DemandaGrupoCreateNestedManyWithoutDemandaInput
     usuariosDemanda?: DemandaUsuarioCreateNestedManyWithoutDemandaInput
@@ -33663,7 +33703,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
     gestorUsuarioId: number
     gruposDemanda?: DemandaGrupoUncheckedCreateNestedManyWithoutDemandaInput
     usuariosDemanda?: DemandaUsuarioUncheckedCreateNestedManyWithoutDemandaInput
@@ -33750,7 +33790,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronograma?: CronogramaUpdateOneRequiredWithoutDemandasCronogramaNestedInput
+    cronograma?: CronogramaUpdateOneWithoutDemandasCronogramaNestedInput
     gestor?: UsuarioUpdateOneRequiredWithoutDemandasGerenciadasNestedInput
     gruposDemanda?: DemandaGrupoUpdateManyWithoutDemandaNestedInput
     usuariosDemanda?: DemandaUsuarioUpdateManyWithoutDemandaNestedInput
@@ -33764,7 +33804,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
     gruposDemanda?: DemandaGrupoUncheckedUpdateManyWithoutDemandaNestedInput
     usuariosDemanda?: DemandaUsuarioUncheckedUpdateManyWithoutDemandaNestedInput
@@ -33839,7 +33879,7 @@ export namespace Prisma {
     ip: string
     imagem: string
     usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
-    ajuste?: AjustePontoCreateNestedManyWithoutPontoInput
+    ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUncheckedCreateWithoutLocalizacaoInput = {
@@ -33848,7 +33888,7 @@ export namespace Prisma {
     ip: string
     imagem: string
     usuarioId: number
-    ajuste?: AjustePontoUncheckedCreateNestedManyWithoutPontoInput
+    ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
 
   export type PontoCreateOrConnectWithoutLocalizacaoInput = {
@@ -33872,7 +33912,7 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
-    ajuste?: AjustePontoUpdateManyWithoutPontoNestedInput
+    ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoUncheckedUpdateWithoutLocalizacaoInput = {
@@ -33881,7 +33921,7 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     usuarioId?: IntFieldUpdateOperationsInput | number
-    ajuste?: AjustePontoUncheckedUpdateManyWithoutPontoNestedInput
+    ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
   export type UsuarioCreateWithoutPontosUsuarioInput = {
@@ -33982,11 +34022,6 @@ export namespace Prisma {
     create: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
   }
 
-  export type AjustePontoCreateManyPontoInputEnvelope = {
-    data: AjustePontoCreateManyPontoInput | AjustePontoCreateManyPontoInput[]
-    skipDuplicates?: boolean
-  }
-
   export type UsuarioUpsertWithoutPontosUsuarioInput = {
     update: XOR<UsuarioUpdateWithoutPontosUsuarioInput, UsuarioUncheckedUpdateWithoutPontosUsuarioInput>
     create: XOR<UsuarioCreateWithoutPontosUsuarioInput, UsuarioUncheckedCreateWithoutPontosUsuarioInput>
@@ -34073,20 +34108,34 @@ export namespace Prisma {
     longitude?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type AjustePontoUpsertWithWhereUniqueWithoutPontoInput = {
-    where: AjustePontoWhereUniqueInput
+  export type AjustePontoUpsertWithoutPontoInput = {
     update: XOR<AjustePontoUpdateWithoutPontoInput, AjustePontoUncheckedUpdateWithoutPontoInput>
     create: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    where?: AjustePontoWhereInput
   }
 
-  export type AjustePontoUpdateWithWhereUniqueWithoutPontoInput = {
-    where: AjustePontoWhereUniqueInput
+  export type AjustePontoUpdateToOneWithWhereWithoutPontoInput = {
+    where?: AjustePontoWhereInput
     data: XOR<AjustePontoUpdateWithoutPontoInput, AjustePontoUncheckedUpdateWithoutPontoInput>
   }
 
-  export type AjustePontoUpdateManyWithWhereWithoutPontoInput = {
-    where: AjustePontoScalarWhereInput
-    data: XOR<AjustePontoUpdateManyMutationInput, AjustePontoUncheckedUpdateManyWithoutPontoInput>
+  export type AjustePontoUpdateWithoutPontoInput = {
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
+    status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    usuario?: UsuarioUpdateOneRequiredWithoutAjustesUsuarioNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjsutePontoUpdateManyWithoutAjustePontoNestedInput
+  }
+
+  export type AjustePontoUncheckedUpdateWithoutPontoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
+    status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    usuarioId?: IntFieldUpdateOperationsInput | number
+    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type UsuarioCreateWithoutPrestacaoContasUsuarioInput = {
@@ -35673,7 +35722,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronograma: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
+    cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
     comentariosDemanda?: ComentarioCreateNestedManyWithoutDemandaInput
     usuariosDemanda?: DemandaUsuarioCreateNestedManyWithoutDemandaInput
@@ -35687,7 +35736,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
     gestorUsuarioId: number
     comentariosDemanda?: ComentarioUncheckedCreateNestedManyWithoutDemandaInput
     usuariosDemanda?: DemandaUsuarioUncheckedCreateNestedManyWithoutDemandaInput
@@ -35736,7 +35785,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronograma?: CronogramaUpdateOneRequiredWithoutDemandasCronogramaNestedInput
+    cronograma?: CronogramaUpdateOneWithoutDemandasCronogramaNestedInput
     gestor?: UsuarioUpdateOneRequiredWithoutDemandasGerenciadasNestedInput
     comentariosDemanda?: ComentarioUpdateManyWithoutDemandaNestedInput
     usuariosDemanda?: DemandaUsuarioUpdateManyWithoutDemandaNestedInput
@@ -35750,7 +35799,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
     comentariosDemanda?: ComentarioUncheckedUpdateManyWithoutDemandaNestedInput
     usuariosDemanda?: DemandaUsuarioUncheckedUpdateManyWithoutDemandaNestedInput
@@ -35789,7 +35838,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronograma: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
+    cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
     comentariosDemanda?: ComentarioCreateNestedManyWithoutDemandaInput
     gruposDemanda?: DemandaGrupoCreateNestedManyWithoutDemandaInput
@@ -35803,7 +35852,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
     gestorUsuarioId: number
     comentariosDemanda?: ComentarioUncheckedCreateNestedManyWithoutDemandaInput
     gruposDemanda?: DemandaGrupoUncheckedCreateNestedManyWithoutDemandaInput
@@ -35890,7 +35939,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronograma?: CronogramaUpdateOneRequiredWithoutDemandasCronogramaNestedInput
+    cronograma?: CronogramaUpdateOneWithoutDemandasCronogramaNestedInput
     gestor?: UsuarioUpdateOneRequiredWithoutDemandasGerenciadasNestedInput
     comentariosDemanda?: ComentarioUpdateManyWithoutDemandaNestedInput
     gruposDemanda?: DemandaGrupoUpdateManyWithoutDemandaNestedInput
@@ -35904,7 +35953,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
     comentariosDemanda?: ComentarioUncheckedUpdateManyWithoutDemandaNestedInput
     gruposDemanda?: DemandaGrupoUncheckedUpdateManyWithoutDemandaNestedInput
@@ -35989,7 +36038,7 @@ export namespace Prisma {
     status: $Enums.StatusDemanda
     dateTimestamp: Date | string
     prioridade: $Enums.PrioridadeDemanda
-    cronogramaId: number
+    cronogramaId?: number | null
   }
 
   export type AvisoCreateManyGestorInput = {
@@ -36114,7 +36163,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronograma?: CronogramaUpdateOneRequiredWithoutDemandasCronogramaNestedInput
+    cronograma?: CronogramaUpdateOneWithoutDemandasCronogramaNestedInput
     comentariosDemanda?: ComentarioUpdateManyWithoutDemandaNestedInput
     gruposDemanda?: DemandaGrupoUpdateManyWithoutDemandaNestedInput
     usuariosDemanda?: DemandaUsuarioUpdateManyWithoutDemandaNestedInput
@@ -36128,7 +36177,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
     comentariosDemanda?: ComentarioUncheckedUpdateManyWithoutDemandaNestedInput
     gruposDemanda?: DemandaGrupoUncheckedUpdateManyWithoutDemandaNestedInput
     usuariosDemanda?: DemandaUsuarioUncheckedUpdateManyWithoutDemandaNestedInput
@@ -36142,7 +36191,7 @@ export namespace Prisma {
     status?: EnumStatusDemandaFieldUpdateOperationsInput | $Enums.StatusDemanda
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prioridade?: EnumPrioridadeDemandaFieldUpdateOperationsInput | $Enums.PrioridadeDemanda
-    cronogramaId?: IntFieldUpdateOperationsInput | number
+    cronogramaId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type AvisoUpdateWithoutGestorInput = {
@@ -36195,7 +36244,7 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     localizacao?: LocalizacaoUpdateOneWithoutPontoNestedInput
-    ajuste?: AjustePontoUpdateManyWithoutPontoNestedInput
+    ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoUncheckedUpdateWithoutUsuarioInput = {
@@ -36204,7 +36253,7 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     localizacao?: LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput
-    ajuste?: AjustePontoUncheckedUpdateManyWithoutPontoNestedInput
+    ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoUncheckedUpdateManyWithoutUsuarioInput = {
@@ -36608,43 +36657,6 @@ export namespace Prisma {
 
   export type DemandaGrupoUncheckedUpdateManyWithoutGrupoInput = {
     demandaId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type AjustePontoCreateManyPontoInput = {
-    id?: number
-    horario: Date | string
-    motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
-    usuarioId: number
-  }
-
-  export type AjustePontoUpdateWithoutPontoInput = {
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
-    motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
-    status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuario?: UsuarioUpdateOneRequiredWithoutAjustesUsuarioNestedInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUpdateManyWithoutAjustePontoNestedInput
-  }
-
-  export type AjustePontoUncheckedUpdateWithoutPontoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
-    motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
-    status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarioId?: IntFieldUpdateOperationsInput | number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
-  }
-
-  export type AjustePontoUncheckedUpdateManyWithoutPontoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
-    motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
-    status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type AssinaturaCreateManyCertificadoDigitalInput = {
