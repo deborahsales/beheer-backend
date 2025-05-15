@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { LocalizacaoController } from './localizacao.controller';
 
-@Module({})
+@Module({
+  controllers: [LocalizacaoController]
+})
 export class LocalizacaoModule {}

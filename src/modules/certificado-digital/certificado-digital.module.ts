@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { CertificadoDigitalController } from './certificado-digital.controller';
 
-@Module({})
+@Module({
+  controllers: [CertificadoDigitalController]
+})
 export class CertificadoDigitalModule {}

@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { ComentarioController } from './comentario.controller';
 
-@Module({})
+@Module({
+  controllers: [ComentarioController]
+})
 export class ComentarioModule {}

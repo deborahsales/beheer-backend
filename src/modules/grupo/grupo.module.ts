@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { GrupoController } from './grupo.controller';
 
-@Module({})
+@Module({
+  controllers: [GrupoController]
+})
 export class GrupoModule {}

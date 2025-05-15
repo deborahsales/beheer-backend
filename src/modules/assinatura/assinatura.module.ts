@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { AssinaturaController } from './assinatura.controller';
 
-@Module({})
+@Module({
+  controllers: [AssinaturaController]
+})
 export class AssinaturaModule {}
