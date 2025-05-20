@@ -22,15 +22,16 @@ enum FuncaoUsuario {
 
 model Usuario {
   id Int @id @default(autoincrement())
-  cpf Int @unique
+  cpf String @unique
   nome String
   email String @unique
+  senha String
   telefone String
   dataNascimento DateTime
   dataAdmissao DateTime
   dataDesligamento DateTime?
   cargo String
-  funcao FuncaoUsuario[] @default([])
+  funcao FuncaoUsuario @default(COLABORADOR)
 
   cronogramasGerenciados Cronograma[] @relation("GestorUsuario")
   demandasGerenciadas Demanda[] @relation("GestorDemanda")

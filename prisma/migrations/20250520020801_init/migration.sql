@@ -31,15 +31,16 @@ CREATE TYPE "StatusAviso" AS ENUM ('LIDO', 'PENDENTE');
 -- CreateTable
 CREATE TABLE "Usuario" (
     "id" SERIAL NOT NULL,
-    "cpf" INTEGER NOT NULL,
+    "cpf" TEXT NOT NULL,
     "nome" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "senha" TEXT NOT NULL,
     "telefone" TEXT NOT NULL,
     "dataNascimento" TIMESTAMP(3) NOT NULL,
     "dataAdmissao" TIMESTAMP(3) NOT NULL,
     "dataDesligamento" TIMESTAMP(3),
     "cargo" TEXT NOT NULL,
-    "funcao" "FuncaoUsuario"[] DEFAULT ARRAY[]::"FuncaoUsuario"[],
+    "funcao" "FuncaoUsuario" NOT NULL DEFAULT 'COLABORADOR',
 
     CONSTRAINT "Usuario_pkey" PRIMARY KEY ("id")
 );
@@ -53,7 +54,7 @@ CREATE TABLE "Demanda" (
     "status" "StatusDemanda" NOT NULL,
     "dateTimestamp" TIMESTAMP(3) NOT NULL,
     "prioridade" "PrioridadeDemanda" NOT NULL,
-    "cronogramaId" INTEGER NOT NULL,
+    "cronogramaId" INTEGER,
     "gestorUsuarioId" INTEGER NOT NULL,
 
     CONSTRAINT "Demanda_pkey" PRIMARY KEY ("id")
@@ -254,6 +255,9 @@ CREATE UNIQUE INDEX "Localizacao_pontoId_key" ON "Localizacao"("pontoId");
 CREATE UNIQUE INDEX "Assinatura_documento_id_key" ON "Assinatura"("documento_id");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "AjustePonto_pontoId_key" ON "AjustePonto"("pontoId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "GerenciamentoAjsutePonto_ajustePontoId_key" ON "GerenciamentoAjsutePonto"("ajustePontoId");
 
 -- CreateIndex
@@ -290,7 +294,7 @@ CREATE UNIQUE INDEX "DemandaUsuario_demandaId_key" ON "DemandaUsuario"("demandaI
 CREATE UNIQUE INDEX "DemandaUsuario_usuarioId_key" ON "DemandaUsuario"("usuarioId");
 
 -- AddForeignKey
-ALTER TABLE "Demanda" ADD CONSTRAINT "Demanda_cronogramaId_fkey" FOREIGN KEY ("cronogramaId") REFERENCES "Cronograma"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Demanda" ADD CONSTRAINT "Demanda_cronogramaId_fkey" FOREIGN KEY ("cronogramaId") REFERENCES "Cronograma"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Demanda" ADD CONSTRAINT "Demanda_gestorUsuarioId_fkey" FOREIGN KEY ("gestorUsuarioId") REFERENCES "Usuario"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

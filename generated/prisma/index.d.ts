@@ -3123,36 +3123,38 @@ export namespace Prisma {
 
   export type UsuarioAvgAggregateOutputType = {
     id: number | null
-    cpf: number | null
   }
 
   export type UsuarioSumAggregateOutputType = {
     id: number | null
-    cpf: number | null
   }
 
   export type UsuarioMinAggregateOutputType = {
     id: number | null
-    cpf: number | null
+    cpf: string | null
     nome: string | null
     email: string | null
+    senha: string | null
     telefone: string | null
     dataNascimento: Date | null
     dataAdmissao: Date | null
     dataDesligamento: Date | null
     cargo: string | null
+    funcao: $Enums.FuncaoUsuario | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
     id: number | null
-    cpf: number | null
+    cpf: string | null
     nome: string | null
     email: string | null
+    senha: string | null
     telefone: string | null
     dataNascimento: Date | null
     dataAdmissao: Date | null
     dataDesligamento: Date | null
     cargo: string | null
+    funcao: $Enums.FuncaoUsuario | null
   }
 
   export type UsuarioCountAggregateOutputType = {
@@ -3160,6 +3162,7 @@ export namespace Prisma {
     cpf: number
     nome: number
     email: number
+    senha: number
     telefone: number
     dataNascimento: number
     dataAdmissao: number
@@ -3172,12 +3175,10 @@ export namespace Prisma {
 
   export type UsuarioAvgAggregateInputType = {
     id?: true
-    cpf?: true
   }
 
   export type UsuarioSumAggregateInputType = {
     id?: true
-    cpf?: true
   }
 
   export type UsuarioMinAggregateInputType = {
@@ -3185,11 +3186,13 @@ export namespace Prisma {
     cpf?: true
     nome?: true
     email?: true
+    senha?: true
     telefone?: true
     dataNascimento?: true
     dataAdmissao?: true
     dataDesligamento?: true
     cargo?: true
+    funcao?: true
   }
 
   export type UsuarioMaxAggregateInputType = {
@@ -3197,11 +3200,13 @@ export namespace Prisma {
     cpf?: true
     nome?: true
     email?: true
+    senha?: true
     telefone?: true
     dataNascimento?: true
     dataAdmissao?: true
     dataDesligamento?: true
     cargo?: true
+    funcao?: true
   }
 
   export type UsuarioCountAggregateInputType = {
@@ -3209,6 +3214,7 @@ export namespace Prisma {
     cpf?: true
     nome?: true
     email?: true
+    senha?: true
     telefone?: true
     dataNascimento?: true
     dataAdmissao?: true
@@ -3306,15 +3312,16 @@ export namespace Prisma {
 
   export type UsuarioGroupByOutputType = {
     id: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date
     dataAdmissao: Date
     dataDesligamento: Date | null
     cargo: string
-    funcao: $Enums.FuncaoUsuario[]
+    funcao: $Enums.FuncaoUsuario
     _count: UsuarioCountAggregateOutputType | null
     _avg: UsuarioAvgAggregateOutputType | null
     _sum: UsuarioSumAggregateOutputType | null
@@ -3341,6 +3348,7 @@ export namespace Prisma {
     cpf?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     telefone?: boolean
     dataNascimento?: boolean
     dataAdmissao?: boolean
@@ -3370,6 +3378,7 @@ export namespace Prisma {
     cpf?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     telefone?: boolean
     dataNascimento?: boolean
     dataAdmissao?: boolean
@@ -3383,6 +3392,7 @@ export namespace Prisma {
     cpf?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     telefone?: boolean
     dataNascimento?: boolean
     dataAdmissao?: boolean
@@ -3396,6 +3406,7 @@ export namespace Prisma {
     cpf?: boolean
     nome?: boolean
     email?: boolean
+    senha?: boolean
     telefone?: boolean
     dataNascimento?: boolean
     dataAdmissao?: boolean
@@ -3404,7 +3415,7 @@ export namespace Prisma {
     funcao?: boolean
   }
 
-  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cpf" | "nome" | "email" | "telefone" | "dataNascimento" | "dataAdmissao" | "dataDesligamento" | "cargo" | "funcao", ExtArgs["result"]["usuario"]>
+  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cpf" | "nome" | "email" | "senha" | "telefone" | "dataNascimento" | "dataAdmissao" | "dataDesligamento" | "cargo" | "funcao", ExtArgs["result"]["usuario"]>
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cronogramasGerenciados?: boolean | Usuario$cronogramasGerenciadosArgs<ExtArgs>
     demandasGerenciadas?: boolean | Usuario$demandasGerenciadasArgs<ExtArgs>
@@ -3447,15 +3458,16 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      cpf: number
+      cpf: string
       nome: string
       email: string
+      senha: string
       telefone: string
       dataNascimento: Date
       dataAdmissao: Date
       dataDesligamento: Date | null
       cargo: string
-      funcao: $Enums.FuncaoUsuario[]
+      funcao: $Enums.FuncaoUsuario
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -3895,15 +3907,16 @@ export namespace Prisma {
    */
   interface UsuarioFieldRefs {
     readonly id: FieldRef<"Usuario", 'Int'>
-    readonly cpf: FieldRef<"Usuario", 'Int'>
+    readonly cpf: FieldRef<"Usuario", 'String'>
     readonly nome: FieldRef<"Usuario", 'String'>
     readonly email: FieldRef<"Usuario", 'String'>
+    readonly senha: FieldRef<"Usuario", 'String'>
     readonly telefone: FieldRef<"Usuario", 'String'>
     readonly dataNascimento: FieldRef<"Usuario", 'DateTime'>
     readonly dataAdmissao: FieldRef<"Usuario", 'DateTime'>
     readonly dataDesligamento: FieldRef<"Usuario", 'DateTime'>
     readonly cargo: FieldRef<"Usuario", 'String'>
-    readonly funcao: FieldRef<"Usuario", 'FuncaoUsuario[]'>
+    readonly funcao: FieldRef<"Usuario", 'FuncaoUsuario'>
   }
     
 
@@ -25969,6 +25982,7 @@ export namespace Prisma {
     cpf: 'cpf',
     nome: 'nome',
     email: 'email',
+    senha: 'senha',
     telefone: 'telefone',
     dataNascimento: 'dataNascimento',
     dataAdmissao: 'dataAdmissao',
@@ -26261,16 +26275,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'FuncaoUsuario[]'
+   * Reference to a field of type 'FuncaoUsuario'
    */
-  export type ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FuncaoUsuario[]'>
+  export type EnumFuncaoUsuarioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FuncaoUsuario'>
     
 
 
   /**
-   * Reference to a field of type 'FuncaoUsuario'
+   * Reference to a field of type 'FuncaoUsuario[]'
    */
-  export type EnumFuncaoUsuarioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FuncaoUsuario'>
+  export type ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FuncaoUsuario[]'>
     
 
 
@@ -26436,15 +26450,16 @@ export namespace Prisma {
     OR?: UsuarioWhereInput[]
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
     id?: IntFilter<"Usuario"> | number
-    cpf?: IntFilter<"Usuario"> | number
+    cpf?: StringFilter<"Usuario"> | string
     nome?: StringFilter<"Usuario"> | string
     email?: StringFilter<"Usuario"> | string
+    senha?: StringFilter<"Usuario"> | string
     telefone?: StringFilter<"Usuario"> | string
     dataNascimento?: DateTimeFilter<"Usuario"> | Date | string
     dataAdmissao?: DateTimeFilter<"Usuario"> | Date | string
     dataDesligamento?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     cargo?: StringFilter<"Usuario"> | string
-    funcao?: EnumFuncaoUsuarioNullableListFilter<"Usuario">
+    funcao?: EnumFuncaoUsuarioFilter<"Usuario"> | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaListRelationFilter
     demandasGerenciadas?: DemandaListRelationFilter
     avisosGerenciados?: AvisoListRelationFilter
@@ -26467,6 +26482,7 @@ export namespace Prisma {
     cpf?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     telefone?: SortOrder
     dataNascimento?: SortOrder
     dataAdmissao?: SortOrder
@@ -26492,18 +26508,19 @@ export namespace Prisma {
 
   export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    cpf?: number
+    cpf?: string
     email?: string
     AND?: UsuarioWhereInput | UsuarioWhereInput[]
     OR?: UsuarioWhereInput[]
     NOT?: UsuarioWhereInput | UsuarioWhereInput[]
     nome?: StringFilter<"Usuario"> | string
+    senha?: StringFilter<"Usuario"> | string
     telefone?: StringFilter<"Usuario"> | string
     dataNascimento?: DateTimeFilter<"Usuario"> | Date | string
     dataAdmissao?: DateTimeFilter<"Usuario"> | Date | string
     dataDesligamento?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     cargo?: StringFilter<"Usuario"> | string
-    funcao?: EnumFuncaoUsuarioNullableListFilter<"Usuario">
+    funcao?: EnumFuncaoUsuarioFilter<"Usuario"> | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaListRelationFilter
     demandasGerenciadas?: DemandaListRelationFilter
     avisosGerenciados?: AvisoListRelationFilter
@@ -26526,6 +26543,7 @@ export namespace Prisma {
     cpf?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     telefone?: SortOrder
     dataNascimento?: SortOrder
     dataAdmissao?: SortOrder
@@ -26544,15 +26562,16 @@ export namespace Prisma {
     OR?: UsuarioScalarWhereWithAggregatesInput[]
     NOT?: UsuarioScalarWhereWithAggregatesInput | UsuarioScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Usuario"> | number
-    cpf?: IntWithAggregatesFilter<"Usuario"> | number
+    cpf?: StringWithAggregatesFilter<"Usuario"> | string
     nome?: StringWithAggregatesFilter<"Usuario"> | string
     email?: StringWithAggregatesFilter<"Usuario"> | string
+    senha?: StringWithAggregatesFilter<"Usuario"> | string
     telefone?: StringWithAggregatesFilter<"Usuario"> | string
     dataNascimento?: DateTimeWithAggregatesFilter<"Usuario"> | Date | string
     dataAdmissao?: DateTimeWithAggregatesFilter<"Usuario"> | Date | string
     dataDesligamento?: DateTimeNullableWithAggregatesFilter<"Usuario"> | Date | string | null
     cargo?: StringWithAggregatesFilter<"Usuario"> | string
-    funcao?: EnumFuncaoUsuarioNullableListFilter<"Usuario">
+    funcao?: EnumFuncaoUsuarioWithAggregatesFilter<"Usuario"> | $Enums.FuncaoUsuario
   }
 
   export type DemandaWhereInput = {
@@ -27705,15 +27724,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -27733,15 +27753,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -27760,15 +27781,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -27788,15 +27810,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -27816,40 +27839,43 @@ export namespace Prisma {
 
   export type UsuarioCreateManyInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
   }
 
   export type UsuarioUpdateManyMutationInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
   }
 
   export type UsuarioUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
   }
 
   export type DemandaCreateInput = {
@@ -28953,12 +28979,11 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type EnumFuncaoUsuarioNullableListFilter<$PrismaModel = never> = {
-    equals?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel> | null
-    has?: $Enums.FuncaoUsuario | EnumFuncaoUsuarioFieldRefInput<$PrismaModel> | null
-    hasEvery?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
-    hasSome?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
+  export type EnumFuncaoUsuarioFilter<$PrismaModel = never> = {
+    equals?: $Enums.FuncaoUsuario | EnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    in?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    not?: NestedEnumFuncaoUsuarioFilter<$PrismaModel> | $Enums.FuncaoUsuario
   }
 
   export type CronogramaListRelationFilter = {
@@ -29121,6 +29146,7 @@ export namespace Prisma {
     cpf?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     telefone?: SortOrder
     dataNascimento?: SortOrder
     dataAdmissao?: SortOrder
@@ -29131,7 +29157,6 @@ export namespace Prisma {
 
   export type UsuarioAvgOrderByAggregateInput = {
     id?: SortOrder
-    cpf?: SortOrder
   }
 
   export type UsuarioMaxOrderByAggregateInput = {
@@ -29139,11 +29164,13 @@ export namespace Prisma {
     cpf?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     telefone?: SortOrder
     dataNascimento?: SortOrder
     dataAdmissao?: SortOrder
     dataDesligamento?: SortOrder
     cargo?: SortOrder
+    funcao?: SortOrder
   }
 
   export type UsuarioMinOrderByAggregateInput = {
@@ -29151,16 +29178,17 @@ export namespace Prisma {
     cpf?: SortOrder
     nome?: SortOrder
     email?: SortOrder
+    senha?: SortOrder
     telefone?: SortOrder
     dataNascimento?: SortOrder
     dataAdmissao?: SortOrder
     dataDesligamento?: SortOrder
     cargo?: SortOrder
+    funcao?: SortOrder
   }
 
   export type UsuarioSumOrderByAggregateInput = {
     id?: SortOrder
-    cpf?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -29223,6 +29251,16 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type EnumFuncaoUsuarioWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FuncaoUsuario | EnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    in?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    not?: NestedEnumFuncaoUsuarioWithAggregatesFilter<$PrismaModel> | $Enums.FuncaoUsuario
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFuncaoUsuarioFilter<$PrismaModel>
+    _max?: NestedEnumFuncaoUsuarioFilter<$PrismaModel>
   }
 
   export type EnumStatusDemandaFilter<$PrismaModel = never> = {
@@ -30187,10 +30225,6 @@ export namespace Prisma {
     usuarioId?: SortOrder
   }
 
-  export type UsuarioCreatefuncaoInput = {
-    set: $Enums.FuncaoUsuario[]
-  }
-
   export type CronogramaCreateNestedManyWithoutGestorInput = {
     create?: XOR<CronogramaCreateWithoutGestorInput, CronogramaUncheckedCreateWithoutGestorInput> | CronogramaCreateWithoutGestorInput[] | CronogramaUncheckedCreateWithoutGestorInput[]
     connectOrCreate?: CronogramaCreateOrConnectWithoutGestorInput | CronogramaCreateOrConnectWithoutGestorInput[]
@@ -30401,14 +30435,6 @@ export namespace Prisma {
     connect?: DemandaUsuarioWhereUniqueInput | DemandaUsuarioWhereUniqueInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -30421,9 +30447,8 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
-  export type UsuarioUpdatefuncaoInput = {
-    set?: $Enums.FuncaoUsuario[]
-    push?: $Enums.FuncaoUsuario | $Enums.FuncaoUsuario[]
+  export type EnumFuncaoUsuarioFieldUpdateOperationsInput = {
+    set?: $Enums.FuncaoUsuario
   }
 
   export type CronogramaUpdateManyWithoutGestorNestedInput = {
@@ -30634,6 +30659,14 @@ export namespace Prisma {
     update?: DemandaUsuarioUpdateWithWhereUniqueWithoutUsuarioInput | DemandaUsuarioUpdateWithWhereUniqueWithoutUsuarioInput[]
     updateMany?: DemandaUsuarioUpdateManyWithWhereWithoutUsuarioInput | DemandaUsuarioUpdateManyWithWhereWithoutUsuarioInput[]
     deleteMany?: DemandaUsuarioScalarWhereInput | DemandaUsuarioScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type CronogramaUncheckedUpdateManyWithoutGestorNestedInput = {
@@ -31863,6 +31896,13 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type NestedEnumFuncaoUsuarioFilter<$PrismaModel = never> = {
+    equals?: $Enums.FuncaoUsuario | EnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    in?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    not?: NestedEnumFuncaoUsuarioFilter<$PrismaModel> | $Enums.FuncaoUsuario
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -31944,6 +31984,16 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumFuncaoUsuarioWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FuncaoUsuario | EnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    in?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    notIn?: $Enums.FuncaoUsuario[] | ListEnumFuncaoUsuarioFieldRefInput<$PrismaModel>
+    not?: NestedEnumFuncaoUsuarioWithAggregatesFilter<$PrismaModel> | $Enums.FuncaoUsuario
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumFuncaoUsuarioFilter<$PrismaModel>
+    _max?: NestedEnumFuncaoUsuarioFilter<$PrismaModel>
   }
 
   export type NestedEnumStatusDemandaFilter<$PrismaModel = never> = {
@@ -32981,15 +33031,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutDemandasGerenciadasInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
@@ -33008,15 +33059,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutDemandasGerenciadasInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33137,15 +33189,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutDemandasGerenciadasInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
@@ -33164,15 +33217,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutDemandasGerenciadasInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33246,15 +33300,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutCronogramasGerenciadosInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
@@ -33273,15 +33328,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutCronogramasGerenciadosInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33352,15 +33408,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutCronogramasGerenciadosInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
@@ -33379,15 +33436,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutCronogramasGerenciadosInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33421,15 +33479,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutAvisosGerenciadosInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
@@ -33448,15 +33507,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutAvisosGerenciadosInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33512,15 +33572,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutAvisosGerenciadosInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
@@ -33539,15 +33600,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutAvisosGerenciadosInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33715,15 +33777,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutComentariosPublicadosInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -33742,15 +33805,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutComentariosPublicadosInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -33822,15 +33886,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutComentariosPublicadosInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -33849,15 +33914,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutComentariosPublicadosInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -33925,15 +33991,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutPontosUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -33952,15 +34019,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutPontosUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34034,15 +34102,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutPontosUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34061,15 +34130,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutPontosUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -34139,15 +34209,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutPrestacaoContasUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -34166,15 +34237,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutPrestacaoContasUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34208,15 +34280,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutPrestacaoContasUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34235,15 +34308,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutPrestacaoContasUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -34261,15 +34335,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutAtestadosUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -34288,15 +34363,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutAtestadosUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34330,15 +34406,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutAtestadosUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34357,15 +34434,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutAtestadosUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -34403,15 +34481,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutAssinaturasUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -34430,15 +34509,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutAssinaturasUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34522,15 +34602,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutAssinaturasUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34549,15 +34630,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutAssinaturasUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -34650,15 +34732,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutDocumentosUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -34677,15 +34760,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutDocumentosUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34743,15 +34827,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutDocumentosUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34770,15 +34855,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutDocumentosUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -34826,15 +34912,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutAjustesUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -34853,15 +34940,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutAjustesUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34939,15 +35027,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutAjustesUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34966,15 +35055,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutAjustesUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -35060,15 +35150,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutAjustesGerenciadosInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -35087,15 +35178,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutAjustesGerenciadosInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -35159,15 +35251,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutAjustesGerenciadosInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -35186,15 +35279,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutAjustesGerenciadosInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -35212,15 +35306,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutAvisosUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -35239,15 +35334,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutAvisosUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -35301,15 +35397,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutAvisosUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -35328,15 +35425,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutAvisosUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -35380,15 +35478,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutGruposUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -35407,15 +35506,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutGruposUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -35469,15 +35569,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutGruposUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -35496,15 +35597,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutGruposUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -35548,15 +35650,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutGruposGestorInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -35575,15 +35678,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutGruposGestorInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -35637,15 +35741,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutGruposGestorInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -35664,15 +35769,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutGruposGestorInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -35864,15 +35970,16 @@ export namespace Prisma {
   }
 
   export type UsuarioCreateWithoutDemandasUsuarioInput = {
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -35891,15 +35998,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedCreateWithoutDemandasUsuarioInput = {
     id?: number
-    cpf: number
+    cpf: string
     nome: string
     email: string
+    senha: string
     telefone: string
     dataNascimento: Date | string
     dataAdmissao: Date | string
     dataDesligamento?: Date | string | null
     cargo: string
-    funcao?: UsuarioCreatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -35971,15 +36079,16 @@ export namespace Prisma {
   }
 
   export type UsuarioUpdateWithoutDemandasUsuarioInput = {
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -35998,15 +36107,16 @@ export namespace Prisma {
 
   export type UsuarioUncheckedUpdateWithoutDemandasUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    cpf?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
     telefone?: StringFieldUpdateOperationsInput | string
     dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
-    funcao?: UsuarioUpdatefuncaoInput | $Enums.FuncaoUsuario[]
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput

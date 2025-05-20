@@ -125,6 +125,7 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   cpf: 'cpf',
   nome: 'nome',
   email: 'email',
+  senha: 'senha',
   telefone: 'telefone',
   dataNascimento: 'dataNascimento',
   dataAdmissao: 'dataAdmissao',
