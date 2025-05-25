@@ -16,10 +16,28 @@ import { CertificadoDigitalModule } from './modules/certificado-digital/certific
 import { DocumentoModule } from './modules/documento/documento.module';
 import { AjustePontoModule } from './modules/ajuste-ponto/ajuste-ponto.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { PrismaModule } from './modules/prisma/prisma.module';
 
 @Module({
-  imports: [UsuarioModule, DemandaModule, CronogramaModule, AvisoModule, GrupoModule, ComentarioModule, LocalizacaoModule, PontoModule, PrestacaoContasModule, AtestadoModule, AssinaturaModule, CertificadoDigitalModule, DocumentoModule, AjustePontoModule, AuthModule],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [
+		UsuarioModule,
+		DemandaModule,
+		CronogramaModule,
+		AvisoModule,
+		GrupoModule,
+		ComentarioModule,
+		LocalizacaoModule,
+		PontoModule,
+		PrestacaoContasModule,
+		AtestadoModule,
+		AssinaturaModule,
+		CertificadoDigitalModule,
+		DocumentoModule,
+		AjustePontoModule,
+		AuthModule,
+		PrismaModule,
+	],
+	controllers: [AppController],
+	providers: [AppService],
 })
 export class AppModule {}
