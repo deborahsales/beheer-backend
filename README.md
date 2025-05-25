@@ -28,3 +28,13 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+## 3. Prisma
+
+```bash
+# generate new migration
+$ npx prisma migrate dev --name migration-name
+
+# recompile prisma client
+$ npx prisma generate
+```

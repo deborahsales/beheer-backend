@@ -303,7 +303,8 @@ exports.Prisma.NullsOrder = {
 exports.FuncaoUsuario = exports.$Enums.FuncaoUsuario = {
   GESTOR: 'GESTOR',
   RH: 'RH',
-  COLABORADOR: 'COLABORADOR'
+  COLABORADOR: 'COLABORADOR',
+  ADMINISTRADOR: 'ADMINISTRADOR'
 };
 
 exports.StatusDemanda = exports.$Enums.StatusDemanda = {

@@ -121,7 +121,8 @@ export namespace $Enums {
   export const FuncaoUsuario: {
   GESTOR: 'GESTOR',
   RH: 'RH',
-  COLABORADOR: 'COLABORADOR'
+  COLABORADOR: 'COLABORADOR',
+  ADMINISTRADOR: 'ADMINISTRADOR'
 };
 
 export type FuncaoUsuario = (typeof FuncaoUsuario)[keyof typeof FuncaoUsuario]

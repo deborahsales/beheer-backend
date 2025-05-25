@@ -1,16 +1,23 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UsuarioService } from './usuario.service';
 import { UsuarioEntity } from './entities/usuario.entity';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { RolesGuard } from 'src/common/guards/roles.guard';
+import { Role } from 'src/common/decorators/role.decorator';
+import { FuncaoUsuario } from 'generated/prisma';
 
 @ApiTags('usuario')
+@ApiBearerAuth('access-token')
 @Controller('usuario')
 export class UsuarioController {
 	constructor(private readonly usuarioService: UsuarioService) {}
 
 	@Post()
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@Role(FuncaoUsuario.ADMINISTRADOR)
 	@ApiResponse({ status: 201, type: UsuarioEntity })
 	create(@Body() createUsuarioDto: CreateUsuarioDto) {
 		return this.usuarioService.create(createUsuarioDto);
