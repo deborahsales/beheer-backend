@@ -1,12 +1,6 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="beheer.svg" width="300" alt="Nest Logo" /></a>
+<p align="center"><img src="beheer.svg" width="300" alt="Nest Logo" />
 </p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">Plataforma de gerenciamento de equipes remotas.</p>
-    <p align="center">
+<p align="center">Plataforma de gerenciamento de equipes remotas.</p>
 
 ## Descrição
 
@@ -16,7 +10,7 @@ Orientador: André Britto Carvalho
 
 Aplicação em desenvolvimento como TCC para o curso de Ciências da Computação.
 
-## 1.  Configuração do projeto
+## 1. Configuração do projeto
 
 ```bash
 $ npm install

@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 import { DemandaModule } from './modules/demanda/demanda.module';
 import { CronogramaModule } from './modules/cronograma/cronograma.module';
@@ -37,7 +35,5 @@ import { PrismaModule } from './modules/prisma/prisma.module';
 		AuthModule,
 		PrismaModule,
 	],
-	controllers: [AppController],
-	providers: [AppService],
 })
 export class AppModule {}
