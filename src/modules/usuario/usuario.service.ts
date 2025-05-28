@@ -41,14 +41,14 @@ export class UsuarioService {
 
 	async findOne(id: number) {
 		const usuario = await this.prisma.usuario.findUnique({ where: { id: Number(id) } });
-		if (!usuario) throw new NotFoundException('User not found');
+		if (!usuario) throw new NotFoundException('Usuário não encontrado');
 		const { senha, ...result } = usuario;
 		return result;
 	}
 
 	async findByEmail(email: string) {
 		const usuario = await this.prisma.usuario.findUnique({ where: { email } });
-		if (!usuario) throw new NotFoundException('User not found');
+		if (!usuario) throw new NotFoundException('Usuário não encontrado');
 		return usuario;
 	}
 
@@ -65,7 +65,7 @@ export class UsuarioService {
 	}
 
 	async remove(id: number) {
-		await this.findOne(id);
+		await this.findOne(Number(id));
 		await this.prisma.usuario.delete({ where: { id: Number(id) } });
 	}
 }

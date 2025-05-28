@@ -274,11 +274,13 @@ model GerenciamentoAjsutePonto {
   status StatusAjuste
   dateTimestamp DateTime
 
-  ajustePontoId Int @unique
+  ajustePontoId Int
   ajustePonto AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id])
 
-  rhUsuarioId Int @unique
+  rhUsuarioId Int
   usuarioRh Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id])
+
+  @@id([ajustePontoId, rhUsuarioId])
 }
 
 enum StatusAviso {
@@ -290,44 +292,52 @@ model AvisoUsuario {
   status StatusAviso
   dateTimestamp DateTime
 
-  usuarioId Int @unique
+  usuarioId Int
   usuario Usuario @relation("UsuarioAviso", fields: [usuarioId], references: [id])
 
-  avisoId Int @unique
+  avisoId Int
   aviso Aviso @relation("AvisoUsuario", fields: [avisoId], references: [id])
+
+  @@id([usuarioId, avisoId])
 }
 
 model UsuarioGrupo {
-  usuarioId Int @unique
+  usuarioId Int
   usuario Usuario @relation("GruposUsuario", fields: [usuarioId], references: [id])
 
-  grupoId Int @unique
+  grupoId Int
   grupo Grupo @relation("UsuariosGrupo", fields: [grupoId], references: [id])
+
+  @@id([usuarioId, grupoId])
 }
 
 model GrupoGestor {
-  usuarioId Int @unique
+  usuarioId Int
   usuario Usuario @relation("GruposGestor", fields: [usuarioId], references: [id])
 
-  grupoId Int @unique
+  grupoId Int
   grupo Grupo @relation("GestoresGrupo", fields: [grupoId], references: [id])
 
+  @@id([usuarioId, grupoId])
 }
 
 model DemandaGrupo {
-  demandaId Int @unique
+  demandaId Int
   demanda Demanda @relation("GrupoDemandas", fields: [demandaId], references: [id])
 
-  grupoId Int @unique
+  grupoId Int
   grupo Grupo @relation("DemandasGrupo", fields: [grupoId], references: [id])
 
+  @@id([demandaId, grupoId])
 }
 
 model DemandaUsuario {
-  demandaId Int @unique
+  demandaId Int
   demanda Demanda @relation("DemandasUsuario", fields: [demandaId], references: [id])
 
   
-  usuarioId Int @unique
+  usuarioId Int
   usuario Usuario @relation("UsuarioDemandas", fields: [usuarioId], references: [id])
+
+  @@id([demandaId, usuarioId])
 }

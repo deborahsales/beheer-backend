@@ -27456,16 +27456,17 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjsutePontoWhereUniqueInput = Prisma.AtLeast<{
-    ajustePontoId?: number
-    rhUsuarioId?: number
+    ajustePontoId_rhUsuarioId?: GerenciamentoAjsutePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput
     AND?: GerenciamentoAjsutePontoWhereInput | GerenciamentoAjsutePontoWhereInput[]
     OR?: GerenciamentoAjsutePontoWhereInput[]
     NOT?: GerenciamentoAjsutePontoWhereInput | GerenciamentoAjsutePontoWhereInput[]
     status?: EnumStatusAjusteFilter<"GerenciamentoAjsutePonto"> | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFilter<"GerenciamentoAjsutePonto"> | Date | string
+    ajustePontoId?: IntFilter<"GerenciamentoAjsutePonto"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoAjsutePonto"> | number
     ajustePonto?: XOR<AjustePontoScalarRelationFilter, AjustePontoWhereInput>
     usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-  }, "ajustePontoId" | "rhUsuarioId">
+  }, "ajustePontoId_rhUsuarioId">
 
   export type GerenciamentoAjsutePontoOrderByWithAggregationInput = {
     status?: SortOrder
@@ -27511,16 +27512,17 @@ export namespace Prisma {
   }
 
   export type AvisoUsuarioWhereUniqueInput = Prisma.AtLeast<{
-    usuarioId?: number
-    avisoId?: number
+    usuarioId_avisoId?: AvisoUsuarioUsuarioIdAvisoIdCompoundUniqueInput
     AND?: AvisoUsuarioWhereInput | AvisoUsuarioWhereInput[]
     OR?: AvisoUsuarioWhereInput[]
     NOT?: AvisoUsuarioWhereInput | AvisoUsuarioWhereInput[]
     status?: EnumStatusAvisoFilter<"AvisoUsuario"> | $Enums.StatusAviso
     dateTimestamp?: DateTimeFilter<"AvisoUsuario"> | Date | string
+    usuarioId?: IntFilter<"AvisoUsuario"> | number
+    avisoId?: IntFilter<"AvisoUsuario"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     aviso?: XOR<AvisoScalarRelationFilter, AvisoWhereInput>
-  }, "usuarioId" | "avisoId">
+  }, "usuarioId_avisoId">
 
   export type AvisoUsuarioOrderByWithAggregationInput = {
     status?: SortOrder
@@ -27562,14 +27564,15 @@ export namespace Prisma {
   }
 
   export type UsuarioGrupoWhereUniqueInput = Prisma.AtLeast<{
-    usuarioId?: number
-    grupoId?: number
+    usuarioId_grupoId?: UsuarioGrupoUsuarioIdGrupoIdCompoundUniqueInput
     AND?: UsuarioGrupoWhereInput | UsuarioGrupoWhereInput[]
     OR?: UsuarioGrupoWhereInput[]
     NOT?: UsuarioGrupoWhereInput | UsuarioGrupoWhereInput[]
+    usuarioId?: IntFilter<"UsuarioGrupo"> | number
+    grupoId?: IntFilter<"UsuarioGrupo"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     grupo?: XOR<GrupoScalarRelationFilter, GrupoWhereInput>
-  }, "usuarioId" | "grupoId">
+  }, "usuarioId_grupoId">
 
   export type UsuarioGrupoOrderByWithAggregationInput = {
     usuarioId?: SortOrder
@@ -27607,14 +27610,15 @@ export namespace Prisma {
   }
 
   export type GrupoGestorWhereUniqueInput = Prisma.AtLeast<{
-    usuarioId?: number
-    grupoId?: number
+    usuarioId_grupoId?: GrupoGestorUsuarioIdGrupoIdCompoundUniqueInput
     AND?: GrupoGestorWhereInput | GrupoGestorWhereInput[]
     OR?: GrupoGestorWhereInput[]
     NOT?: GrupoGestorWhereInput | GrupoGestorWhereInput[]
+    usuarioId?: IntFilter<"GrupoGestor"> | number
+    grupoId?: IntFilter<"GrupoGestor"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     grupo?: XOR<GrupoScalarRelationFilter, GrupoWhereInput>
-  }, "usuarioId" | "grupoId">
+  }, "usuarioId_grupoId">
 
   export type GrupoGestorOrderByWithAggregationInput = {
     usuarioId?: SortOrder
@@ -27652,14 +27656,15 @@ export namespace Prisma {
   }
 
   export type DemandaGrupoWhereUniqueInput = Prisma.AtLeast<{
-    demandaId?: number
-    grupoId?: number
+    demandaId_grupoId?: DemandaGrupoDemandaIdGrupoIdCompoundUniqueInput
     AND?: DemandaGrupoWhereInput | DemandaGrupoWhereInput[]
     OR?: DemandaGrupoWhereInput[]
     NOT?: DemandaGrupoWhereInput | DemandaGrupoWhereInput[]
+    demandaId?: IntFilter<"DemandaGrupo"> | number
+    grupoId?: IntFilter<"DemandaGrupo"> | number
     demanda?: XOR<DemandaScalarRelationFilter, DemandaWhereInput>
     grupo?: XOR<GrupoScalarRelationFilter, GrupoWhereInput>
-  }, "demandaId" | "grupoId">
+  }, "demandaId_grupoId">
 
   export type DemandaGrupoOrderByWithAggregationInput = {
     demandaId?: SortOrder
@@ -27697,14 +27702,15 @@ export namespace Prisma {
   }
 
   export type DemandaUsuarioWhereUniqueInput = Prisma.AtLeast<{
-    demandaId?: number
-    usuarioId?: number
+    demandaId_usuarioId?: DemandaUsuarioDemandaIdUsuarioIdCompoundUniqueInput
     AND?: DemandaUsuarioWhereInput | DemandaUsuarioWhereInput[]
     OR?: DemandaUsuarioWhereInput[]
     NOT?: DemandaUsuarioWhereInput | DemandaUsuarioWhereInput[]
+    demandaId?: IntFilter<"DemandaUsuario"> | number
+    usuarioId?: IntFilter<"DemandaUsuario"> | number
     demanda?: XOR<DemandaScalarRelationFilter, DemandaWhereInput>
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-  }, "demandaId" | "usuarioId">
+  }, "demandaId_usuarioId">
 
   export type DemandaUsuarioOrderByWithAggregationInput = {
     demandaId?: SortOrder
@@ -30037,6 +30043,11 @@ export namespace Prisma {
     isNot?: AjustePontoWhereInput
   }
 
+  export type GerenciamentoAjsutePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput = {
+    ajustePontoId: number
+    rhUsuarioId: number
+  }
+
   export type GerenciamentoAjsutePontoCountOrderByAggregateInput = {
     status?: SortOrder
     dateTimestamp?: SortOrder
@@ -30078,6 +30089,11 @@ export namespace Prisma {
   export type AvisoScalarRelationFilter = {
     is?: AvisoWhereInput
     isNot?: AvisoWhereInput
+  }
+
+  export type AvisoUsuarioUsuarioIdAvisoIdCompoundUniqueInput = {
+    usuarioId: number
+    avisoId: number
   }
 
   export type AvisoUsuarioCountOrderByAggregateInput = {
@@ -30126,6 +30142,11 @@ export namespace Prisma {
     isNot?: GrupoWhereInput
   }
 
+  export type UsuarioGrupoUsuarioIdGrupoIdCompoundUniqueInput = {
+    usuarioId: number
+    grupoId: number
+  }
+
   export type UsuarioGrupoCountOrderByAggregateInput = {
     usuarioId?: SortOrder
     grupoId?: SortOrder
@@ -30149,6 +30170,11 @@ export namespace Prisma {
   export type UsuarioGrupoSumOrderByAggregateInput = {
     usuarioId?: SortOrder
     grupoId?: SortOrder
+  }
+
+  export type GrupoGestorUsuarioIdGrupoIdCompoundUniqueInput = {
+    usuarioId: number
+    grupoId: number
   }
 
   export type GrupoGestorCountOrderByAggregateInput = {
@@ -30176,6 +30202,11 @@ export namespace Prisma {
     grupoId?: SortOrder
   }
 
+  export type DemandaGrupoDemandaIdGrupoIdCompoundUniqueInput = {
+    demandaId: number
+    grupoId: number
+  }
+
   export type DemandaGrupoCountOrderByAggregateInput = {
     demandaId?: SortOrder
     grupoId?: SortOrder
@@ -30199,6 +30230,11 @@ export namespace Prisma {
   export type DemandaGrupoSumOrderByAggregateInput = {
     demandaId?: SortOrder
     grupoId?: SortOrder
+  }
+
+  export type DemandaUsuarioDemandaIdUsuarioIdCompoundUniqueInput = {
+    demandaId: number
+    usuarioId: number
   }
 
   export type DemandaUsuarioCountOrderByAggregateInput = {

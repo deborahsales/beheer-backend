@@ -15,9 +15,6 @@ export class UsuarioEntity {
 	email: string;
 
 	@ApiProperty()
-	senha: string;
-
-	@ApiProperty()
 	telefone: string;
 
 	@ApiProperty()
