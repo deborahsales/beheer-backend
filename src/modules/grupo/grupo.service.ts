@@ -1,10 +1,10 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { FuncaoUsuario } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
+import { userSelect } from '../usuario/types/user-select.type';
+import { AddUsuarioDto } from './dto/add-usuario.dto';
 import { CreateGrupoDto } from './dto/create-grupo.dto';
 import { UpdateGrupoDto } from './dto/update-grupo.dto';
-import { AddUsuarioDto } from './dto/add-usuario.dto';
-import { userSelect } from '../usuario/types/user-select.type';
-import { FuncaoUsuario } from 'generated/prisma';
 
 @Injectable()
 export class GrupoService {
@@ -173,18 +173,6 @@ export class GrupoService {
 	async remove(id: number, gestorId: number) {
 		const grupo = await this.findOne(id, gestorId);
 		if (!grupo) throw new NotFoundException('Grupo não encontrado ou acesso não autorizado');
-
-		await this.prisma.usuarioGrupo.deleteMany({
-			where: {
-				grupoId: Number(id),
-			},
-		});
-
-		await this.prisma.grupoGestor.deleteMany({
-			where: {
-				grupoId: Number(id),
-			},
-		});
 		await this.prisma.grupo.delete({ where: { id: Number(id) } });
 	}
 }

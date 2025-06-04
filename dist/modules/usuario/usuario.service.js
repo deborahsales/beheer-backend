@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuarioService = void 0;
 const common_1 = require("@nestjs/common");
-const prisma_service_1 = require("../prisma/prisma.service");
 const bcrypt = require("bcrypt");
+const prisma_service_1 = require("../prisma/prisma.service");
 let UsuarioService = class UsuarioService {
     prisma;
     constructor(prisma) {
@@ -68,7 +68,9 @@ let UsuarioService = class UsuarioService {
         return result;
     }
     async remove(id) {
-        await this.findOne(Number(id));
+        const usuario = await this.findOne(Number(id));
+        if (!usuario)
+            throw new common_1.NotFoundException('Usuário não encontrado ou acesso não autorizado');
         await this.prisma.usuario.delete({ where: { id: Number(id) } });
     }
 };

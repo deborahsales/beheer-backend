@@ -1,7 +1,7 @@
 import { PrismaService } from '../prisma/prisma.service';
+import { AddUsuarioDto } from './dto/add-usuario.dto';
 import { CreateGrupoDto } from './dto/create-grupo.dto';
 import { UpdateGrupoDto } from './dto/update-grupo.dto';
-import { AddUsuarioDto } from './dto/add-usuario.dto';
 export declare class GrupoService {
     private prisma;
     constructor(prisma: PrismaService);
