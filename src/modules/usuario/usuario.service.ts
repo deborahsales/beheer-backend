@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
-import * as bcrypt from 'bcrypt';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 
 @Injectable()
@@ -65,7 +65,8 @@ export class UsuarioService {
 	}
 
 	async remove(id: number) {
-		await this.findOne(Number(id));
+		const usuario = await this.findOne(Number(id));
+		if (!usuario) throw new NotFoundException('Usuário não encontrado ou acesso não autorizado');
 		await this.prisma.usuario.delete({ where: { id: Number(id) } });
 	}
 }

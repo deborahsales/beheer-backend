@@ -74,10 +74,10 @@ model Demanda {
   prioridade PrioridadeDemanda
 
   cronogramaId  Int?
-  cronograma Cronograma? @relation("CronogramaDemanda", fields: [cronogramaId], references: [id])
+  cronograma Cronograma? @relation("CronogramaDemanda", fields: [cronogramaId], references: [id], onDelete: Cascade)
 
   gestorUsuarioId Int  
-  gestor Usuario @relation("GestorDemanda", fields: [gestorUsuarioId], references: [id])
+  gestor Usuario @relation("GestorDemanda", fields: [gestorUsuarioId], references: [id], onDelete: Cascade)
 
   comentariosDemanda Comentario[] @relation("DemandaComentario")
   gruposDemanda DemandaGrupo[] @relation("GrupoDemandas")
@@ -92,7 +92,7 @@ model Cronograma {
   dateTimestamp DateTime
 
   gestorUsuarioId Int
-  gestor Usuario @relation("GestorUsuario", fields: [gestorUsuarioId], references: [id])
+  gestor Usuario @relation("GestorUsuario", fields: [gestorUsuarioId], references: [id], onDelete: Cascade)
 
   demandasCronograma Demanda[] @relation("CronogramaDemanda")
 }
@@ -104,7 +104,7 @@ model Aviso {
   dateTimestamp DateTime
 
   gestorRhUsuarioId Int
-  gestor Usuario @relation("GestorRHAviso", fields: [gestorRhUsuarioId], references: [id])
+  gestor Usuario @relation("GestorRHAviso", fields: [gestorRhUsuarioId], references: [id], onDelete: Cascade)
 
   avisoUsuario AvisoUsuario[] @relation("AvisoUsuario")
 }
@@ -126,10 +126,10 @@ model Comentario{
   dataAlteracao DateTime?
 
   demandaId Int
-  demanda Demanda @relation("DemandaComentario", fields: [demandaId], references: [id])
+  demanda Demanda @relation("DemandaComentario", fields: [demandaId], references: [id], onDelete: Cascade)
 
   usuarioId Int
-  usuario Usuario @relation("UsuarioComentario", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("UsuarioComentario", fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
 model Localizacao{
@@ -138,7 +138,7 @@ model Localizacao{
   longitude Float
 
   pontoId Int @unique
-  ponto Ponto @relation("LocalizacaoPonto", fields: [pontoId], references: [id])
+  ponto Ponto @relation("LocalizacaoPonto", fields: [pontoId], references: [id], onDelete: Cascade)
 }
 
 model Ponto {
@@ -148,7 +148,7 @@ model Ponto {
   imagem String
 
   usuarioId Int
-  usuario Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
   
   localizacao Localizacao? @relation("LocalizacaoPonto")
   ajuste AjustePonto? @relation("PontoAjuste")
@@ -163,7 +163,7 @@ model PretacaoContas {
   dateTimestamp DateTime
 
   usuarioId Int
-  usuario Usuario @relation("PrestacaoContasUsuario", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("PrestacaoContasUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
 enum DiaInteiro {
@@ -181,7 +181,7 @@ model Atestado {
   imagem String
 
   usuarioId Int
-  usuario Usuario @relation("AtestadoUsuario", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("AtestadoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
 enum StatusAssinatura {
@@ -198,13 +198,13 @@ model Assinatura {
   ip String
 
   certificadoDigitalId Int
-  certificadoDigital CertificadoDigital @relation("CertificadoAssinatura", fields: [certificadoDigitalId], references: [id])
+  certificadoDigital CertificadoDigital @relation("CertificadoAssinatura", fields: [certificadoDigitalId], references: [id], onDelete: Cascade)
 
   usuarioId Int
-  usuario Usuario @relation("AssinaturaUsuario", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("AssinaturaUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   documento_id Int @unique
-  documento Documento @relation("AssinaturaDocumento", fields: [documento_id], references: [id])
+  documento Documento @relation("AssinaturaDocumento", fields: [documento_id], references: [id], onDelete: Cascade)
 }
 
 enum StatusCertificado {
@@ -239,7 +239,7 @@ model Documento{
   status StatusDocumento
 
   usuarioId Int
-  usuario Usuario @relation("UsuarioDocumento", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("UsuarioDocumento", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   assinaturaDocumento Assinatura? @relation("AssinaturaDocumento")
 }
@@ -262,10 +262,10 @@ model AjustePonto {
   dateTimestamp DateTime
 
   usuarioId Int
-  usuario Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   pontoId Int @unique
-  ponto Ponto @relation("PontoAjuste", fields: [pontoId], references: [id])
+  ponto Ponto @relation("PontoAjuste", fields: [pontoId], references: [id], onDelete: Cascade)
 
   gerenciamentoAjuste GerenciamentoAjsutePonto[] @relation("PontoAjustado")
 }
@@ -275,10 +275,10 @@ model GerenciamentoAjsutePonto {
   dateTimestamp DateTime
 
   ajustePontoId Int
-  ajustePonto AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id])
+  ajustePonto AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id], onDelete: Cascade)
 
   rhUsuarioId Int
-  usuarioRh Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id])
+  usuarioRh Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
   @@id([ajustePontoId, rhUsuarioId])
 }
@@ -293,51 +293,51 @@ model AvisoUsuario {
   dateTimestamp DateTime
 
   usuarioId Int
-  usuario Usuario @relation("UsuarioAviso", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("UsuarioAviso", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   avisoId Int
-  aviso Aviso @relation("AvisoUsuario", fields: [avisoId], references: [id])
+  aviso Aviso @relation("AvisoUsuario", fields: [avisoId], references: [id], onDelete: Cascade)
 
   @@id([usuarioId, avisoId])
 }
 
 model UsuarioGrupo {
   usuarioId Int
-  usuario Usuario @relation("GruposUsuario", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("GruposUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   grupoId Int
-  grupo Grupo @relation("UsuariosGrupo", fields: [grupoId], references: [id])
+  grupo Grupo @relation("UsuariosGrupo", fields: [grupoId], references: [id], onDelete: Cascade)
 
   @@id([usuarioId, grupoId])
 }
 
 model GrupoGestor {
   usuarioId Int
-  usuario Usuario @relation("GruposGestor", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("GruposGestor", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   grupoId Int
-  grupo Grupo @relation("GestoresGrupo", fields: [grupoId], references: [id])
+  grupo Grupo @relation("GestoresGrupo", fields: [grupoId], references: [id], onDelete: Cascade)
 
   @@id([usuarioId, grupoId])
 }
 
 model DemandaGrupo {
   demandaId Int
-  demanda Demanda @relation("GrupoDemandas", fields: [demandaId], references: [id])
+  demanda Demanda @relation("GrupoDemandas", fields: [demandaId], references: [id], onDelete: Cascade)
 
   grupoId Int
-  grupo Grupo @relation("DemandasGrupo", fields: [grupoId], references: [id])
+  grupo Grupo @relation("DemandasGrupo", fields: [grupoId], references: [id], onDelete: Cascade)
 
   @@id([demandaId, grupoId])
 }
 
 model DemandaUsuario {
   demandaId Int
-  demanda Demanda @relation("DemandasUsuario", fields: [demandaId], references: [id])
+  demanda Demanda @relation("DemandasUsuario", fields: [demandaId], references: [id], onDelete: Cascade)
 
   
   usuarioId Int
-  usuario Usuario @relation("UsuarioDemandas", fields: [usuarioId], references: [id])
+  usuario Usuario @relation("UsuarioDemandas", fields: [usuarioId], references: [id], onDelete: Cascade)
 
   @@id([demandaId, usuarioId])
 }

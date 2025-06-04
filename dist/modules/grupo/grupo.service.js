@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrupoService = void 0;
 const common_1 = require("@nestjs/common");
+const prisma_1 = require("../../../generated/prisma/index.js");
 const prisma_service_1 = require("../prisma/prisma.service");
 const user_select_type_1 = require("../usuario/types/user-select.type");
-const prisma_1 = require("../../../generated/prisma/index.js");
 let GrupoService = class GrupoService {
     prisma;
     constructor(prisma) {
@@ -165,16 +165,6 @@ let GrupoService = class GrupoService {
         const grupo = await this.findOne(id, gestorId);
         if (!grupo)
             throw new common_1.NotFoundException('Grupo não encontrado ou acesso não autorizado');
-        await this.prisma.usuarioGrupo.deleteMany({
-            where: {
-                grupoId: Number(id),
-            },
-        });
-        await this.prisma.grupoGestor.deleteMany({
-            where: {
-                grupoId: Number(id),
-            },
-        });
         await this.prisma.grupo.delete({ where: { id: Number(id) } });
     }
 };

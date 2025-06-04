@@ -9,6 +9,7 @@ async function bootstrap() {
         .setTitle('Beheer')
         .setDescription('Aplicação de gerenciamento de equipes remotas')
         .setVersion('1.0')
+        .addTag('login')
         .addBearerAuth({
         type: 'http',
         scheme: 'bearer',

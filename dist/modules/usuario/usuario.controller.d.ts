@@ -1,6 +1,7 @@
-import { UsuarioService } from './usuario.service';
+import { RequestWithUser } from '../auth/interfaces/request-with-user.interface';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
+import { UsuarioService } from './usuario.service';
 export declare class UsuarioController {
     private readonly usuarioService;
     constructor(usuarioService: UsuarioService);
@@ -52,5 +53,5 @@ export declare class UsuarioController {
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         id: number;
     }>;
-    remove(id: number): Promise<void>;
+    remove(id: number, req: RequestWithUser): Promise<void>;
 }
