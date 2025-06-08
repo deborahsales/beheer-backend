@@ -44,20 +44,15 @@ export type Grupo = $Result.DefaultSelection<Prisma.$GrupoPayload>
  */
 export type Comentario = $Result.DefaultSelection<Prisma.$ComentarioPayload>
 /**
- * Model Localizacao
- * 
- */
-export type Localizacao = $Result.DefaultSelection<Prisma.$LocalizacaoPayload>
-/**
  * Model Ponto
  * 
  */
 export type Ponto = $Result.DefaultSelection<Prisma.$PontoPayload>
 /**
- * Model PretacaoContas
+ * Model PrestacaoContas
  * 
  */
-export type PretacaoContas = $Result.DefaultSelection<Prisma.$PretacaoContasPayload>
+export type PrestacaoContas = $Result.DefaultSelection<Prisma.$PrestacaoContasPayload>
 /**
  * Model Atestado
  * 
@@ -434,16 +429,6 @@ export class PrismaClient<
   get comentario(): Prisma.ComentarioDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.localizacao`: Exposes CRUD operations for the **Localizacao** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Localizacaos
-    * const localizacaos = await prisma.localizacao.findMany()
-    * ```
-    */
-  get localizacao(): Prisma.LocalizacaoDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.ponto`: Exposes CRUD operations for the **Ponto** model.
     * Example usage:
     * ```ts
@@ -454,14 +439,14 @@ export class PrismaClient<
   get ponto(): Prisma.PontoDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.pretacaoContas`: Exposes CRUD operations for the **PretacaoContas** model.
+   * `prisma.prestacaoContas`: Exposes CRUD operations for the **PrestacaoContas** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more PretacaoContas
-    * const pretacaoContas = await prisma.pretacaoContas.findMany()
+    * // Fetch zero or more PrestacaoContas
+    * const prestacaoContas = await prisma.prestacaoContas.findMany()
     * ```
     */
-  get pretacaoContas(): Prisma.PretacaoContasDelegate<ExtArgs, ClientOptions>;
+  get prestacaoContas(): Prisma.PrestacaoContasDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.atestado`: Exposes CRUD operations for the **Atestado** model.
@@ -1018,9 +1003,8 @@ export namespace Prisma {
     Aviso: 'Aviso',
     Grupo: 'Grupo',
     Comentario: 'Comentario',
-    Localizacao: 'Localizacao',
     Ponto: 'Ponto',
-    PretacaoContas: 'PretacaoContas',
+    PrestacaoContas: 'PrestacaoContas',
     Atestado: 'Atestado',
     Assinatura: 'Assinatura',
     CertificadoDigital: 'CertificadoDigital',
@@ -1050,7 +1034,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "localizacao" | "ponto" | "pretacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjsutePonto" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
+      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjsutePonto" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1498,80 +1482,6 @@ export namespace Prisma {
           }
         }
       }
-      Localizacao: {
-        payload: Prisma.$LocalizacaoPayload<ExtArgs>
-        fields: Prisma.LocalizacaoFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.LocalizacaoFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.LocalizacaoFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>
-          }
-          findFirst: {
-            args: Prisma.LocalizacaoFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.LocalizacaoFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>
-          }
-          findMany: {
-            args: Prisma.LocalizacaoFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>[]
-          }
-          create: {
-            args: Prisma.LocalizacaoCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>
-          }
-          createMany: {
-            args: Prisma.LocalizacaoCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.LocalizacaoCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>[]
-          }
-          delete: {
-            args: Prisma.LocalizacaoDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>
-          }
-          update: {
-            args: Prisma.LocalizacaoUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>
-          }
-          deleteMany: {
-            args: Prisma.LocalizacaoDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.LocalizacaoUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.LocalizacaoUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>[]
-          }
-          upsert: {
-            args: Prisma.LocalizacaoUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$LocalizacaoPayload>
-          }
-          aggregate: {
-            args: Prisma.LocalizacaoAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateLocalizacao>
-          }
-          groupBy: {
-            args: Prisma.LocalizacaoGroupByArgs<ExtArgs>
-            result: $Utils.Optional<LocalizacaoGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.LocalizacaoCountArgs<ExtArgs>
-            result: $Utils.Optional<LocalizacaoCountAggregateOutputType> | number
-          }
-        }
-      }
       Ponto: {
         payload: Prisma.$PontoPayload<ExtArgs>
         fields: Prisma.PontoFieldRefs
@@ -1646,77 +1556,77 @@ export namespace Prisma {
           }
         }
       }
-      PretacaoContas: {
-        payload: Prisma.$PretacaoContasPayload<ExtArgs>
-        fields: Prisma.PretacaoContasFieldRefs
+      PrestacaoContas: {
+        payload: Prisma.$PrestacaoContasPayload<ExtArgs>
+        fields: Prisma.PrestacaoContasFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PretacaoContasFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload> | null
+            args: Prisma.PrestacaoContasFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PretacaoContasFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>
+            args: Prisma.PrestacaoContasFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>
           }
           findFirst: {
-            args: Prisma.PretacaoContasFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload> | null
+            args: Prisma.PrestacaoContasFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PretacaoContasFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>
+            args: Prisma.PrestacaoContasFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>
           }
           findMany: {
-            args: Prisma.PretacaoContasFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>[]
+            args: Prisma.PrestacaoContasFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>[]
           }
           create: {
-            args: Prisma.PretacaoContasCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>
+            args: Prisma.PrestacaoContasCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>
           }
           createMany: {
-            args: Prisma.PretacaoContasCreateManyArgs<ExtArgs>
+            args: Prisma.PrestacaoContasCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PretacaoContasCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>[]
+            args: Prisma.PrestacaoContasCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>[]
           }
           delete: {
-            args: Prisma.PretacaoContasDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>
+            args: Prisma.PrestacaoContasDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>
           }
           update: {
-            args: Prisma.PretacaoContasUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>
+            args: Prisma.PrestacaoContasUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>
           }
           deleteMany: {
-            args: Prisma.PretacaoContasDeleteManyArgs<ExtArgs>
+            args: Prisma.PrestacaoContasDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PretacaoContasUpdateManyArgs<ExtArgs>
+            args: Prisma.PrestacaoContasUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PretacaoContasUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>[]
+            args: Prisma.PrestacaoContasUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>[]
           }
           upsert: {
-            args: Prisma.PretacaoContasUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PretacaoContasPayload>
+            args: Prisma.PrestacaoContasUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PrestacaoContasPayload>
           }
           aggregate: {
-            args: Prisma.PretacaoContasAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePretacaoContas>
+            args: Prisma.PrestacaoContasAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePrestacaoContas>
           }
           groupBy: {
-            args: Prisma.PretacaoContasGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PretacaoContasGroupByOutputType>[]
+            args: Prisma.PrestacaoContasGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PrestacaoContasGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PretacaoContasCountArgs<ExtArgs>
-            result: $Utils.Optional<PretacaoContasCountAggregateOutputType> | number
+            args: Prisma.PrestacaoContasCountArgs<ExtArgs>
+            result: $Utils.Optional<PrestacaoContasCountAggregateOutputType> | number
           }
         }
       }
@@ -2624,9 +2534,8 @@ export namespace Prisma {
     aviso?: AvisoOmit
     grupo?: GrupoOmit
     comentario?: ComentarioOmit
-    localizacao?: LocalizacaoOmit
     ponto?: PontoOmit
-    pretacaoContas?: PretacaoContasOmit
+    prestacaoContas?: PrestacaoContasOmit
     atestado?: AtestadoOmit
     assinatura?: AssinaturaOmit
     certificadoDigital?: CertificadoDigitalOmit
@@ -2817,7 +2726,7 @@ export namespace Prisma {
    * UsuarioCountOutputType without action
    */
   export type UsuarioCountOutputTypeCountPrestacaoContasUsuarioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
   }
 
   /**
@@ -3142,6 +3051,7 @@ export namespace Prisma {
     dataDesligamento: Date | null
     cargo: string | null
     funcao: $Enums.FuncaoUsuario | null
+    dateTimestamp: Date | null
   }
 
   export type UsuarioMaxAggregateOutputType = {
@@ -3156,6 +3066,7 @@ export namespace Prisma {
     dataDesligamento: Date | null
     cargo: string | null
     funcao: $Enums.FuncaoUsuario | null
+    dateTimestamp: Date | null
   }
 
   export type UsuarioCountAggregateOutputType = {
@@ -3170,6 +3081,7 @@ export namespace Prisma {
     dataDesligamento: number
     cargo: number
     funcao: number
+    dateTimestamp: number
     _all: number
   }
 
@@ -3194,6 +3106,7 @@ export namespace Prisma {
     dataDesligamento?: true
     cargo?: true
     funcao?: true
+    dateTimestamp?: true
   }
 
   export type UsuarioMaxAggregateInputType = {
@@ -3208,6 +3121,7 @@ export namespace Prisma {
     dataDesligamento?: true
     cargo?: true
     funcao?: true
+    dateTimestamp?: true
   }
 
   export type UsuarioCountAggregateInputType = {
@@ -3222,6 +3136,7 @@ export namespace Prisma {
     dataDesligamento?: true
     cargo?: true
     funcao?: true
+    dateTimestamp?: true
     _all?: true
   }
 
@@ -3323,6 +3238,7 @@ export namespace Prisma {
     dataDesligamento: Date | null
     cargo: string
     funcao: $Enums.FuncaoUsuario
+    dateTimestamp: Date
     _count: UsuarioCountAggregateOutputType | null
     _avg: UsuarioAvgAggregateOutputType | null
     _sum: UsuarioSumAggregateOutputType | null
@@ -3356,6 +3272,7 @@ export namespace Prisma {
     dataDesligamento?: boolean
     cargo?: boolean
     funcao?: boolean
+    dateTimestamp?: boolean
     cronogramasGerenciados?: boolean | Usuario$cronogramasGerenciadosArgs<ExtArgs>
     demandasGerenciadas?: boolean | Usuario$demandasGerenciadasArgs<ExtArgs>
     avisosGerenciados?: boolean | Usuario$avisosGerenciadosArgs<ExtArgs>
@@ -3386,6 +3303,7 @@ export namespace Prisma {
     dataDesligamento?: boolean
     cargo?: boolean
     funcao?: boolean
+    dateTimestamp?: boolean
   }, ExtArgs["result"]["usuario"]>
 
   export type UsuarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3400,6 +3318,7 @@ export namespace Prisma {
     dataDesligamento?: boolean
     cargo?: boolean
     funcao?: boolean
+    dateTimestamp?: boolean
   }, ExtArgs["result"]["usuario"]>
 
   export type UsuarioSelectScalar = {
@@ -3414,9 +3333,10 @@ export namespace Prisma {
     dataDesligamento?: boolean
     cargo?: boolean
     funcao?: boolean
+    dateTimestamp?: boolean
   }
 
-  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cpf" | "nome" | "email" | "senha" | "telefone" | "dataNascimento" | "dataAdmissao" | "dataDesligamento" | "cargo" | "funcao", ExtArgs["result"]["usuario"]>
+  export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cpf" | "nome" | "email" | "senha" | "telefone" | "dataNascimento" | "dataAdmissao" | "dataDesligamento" | "cargo" | "funcao" | "dateTimestamp", ExtArgs["result"]["usuario"]>
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cronogramasGerenciados?: boolean | Usuario$cronogramasGerenciadosArgs<ExtArgs>
     demandasGerenciadas?: boolean | Usuario$demandasGerenciadasArgs<ExtArgs>
@@ -3446,7 +3366,7 @@ export namespace Prisma {
       avisosGerenciados: Prisma.$AvisoPayload<ExtArgs>[]
       comentariosPublicados: Prisma.$ComentarioPayload<ExtArgs>[]
       pontosUsuario: Prisma.$PontoPayload<ExtArgs>[]
-      prestacaoContasUsuario: Prisma.$PretacaoContasPayload<ExtArgs>[]
+      prestacaoContasUsuario: Prisma.$PrestacaoContasPayload<ExtArgs>[]
       atestadosUsuario: Prisma.$AtestadoPayload<ExtArgs>[]
       assinaturasUsuario: Prisma.$AssinaturaPayload<ExtArgs>[]
       documentosUsuario: Prisma.$DocumentoPayload<ExtArgs>[]
@@ -3469,6 +3389,7 @@ export namespace Prisma {
       dataDesligamento: Date | null
       cargo: string
       funcao: $Enums.FuncaoUsuario
+      dateTimestamp: Date
     }, ExtArgs["result"]["usuario"]>
     composites: {}
   }
@@ -3868,7 +3789,7 @@ export namespace Prisma {
     avisosGerenciados<T extends Usuario$avisosGerenciadosArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$avisosGerenciadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvisoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     comentariosPublicados<T extends Usuario$comentariosPublicadosArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$comentariosPublicadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ComentarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     pontosUsuario<T extends Usuario$pontosUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$pontosUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    prestacaoContasUsuario<T extends Usuario$prestacaoContasUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$prestacaoContasUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    prestacaoContasUsuario<T extends Usuario$prestacaoContasUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$prestacaoContasUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     atestadosUsuario<T extends Usuario$atestadosUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$atestadosUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AtestadoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     assinaturasUsuario<T extends Usuario$assinaturasUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$assinaturasUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssinaturaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     documentosUsuario<T extends Usuario$documentosUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$documentosUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3918,6 +3839,7 @@ export namespace Prisma {
     readonly dataDesligamento: FieldRef<"Usuario", 'DateTime'>
     readonly cargo: FieldRef<"Usuario", 'String'>
     readonly funcao: FieldRef<"Usuario", 'FuncaoUsuario'>
+    readonly dateTimestamp: FieldRef<"Usuario", 'DateTime'>
   }
     
 
@@ -4430,23 +4352,23 @@ export namespace Prisma {
    */
   export type Usuario$prestacaoContasUsuarioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
-    where?: PretacaoContasWhereInput
-    orderBy?: PretacaoContasOrderByWithRelationInput | PretacaoContasOrderByWithRelationInput[]
-    cursor?: PretacaoContasWhereUniqueInput
+    include?: PrestacaoContasInclude<ExtArgs> | null
+    where?: PrestacaoContasWhereInput
+    orderBy?: PrestacaoContasOrderByWithRelationInput | PrestacaoContasOrderByWithRelationInput[]
+    cursor?: PrestacaoContasWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PretacaoContasScalarFieldEnum | PretacaoContasScalarFieldEnum[]
+    distinct?: PrestacaoContasScalarFieldEnum | PrestacaoContasScalarFieldEnum[]
   }
 
   /**
@@ -10457,1097 +10379,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Localizacao
-   */
-
-  export type AggregateLocalizacao = {
-    _count: LocalizacaoCountAggregateOutputType | null
-    _avg: LocalizacaoAvgAggregateOutputType | null
-    _sum: LocalizacaoSumAggregateOutputType | null
-    _min: LocalizacaoMinAggregateOutputType | null
-    _max: LocalizacaoMaxAggregateOutputType | null
-  }
-
-  export type LocalizacaoAvgAggregateOutputType = {
-    id: number | null
-    latitude: number | null
-    longitude: number | null
-    pontoId: number | null
-  }
-
-  export type LocalizacaoSumAggregateOutputType = {
-    id: number | null
-    latitude: number | null
-    longitude: number | null
-    pontoId: number | null
-  }
-
-  export type LocalizacaoMinAggregateOutputType = {
-    id: number | null
-    latitude: number | null
-    longitude: number | null
-    pontoId: number | null
-  }
-
-  export type LocalizacaoMaxAggregateOutputType = {
-    id: number | null
-    latitude: number | null
-    longitude: number | null
-    pontoId: number | null
-  }
-
-  export type LocalizacaoCountAggregateOutputType = {
-    id: number
-    latitude: number
-    longitude: number
-    pontoId: number
-    _all: number
-  }
-
-
-  export type LocalizacaoAvgAggregateInputType = {
-    id?: true
-    latitude?: true
-    longitude?: true
-    pontoId?: true
-  }
-
-  export type LocalizacaoSumAggregateInputType = {
-    id?: true
-    latitude?: true
-    longitude?: true
-    pontoId?: true
-  }
-
-  export type LocalizacaoMinAggregateInputType = {
-    id?: true
-    latitude?: true
-    longitude?: true
-    pontoId?: true
-  }
-
-  export type LocalizacaoMaxAggregateInputType = {
-    id?: true
-    latitude?: true
-    longitude?: true
-    pontoId?: true
-  }
-
-  export type LocalizacaoCountAggregateInputType = {
-    id?: true
-    latitude?: true
-    longitude?: true
-    pontoId?: true
-    _all?: true
-  }
-
-  export type LocalizacaoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Localizacao to aggregate.
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Localizacaos to fetch.
-     */
-    orderBy?: LocalizacaoOrderByWithRelationInput | LocalizacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: LocalizacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Localizacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Localizacaos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Localizacaos
-    **/
-    _count?: true | LocalizacaoCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: LocalizacaoAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: LocalizacaoSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: LocalizacaoMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: LocalizacaoMaxAggregateInputType
-  }
-
-  export type GetLocalizacaoAggregateType<T extends LocalizacaoAggregateArgs> = {
-        [P in keyof T & keyof AggregateLocalizacao]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateLocalizacao[P]>
-      : GetScalarType<T[P], AggregateLocalizacao[P]>
-  }
-
-
-
-
-  export type LocalizacaoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LocalizacaoWhereInput
-    orderBy?: LocalizacaoOrderByWithAggregationInput | LocalizacaoOrderByWithAggregationInput[]
-    by: LocalizacaoScalarFieldEnum[] | LocalizacaoScalarFieldEnum
-    having?: LocalizacaoScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: LocalizacaoCountAggregateInputType | true
-    _avg?: LocalizacaoAvgAggregateInputType
-    _sum?: LocalizacaoSumAggregateInputType
-    _min?: LocalizacaoMinAggregateInputType
-    _max?: LocalizacaoMaxAggregateInputType
-  }
-
-  export type LocalizacaoGroupByOutputType = {
-    id: number
-    latitude: number
-    longitude: number
-    pontoId: number
-    _count: LocalizacaoCountAggregateOutputType | null
-    _avg: LocalizacaoAvgAggregateOutputType | null
-    _sum: LocalizacaoSumAggregateOutputType | null
-    _min: LocalizacaoMinAggregateOutputType | null
-    _max: LocalizacaoMaxAggregateOutputType | null
-  }
-
-  type GetLocalizacaoGroupByPayload<T extends LocalizacaoGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<LocalizacaoGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof LocalizacaoGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], LocalizacaoGroupByOutputType[P]>
-            : GetScalarType<T[P], LocalizacaoGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type LocalizacaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    pontoId?: boolean
-    ponto?: boolean | PontoDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["localizacao"]>
-
-  export type LocalizacaoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    pontoId?: boolean
-    ponto?: boolean | PontoDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["localizacao"]>
-
-  export type LocalizacaoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    pontoId?: boolean
-    ponto?: boolean | PontoDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["localizacao"]>
-
-  export type LocalizacaoSelectScalar = {
-    id?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    pontoId?: boolean
-  }
-
-  export type LocalizacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "latitude" | "longitude" | "pontoId", ExtArgs["result"]["localizacao"]>
-  export type LocalizacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ponto?: boolean | PontoDefaultArgs<ExtArgs>
-  }
-  export type LocalizacaoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ponto?: boolean | PontoDefaultArgs<ExtArgs>
-  }
-  export type LocalizacaoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ponto?: boolean | PontoDefaultArgs<ExtArgs>
-  }
-
-  export type $LocalizacaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Localizacao"
-    objects: {
-      ponto: Prisma.$PontoPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      latitude: number
-      longitude: number
-      pontoId: number
-    }, ExtArgs["result"]["localizacao"]>
-    composites: {}
-  }
-
-  type LocalizacaoGetPayload<S extends boolean | null | undefined | LocalizacaoDefaultArgs> = $Result.GetResult<Prisma.$LocalizacaoPayload, S>
-
-  type LocalizacaoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<LocalizacaoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: LocalizacaoCountAggregateInputType | true
-    }
-
-  export interface LocalizacaoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Localizacao'], meta: { name: 'Localizacao' } }
-    /**
-     * Find zero or one Localizacao that matches the filter.
-     * @param {LocalizacaoFindUniqueArgs} args - Arguments to find a Localizacao
-     * @example
-     * // Get one Localizacao
-     * const localizacao = await prisma.localizacao.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends LocalizacaoFindUniqueArgs>(args: SelectSubset<T, LocalizacaoFindUniqueArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Localizacao that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {LocalizacaoFindUniqueOrThrowArgs} args - Arguments to find a Localizacao
-     * @example
-     * // Get one Localizacao
-     * const localizacao = await prisma.localizacao.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends LocalizacaoFindUniqueOrThrowArgs>(args: SelectSubset<T, LocalizacaoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Localizacao that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoFindFirstArgs} args - Arguments to find a Localizacao
-     * @example
-     * // Get one Localizacao
-     * const localizacao = await prisma.localizacao.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends LocalizacaoFindFirstArgs>(args?: SelectSubset<T, LocalizacaoFindFirstArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Localizacao that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoFindFirstOrThrowArgs} args - Arguments to find a Localizacao
-     * @example
-     * // Get one Localizacao
-     * const localizacao = await prisma.localizacao.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends LocalizacaoFindFirstOrThrowArgs>(args?: SelectSubset<T, LocalizacaoFindFirstOrThrowArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Localizacaos that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Localizacaos
-     * const localizacaos = await prisma.localizacao.findMany()
-     * 
-     * // Get first 10 Localizacaos
-     * const localizacaos = await prisma.localizacao.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const localizacaoWithIdOnly = await prisma.localizacao.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends LocalizacaoFindManyArgs>(args?: SelectSubset<T, LocalizacaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Localizacao.
-     * @param {LocalizacaoCreateArgs} args - Arguments to create a Localizacao.
-     * @example
-     * // Create one Localizacao
-     * const Localizacao = await prisma.localizacao.create({
-     *   data: {
-     *     // ... data to create a Localizacao
-     *   }
-     * })
-     * 
-     */
-    create<T extends LocalizacaoCreateArgs>(args: SelectSubset<T, LocalizacaoCreateArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Localizacaos.
-     * @param {LocalizacaoCreateManyArgs} args - Arguments to create many Localizacaos.
-     * @example
-     * // Create many Localizacaos
-     * const localizacao = await prisma.localizacao.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends LocalizacaoCreateManyArgs>(args?: SelectSubset<T, LocalizacaoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Localizacaos and returns the data saved in the database.
-     * @param {LocalizacaoCreateManyAndReturnArgs} args - Arguments to create many Localizacaos.
-     * @example
-     * // Create many Localizacaos
-     * const localizacao = await prisma.localizacao.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Localizacaos and only return the `id`
-     * const localizacaoWithIdOnly = await prisma.localizacao.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends LocalizacaoCreateManyAndReturnArgs>(args?: SelectSubset<T, LocalizacaoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Localizacao.
-     * @param {LocalizacaoDeleteArgs} args - Arguments to delete one Localizacao.
-     * @example
-     * // Delete one Localizacao
-     * const Localizacao = await prisma.localizacao.delete({
-     *   where: {
-     *     // ... filter to delete one Localizacao
-     *   }
-     * })
-     * 
-     */
-    delete<T extends LocalizacaoDeleteArgs>(args: SelectSubset<T, LocalizacaoDeleteArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Localizacao.
-     * @param {LocalizacaoUpdateArgs} args - Arguments to update one Localizacao.
-     * @example
-     * // Update one Localizacao
-     * const localizacao = await prisma.localizacao.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends LocalizacaoUpdateArgs>(args: SelectSubset<T, LocalizacaoUpdateArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Localizacaos.
-     * @param {LocalizacaoDeleteManyArgs} args - Arguments to filter Localizacaos to delete.
-     * @example
-     * // Delete a few Localizacaos
-     * const { count } = await prisma.localizacao.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends LocalizacaoDeleteManyArgs>(args?: SelectSubset<T, LocalizacaoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Localizacaos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Localizacaos
-     * const localizacao = await prisma.localizacao.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends LocalizacaoUpdateManyArgs>(args: SelectSubset<T, LocalizacaoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Localizacaos and returns the data updated in the database.
-     * @param {LocalizacaoUpdateManyAndReturnArgs} args - Arguments to update many Localizacaos.
-     * @example
-     * // Update many Localizacaos
-     * const localizacao = await prisma.localizacao.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Localizacaos and only return the `id`
-     * const localizacaoWithIdOnly = await prisma.localizacao.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends LocalizacaoUpdateManyAndReturnArgs>(args: SelectSubset<T, LocalizacaoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Localizacao.
-     * @param {LocalizacaoUpsertArgs} args - Arguments to update or create a Localizacao.
-     * @example
-     * // Update or create a Localizacao
-     * const localizacao = await prisma.localizacao.upsert({
-     *   create: {
-     *     // ... data to create a Localizacao
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Localizacao we want to update
-     *   }
-     * })
-     */
-    upsert<T extends LocalizacaoUpsertArgs>(args: SelectSubset<T, LocalizacaoUpsertArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Localizacaos.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoCountArgs} args - Arguments to filter Localizacaos to count.
-     * @example
-     * // Count the number of Localizacaos
-     * const count = await prisma.localizacao.count({
-     *   where: {
-     *     // ... the filter for the Localizacaos we want to count
-     *   }
-     * })
-    **/
-    count<T extends LocalizacaoCountArgs>(
-      args?: Subset<T, LocalizacaoCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], LocalizacaoCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Localizacao.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends LocalizacaoAggregateArgs>(args: Subset<T, LocalizacaoAggregateArgs>): Prisma.PrismaPromise<GetLocalizacaoAggregateType<T>>
-
-    /**
-     * Group by Localizacao.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {LocalizacaoGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends LocalizacaoGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: LocalizacaoGroupByArgs['orderBy'] }
-        : { orderBy?: LocalizacaoGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, LocalizacaoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLocalizacaoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Localizacao model
-   */
-  readonly fields: LocalizacaoFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Localizacao.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__LocalizacaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    ponto<T extends PontoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PontoDefaultArgs<ExtArgs>>): Prisma__PontoClient<$Result.GetResult<Prisma.$PontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Localizacao model
-   */
-  interface LocalizacaoFieldRefs {
-    readonly id: FieldRef<"Localizacao", 'Int'>
-    readonly latitude: FieldRef<"Localizacao", 'Float'>
-    readonly longitude: FieldRef<"Localizacao", 'Float'>
-    readonly pontoId: FieldRef<"Localizacao", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Localizacao findUnique
-   */
-  export type LocalizacaoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Localizacao to fetch.
-     */
-    where: LocalizacaoWhereUniqueInput
-  }
-
-  /**
-   * Localizacao findUniqueOrThrow
-   */
-  export type LocalizacaoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Localizacao to fetch.
-     */
-    where: LocalizacaoWhereUniqueInput
-  }
-
-  /**
-   * Localizacao findFirst
-   */
-  export type LocalizacaoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Localizacao to fetch.
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Localizacaos to fetch.
-     */
-    orderBy?: LocalizacaoOrderByWithRelationInput | LocalizacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Localizacaos.
-     */
-    cursor?: LocalizacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Localizacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Localizacaos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Localizacaos.
-     */
-    distinct?: LocalizacaoScalarFieldEnum | LocalizacaoScalarFieldEnum[]
-  }
-
-  /**
-   * Localizacao findFirstOrThrow
-   */
-  export type LocalizacaoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Localizacao to fetch.
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Localizacaos to fetch.
-     */
-    orderBy?: LocalizacaoOrderByWithRelationInput | LocalizacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Localizacaos.
-     */
-    cursor?: LocalizacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Localizacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Localizacaos.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Localizacaos.
-     */
-    distinct?: LocalizacaoScalarFieldEnum | LocalizacaoScalarFieldEnum[]
-  }
-
-  /**
-   * Localizacao findMany
-   */
-  export type LocalizacaoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * Filter, which Localizacaos to fetch.
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Localizacaos to fetch.
-     */
-    orderBy?: LocalizacaoOrderByWithRelationInput | LocalizacaoOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Localizacaos.
-     */
-    cursor?: LocalizacaoWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Localizacaos from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Localizacaos.
-     */
-    skip?: number
-    distinct?: LocalizacaoScalarFieldEnum | LocalizacaoScalarFieldEnum[]
-  }
-
-  /**
-   * Localizacao create
-   */
-  export type LocalizacaoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Localizacao.
-     */
-    data: XOR<LocalizacaoCreateInput, LocalizacaoUncheckedCreateInput>
-  }
-
-  /**
-   * Localizacao createMany
-   */
-  export type LocalizacaoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Localizacaos.
-     */
-    data: LocalizacaoCreateManyInput | LocalizacaoCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Localizacao createManyAndReturn
-   */
-  export type LocalizacaoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * The data used to create many Localizacaos.
-     */
-    data: LocalizacaoCreateManyInput | LocalizacaoCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Localizacao update
-   */
-  export type LocalizacaoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Localizacao.
-     */
-    data: XOR<LocalizacaoUpdateInput, LocalizacaoUncheckedUpdateInput>
-    /**
-     * Choose, which Localizacao to update.
-     */
-    where: LocalizacaoWhereUniqueInput
-  }
-
-  /**
-   * Localizacao updateMany
-   */
-  export type LocalizacaoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Localizacaos.
-     */
-    data: XOR<LocalizacaoUpdateManyMutationInput, LocalizacaoUncheckedUpdateManyInput>
-    /**
-     * Filter which Localizacaos to update
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * Limit how many Localizacaos to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Localizacao updateManyAndReturn
-   */
-  export type LocalizacaoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * The data used to update Localizacaos.
-     */
-    data: XOR<LocalizacaoUpdateManyMutationInput, LocalizacaoUncheckedUpdateManyInput>
-    /**
-     * Filter which Localizacaos to update
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * Limit how many Localizacaos to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Localizacao upsert
-   */
-  export type LocalizacaoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Localizacao to update in case it exists.
-     */
-    where: LocalizacaoWhereUniqueInput
-    /**
-     * In case the Localizacao found by the `where` argument doesn't exist, create a new Localizacao with this data.
-     */
-    create: XOR<LocalizacaoCreateInput, LocalizacaoUncheckedCreateInput>
-    /**
-     * In case the Localizacao was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<LocalizacaoUpdateInput, LocalizacaoUncheckedUpdateInput>
-  }
-
-  /**
-   * Localizacao delete
-   */
-  export type LocalizacaoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    /**
-     * Filter which Localizacao to delete.
-     */
-    where: LocalizacaoWhereUniqueInput
-  }
-
-  /**
-   * Localizacao deleteMany
-   */
-  export type LocalizacaoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Localizacaos to delete
-     */
-    where?: LocalizacaoWhereInput
-    /**
-     * Limit how many Localizacaos to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Localizacao without action
-   */
-  export type LocalizacaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model Ponto
    */
 
@@ -11561,11 +10392,15 @@ export namespace Prisma {
 
   export type PontoAvgAggregateOutputType = {
     id: number | null
+    latitude: number | null
+    longitude: number | null
     usuarioId: number | null
   }
 
   export type PontoSumAggregateOutputType = {
     id: number | null
+    latitude: number | null
+    longitude: number | null
     usuarioId: number | null
   }
 
@@ -11574,6 +10409,8 @@ export namespace Prisma {
     dateTimestamp: Date | null
     ip: string | null
     imagem: string | null
+    latitude: number | null
+    longitude: number | null
     usuarioId: number | null
   }
 
@@ -11582,6 +10419,8 @@ export namespace Prisma {
     dateTimestamp: Date | null
     ip: string | null
     imagem: string | null
+    latitude: number | null
+    longitude: number | null
     usuarioId: number | null
   }
 
@@ -11590,6 +10429,8 @@ export namespace Prisma {
     dateTimestamp: number
     ip: number
     imagem: number
+    latitude: number
+    longitude: number
     usuarioId: number
     _all: number
   }
@@ -11597,11 +10438,15 @@ export namespace Prisma {
 
   export type PontoAvgAggregateInputType = {
     id?: true
+    latitude?: true
+    longitude?: true
     usuarioId?: true
   }
 
   export type PontoSumAggregateInputType = {
     id?: true
+    latitude?: true
+    longitude?: true
     usuarioId?: true
   }
 
@@ -11610,6 +10455,8 @@ export namespace Prisma {
     dateTimestamp?: true
     ip?: true
     imagem?: true
+    latitude?: true
+    longitude?: true
     usuarioId?: true
   }
 
@@ -11618,6 +10465,8 @@ export namespace Prisma {
     dateTimestamp?: true
     ip?: true
     imagem?: true
+    latitude?: true
+    longitude?: true
     usuarioId?: true
   }
 
@@ -11626,6 +10475,8 @@ export namespace Prisma {
     dateTimestamp?: true
     ip?: true
     imagem?: true
+    latitude?: true
+    longitude?: true
     usuarioId?: true
     _all?: true
   }
@@ -11721,6 +10572,8 @@ export namespace Prisma {
     dateTimestamp: Date
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
     usuarioId: number
     _count: PontoCountAggregateOutputType | null
     _avg: PontoAvgAggregateOutputType | null
@@ -11748,9 +10601,10 @@ export namespace Prisma {
     dateTimestamp?: boolean
     ip?: boolean
     imagem?: boolean
+    latitude?: boolean
+    longitude?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
-    localizacao?: boolean | Ponto$localizacaoArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
   }, ExtArgs["result"]["ponto"]>
 
@@ -11759,6 +10613,8 @@ export namespace Prisma {
     dateTimestamp?: boolean
     ip?: boolean
     imagem?: boolean
+    latitude?: boolean
+    longitude?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ponto"]>
@@ -11768,6 +10624,8 @@ export namespace Prisma {
     dateTimestamp?: boolean
     ip?: boolean
     imagem?: boolean
+    latitude?: boolean
+    longitude?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ponto"]>
@@ -11777,13 +10635,14 @@ export namespace Prisma {
     dateTimestamp?: boolean
     ip?: boolean
     imagem?: boolean
+    latitude?: boolean
+    longitude?: boolean
     usuarioId?: boolean
   }
 
-  export type PontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "ip" | "imagem" | "usuarioId", ExtArgs["result"]["ponto"]>
+  export type PontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "ip" | "imagem" | "latitude" | "longitude" | "usuarioId", ExtArgs["result"]["ponto"]>
   export type PontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
-    localizacao?: boolean | Ponto$localizacaoArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
   }
   export type PontoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11797,7 +10656,6 @@ export namespace Prisma {
     name: "Ponto"
     objects: {
       usuario: Prisma.$UsuarioPayload<ExtArgs>
-      localizacao: Prisma.$LocalizacaoPayload<ExtArgs> | null
       ajuste: Prisma.$AjustePontoPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -11805,6 +10663,8 @@ export namespace Prisma {
       dateTimestamp: Date
       ip: string
       imagem: string
+      latitude: number
+      longitude: number
       usuarioId: number
     }, ExtArgs["result"]["ponto"]>
     composites: {}
@@ -12201,7 +11061,6 @@ export namespace Prisma {
   export interface Prisma__PontoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    localizacao<T extends Ponto$localizacaoArgs<ExtArgs> = {}>(args?: Subset<T, Ponto$localizacaoArgs<ExtArgs>>): Prisma__LocalizacaoClient<$Result.GetResult<Prisma.$LocalizacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     ajuste<T extends Ponto$ajusteArgs<ExtArgs> = {}>(args?: Subset<T, Ponto$ajusteArgs<ExtArgs>>): Prisma__AjustePontoClient<$Result.GetResult<Prisma.$AjustePontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -12236,6 +11095,8 @@ export namespace Prisma {
     readonly dateTimestamp: FieldRef<"Ponto", 'DateTime'>
     readonly ip: FieldRef<"Ponto", 'String'>
     readonly imagem: FieldRef<"Ponto", 'String'>
+    readonly latitude: FieldRef<"Ponto", 'Float'>
+    readonly longitude: FieldRef<"Ponto", 'Float'>
     readonly usuarioId: FieldRef<"Ponto", 'Int'>
   }
     
@@ -12633,25 +11494,6 @@ export namespace Prisma {
   }
 
   /**
-   * Ponto.localizacao
-   */
-  export type Ponto$localizacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Localizacao
-     */
-    select?: LocalizacaoSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Localizacao
-     */
-    omit?: LocalizacaoOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LocalizacaoInclude<ExtArgs> | null
-    where?: LocalizacaoWhereInput
-  }
-
-  /**
    * Ponto.ajuste
    */
   export type Ponto$ajusteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12690,40 +11532,30 @@ export namespace Prisma {
 
 
   /**
-   * Model PretacaoContas
+   * Model PrestacaoContas
    */
 
-  export type AggregatePretacaoContas = {
-    _count: PretacaoContasCountAggregateOutputType | null
-    _avg: PretacaoContasAvgAggregateOutputType | null
-    _sum: PretacaoContasSumAggregateOutputType | null
-    _min: PretacaoContasMinAggregateOutputType | null
-    _max: PretacaoContasMaxAggregateOutputType | null
+  export type AggregatePrestacaoContas = {
+    _count: PrestacaoContasCountAggregateOutputType | null
+    _avg: PrestacaoContasAvgAggregateOutputType | null
+    _sum: PrestacaoContasSumAggregateOutputType | null
+    _min: PrestacaoContasMinAggregateOutputType | null
+    _max: PrestacaoContasMaxAggregateOutputType | null
   }
 
-  export type PretacaoContasAvgAggregateOutputType = {
+  export type PrestacaoContasAvgAggregateOutputType = {
     id: number | null
     valor: Decimal | null
     usuarioId: number | null
   }
 
-  export type PretacaoContasSumAggregateOutputType = {
+  export type PrestacaoContasSumAggregateOutputType = {
     id: number | null
     valor: Decimal | null
     usuarioId: number | null
   }
 
-  export type PretacaoContasMinAggregateOutputType = {
-    id: number | null
-    descricao: string | null
-    data: Date | null
-    valor: Decimal | null
-    imagem: string | null
-    dateTimestamp: Date | null
-    usuarioId: number | null
-  }
-
-  export type PretacaoContasMaxAggregateOutputType = {
+  export type PrestacaoContasMinAggregateOutputType = {
     id: number | null
     descricao: string | null
     data: Date | null
@@ -12733,7 +11565,17 @@ export namespace Prisma {
     usuarioId: number | null
   }
 
-  export type PretacaoContasCountAggregateOutputType = {
+  export type PrestacaoContasMaxAggregateOutputType = {
+    id: number | null
+    descricao: string | null
+    data: Date | null
+    valor: Decimal | null
+    imagem: string | null
+    dateTimestamp: Date | null
+    usuarioId: number | null
+  }
+
+  export type PrestacaoContasCountAggregateOutputType = {
     id: number
     descricao: number
     data: number
@@ -12745,29 +11587,19 @@ export namespace Prisma {
   }
 
 
-  export type PretacaoContasAvgAggregateInputType = {
+  export type PrestacaoContasAvgAggregateInputType = {
     id?: true
     valor?: true
     usuarioId?: true
   }
 
-  export type PretacaoContasSumAggregateInputType = {
+  export type PrestacaoContasSumAggregateInputType = {
     id?: true
     valor?: true
     usuarioId?: true
   }
 
-  export type PretacaoContasMinAggregateInputType = {
-    id?: true
-    descricao?: true
-    data?: true
-    valor?: true
-    imagem?: true
-    dateTimestamp?: true
-    usuarioId?: true
-  }
-
-  export type PretacaoContasMaxAggregateInputType = {
+  export type PrestacaoContasMinAggregateInputType = {
     id?: true
     descricao?: true
     data?: true
@@ -12777,7 +11609,17 @@ export namespace Prisma {
     usuarioId?: true
   }
 
-  export type PretacaoContasCountAggregateInputType = {
+  export type PrestacaoContasMaxAggregateInputType = {
+    id?: true
+    descricao?: true
+    data?: true
+    valor?: true
+    imagem?: true
+    dateTimestamp?: true
+    usuarioId?: true
+  }
+
+  export type PrestacaoContasCountAggregateInputType = {
     id?: true
     descricao?: true
     data?: true
@@ -12788,93 +11630,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type PretacaoContasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PretacaoContas to aggregate.
+     * Filter which PrestacaoContas to aggregate.
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PretacaoContas to fetch.
+     * Determine the order of PrestacaoContas to fetch.
      */
-    orderBy?: PretacaoContasOrderByWithRelationInput | PretacaoContasOrderByWithRelationInput[]
+    orderBy?: PrestacaoContasOrderByWithRelationInput | PrestacaoContasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PretacaoContasWhereUniqueInput
+    cursor?: PrestacaoContasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PretacaoContas from the position of the cursor.
+     * Take `±n` PrestacaoContas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PretacaoContas.
+     * Skip the first `n` PrestacaoContas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned PretacaoContas
+     * Count returned PrestacaoContas
     **/
-    _count?: true | PretacaoContasCountAggregateInputType
+    _count?: true | PrestacaoContasCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PretacaoContasAvgAggregateInputType
+    _avg?: PrestacaoContasAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PretacaoContasSumAggregateInputType
+    _sum?: PrestacaoContasSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PretacaoContasMinAggregateInputType
+    _min?: PrestacaoContasMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PretacaoContasMaxAggregateInputType
+    _max?: PrestacaoContasMaxAggregateInputType
   }
 
-  export type GetPretacaoContasAggregateType<T extends PretacaoContasAggregateArgs> = {
-        [P in keyof T & keyof AggregatePretacaoContas]: P extends '_count' | 'count'
+  export type GetPrestacaoContasAggregateType<T extends PrestacaoContasAggregateArgs> = {
+        [P in keyof T & keyof AggregatePrestacaoContas]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePretacaoContas[P]>
-      : GetScalarType<T[P], AggregatePretacaoContas[P]>
+        : GetScalarType<T[P], AggregatePrestacaoContas[P]>
+      : GetScalarType<T[P], AggregatePrestacaoContas[P]>
   }
 
 
 
 
-  export type PretacaoContasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PretacaoContasWhereInput
-    orderBy?: PretacaoContasOrderByWithAggregationInput | PretacaoContasOrderByWithAggregationInput[]
-    by: PretacaoContasScalarFieldEnum[] | PretacaoContasScalarFieldEnum
-    having?: PretacaoContasScalarWhereWithAggregatesInput
+  export type PrestacaoContasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PrestacaoContasWhereInput
+    orderBy?: PrestacaoContasOrderByWithAggregationInput | PrestacaoContasOrderByWithAggregationInput[]
+    by: PrestacaoContasScalarFieldEnum[] | PrestacaoContasScalarFieldEnum
+    having?: PrestacaoContasScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PretacaoContasCountAggregateInputType | true
-    _avg?: PretacaoContasAvgAggregateInputType
-    _sum?: PretacaoContasSumAggregateInputType
-    _min?: PretacaoContasMinAggregateInputType
-    _max?: PretacaoContasMaxAggregateInputType
+    _count?: PrestacaoContasCountAggregateInputType | true
+    _avg?: PrestacaoContasAvgAggregateInputType
+    _sum?: PrestacaoContasSumAggregateInputType
+    _min?: PrestacaoContasMinAggregateInputType
+    _max?: PrestacaoContasMaxAggregateInputType
   }
 
-  export type PretacaoContasGroupByOutputType = {
+  export type PrestacaoContasGroupByOutputType = {
     id: number
     descricao: string
     data: Date
@@ -12882,28 +11724,28 @@ export namespace Prisma {
     imagem: string
     dateTimestamp: Date
     usuarioId: number
-    _count: PretacaoContasCountAggregateOutputType | null
-    _avg: PretacaoContasAvgAggregateOutputType | null
-    _sum: PretacaoContasSumAggregateOutputType | null
-    _min: PretacaoContasMinAggregateOutputType | null
-    _max: PretacaoContasMaxAggregateOutputType | null
+    _count: PrestacaoContasCountAggregateOutputType | null
+    _avg: PrestacaoContasAvgAggregateOutputType | null
+    _sum: PrestacaoContasSumAggregateOutputType | null
+    _min: PrestacaoContasMinAggregateOutputType | null
+    _max: PrestacaoContasMaxAggregateOutputType | null
   }
 
-  type GetPretacaoContasGroupByPayload<T extends PretacaoContasGroupByArgs> = Prisma.PrismaPromise<
+  type GetPrestacaoContasGroupByPayload<T extends PrestacaoContasGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PretacaoContasGroupByOutputType, T['by']> &
+      PickEnumerable<PrestacaoContasGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PretacaoContasGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PrestacaoContasGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PretacaoContasGroupByOutputType[P]>
-            : GetScalarType<T[P], PretacaoContasGroupByOutputType[P]>
+              : GetScalarType<T[P], PrestacaoContasGroupByOutputType[P]>
+            : GetScalarType<T[P], PrestacaoContasGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PretacaoContasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PrestacaoContasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     descricao?: boolean
     data?: boolean
@@ -12912,9 +11754,9 @@ export namespace Prisma {
     dateTimestamp?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["pretacaoContas"]>
+  }, ExtArgs["result"]["prestacaoContas"]>
 
-  export type PretacaoContasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PrestacaoContasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     descricao?: boolean
     data?: boolean
@@ -12923,9 +11765,9 @@ export namespace Prisma {
     dateTimestamp?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["pretacaoContas"]>
+  }, ExtArgs["result"]["prestacaoContas"]>
 
-  export type PretacaoContasSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PrestacaoContasSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     descricao?: boolean
     data?: boolean
@@ -12934,9 +11776,9 @@ export namespace Prisma {
     dateTimestamp?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["pretacaoContas"]>
+  }, ExtArgs["result"]["prestacaoContas"]>
 
-  export type PretacaoContasSelectScalar = {
+  export type PrestacaoContasSelectScalar = {
     id?: boolean
     descricao?: boolean
     data?: boolean
@@ -12946,19 +11788,19 @@ export namespace Prisma {
     usuarioId?: boolean
   }
 
-  export type PretacaoContasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "descricao" | "data" | "valor" | "imagem" | "dateTimestamp" | "usuarioId", ExtArgs["result"]["pretacaoContas"]>
-  export type PretacaoContasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "descricao" | "data" | "valor" | "imagem" | "dateTimestamp" | "usuarioId", ExtArgs["result"]["prestacaoContas"]>
+  export type PrestacaoContasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
-  export type PretacaoContasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
-  export type PretacaoContasIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
 
-  export type $PretacaoContasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PretacaoContas"
+  export type $PrestacaoContasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PrestacaoContas"
     objects: {
       usuario: Prisma.$UsuarioPayload<ExtArgs>
     }
@@ -12970,136 +11812,136 @@ export namespace Prisma {
       imagem: string
       dateTimestamp: Date
       usuarioId: number
-    }, ExtArgs["result"]["pretacaoContas"]>
+    }, ExtArgs["result"]["prestacaoContas"]>
     composites: {}
   }
 
-  type PretacaoContasGetPayload<S extends boolean | null | undefined | PretacaoContasDefaultArgs> = $Result.GetResult<Prisma.$PretacaoContasPayload, S>
+  type PrestacaoContasGetPayload<S extends boolean | null | undefined | PrestacaoContasDefaultArgs> = $Result.GetResult<Prisma.$PrestacaoContasPayload, S>
 
-  type PretacaoContasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PretacaoContasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PretacaoContasCountAggregateInputType | true
+  type PrestacaoContasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PrestacaoContasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PrestacaoContasCountAggregateInputType | true
     }
 
-  export interface PretacaoContasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PretacaoContas'], meta: { name: 'PretacaoContas' } }
+  export interface PrestacaoContasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PrestacaoContas'], meta: { name: 'PrestacaoContas' } }
     /**
-     * Find zero or one PretacaoContas that matches the filter.
-     * @param {PretacaoContasFindUniqueArgs} args - Arguments to find a PretacaoContas
+     * Find zero or one PrestacaoContas that matches the filter.
+     * @param {PrestacaoContasFindUniqueArgs} args - Arguments to find a PrestacaoContas
      * @example
-     * // Get one PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.findUnique({
+     * // Get one PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PretacaoContasFindUniqueArgs>(args: SelectSubset<T, PretacaoContasFindUniqueArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PrestacaoContasFindUniqueArgs>(args: SelectSubset<T, PrestacaoContasFindUniqueArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one PretacaoContas that matches the filter or throw an error with `error.code='P2025'`
+     * Find one PrestacaoContas that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PretacaoContasFindUniqueOrThrowArgs} args - Arguments to find a PretacaoContas
+     * @param {PrestacaoContasFindUniqueOrThrowArgs} args - Arguments to find a PrestacaoContas
      * @example
-     * // Get one PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.findUniqueOrThrow({
+     * // Get one PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PretacaoContasFindUniqueOrThrowArgs>(args: SelectSubset<T, PretacaoContasFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PrestacaoContasFindUniqueOrThrowArgs>(args: SelectSubset<T, PrestacaoContasFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PretacaoContas that matches the filter.
+     * Find the first PrestacaoContas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasFindFirstArgs} args - Arguments to find a PretacaoContas
+     * @param {PrestacaoContasFindFirstArgs} args - Arguments to find a PrestacaoContas
      * @example
-     * // Get one PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.findFirst({
+     * // Get one PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PretacaoContasFindFirstArgs>(args?: SelectSubset<T, PretacaoContasFindFirstArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PrestacaoContasFindFirstArgs>(args?: SelectSubset<T, PrestacaoContasFindFirstArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PretacaoContas that matches the filter or
+     * Find the first PrestacaoContas that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasFindFirstOrThrowArgs} args - Arguments to find a PretacaoContas
+     * @param {PrestacaoContasFindFirstOrThrowArgs} args - Arguments to find a PrestacaoContas
      * @example
-     * // Get one PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.findFirstOrThrow({
+     * // Get one PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PretacaoContasFindFirstOrThrowArgs>(args?: SelectSubset<T, PretacaoContasFindFirstOrThrowArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PrestacaoContasFindFirstOrThrowArgs>(args?: SelectSubset<T, PrestacaoContasFindFirstOrThrowArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more PretacaoContas that matches the filter.
+     * Find zero or more PrestacaoContas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PrestacaoContasFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.findMany()
+     * // Get all PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.findMany()
      * 
-     * // Get first 10 PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.findMany({ take: 10 })
+     * // Get first 10 PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const pretacaoContasWithIdOnly = await prisma.pretacaoContas.findMany({ select: { id: true } })
+     * const prestacaoContasWithIdOnly = await prisma.prestacaoContas.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PretacaoContasFindManyArgs>(args?: SelectSubset<T, PretacaoContasFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PrestacaoContasFindManyArgs>(args?: SelectSubset<T, PrestacaoContasFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a PretacaoContas.
-     * @param {PretacaoContasCreateArgs} args - Arguments to create a PretacaoContas.
+     * Create a PrestacaoContas.
+     * @param {PrestacaoContasCreateArgs} args - Arguments to create a PrestacaoContas.
      * @example
-     * // Create one PretacaoContas
-     * const PretacaoContas = await prisma.pretacaoContas.create({
+     * // Create one PrestacaoContas
+     * const PrestacaoContas = await prisma.prestacaoContas.create({
      *   data: {
-     *     // ... data to create a PretacaoContas
+     *     // ... data to create a PrestacaoContas
      *   }
      * })
      * 
      */
-    create<T extends PretacaoContasCreateArgs>(args: SelectSubset<T, PretacaoContasCreateArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PrestacaoContasCreateArgs>(args: SelectSubset<T, PrestacaoContasCreateArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many PretacaoContas.
-     * @param {PretacaoContasCreateManyArgs} args - Arguments to create many PretacaoContas.
+     * Create many PrestacaoContas.
+     * @param {PrestacaoContasCreateManyArgs} args - Arguments to create many PrestacaoContas.
      * @example
-     * // Create many PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.createMany({
+     * // Create many PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PretacaoContasCreateManyArgs>(args?: SelectSubset<T, PretacaoContasCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PrestacaoContasCreateManyArgs>(args?: SelectSubset<T, PrestacaoContasCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many PretacaoContas and returns the data saved in the database.
-     * @param {PretacaoContasCreateManyAndReturnArgs} args - Arguments to create many PretacaoContas.
+     * Create many PrestacaoContas and returns the data saved in the database.
+     * @param {PrestacaoContasCreateManyAndReturnArgs} args - Arguments to create many PrestacaoContas.
      * @example
-     * // Create many PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.createManyAndReturn({
+     * // Create many PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many PretacaoContas and only return the `id`
-     * const pretacaoContasWithIdOnly = await prisma.pretacaoContas.createManyAndReturn({
+     * // Create many PrestacaoContas and only return the `id`
+     * const prestacaoContasWithIdOnly = await prisma.prestacaoContas.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -13109,28 +11951,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PretacaoContasCreateManyAndReturnArgs>(args?: SelectSubset<T, PretacaoContasCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends PrestacaoContasCreateManyAndReturnArgs>(args?: SelectSubset<T, PrestacaoContasCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a PretacaoContas.
-     * @param {PretacaoContasDeleteArgs} args - Arguments to delete one PretacaoContas.
+     * Delete a PrestacaoContas.
+     * @param {PrestacaoContasDeleteArgs} args - Arguments to delete one PrestacaoContas.
      * @example
-     * // Delete one PretacaoContas
-     * const PretacaoContas = await prisma.pretacaoContas.delete({
+     * // Delete one PrestacaoContas
+     * const PrestacaoContas = await prisma.prestacaoContas.delete({
      *   where: {
-     *     // ... filter to delete one PretacaoContas
+     *     // ... filter to delete one PrestacaoContas
      *   }
      * })
      * 
      */
-    delete<T extends PretacaoContasDeleteArgs>(args: SelectSubset<T, PretacaoContasDeleteArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PrestacaoContasDeleteArgs>(args: SelectSubset<T, PrestacaoContasDeleteArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one PretacaoContas.
-     * @param {PretacaoContasUpdateArgs} args - Arguments to update one PretacaoContas.
+     * Update one PrestacaoContas.
+     * @param {PrestacaoContasUpdateArgs} args - Arguments to update one PrestacaoContas.
      * @example
-     * // Update one PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.update({
+     * // Update one PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13140,30 +11982,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PretacaoContasUpdateArgs>(args: SelectSubset<T, PretacaoContasUpdateArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PrestacaoContasUpdateArgs>(args: SelectSubset<T, PrestacaoContasUpdateArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more PretacaoContas.
-     * @param {PretacaoContasDeleteManyArgs} args - Arguments to filter PretacaoContas to delete.
+     * Delete zero or more PrestacaoContas.
+     * @param {PrestacaoContasDeleteManyArgs} args - Arguments to filter PrestacaoContas to delete.
      * @example
-     * // Delete a few PretacaoContas
-     * const { count } = await prisma.pretacaoContas.deleteMany({
+     * // Delete a few PrestacaoContas
+     * const { count } = await prisma.prestacaoContas.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PretacaoContasDeleteManyArgs>(args?: SelectSubset<T, PretacaoContasDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PrestacaoContasDeleteManyArgs>(args?: SelectSubset<T, PrestacaoContasDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PretacaoContas.
+     * Update zero or more PrestacaoContas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PrestacaoContasUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.updateMany({
+     * // Update many PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13173,14 +12015,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PretacaoContasUpdateManyArgs>(args: SelectSubset<T, PretacaoContasUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PrestacaoContasUpdateManyArgs>(args: SelectSubset<T, PrestacaoContasUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PretacaoContas and returns the data updated in the database.
-     * @param {PretacaoContasUpdateManyAndReturnArgs} args - Arguments to update many PretacaoContas.
+     * Update zero or more PrestacaoContas and returns the data updated in the database.
+     * @param {PrestacaoContasUpdateManyAndReturnArgs} args - Arguments to update many PrestacaoContas.
      * @example
-     * // Update many PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.updateManyAndReturn({
+     * // Update many PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13189,8 +12031,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PretacaoContas and only return the `id`
-     * const pretacaoContasWithIdOnly = await prisma.pretacaoContas.updateManyAndReturn({
+     * // Update zero or more PrestacaoContas and only return the `id`
+     * const prestacaoContasWithIdOnly = await prisma.prestacaoContas.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -13203,56 +12045,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PretacaoContasUpdateManyAndReturnArgs>(args: SelectSubset<T, PretacaoContasUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends PrestacaoContasUpdateManyAndReturnArgs>(args: SelectSubset<T, PrestacaoContasUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one PretacaoContas.
-     * @param {PretacaoContasUpsertArgs} args - Arguments to update or create a PretacaoContas.
+     * Create or update one PrestacaoContas.
+     * @param {PrestacaoContasUpsertArgs} args - Arguments to update or create a PrestacaoContas.
      * @example
-     * // Update or create a PretacaoContas
-     * const pretacaoContas = await prisma.pretacaoContas.upsert({
+     * // Update or create a PrestacaoContas
+     * const prestacaoContas = await prisma.prestacaoContas.upsert({
      *   create: {
-     *     // ... data to create a PretacaoContas
+     *     // ... data to create a PrestacaoContas
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the PretacaoContas we want to update
+     *     // ... the filter for the PrestacaoContas we want to update
      *   }
      * })
      */
-    upsert<T extends PretacaoContasUpsertArgs>(args: SelectSubset<T, PretacaoContasUpsertArgs<ExtArgs>>): Prisma__PretacaoContasClient<$Result.GetResult<Prisma.$PretacaoContasPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PrestacaoContasUpsertArgs>(args: SelectSubset<T, PrestacaoContasUpsertArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of PretacaoContas.
+     * Count the number of PrestacaoContas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasCountArgs} args - Arguments to filter PretacaoContas to count.
+     * @param {PrestacaoContasCountArgs} args - Arguments to filter PrestacaoContas to count.
      * @example
-     * // Count the number of PretacaoContas
-     * const count = await prisma.pretacaoContas.count({
+     * // Count the number of PrestacaoContas
+     * const count = await prisma.prestacaoContas.count({
      *   where: {
-     *     // ... the filter for the PretacaoContas we want to count
+     *     // ... the filter for the PrestacaoContas we want to count
      *   }
      * })
     **/
-    count<T extends PretacaoContasCountArgs>(
-      args?: Subset<T, PretacaoContasCountArgs>,
+    count<T extends PrestacaoContasCountArgs>(
+      args?: Subset<T, PrestacaoContasCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PretacaoContasCountAggregateOutputType>
+          : GetScalarType<T['select'], PrestacaoContasCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a PretacaoContas.
+     * Allows you to perform aggregations operations on a PrestacaoContas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PrestacaoContasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -13272,13 +12114,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PretacaoContasAggregateArgs>(args: Subset<T, PretacaoContasAggregateArgs>): Prisma.PrismaPromise<GetPretacaoContasAggregateType<T>>
+    aggregate<T extends PrestacaoContasAggregateArgs>(args: Subset<T, PrestacaoContasAggregateArgs>): Prisma.PrismaPromise<GetPrestacaoContasAggregateType<T>>
 
     /**
-     * Group by PretacaoContas.
+     * Group by PrestacaoContas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PretacaoContasGroupByArgs} args - Group by arguments.
+     * @param {PrestacaoContasGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -13293,14 +12135,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PretacaoContasGroupByArgs,
+      T extends PrestacaoContasGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PretacaoContasGroupByArgs['orderBy'] }
-        : { orderBy?: PretacaoContasGroupByArgs['orderBy'] },
+        ? { orderBy: PrestacaoContasGroupByArgs['orderBy'] }
+        : { orderBy?: PrestacaoContasGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -13349,20 +12191,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PretacaoContasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPretacaoContasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PrestacaoContasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPrestacaoContasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the PretacaoContas model
+   * Fields of the PrestacaoContas model
    */
-  readonly fields: PretacaoContasFieldRefs;
+  readonly fields: PrestacaoContasFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for PretacaoContas.
+   * The delegate class that acts as a "Promise-like" for PrestacaoContas.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PretacaoContasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PrestacaoContasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -13391,427 +12233,427 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the PretacaoContas model
+   * Fields of the PrestacaoContas model
    */
-  interface PretacaoContasFieldRefs {
-    readonly id: FieldRef<"PretacaoContas", 'Int'>
-    readonly descricao: FieldRef<"PretacaoContas", 'String'>
-    readonly data: FieldRef<"PretacaoContas", 'DateTime'>
-    readonly valor: FieldRef<"PretacaoContas", 'Decimal'>
-    readonly imagem: FieldRef<"PretacaoContas", 'String'>
-    readonly dateTimestamp: FieldRef<"PretacaoContas", 'DateTime'>
-    readonly usuarioId: FieldRef<"PretacaoContas", 'Int'>
+  interface PrestacaoContasFieldRefs {
+    readonly id: FieldRef<"PrestacaoContas", 'Int'>
+    readonly descricao: FieldRef<"PrestacaoContas", 'String'>
+    readonly data: FieldRef<"PrestacaoContas", 'DateTime'>
+    readonly valor: FieldRef<"PrestacaoContas", 'Decimal'>
+    readonly imagem: FieldRef<"PrestacaoContas", 'String'>
+    readonly dateTimestamp: FieldRef<"PrestacaoContas", 'DateTime'>
+    readonly usuarioId: FieldRef<"PrestacaoContas", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * PretacaoContas findUnique
+   * PrestacaoContas findUnique
    */
-  export type PretacaoContasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * Filter, which PretacaoContas to fetch.
+     * Filter, which PrestacaoContas to fetch.
      */
-    where: PretacaoContasWhereUniqueInput
+    where: PrestacaoContasWhereUniqueInput
   }
 
   /**
-   * PretacaoContas findUniqueOrThrow
+   * PrestacaoContas findUniqueOrThrow
    */
-  export type PretacaoContasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * Filter, which PretacaoContas to fetch.
+     * Filter, which PrestacaoContas to fetch.
      */
-    where: PretacaoContasWhereUniqueInput
+    where: PrestacaoContasWhereUniqueInput
   }
 
   /**
-   * PretacaoContas findFirst
+   * PrestacaoContas findFirst
    */
-  export type PretacaoContasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * Filter, which PretacaoContas to fetch.
+     * Filter, which PrestacaoContas to fetch.
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PretacaoContas to fetch.
+     * Determine the order of PrestacaoContas to fetch.
      */
-    orderBy?: PretacaoContasOrderByWithRelationInput | PretacaoContasOrderByWithRelationInput[]
+    orderBy?: PrestacaoContasOrderByWithRelationInput | PrestacaoContasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PretacaoContas.
+     * Sets the position for searching for PrestacaoContas.
      */
-    cursor?: PretacaoContasWhereUniqueInput
+    cursor?: PrestacaoContasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PretacaoContas from the position of the cursor.
+     * Take `±n` PrestacaoContas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PretacaoContas.
+     * Skip the first `n` PrestacaoContas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PretacaoContas.
+     * Filter by unique combinations of PrestacaoContas.
      */
-    distinct?: PretacaoContasScalarFieldEnum | PretacaoContasScalarFieldEnum[]
+    distinct?: PrestacaoContasScalarFieldEnum | PrestacaoContasScalarFieldEnum[]
   }
 
   /**
-   * PretacaoContas findFirstOrThrow
+   * PrestacaoContas findFirstOrThrow
    */
-  export type PretacaoContasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * Filter, which PretacaoContas to fetch.
+     * Filter, which PrestacaoContas to fetch.
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PretacaoContas to fetch.
+     * Determine the order of PrestacaoContas to fetch.
      */
-    orderBy?: PretacaoContasOrderByWithRelationInput | PretacaoContasOrderByWithRelationInput[]
+    orderBy?: PrestacaoContasOrderByWithRelationInput | PrestacaoContasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PretacaoContas.
+     * Sets the position for searching for PrestacaoContas.
      */
-    cursor?: PretacaoContasWhereUniqueInput
+    cursor?: PrestacaoContasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PretacaoContas from the position of the cursor.
+     * Take `±n` PrestacaoContas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PretacaoContas.
+     * Skip the first `n` PrestacaoContas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PretacaoContas.
+     * Filter by unique combinations of PrestacaoContas.
      */
-    distinct?: PretacaoContasScalarFieldEnum | PretacaoContasScalarFieldEnum[]
+    distinct?: PrestacaoContasScalarFieldEnum | PrestacaoContasScalarFieldEnum[]
   }
 
   /**
-   * PretacaoContas findMany
+   * PrestacaoContas findMany
    */
-  export type PretacaoContasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * Filter, which PretacaoContas to fetch.
+     * Filter, which PrestacaoContas to fetch.
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PretacaoContas to fetch.
+     * Determine the order of PrestacaoContas to fetch.
      */
-    orderBy?: PretacaoContasOrderByWithRelationInput | PretacaoContasOrderByWithRelationInput[]
+    orderBy?: PrestacaoContasOrderByWithRelationInput | PrestacaoContasOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing PretacaoContas.
+     * Sets the position for listing PrestacaoContas.
      */
-    cursor?: PretacaoContasWhereUniqueInput
+    cursor?: PrestacaoContasWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PretacaoContas from the position of the cursor.
+     * Take `±n` PrestacaoContas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PretacaoContas.
+     * Skip the first `n` PrestacaoContas.
      */
     skip?: number
-    distinct?: PretacaoContasScalarFieldEnum | PretacaoContasScalarFieldEnum[]
+    distinct?: PrestacaoContasScalarFieldEnum | PrestacaoContasScalarFieldEnum[]
   }
 
   /**
-   * PretacaoContas create
+   * PrestacaoContas create
    */
-  export type PretacaoContasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * The data needed to create a PretacaoContas.
+     * The data needed to create a PrestacaoContas.
      */
-    data: XOR<PretacaoContasCreateInput, PretacaoContasUncheckedCreateInput>
+    data: XOR<PrestacaoContasCreateInput, PrestacaoContasUncheckedCreateInput>
   }
 
   /**
-   * PretacaoContas createMany
+   * PrestacaoContas createMany
    */
-  export type PretacaoContasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many PretacaoContas.
+     * The data used to create many PrestacaoContas.
      */
-    data: PretacaoContasCreateManyInput | PretacaoContasCreateManyInput[]
+    data: PrestacaoContasCreateManyInput | PrestacaoContasCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PretacaoContas createManyAndReturn
+   * PrestacaoContas createManyAndReturn
    */
-  export type PretacaoContasCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PrestacaoContasSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
-     * The data used to create many PretacaoContas.
+     * The data used to create many PrestacaoContas.
      */
-    data: PretacaoContasCreateManyInput | PretacaoContasCreateManyInput[]
+    data: PrestacaoContasCreateManyInput | PrestacaoContasCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: PrestacaoContasIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * PretacaoContas update
+   * PrestacaoContas update
    */
-  export type PretacaoContasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * The data needed to update a PretacaoContas.
+     * The data needed to update a PrestacaoContas.
      */
-    data: XOR<PretacaoContasUpdateInput, PretacaoContasUncheckedUpdateInput>
+    data: XOR<PrestacaoContasUpdateInput, PrestacaoContasUncheckedUpdateInput>
     /**
-     * Choose, which PretacaoContas to update.
+     * Choose, which PrestacaoContas to update.
      */
-    where: PretacaoContasWhereUniqueInput
+    where: PrestacaoContasWhereUniqueInput
   }
 
   /**
-   * PretacaoContas updateMany
+   * PrestacaoContas updateMany
    */
-  export type PretacaoContasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update PretacaoContas.
+     * The data used to update PrestacaoContas.
      */
-    data: XOR<PretacaoContasUpdateManyMutationInput, PretacaoContasUncheckedUpdateManyInput>
+    data: XOR<PrestacaoContasUpdateManyMutationInput, PrestacaoContasUncheckedUpdateManyInput>
     /**
-     * Filter which PretacaoContas to update
+     * Filter which PrestacaoContas to update
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
-     * Limit how many PretacaoContas to update.
+     * Limit how many PrestacaoContas to update.
      */
     limit?: number
   }
 
   /**
-   * PretacaoContas updateManyAndReturn
+   * PrestacaoContas updateManyAndReturn
    */
-  export type PretacaoContasUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PrestacaoContasSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
-     * The data used to update PretacaoContas.
+     * The data used to update PrestacaoContas.
      */
-    data: XOR<PretacaoContasUpdateManyMutationInput, PretacaoContasUncheckedUpdateManyInput>
+    data: XOR<PrestacaoContasUpdateManyMutationInput, PrestacaoContasUncheckedUpdateManyInput>
     /**
-     * Filter which PretacaoContas to update
+     * Filter which PrestacaoContas to update
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
-     * Limit how many PretacaoContas to update.
+     * Limit how many PrestacaoContas to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: PrestacaoContasIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * PretacaoContas upsert
+   * PrestacaoContas upsert
    */
-  export type PretacaoContasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * The filter to search for the PretacaoContas to update in case it exists.
+     * The filter to search for the PrestacaoContas to update in case it exists.
      */
-    where: PretacaoContasWhereUniqueInput
+    where: PrestacaoContasWhereUniqueInput
     /**
-     * In case the PretacaoContas found by the `where` argument doesn't exist, create a new PretacaoContas with this data.
+     * In case the PrestacaoContas found by the `where` argument doesn't exist, create a new PrestacaoContas with this data.
      */
-    create: XOR<PretacaoContasCreateInput, PretacaoContasUncheckedCreateInput>
+    create: XOR<PrestacaoContasCreateInput, PrestacaoContasUncheckedCreateInput>
     /**
-     * In case the PretacaoContas was found with the provided `where` argument, update it with this data.
+     * In case the PrestacaoContas was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PretacaoContasUpdateInput, PretacaoContasUncheckedUpdateInput>
+    update: XOR<PrestacaoContasUpdateInput, PrestacaoContasUncheckedUpdateInput>
   }
 
   /**
-   * PretacaoContas delete
+   * PrestacaoContas delete
    */
-  export type PretacaoContasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
     /**
-     * Filter which PretacaoContas to delete.
+     * Filter which PrestacaoContas to delete.
      */
-    where: PretacaoContasWhereUniqueInput
+    where: PrestacaoContasWhereUniqueInput
   }
 
   /**
-   * PretacaoContas deleteMany
+   * PrestacaoContas deleteMany
    */
-  export type PretacaoContasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PretacaoContas to delete
+     * Filter which PrestacaoContas to delete
      */
-    where?: PretacaoContasWhereInput
+    where?: PrestacaoContasWhereInput
     /**
-     * Limit how many PretacaoContas to delete.
+     * Limit how many PrestacaoContas to delete.
      */
     limit?: number
   }
 
   /**
-   * PretacaoContas without action
+   * PrestacaoContas without action
    */
-  export type PretacaoContasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PrestacaoContasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PretacaoContas
+     * Select specific fields to fetch from the PrestacaoContas
      */
-    select?: PretacaoContasSelect<ExtArgs> | null
+    select?: PrestacaoContasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PretacaoContas
+     * Omit specific fields from the PrestacaoContas
      */
-    omit?: PretacaoContasOmit<ExtArgs> | null
+    omit?: PrestacaoContasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PretacaoContasInclude<ExtArgs> | null
+    include?: PrestacaoContasInclude<ExtArgs> | null
   }
 
 
@@ -25989,7 +24831,8 @@ export namespace Prisma {
     dataAdmissao: 'dataAdmissao',
     dataDesligamento: 'dataDesligamento',
     cargo: 'cargo',
-    funcao: 'funcao'
+    funcao: 'funcao',
+    dateTimestamp: 'dateTimestamp'
   };
 
   export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
@@ -26053,28 +24896,20 @@ export namespace Prisma {
   export type ComentarioScalarFieldEnum = (typeof ComentarioScalarFieldEnum)[keyof typeof ComentarioScalarFieldEnum]
 
 
-  export const LocalizacaoScalarFieldEnum: {
-    id: 'id',
-    latitude: 'latitude',
-    longitude: 'longitude',
-    pontoId: 'pontoId'
-  };
-
-  export type LocalizacaoScalarFieldEnum = (typeof LocalizacaoScalarFieldEnum)[keyof typeof LocalizacaoScalarFieldEnum]
-
-
   export const PontoScalarFieldEnum: {
     id: 'id',
     dateTimestamp: 'dateTimestamp',
     ip: 'ip',
     imagem: 'imagem',
+    latitude: 'latitude',
+    longitude: 'longitude',
     usuarioId: 'usuarioId'
   };
 
   export type PontoScalarFieldEnum = (typeof PontoScalarFieldEnum)[keyof typeof PontoScalarFieldEnum]
 
 
-  export const PretacaoContasScalarFieldEnum: {
+  export const PrestacaoContasScalarFieldEnum: {
     id: 'id',
     descricao: 'descricao',
     data: 'data',
@@ -26084,7 +24919,7 @@ export namespace Prisma {
     usuarioId: 'usuarioId'
   };
 
-  export type PretacaoContasScalarFieldEnum = (typeof PretacaoContasScalarFieldEnum)[keyof typeof PretacaoContasScalarFieldEnum]
+  export type PrestacaoContasScalarFieldEnum = (typeof PrestacaoContasScalarFieldEnum)[keyof typeof PrestacaoContasScalarFieldEnum]
 
 
   export const AtestadoScalarFieldEnum: {
@@ -26461,12 +25296,13 @@ export namespace Prisma {
     dataDesligamento?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     cargo?: StringFilter<"Usuario"> | string
     funcao?: EnumFuncaoUsuarioFilter<"Usuario"> | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFilter<"Usuario"> | Date | string
     cronogramasGerenciados?: CronogramaListRelationFilter
     demandasGerenciadas?: DemandaListRelationFilter
     avisosGerenciados?: AvisoListRelationFilter
     comentariosPublicados?: ComentarioListRelationFilter
     pontosUsuario?: PontoListRelationFilter
-    prestacaoContasUsuario?: PretacaoContasListRelationFilter
+    prestacaoContasUsuario?: PrestacaoContasListRelationFilter
     atestadosUsuario?: AtestadoListRelationFilter
     assinaturasUsuario?: AssinaturaListRelationFilter
     documentosUsuario?: DocumentoListRelationFilter
@@ -26490,12 +25326,13 @@ export namespace Prisma {
     dataDesligamento?: SortOrderInput | SortOrder
     cargo?: SortOrder
     funcao?: SortOrder
+    dateTimestamp?: SortOrder
     cronogramasGerenciados?: CronogramaOrderByRelationAggregateInput
     demandasGerenciadas?: DemandaOrderByRelationAggregateInput
     avisosGerenciados?: AvisoOrderByRelationAggregateInput
     comentariosPublicados?: ComentarioOrderByRelationAggregateInput
     pontosUsuario?: PontoOrderByRelationAggregateInput
-    prestacaoContasUsuario?: PretacaoContasOrderByRelationAggregateInput
+    prestacaoContasUsuario?: PrestacaoContasOrderByRelationAggregateInput
     atestadosUsuario?: AtestadoOrderByRelationAggregateInput
     assinaturasUsuario?: AssinaturaOrderByRelationAggregateInput
     documentosUsuario?: DocumentoOrderByRelationAggregateInput
@@ -26522,12 +25359,13 @@ export namespace Prisma {
     dataDesligamento?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     cargo?: StringFilter<"Usuario"> | string
     funcao?: EnumFuncaoUsuarioFilter<"Usuario"> | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFilter<"Usuario"> | Date | string
     cronogramasGerenciados?: CronogramaListRelationFilter
     demandasGerenciadas?: DemandaListRelationFilter
     avisosGerenciados?: AvisoListRelationFilter
     comentariosPublicados?: ComentarioListRelationFilter
     pontosUsuario?: PontoListRelationFilter
-    prestacaoContasUsuario?: PretacaoContasListRelationFilter
+    prestacaoContasUsuario?: PrestacaoContasListRelationFilter
     atestadosUsuario?: AtestadoListRelationFilter
     assinaturasUsuario?: AssinaturaListRelationFilter
     documentosUsuario?: DocumentoListRelationFilter
@@ -26551,6 +25389,7 @@ export namespace Prisma {
     dataDesligamento?: SortOrderInput | SortOrder
     cargo?: SortOrder
     funcao?: SortOrder
+    dateTimestamp?: SortOrder
     _count?: UsuarioCountOrderByAggregateInput
     _avg?: UsuarioAvgOrderByAggregateInput
     _max?: UsuarioMaxOrderByAggregateInput
@@ -26573,6 +25412,7 @@ export namespace Prisma {
     dataDesligamento?: DateTimeNullableWithAggregatesFilter<"Usuario"> | Date | string | null
     cargo?: StringWithAggregatesFilter<"Usuario"> | string
     funcao?: EnumFuncaoUsuarioWithAggregatesFilter<"Usuario"> | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeWithAggregatesFilter<"Usuario"> | Date | string
   }
 
   export type DemandaWhereInput = {
@@ -26902,58 +25742,6 @@ export namespace Prisma {
     usuarioId?: IntWithAggregatesFilter<"Comentario"> | number
   }
 
-  export type LocalizacaoWhereInput = {
-    AND?: LocalizacaoWhereInput | LocalizacaoWhereInput[]
-    OR?: LocalizacaoWhereInput[]
-    NOT?: LocalizacaoWhereInput | LocalizacaoWhereInput[]
-    id?: IntFilter<"Localizacao"> | number
-    latitude?: FloatFilter<"Localizacao"> | number
-    longitude?: FloatFilter<"Localizacao"> | number
-    pontoId?: IntFilter<"Localizacao"> | number
-    ponto?: XOR<PontoScalarRelationFilter, PontoWhereInput>
-  }
-
-  export type LocalizacaoOrderByWithRelationInput = {
-    id?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    pontoId?: SortOrder
-    ponto?: PontoOrderByWithRelationInput
-  }
-
-  export type LocalizacaoWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    pontoId?: number
-    AND?: LocalizacaoWhereInput | LocalizacaoWhereInput[]
-    OR?: LocalizacaoWhereInput[]
-    NOT?: LocalizacaoWhereInput | LocalizacaoWhereInput[]
-    latitude?: FloatFilter<"Localizacao"> | number
-    longitude?: FloatFilter<"Localizacao"> | number
-    ponto?: XOR<PontoScalarRelationFilter, PontoWhereInput>
-  }, "id" | "pontoId">
-
-  export type LocalizacaoOrderByWithAggregationInput = {
-    id?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    pontoId?: SortOrder
-    _count?: LocalizacaoCountOrderByAggregateInput
-    _avg?: LocalizacaoAvgOrderByAggregateInput
-    _max?: LocalizacaoMaxOrderByAggregateInput
-    _min?: LocalizacaoMinOrderByAggregateInput
-    _sum?: LocalizacaoSumOrderByAggregateInput
-  }
-
-  export type LocalizacaoScalarWhereWithAggregatesInput = {
-    AND?: LocalizacaoScalarWhereWithAggregatesInput | LocalizacaoScalarWhereWithAggregatesInput[]
-    OR?: LocalizacaoScalarWhereWithAggregatesInput[]
-    NOT?: LocalizacaoScalarWhereWithAggregatesInput | LocalizacaoScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Localizacao"> | number
-    latitude?: FloatWithAggregatesFilter<"Localizacao"> | number
-    longitude?: FloatWithAggregatesFilter<"Localizacao"> | number
-    pontoId?: IntWithAggregatesFilter<"Localizacao"> | number
-  }
-
   export type PontoWhereInput = {
     AND?: PontoWhereInput | PontoWhereInput[]
     OR?: PontoWhereInput[]
@@ -26962,9 +25750,10 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFilter<"Ponto"> | Date | string
     ip?: StringFilter<"Ponto"> | string
     imagem?: StringFilter<"Ponto"> | string
+    latitude?: FloatFilter<"Ponto"> | number
+    longitude?: FloatFilter<"Ponto"> | number
     usuarioId?: IntFilter<"Ponto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-    localizacao?: XOR<LocalizacaoNullableScalarRelationFilter, LocalizacaoWhereInput> | null
     ajuste?: XOR<AjustePontoNullableScalarRelationFilter, AjustePontoWhereInput> | null
   }
 
@@ -26973,9 +25762,10 @@ export namespace Prisma {
     dateTimestamp?: SortOrder
     ip?: SortOrder
     imagem?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     usuarioId?: SortOrder
     usuario?: UsuarioOrderByWithRelationInput
-    localizacao?: LocalizacaoOrderByWithRelationInput
     ajuste?: AjustePontoOrderByWithRelationInput
   }
 
@@ -26987,9 +25777,10 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFilter<"Ponto"> | Date | string
     ip?: StringFilter<"Ponto"> | string
     imagem?: StringFilter<"Ponto"> | string
+    latitude?: FloatFilter<"Ponto"> | number
+    longitude?: FloatFilter<"Ponto"> | number
     usuarioId?: IntFilter<"Ponto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-    localizacao?: XOR<LocalizacaoNullableScalarRelationFilter, LocalizacaoWhereInput> | null
     ajuste?: XOR<AjustePontoNullableScalarRelationFilter, AjustePontoWhereInput> | null
   }, "id">
 
@@ -26998,6 +25789,8 @@ export namespace Prisma {
     dateTimestamp?: SortOrder
     ip?: SortOrder
     imagem?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     usuarioId?: SortOrder
     _count?: PontoCountOrderByAggregateInput
     _avg?: PontoAvgOrderByAggregateInput
@@ -27014,24 +25807,26 @@ export namespace Prisma {
     dateTimestamp?: DateTimeWithAggregatesFilter<"Ponto"> | Date | string
     ip?: StringWithAggregatesFilter<"Ponto"> | string
     imagem?: StringWithAggregatesFilter<"Ponto"> | string
+    latitude?: FloatWithAggregatesFilter<"Ponto"> | number
+    longitude?: FloatWithAggregatesFilter<"Ponto"> | number
     usuarioId?: IntWithAggregatesFilter<"Ponto"> | number
   }
 
-  export type PretacaoContasWhereInput = {
-    AND?: PretacaoContasWhereInput | PretacaoContasWhereInput[]
-    OR?: PretacaoContasWhereInput[]
-    NOT?: PretacaoContasWhereInput | PretacaoContasWhereInput[]
-    id?: IntFilter<"PretacaoContas"> | number
-    descricao?: StringFilter<"PretacaoContas"> | string
-    data?: DateTimeFilter<"PretacaoContas"> | Date | string
-    valor?: DecimalFilter<"PretacaoContas"> | Decimal | DecimalJsLike | number | string
-    imagem?: StringFilter<"PretacaoContas"> | string
-    dateTimestamp?: DateTimeFilter<"PretacaoContas"> | Date | string
-    usuarioId?: IntFilter<"PretacaoContas"> | number
+  export type PrestacaoContasWhereInput = {
+    AND?: PrestacaoContasWhereInput | PrestacaoContasWhereInput[]
+    OR?: PrestacaoContasWhereInput[]
+    NOT?: PrestacaoContasWhereInput | PrestacaoContasWhereInput[]
+    id?: IntFilter<"PrestacaoContas"> | number
+    descricao?: StringFilter<"PrestacaoContas"> | string
+    data?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    valor?: DecimalFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
+    imagem?: StringFilter<"PrestacaoContas"> | string
+    dateTimestamp?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    usuarioId?: IntFilter<"PrestacaoContas"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
   }
 
-  export type PretacaoContasOrderByWithRelationInput = {
+  export type PrestacaoContasOrderByWithRelationInput = {
     id?: SortOrder
     descricao?: SortOrder
     data?: SortOrder
@@ -27042,21 +25837,21 @@ export namespace Prisma {
     usuario?: UsuarioOrderByWithRelationInput
   }
 
-  export type PretacaoContasWhereUniqueInput = Prisma.AtLeast<{
+  export type PrestacaoContasWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: PretacaoContasWhereInput | PretacaoContasWhereInput[]
-    OR?: PretacaoContasWhereInput[]
-    NOT?: PretacaoContasWhereInput | PretacaoContasWhereInput[]
-    descricao?: StringFilter<"PretacaoContas"> | string
-    data?: DateTimeFilter<"PretacaoContas"> | Date | string
-    valor?: DecimalFilter<"PretacaoContas"> | Decimal | DecimalJsLike | number | string
-    imagem?: StringFilter<"PretacaoContas"> | string
-    dateTimestamp?: DateTimeFilter<"PretacaoContas"> | Date | string
-    usuarioId?: IntFilter<"PretacaoContas"> | number
+    AND?: PrestacaoContasWhereInput | PrestacaoContasWhereInput[]
+    OR?: PrestacaoContasWhereInput[]
+    NOT?: PrestacaoContasWhereInput | PrestacaoContasWhereInput[]
+    descricao?: StringFilter<"PrestacaoContas"> | string
+    data?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    valor?: DecimalFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
+    imagem?: StringFilter<"PrestacaoContas"> | string
+    dateTimestamp?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    usuarioId?: IntFilter<"PrestacaoContas"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
   }, "id">
 
-  export type PretacaoContasOrderByWithAggregationInput = {
+  export type PrestacaoContasOrderByWithAggregationInput = {
     id?: SortOrder
     descricao?: SortOrder
     data?: SortOrder
@@ -27064,24 +25859,24 @@ export namespace Prisma {
     imagem?: SortOrder
     dateTimestamp?: SortOrder
     usuarioId?: SortOrder
-    _count?: PretacaoContasCountOrderByAggregateInput
-    _avg?: PretacaoContasAvgOrderByAggregateInput
-    _max?: PretacaoContasMaxOrderByAggregateInput
-    _min?: PretacaoContasMinOrderByAggregateInput
-    _sum?: PretacaoContasSumOrderByAggregateInput
+    _count?: PrestacaoContasCountOrderByAggregateInput
+    _avg?: PrestacaoContasAvgOrderByAggregateInput
+    _max?: PrestacaoContasMaxOrderByAggregateInput
+    _min?: PrestacaoContasMinOrderByAggregateInput
+    _sum?: PrestacaoContasSumOrderByAggregateInput
   }
 
-  export type PretacaoContasScalarWhereWithAggregatesInput = {
-    AND?: PretacaoContasScalarWhereWithAggregatesInput | PretacaoContasScalarWhereWithAggregatesInput[]
-    OR?: PretacaoContasScalarWhereWithAggregatesInput[]
-    NOT?: PretacaoContasScalarWhereWithAggregatesInput | PretacaoContasScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"PretacaoContas"> | number
-    descricao?: StringWithAggregatesFilter<"PretacaoContas"> | string
-    data?: DateTimeWithAggregatesFilter<"PretacaoContas"> | Date | string
-    valor?: DecimalWithAggregatesFilter<"PretacaoContas"> | Decimal | DecimalJsLike | number | string
-    imagem?: StringWithAggregatesFilter<"PretacaoContas"> | string
-    dateTimestamp?: DateTimeWithAggregatesFilter<"PretacaoContas"> | Date | string
-    usuarioId?: IntWithAggregatesFilter<"PretacaoContas"> | number
+  export type PrestacaoContasScalarWhereWithAggregatesInput = {
+    AND?: PrestacaoContasScalarWhereWithAggregatesInput | PrestacaoContasScalarWhereWithAggregatesInput[]
+    OR?: PrestacaoContasScalarWhereWithAggregatesInput[]
+    NOT?: PrestacaoContasScalarWhereWithAggregatesInput | PrestacaoContasScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"PrestacaoContas"> | number
+    descricao?: StringWithAggregatesFilter<"PrestacaoContas"> | string
+    data?: DateTimeWithAggregatesFilter<"PrestacaoContas"> | Date | string
+    valor?: DecimalWithAggregatesFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
+    imagem?: StringWithAggregatesFilter<"PrestacaoContas"> | string
+    dateTimestamp?: DateTimeWithAggregatesFilter<"PrestacaoContas"> | Date | string
+    usuarioId?: IntWithAggregatesFilter<"PrestacaoContas"> | number
   }
 
   export type AtestadoWhereInput = {
@@ -27741,12 +26536,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -27770,12 +26566,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -27798,12 +26595,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -27827,12 +26625,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -27856,6 +26655,7 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
   }
 
   export type UsuarioUpdateManyMutationInput = {
@@ -27869,6 +26669,7 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UsuarioUncheckedUpdateManyInput = {
@@ -27883,6 +26684,7 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DemandaCreateInput = {
@@ -27890,7 +26692,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
@@ -27905,7 +26707,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
     gestorUsuarioId: number
@@ -27949,7 +26751,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
     gestorUsuarioId: number
@@ -27979,7 +26781,7 @@ export namespace Prisma {
   export type CronogramaCreateInput = {
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutCronogramasGerenciadosInput
     demandasCronograma?: DemandaCreateNestedManyWithoutCronogramaInput
   }
@@ -27988,7 +26790,7 @@ export namespace Prisma {
     id?: number
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestorUsuarioId: number
     demandasCronograma?: DemandaUncheckedCreateNestedManyWithoutCronogramaInput
   }
@@ -28014,7 +26816,7 @@ export namespace Prisma {
     id?: number
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestorUsuarioId: number
   }
 
@@ -28035,7 +26837,7 @@ export namespace Prisma {
   export type AvisoCreateInput = {
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutAvisosGerenciadosInput
     avisoUsuario?: AvisoUsuarioCreateNestedManyWithoutAvisoInput
   }
@@ -28044,7 +26846,7 @@ export namespace Prisma {
     id?: number
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestorRhUsuarioId: number
     avisoUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutAvisoInput
   }
@@ -28070,7 +26872,7 @@ export namespace Prisma {
     id?: number
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestorRhUsuarioId: number
   }
 
@@ -28197,67 +26999,24 @@ export namespace Prisma {
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type LocalizacaoCreateInput = {
-    latitude: number
-    longitude: number
-    ponto: PontoCreateNestedOneWithoutLocalizacaoInput
-  }
-
-  export type LocalizacaoUncheckedCreateInput = {
-    id?: number
-    latitude: number
-    longitude: number
-    pontoId: number
-  }
-
-  export type LocalizacaoUpdateInput = {
-    latitude?: FloatFieldUpdateOperationsInput | number
-    longitude?: FloatFieldUpdateOperationsInput | number
-    ponto?: PontoUpdateOneRequiredWithoutLocalizacaoNestedInput
-  }
-
-  export type LocalizacaoUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    latitude?: FloatFieldUpdateOperationsInput | number
-    longitude?: FloatFieldUpdateOperationsInput | number
-    pontoId?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type LocalizacaoCreateManyInput = {
-    id?: number
-    latitude: number
-    longitude: number
-    pontoId: number
-  }
-
-  export type LocalizacaoUpdateManyMutationInput = {
-    latitude?: FloatFieldUpdateOperationsInput | number
-    longitude?: FloatFieldUpdateOperationsInput | number
-  }
-
-  export type LocalizacaoUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    latitude?: FloatFieldUpdateOperationsInput | number
-    longitude?: FloatFieldUpdateOperationsInput | number
-    pontoId?: IntFieldUpdateOperationsInput | number
-  }
-
   export type PontoCreateInput = {
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
     usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
-    localizacao?: LocalizacaoCreateNestedOneWithoutPontoInput
     ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUncheckedCreateInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
     usuarioId: number
-    localizacao?: LocalizacaoUncheckedCreateNestedOneWithoutPontoInput
     ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
 
@@ -28265,8 +27024,9 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
-    localizacao?: LocalizacaoUpdateOneWithoutPontoNestedInput
     ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
 
@@ -28275,16 +27035,19 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
-    localizacao?: LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput
     ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoCreateManyInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
     usuarioId: number
   }
 
@@ -28292,6 +27055,8 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
   }
 
   export type PontoUncheckedUpdateManyInput = {
@@ -28299,29 +27064,31 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type PretacaoContasCreateInput = {
+  export type PrestacaoContasCreateInput = {
     descricao: string
     data: Date | string
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutPrestacaoContasUsuarioInput
   }
 
-  export type PretacaoContasUncheckedCreateInput = {
+  export type PrestacaoContasUncheckedCreateInput = {
     id?: number
     descricao: string
     data: Date | string
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
   }
 
-  export type PretacaoContasUpdateInput = {
+  export type PrestacaoContasUpdateInput = {
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -28330,7 +27097,7 @@ export namespace Prisma {
     usuario?: UsuarioUpdateOneRequiredWithoutPrestacaoContasUsuarioNestedInput
   }
 
-  export type PretacaoContasUncheckedUpdateInput = {
+  export type PrestacaoContasUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28340,17 +27107,17 @@ export namespace Prisma {
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type PretacaoContasCreateManyInput = {
+  export type PrestacaoContasCreateManyInput = {
     id?: number
     descricao: string
     data: Date | string
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
   }
 
-  export type PretacaoContasUpdateManyMutationInput = {
+  export type PrestacaoContasUpdateManyMutationInput = {
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -28358,7 +27125,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PretacaoContasUncheckedUpdateManyInput = {
+  export type PrestacaoContasUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28369,7 +27136,7 @@ export namespace Prisma {
   }
 
   export type AtestadoCreateInput = {
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAtestado: Date | string
     horaInicio?: Date | string | null
     horaTermino?: Date | string | null
@@ -28380,7 +27147,7 @@ export namespace Prisma {
 
   export type AtestadoUncheckedCreateInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAtestado: Date | string
     horaInicio?: Date | string | null
     horaTermino?: Date | string | null
@@ -28412,7 +27179,7 @@ export namespace Prisma {
 
   export type AtestadoCreateManyInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAtestado: Date | string
     horaInicio?: Date | string | null
     horaTermino?: Date | string | null
@@ -28443,7 +27210,7 @@ export namespace Prisma {
 
   export type AssinaturaCreateInput = {
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigital: CertificadoDigitalCreateNestedOneWithoutAssinaturasCertificadoInput
@@ -28454,7 +27221,7 @@ export namespace Prisma {
   export type AssinaturaUncheckedCreateInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigitalId: number
@@ -28486,7 +27253,7 @@ export namespace Prisma {
   export type AssinaturaCreateManyInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigitalId: number
@@ -28573,7 +27340,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     usuario: UsuarioCreateNestedOneWithoutDocumentosUsuarioInput
     assinaturaDocumento?: AssinaturaCreateNestedOneWithoutDocumentoInput
@@ -28584,7 +27351,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     usuarioId: number
     assinaturaDocumento?: AssinaturaUncheckedCreateNestedOneWithoutDocumentoInput
@@ -28616,7 +27383,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     usuarioId: number
   }
@@ -28643,7 +27410,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     ponto: PontoCreateNestedOneWithoutAjusteInput
     gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
@@ -28654,7 +27421,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
     gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
@@ -28686,7 +27453,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
   }
@@ -28710,14 +27477,14 @@ export namespace Prisma {
 
   export type GerenciamentoAjsutePontoCreateInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ajustePonto: AjustePontoCreateNestedOneWithoutGerenciamentoAjusteInput
     usuarioRh: UsuarioCreateNestedOneWithoutAjustesGerenciadosInput
   }
 
   export type GerenciamentoAjsutePontoUncheckedCreateInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ajustePontoId: number
     rhUsuarioId: number
   }
@@ -28738,7 +27505,7 @@ export namespace Prisma {
 
   export type GerenciamentoAjsutePontoCreateManyInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ajustePontoId: number
     rhUsuarioId: number
   }
@@ -28757,14 +27524,14 @@ export namespace Prisma {
 
   export type AvisoUsuarioCreateInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAvisosUsuarioInput
     aviso: AvisoCreateNestedOneWithoutAvisoUsuarioInput
   }
 
   export type AvisoUsuarioUncheckedCreateInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
     avisoId: number
   }
@@ -28785,7 +27552,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioCreateManyInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
     avisoId: number
   }
@@ -29023,10 +27790,10 @@ export namespace Prisma {
     none?: PontoWhereInput
   }
 
-  export type PretacaoContasListRelationFilter = {
-    every?: PretacaoContasWhereInput
-    some?: PretacaoContasWhereInput
-    none?: PretacaoContasWhereInput
+  export type PrestacaoContasListRelationFilter = {
+    every?: PrestacaoContasWhereInput
+    some?: PrestacaoContasWhereInput
+    none?: PrestacaoContasWhereInput
   }
 
   export type AtestadoListRelationFilter = {
@@ -29108,7 +27875,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type PretacaoContasOrderByRelationAggregateInput = {
+  export type PrestacaoContasOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -29160,6 +27927,7 @@ export namespace Prisma {
     dataDesligamento?: SortOrder
     cargo?: SortOrder
     funcao?: SortOrder
+    dateTimestamp?: SortOrder
   }
 
   export type UsuarioAvgOrderByAggregateInput = {
@@ -29178,6 +27946,7 @@ export namespace Prisma {
     dataDesligamento?: SortOrder
     cargo?: SortOrder
     funcao?: SortOrder
+    dateTimestamp?: SortOrder
   }
 
   export type UsuarioMinOrderByAggregateInput = {
@@ -29192,6 +27961,7 @@ export namespace Prisma {
     dataDesligamento?: SortOrder
     cargo?: SortOrder
     funcao?: SortOrder
+    dateTimestamp?: SortOrder
   }
 
   export type UsuarioSumOrderByAggregateInput = {
@@ -29548,44 +28318,53 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type PontoScalarRelationFilter = {
-    is?: PontoWhereInput
-    isNot?: PontoWhereInput
+  export type AjustePontoNullableScalarRelationFilter = {
+    is?: AjustePontoWhereInput | null
+    isNot?: AjustePontoWhereInput | null
   }
 
-  export type LocalizacaoCountOrderByAggregateInput = {
+  export type PontoCountOrderByAggregateInput = {
+    id?: SortOrder
+    dateTimestamp?: SortOrder
+    ip?: SortOrder
+    imagem?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type PontoAvgOrderByAggregateInput = {
     id?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
-    pontoId?: SortOrder
+    usuarioId?: SortOrder
   }
 
-  export type LocalizacaoAvgOrderByAggregateInput = {
+  export type PontoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    dateTimestamp?: SortOrder
+    ip?: SortOrder
+    imagem?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type PontoMinOrderByAggregateInput = {
+    id?: SortOrder
+    dateTimestamp?: SortOrder
+    ip?: SortOrder
+    imagem?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type PontoSumOrderByAggregateInput = {
     id?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
-    pontoId?: SortOrder
-  }
-
-  export type LocalizacaoMaxOrderByAggregateInput = {
-    id?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    pontoId?: SortOrder
-  }
-
-  export type LocalizacaoMinOrderByAggregateInput = {
-    id?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    pontoId?: SortOrder
-  }
-
-  export type LocalizacaoSumOrderByAggregateInput = {
-    id?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    pontoId?: SortOrder
+    usuarioId?: SortOrder
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -29604,50 +28383,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type LocalizacaoNullableScalarRelationFilter = {
-    is?: LocalizacaoWhereInput | null
-    isNot?: LocalizacaoWhereInput | null
-  }
-
-  export type AjustePontoNullableScalarRelationFilter = {
-    is?: AjustePontoWhereInput | null
-    isNot?: AjustePontoWhereInput | null
-  }
-
-  export type PontoCountOrderByAggregateInput = {
-    id?: SortOrder
-    dateTimestamp?: SortOrder
-    ip?: SortOrder
-    imagem?: SortOrder
-    usuarioId?: SortOrder
-  }
-
-  export type PontoAvgOrderByAggregateInput = {
-    id?: SortOrder
-    usuarioId?: SortOrder
-  }
-
-  export type PontoMaxOrderByAggregateInput = {
-    id?: SortOrder
-    dateTimestamp?: SortOrder
-    ip?: SortOrder
-    imagem?: SortOrder
-    usuarioId?: SortOrder
-  }
-
-  export type PontoMinOrderByAggregateInput = {
-    id?: SortOrder
-    dateTimestamp?: SortOrder
-    ip?: SortOrder
-    imagem?: SortOrder
-    usuarioId?: SortOrder
-  }
-
-  export type PontoSumOrderByAggregateInput = {
-    id?: SortOrder
-    usuarioId?: SortOrder
-  }
-
   export type DecimalFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
@@ -29659,7 +28394,7 @@ export namespace Prisma {
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
-  export type PretacaoContasCountOrderByAggregateInput = {
+  export type PrestacaoContasCountOrderByAggregateInput = {
     id?: SortOrder
     descricao?: SortOrder
     data?: SortOrder
@@ -29669,23 +28404,13 @@ export namespace Prisma {
     usuarioId?: SortOrder
   }
 
-  export type PretacaoContasAvgOrderByAggregateInput = {
+  export type PrestacaoContasAvgOrderByAggregateInput = {
     id?: SortOrder
     valor?: SortOrder
     usuarioId?: SortOrder
   }
 
-  export type PretacaoContasMaxOrderByAggregateInput = {
-    id?: SortOrder
-    descricao?: SortOrder
-    data?: SortOrder
-    valor?: SortOrder
-    imagem?: SortOrder
-    dateTimestamp?: SortOrder
-    usuarioId?: SortOrder
-  }
-
-  export type PretacaoContasMinOrderByAggregateInput = {
+  export type PrestacaoContasMaxOrderByAggregateInput = {
     id?: SortOrder
     descricao?: SortOrder
     data?: SortOrder
@@ -29695,7 +28420,17 @@ export namespace Prisma {
     usuarioId?: SortOrder
   }
 
-  export type PretacaoContasSumOrderByAggregateInput = {
+  export type PrestacaoContasMinOrderByAggregateInput = {
+    id?: SortOrder
+    descricao?: SortOrder
+    data?: SortOrder
+    valor?: SortOrder
+    imagem?: SortOrder
+    dateTimestamp?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type PrestacaoContasSumOrderByAggregateInput = {
     id?: SortOrder
     valor?: SortOrder
     usuarioId?: SortOrder
@@ -29974,6 +28709,11 @@ export namespace Prisma {
     in?: $Enums.StatusAjuste[] | ListEnumStatusAjusteFieldRefInput<$PrismaModel>
     notIn?: $Enums.StatusAjuste[] | ListEnumStatusAjusteFieldRefInput<$PrismaModel>
     not?: NestedEnumStatusAjusteFilter<$PrismaModel> | $Enums.StatusAjuste
+  }
+
+  export type PontoScalarRelationFilter = {
+    is?: PontoWhereInput
+    isNot?: PontoWhereInput
   }
 
   export type AjustePontoCountOrderByAggregateInput = {
@@ -30297,11 +29037,11 @@ export namespace Prisma {
     connect?: PontoWhereUniqueInput | PontoWhereUniqueInput[]
   }
 
-  export type PretacaoContasCreateNestedManyWithoutUsuarioInput = {
-    create?: XOR<PretacaoContasCreateWithoutUsuarioInput, PretacaoContasUncheckedCreateWithoutUsuarioInput> | PretacaoContasCreateWithoutUsuarioInput[] | PretacaoContasUncheckedCreateWithoutUsuarioInput[]
-    connectOrCreate?: PretacaoContasCreateOrConnectWithoutUsuarioInput | PretacaoContasCreateOrConnectWithoutUsuarioInput[]
-    createMany?: PretacaoContasCreateManyUsuarioInputEnvelope
-    connect?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
+  export type PrestacaoContasCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<PrestacaoContasCreateWithoutUsuarioInput, PrestacaoContasUncheckedCreateWithoutUsuarioInput> | PrestacaoContasCreateWithoutUsuarioInput[] | PrestacaoContasUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: PrestacaoContasCreateOrConnectWithoutUsuarioInput | PrestacaoContasCreateOrConnectWithoutUsuarioInput[]
+    createMany?: PrestacaoContasCreateManyUsuarioInputEnvelope
+    connect?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
   }
 
   export type AtestadoCreateNestedManyWithoutUsuarioInput = {
@@ -30402,11 +29142,11 @@ export namespace Prisma {
     connect?: PontoWhereUniqueInput | PontoWhereUniqueInput[]
   }
 
-  export type PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput = {
-    create?: XOR<PretacaoContasCreateWithoutUsuarioInput, PretacaoContasUncheckedCreateWithoutUsuarioInput> | PretacaoContasCreateWithoutUsuarioInput[] | PretacaoContasUncheckedCreateWithoutUsuarioInput[]
-    connectOrCreate?: PretacaoContasCreateOrConnectWithoutUsuarioInput | PretacaoContasCreateOrConnectWithoutUsuarioInput[]
-    createMany?: PretacaoContasCreateManyUsuarioInputEnvelope
-    connect?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
+  export type PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<PrestacaoContasCreateWithoutUsuarioInput, PrestacaoContasUncheckedCreateWithoutUsuarioInput> | PrestacaoContasCreateWithoutUsuarioInput[] | PrestacaoContasUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: PrestacaoContasCreateOrConnectWithoutUsuarioInput | PrestacaoContasCreateOrConnectWithoutUsuarioInput[]
+    createMany?: PrestacaoContasCreateManyUsuarioInputEnvelope
+    connect?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
   }
 
   export type AtestadoUncheckedCreateNestedManyWithoutUsuarioInput = {
@@ -30558,18 +29298,18 @@ export namespace Prisma {
     deleteMany?: PontoScalarWhereInput | PontoScalarWhereInput[]
   }
 
-  export type PretacaoContasUpdateManyWithoutUsuarioNestedInput = {
-    create?: XOR<PretacaoContasCreateWithoutUsuarioInput, PretacaoContasUncheckedCreateWithoutUsuarioInput> | PretacaoContasCreateWithoutUsuarioInput[] | PretacaoContasUncheckedCreateWithoutUsuarioInput[]
-    connectOrCreate?: PretacaoContasCreateOrConnectWithoutUsuarioInput | PretacaoContasCreateOrConnectWithoutUsuarioInput[]
-    upsert?: PretacaoContasUpsertWithWhereUniqueWithoutUsuarioInput | PretacaoContasUpsertWithWhereUniqueWithoutUsuarioInput[]
-    createMany?: PretacaoContasCreateManyUsuarioInputEnvelope
-    set?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    disconnect?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    delete?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    connect?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    update?: PretacaoContasUpdateWithWhereUniqueWithoutUsuarioInput | PretacaoContasUpdateWithWhereUniqueWithoutUsuarioInput[]
-    updateMany?: PretacaoContasUpdateManyWithWhereWithoutUsuarioInput | PretacaoContasUpdateManyWithWhereWithoutUsuarioInput[]
-    deleteMany?: PretacaoContasScalarWhereInput | PretacaoContasScalarWhereInput[]
+  export type PrestacaoContasUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<PrestacaoContasCreateWithoutUsuarioInput, PrestacaoContasUncheckedCreateWithoutUsuarioInput> | PrestacaoContasCreateWithoutUsuarioInput[] | PrestacaoContasUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: PrestacaoContasCreateOrConnectWithoutUsuarioInput | PrestacaoContasCreateOrConnectWithoutUsuarioInput[]
+    upsert?: PrestacaoContasUpsertWithWhereUniqueWithoutUsuarioInput | PrestacaoContasUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: PrestacaoContasCreateManyUsuarioInputEnvelope
+    set?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    disconnect?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    delete?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    connect?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    update?: PrestacaoContasUpdateWithWhereUniqueWithoutUsuarioInput | PrestacaoContasUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: PrestacaoContasUpdateManyWithWhereWithoutUsuarioInput | PrestacaoContasUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: PrestacaoContasScalarWhereInput | PrestacaoContasScalarWhereInput[]
   }
 
   export type AtestadoUpdateManyWithoutUsuarioNestedInput = {
@@ -30776,18 +29516,18 @@ export namespace Prisma {
     deleteMany?: PontoScalarWhereInput | PontoScalarWhereInput[]
   }
 
-  export type PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput = {
-    create?: XOR<PretacaoContasCreateWithoutUsuarioInput, PretacaoContasUncheckedCreateWithoutUsuarioInput> | PretacaoContasCreateWithoutUsuarioInput[] | PretacaoContasUncheckedCreateWithoutUsuarioInput[]
-    connectOrCreate?: PretacaoContasCreateOrConnectWithoutUsuarioInput | PretacaoContasCreateOrConnectWithoutUsuarioInput[]
-    upsert?: PretacaoContasUpsertWithWhereUniqueWithoutUsuarioInput | PretacaoContasUpsertWithWhereUniqueWithoutUsuarioInput[]
-    createMany?: PretacaoContasCreateManyUsuarioInputEnvelope
-    set?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    disconnect?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    delete?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    connect?: PretacaoContasWhereUniqueInput | PretacaoContasWhereUniqueInput[]
-    update?: PretacaoContasUpdateWithWhereUniqueWithoutUsuarioInput | PretacaoContasUpdateWithWhereUniqueWithoutUsuarioInput[]
-    updateMany?: PretacaoContasUpdateManyWithWhereWithoutUsuarioInput | PretacaoContasUpdateManyWithWhereWithoutUsuarioInput[]
-    deleteMany?: PretacaoContasScalarWhereInput | PretacaoContasScalarWhereInput[]
+  export type PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<PrestacaoContasCreateWithoutUsuarioInput, PrestacaoContasUncheckedCreateWithoutUsuarioInput> | PrestacaoContasCreateWithoutUsuarioInput[] | PrestacaoContasUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: PrestacaoContasCreateOrConnectWithoutUsuarioInput | PrestacaoContasCreateOrConnectWithoutUsuarioInput[]
+    upsert?: PrestacaoContasUpsertWithWhereUniqueWithoutUsuarioInput | PrestacaoContasUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: PrestacaoContasCreateManyUsuarioInputEnvelope
+    set?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    disconnect?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    delete?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    connect?: PrestacaoContasWhereUniqueInput | PrestacaoContasWhereUniqueInput[]
+    update?: PrestacaoContasUpdateWithWhereUniqueWithoutUsuarioInput | PrestacaoContasUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: PrestacaoContasUpdateManyWithWhereWithoutUsuarioInput | PrestacaoContasUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: PrestacaoContasScalarWhereInput | PrestacaoContasScalarWhereInput[]
   }
 
   export type AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput = {
@@ -31354,10 +30094,22 @@ export namespace Prisma {
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutComentariosPublicadosInput, UsuarioUpdateWithoutComentariosPublicadosInput>, UsuarioUncheckedUpdateWithoutComentariosPublicadosInput>
   }
 
-  export type PontoCreateNestedOneWithoutLocalizacaoInput = {
-    create?: XOR<PontoCreateWithoutLocalizacaoInput, PontoUncheckedCreateWithoutLocalizacaoInput>
-    connectOrCreate?: PontoCreateOrConnectWithoutLocalizacaoInput
-    connect?: PontoWhereUniqueInput
+  export type UsuarioCreateNestedOneWithoutPontosUsuarioInput = {
+    create?: XOR<UsuarioCreateWithoutPontosUsuarioInput, UsuarioUncheckedCreateWithoutPontosUsuarioInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutPontosUsuarioInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type AjustePontoCreateNestedOneWithoutPontoInput = {
+    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
+    connect?: AjustePontoWhereUniqueInput
+  }
+
+  export type AjustePontoUncheckedCreateNestedOneWithoutPontoInput = {
+    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
+    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
+    connect?: AjustePontoWhereUniqueInput
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -31368,60 +30120,12 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type PontoUpdateOneRequiredWithoutLocalizacaoNestedInput = {
-    create?: XOR<PontoCreateWithoutLocalizacaoInput, PontoUncheckedCreateWithoutLocalizacaoInput>
-    connectOrCreate?: PontoCreateOrConnectWithoutLocalizacaoInput
-    upsert?: PontoUpsertWithoutLocalizacaoInput
-    connect?: PontoWhereUniqueInput
-    update?: XOR<XOR<PontoUpdateToOneWithWhereWithoutLocalizacaoInput, PontoUpdateWithoutLocalizacaoInput>, PontoUncheckedUpdateWithoutLocalizacaoInput>
-  }
-
-  export type UsuarioCreateNestedOneWithoutPontosUsuarioInput = {
-    create?: XOR<UsuarioCreateWithoutPontosUsuarioInput, UsuarioUncheckedCreateWithoutPontosUsuarioInput>
-    connectOrCreate?: UsuarioCreateOrConnectWithoutPontosUsuarioInput
-    connect?: UsuarioWhereUniqueInput
-  }
-
-  export type LocalizacaoCreateNestedOneWithoutPontoInput = {
-    create?: XOR<LocalizacaoCreateWithoutPontoInput, LocalizacaoUncheckedCreateWithoutPontoInput>
-    connectOrCreate?: LocalizacaoCreateOrConnectWithoutPontoInput
-    connect?: LocalizacaoWhereUniqueInput
-  }
-
-  export type AjustePontoCreateNestedOneWithoutPontoInput = {
-    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
-    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
-    connect?: AjustePontoWhereUniqueInput
-  }
-
-  export type LocalizacaoUncheckedCreateNestedOneWithoutPontoInput = {
-    create?: XOR<LocalizacaoCreateWithoutPontoInput, LocalizacaoUncheckedCreateWithoutPontoInput>
-    connectOrCreate?: LocalizacaoCreateOrConnectWithoutPontoInput
-    connect?: LocalizacaoWhereUniqueInput
-  }
-
-  export type AjustePontoUncheckedCreateNestedOneWithoutPontoInput = {
-    create?: XOR<AjustePontoCreateWithoutPontoInput, AjustePontoUncheckedCreateWithoutPontoInput>
-    connectOrCreate?: AjustePontoCreateOrConnectWithoutPontoInput
-    connect?: AjustePontoWhereUniqueInput
-  }
-
   export type UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput = {
     create?: XOR<UsuarioCreateWithoutPontosUsuarioInput, UsuarioUncheckedCreateWithoutPontosUsuarioInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutPontosUsuarioInput
     upsert?: UsuarioUpsertWithoutPontosUsuarioInput
     connect?: UsuarioWhereUniqueInput
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutPontosUsuarioInput, UsuarioUpdateWithoutPontosUsuarioInput>, UsuarioUncheckedUpdateWithoutPontosUsuarioInput>
-  }
-
-  export type LocalizacaoUpdateOneWithoutPontoNestedInput = {
-    create?: XOR<LocalizacaoCreateWithoutPontoInput, LocalizacaoUncheckedCreateWithoutPontoInput>
-    connectOrCreate?: LocalizacaoCreateOrConnectWithoutPontoInput
-    upsert?: LocalizacaoUpsertWithoutPontoInput
-    disconnect?: LocalizacaoWhereInput | boolean
-    delete?: LocalizacaoWhereInput | boolean
-    connect?: LocalizacaoWhereUniqueInput
-    update?: XOR<XOR<LocalizacaoUpdateToOneWithWhereWithoutPontoInput, LocalizacaoUpdateWithoutPontoInput>, LocalizacaoUncheckedUpdateWithoutPontoInput>
   }
 
   export type AjustePontoUpdateOneWithoutPontoNestedInput = {
@@ -31432,16 +30136,6 @@ export namespace Prisma {
     delete?: AjustePontoWhereInput | boolean
     connect?: AjustePontoWhereUniqueInput
     update?: XOR<XOR<AjustePontoUpdateToOneWithWhereWithoutPontoInput, AjustePontoUpdateWithoutPontoInput>, AjustePontoUncheckedUpdateWithoutPontoInput>
-  }
-
-  export type LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput = {
-    create?: XOR<LocalizacaoCreateWithoutPontoInput, LocalizacaoUncheckedCreateWithoutPontoInput>
-    connectOrCreate?: LocalizacaoCreateOrConnectWithoutPontoInput
-    upsert?: LocalizacaoUpsertWithoutPontoInput
-    disconnect?: LocalizacaoWhereInput | boolean
-    delete?: LocalizacaoWhereInput | boolean
-    connect?: LocalizacaoWhereUniqueInput
-    update?: XOR<XOR<LocalizacaoUpdateToOneWithWhereWithoutPontoInput, LocalizacaoUpdateWithoutPontoInput>, LocalizacaoUncheckedUpdateWithoutPontoInput>
   }
 
   export type AjustePontoUncheckedUpdateOneWithoutPontoNestedInput = {
@@ -32259,7 +30953,7 @@ export namespace Prisma {
   export type CronogramaCreateWithoutGestorInput = {
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     demandasCronograma?: DemandaCreateNestedManyWithoutCronogramaInput
   }
 
@@ -32267,7 +30961,7 @@ export namespace Prisma {
     id?: number
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     demandasCronograma?: DemandaUncheckedCreateNestedManyWithoutCronogramaInput
   }
 
@@ -32286,7 +30980,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     comentariosDemanda?: ComentarioCreateNestedManyWithoutDemandaInput
@@ -32300,7 +30994,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
     comentariosDemanda?: ComentarioUncheckedCreateNestedManyWithoutDemandaInput
@@ -32321,7 +31015,7 @@ export namespace Prisma {
   export type AvisoCreateWithoutGestorInput = {
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     avisoUsuario?: AvisoUsuarioCreateNestedManyWithoutAvisoInput
   }
 
@@ -32329,7 +31023,7 @@ export namespace Prisma {
     id?: number
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     avisoUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutAvisoInput
   }
 
@@ -32369,19 +31063,21 @@ export namespace Prisma {
   }
 
   export type PontoCreateWithoutUsuarioInput = {
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
-    localizacao?: LocalizacaoCreateNestedOneWithoutPontoInput
+    latitude: number
+    longitude: number
     ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUncheckedCreateWithoutUsuarioInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
-    localizacao?: LocalizacaoUncheckedCreateNestedOneWithoutPontoInput
+    latitude: number
+    longitude: number
     ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
 
@@ -32395,35 +31091,35 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type PretacaoContasCreateWithoutUsuarioInput = {
+  export type PrestacaoContasCreateWithoutUsuarioInput = {
     descricao: string
     data: Date | string
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
   }
 
-  export type PretacaoContasUncheckedCreateWithoutUsuarioInput = {
+  export type PrestacaoContasUncheckedCreateWithoutUsuarioInput = {
     id?: number
     descricao: string
     data: Date | string
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
   }
 
-  export type PretacaoContasCreateOrConnectWithoutUsuarioInput = {
-    where: PretacaoContasWhereUniqueInput
-    create: XOR<PretacaoContasCreateWithoutUsuarioInput, PretacaoContasUncheckedCreateWithoutUsuarioInput>
+  export type PrestacaoContasCreateOrConnectWithoutUsuarioInput = {
+    where: PrestacaoContasWhereUniqueInput
+    create: XOR<PrestacaoContasCreateWithoutUsuarioInput, PrestacaoContasUncheckedCreateWithoutUsuarioInput>
   }
 
-  export type PretacaoContasCreateManyUsuarioInputEnvelope = {
-    data: PretacaoContasCreateManyUsuarioInput | PretacaoContasCreateManyUsuarioInput[]
+  export type PrestacaoContasCreateManyUsuarioInputEnvelope = {
+    data: PrestacaoContasCreateManyUsuarioInput | PrestacaoContasCreateManyUsuarioInput[]
     skipDuplicates?: boolean
   }
 
   export type AtestadoCreateWithoutUsuarioInput = {
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAtestado: Date | string
     horaInicio?: Date | string | null
     horaTermino?: Date | string | null
@@ -32433,7 +31129,7 @@ export namespace Prisma {
 
   export type AtestadoUncheckedCreateWithoutUsuarioInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAtestado: Date | string
     horaInicio?: Date | string | null
     horaTermino?: Date | string | null
@@ -32453,7 +31149,7 @@ export namespace Prisma {
 
   export type AssinaturaCreateWithoutUsuarioInput = {
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigital: CertificadoDigitalCreateNestedOneWithoutAssinaturasCertificadoInput
@@ -32463,7 +31159,7 @@ export namespace Prisma {
   export type AssinaturaUncheckedCreateWithoutUsuarioInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigitalId: number
@@ -32484,7 +31180,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     assinaturaDocumento?: AssinaturaCreateNestedOneWithoutDocumentoInput
   }
@@ -32494,7 +31190,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     assinaturaDocumento?: AssinaturaUncheckedCreateNestedOneWithoutDocumentoInput
   }
@@ -32513,7 +31209,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ponto: PontoCreateNestedOneWithoutAjusteInput
     gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
   }
@@ -32523,7 +31219,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     pontoId: number
     gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
   }
@@ -32540,13 +31236,13 @@ export namespace Prisma {
 
   export type GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ajustePonto: AjustePontoCreateNestedOneWithoutGerenciamentoAjusteInput
   }
 
   export type GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ajustePontoId: number
   }
 
@@ -32562,13 +31258,13 @@ export namespace Prisma {
 
   export type AvisoUsuarioCreateWithoutUsuarioInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     aviso: AvisoCreateNestedOneWithoutAvisoUsuarioInput
   }
 
   export type AvisoUsuarioUncheckedCreateWithoutUsuarioInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     avisoId: number
   }
 
@@ -32773,36 +31469,38 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFilter<"Ponto"> | Date | string
     ip?: StringFilter<"Ponto"> | string
     imagem?: StringFilter<"Ponto"> | string
+    latitude?: FloatFilter<"Ponto"> | number
+    longitude?: FloatFilter<"Ponto"> | number
     usuarioId?: IntFilter<"Ponto"> | number
   }
 
-  export type PretacaoContasUpsertWithWhereUniqueWithoutUsuarioInput = {
-    where: PretacaoContasWhereUniqueInput
-    update: XOR<PretacaoContasUpdateWithoutUsuarioInput, PretacaoContasUncheckedUpdateWithoutUsuarioInput>
-    create: XOR<PretacaoContasCreateWithoutUsuarioInput, PretacaoContasUncheckedCreateWithoutUsuarioInput>
+  export type PrestacaoContasUpsertWithWhereUniqueWithoutUsuarioInput = {
+    where: PrestacaoContasWhereUniqueInput
+    update: XOR<PrestacaoContasUpdateWithoutUsuarioInput, PrestacaoContasUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<PrestacaoContasCreateWithoutUsuarioInput, PrestacaoContasUncheckedCreateWithoutUsuarioInput>
   }
 
-  export type PretacaoContasUpdateWithWhereUniqueWithoutUsuarioInput = {
-    where: PretacaoContasWhereUniqueInput
-    data: XOR<PretacaoContasUpdateWithoutUsuarioInput, PretacaoContasUncheckedUpdateWithoutUsuarioInput>
+  export type PrestacaoContasUpdateWithWhereUniqueWithoutUsuarioInput = {
+    where: PrestacaoContasWhereUniqueInput
+    data: XOR<PrestacaoContasUpdateWithoutUsuarioInput, PrestacaoContasUncheckedUpdateWithoutUsuarioInput>
   }
 
-  export type PretacaoContasUpdateManyWithWhereWithoutUsuarioInput = {
-    where: PretacaoContasScalarWhereInput
-    data: XOR<PretacaoContasUpdateManyMutationInput, PretacaoContasUncheckedUpdateManyWithoutUsuarioInput>
+  export type PrestacaoContasUpdateManyWithWhereWithoutUsuarioInput = {
+    where: PrestacaoContasScalarWhereInput
+    data: XOR<PrestacaoContasUpdateManyMutationInput, PrestacaoContasUncheckedUpdateManyWithoutUsuarioInput>
   }
 
-  export type PretacaoContasScalarWhereInput = {
-    AND?: PretacaoContasScalarWhereInput | PretacaoContasScalarWhereInput[]
-    OR?: PretacaoContasScalarWhereInput[]
-    NOT?: PretacaoContasScalarWhereInput | PretacaoContasScalarWhereInput[]
-    id?: IntFilter<"PretacaoContas"> | number
-    descricao?: StringFilter<"PretacaoContas"> | string
-    data?: DateTimeFilter<"PretacaoContas"> | Date | string
-    valor?: DecimalFilter<"PretacaoContas"> | Decimal | DecimalJsLike | number | string
-    imagem?: StringFilter<"PretacaoContas"> | string
-    dateTimestamp?: DateTimeFilter<"PretacaoContas"> | Date | string
-    usuarioId?: IntFilter<"PretacaoContas"> | number
+  export type PrestacaoContasScalarWhereInput = {
+    AND?: PrestacaoContasScalarWhereInput | PrestacaoContasScalarWhereInput[]
+    OR?: PrestacaoContasScalarWhereInput[]
+    NOT?: PrestacaoContasScalarWhereInput | PrestacaoContasScalarWhereInput[]
+    id?: IntFilter<"PrestacaoContas"> | number
+    descricao?: StringFilter<"PrestacaoContas"> | string
+    data?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    valor?: DecimalFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
+    imagem?: StringFilter<"PrestacaoContas"> | string
+    dateTimestamp?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    usuarioId?: IntFilter<"PrestacaoContas"> | number
   }
 
   export type AtestadoUpsertWithWhereUniqueWithoutUsuarioInput = {
@@ -33050,7 +31748,7 @@ export namespace Prisma {
   export type CronogramaCreateWithoutDemandasCronogramaInput = {
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutCronogramasGerenciadosInput
   }
 
@@ -33058,7 +31756,7 @@ export namespace Prisma {
     id?: number
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestorUsuarioId: number
   }
 
@@ -33078,11 +31776,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -33106,11 +31805,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33236,11 +31936,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -33264,11 +31965,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33347,11 +32049,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -33375,11 +32078,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33401,7 +32105,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
     comentariosDemanda?: ComentarioCreateNestedManyWithoutDemandaInput
@@ -33415,7 +32119,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     gestorUsuarioId: number
     comentariosDemanda?: ComentarioUncheckedCreateNestedManyWithoutDemandaInput
@@ -33455,11 +32159,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -33483,11 +32188,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33526,11 +32232,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -33554,11 +32261,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33577,13 +32285,13 @@ export namespace Prisma {
 
   export type AvisoUsuarioCreateWithoutAvisoInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAvisosUsuarioInput
   }
 
   export type AvisoUsuarioUncheckedCreateWithoutAvisoInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
   }
 
@@ -33619,11 +32327,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -33647,11 +32356,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33786,7 +32496,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
@@ -33800,7 +32510,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
     gestorUsuarioId: number
@@ -33824,11 +32534,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -33852,11 +32563,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33933,11 +32645,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -33961,11 +32674,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33975,56 +32689,6 @@ export namespace Prisma {
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
-  }
-
-  export type PontoCreateWithoutLocalizacaoInput = {
-    dateTimestamp: Date | string
-    ip: string
-    imagem: string
-    usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
-    ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
-  }
-
-  export type PontoUncheckedCreateWithoutLocalizacaoInput = {
-    id?: number
-    dateTimestamp: Date | string
-    ip: string
-    imagem: string
-    usuarioId: number
-    ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
-  }
-
-  export type PontoCreateOrConnectWithoutLocalizacaoInput = {
-    where: PontoWhereUniqueInput
-    create: XOR<PontoCreateWithoutLocalizacaoInput, PontoUncheckedCreateWithoutLocalizacaoInput>
-  }
-
-  export type PontoUpsertWithoutLocalizacaoInput = {
-    update: XOR<PontoUpdateWithoutLocalizacaoInput, PontoUncheckedUpdateWithoutLocalizacaoInput>
-    create: XOR<PontoCreateWithoutLocalizacaoInput, PontoUncheckedCreateWithoutLocalizacaoInput>
-    where?: PontoWhereInput
-  }
-
-  export type PontoUpdateToOneWithWhereWithoutLocalizacaoInput = {
-    where?: PontoWhereInput
-    data: XOR<PontoUpdateWithoutLocalizacaoInput, PontoUncheckedUpdateWithoutLocalizacaoInput>
-  }
-
-  export type PontoUpdateWithoutLocalizacaoInput = {
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    ip?: StringFieldUpdateOperationsInput | string
-    imagem?: StringFieldUpdateOperationsInput | string
-    usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
-    ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
-  }
-
-  export type PontoUncheckedUpdateWithoutLocalizacaoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
-    ip?: StringFieldUpdateOperationsInput | string
-    imagem?: StringFieldUpdateOperationsInput | string
-    usuarioId?: IntFieldUpdateOperationsInput | number
-    ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
   export type UsuarioCreateWithoutPontosUsuarioInput = {
@@ -34038,11 +32702,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -34066,11 +32731,12 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34087,27 +32753,11 @@ export namespace Prisma {
     create: XOR<UsuarioCreateWithoutPontosUsuarioInput, UsuarioUncheckedCreateWithoutPontosUsuarioInput>
   }
 
-  export type LocalizacaoCreateWithoutPontoInput = {
-    latitude: number
-    longitude: number
-  }
-
-  export type LocalizacaoUncheckedCreateWithoutPontoInput = {
-    id?: number
-    latitude: number
-    longitude: number
-  }
-
-  export type LocalizacaoCreateOrConnectWithoutPontoInput = {
-    where: LocalizacaoWhereUniqueInput
-    create: XOR<LocalizacaoCreateWithoutPontoInput, LocalizacaoUncheckedCreateWithoutPontoInput>
-  }
-
   export type AjustePontoCreateWithoutPontoInput = {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
   }
@@ -34117,7 +32767,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
     gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
   }
@@ -34149,11 +32799,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -34177,11 +32828,12 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34191,28 +32843,6 @@ export namespace Prisma {
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
-  }
-
-  export type LocalizacaoUpsertWithoutPontoInput = {
-    update: XOR<LocalizacaoUpdateWithoutPontoInput, LocalizacaoUncheckedUpdateWithoutPontoInput>
-    create: XOR<LocalizacaoCreateWithoutPontoInput, LocalizacaoUncheckedCreateWithoutPontoInput>
-    where?: LocalizacaoWhereInput
-  }
-
-  export type LocalizacaoUpdateToOneWithWhereWithoutPontoInput = {
-    where?: LocalizacaoWhereInput
-    data: XOR<LocalizacaoUpdateWithoutPontoInput, LocalizacaoUncheckedUpdateWithoutPontoInput>
-  }
-
-  export type LocalizacaoUpdateWithoutPontoInput = {
-    latitude?: FloatFieldUpdateOperationsInput | number
-    longitude?: FloatFieldUpdateOperationsInput | number
-  }
-
-  export type LocalizacaoUncheckedUpdateWithoutPontoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    latitude?: FloatFieldUpdateOperationsInput | number
-    longitude?: FloatFieldUpdateOperationsInput | number
   }
 
   export type AjustePontoUpsertWithoutPontoInput = {
@@ -34256,6 +32886,7 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
@@ -34284,6 +32915,7 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
@@ -34327,6 +32959,7 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
@@ -34355,6 +32988,7 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
@@ -34382,12 +33016,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
@@ -34410,12 +33045,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34453,12 +33089,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
@@ -34481,12 +33118,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34528,12 +33166,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
@@ -34556,12 +33195,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34581,7 +33221,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     usuario: UsuarioCreateNestedOneWithoutDocumentosUsuarioInput
   }
@@ -34591,7 +33231,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
     usuarioId: number
   }
@@ -34649,12 +33289,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
@@ -34677,12 +33318,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34725,7 +33367,7 @@ export namespace Prisma {
 
   export type AssinaturaCreateWithoutCertificadoDigitalInput = {
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     usuario: UsuarioCreateNestedOneWithoutAssinaturasUsuarioInput
@@ -34735,7 +33377,7 @@ export namespace Prisma {
   export type AssinaturaUncheckedCreateWithoutCertificadoDigitalInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     usuarioId: number
@@ -34779,12 +33421,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
@@ -34807,12 +33450,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34830,7 +33474,7 @@ export namespace Prisma {
 
   export type AssinaturaCreateWithoutDocumentoInput = {
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigital: CertificadoDigitalCreateNestedOneWithoutAssinaturasCertificadoInput
@@ -34840,7 +33484,7 @@ export namespace Prisma {
   export type AssinaturaUncheckedCreateWithoutDocumentoInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigitalId: number
@@ -34874,12 +33518,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
@@ -34902,12 +33547,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34959,12 +33605,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -34987,12 +33634,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35009,20 +33657,22 @@ export namespace Prisma {
   }
 
   export type PontoCreateWithoutAjusteInput = {
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
     usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
-    localizacao?: LocalizacaoCreateNestedOneWithoutPontoInput
   }
 
   export type PontoUncheckedCreateWithoutAjusteInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
     usuarioId: number
-    localizacao?: LocalizacaoUncheckedCreateNestedOneWithoutPontoInput
   }
 
   export type PontoCreateOrConnectWithoutAjusteInput = {
@@ -35032,13 +33682,13 @@ export namespace Prisma {
 
   export type GerenciamentoAjsutePontoCreateWithoutAjustePontoInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioRh: UsuarioCreateNestedOneWithoutAjustesGerenciadosInput
   }
 
   export type GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     rhUsuarioId: number
   }
 
@@ -35074,12 +33724,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -35102,12 +33753,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35133,8 +33785,9 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
-    localizacao?: LocalizacaoUpdateOneWithoutPontoNestedInput
   }
 
   export type PontoUncheckedUpdateWithoutAjusteInput = {
@@ -35142,8 +33795,9 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
-    localizacao?: LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
   export type GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutAjustePontoInput = {
@@ -35166,7 +33820,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     ponto: PontoCreateNestedOneWithoutAjusteInput
   }
@@ -35176,7 +33830,7 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
   }
@@ -35197,12 +33851,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -35225,12 +33880,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35298,12 +33954,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -35326,12 +33983,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35353,12 +34011,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -35381,12 +34040,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35405,7 +34065,7 @@ export namespace Prisma {
   export type AvisoCreateWithoutAvisoUsuarioInput = {
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutAvisosGerenciadosInput
   }
 
@@ -35413,7 +34073,7 @@ export namespace Prisma {
     id?: number
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     gestorRhUsuarioId: number
   }
 
@@ -35444,12 +34104,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -35472,12 +34133,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35525,12 +34187,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -35553,12 +34216,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35616,12 +34280,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -35644,12 +34309,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35697,12 +34363,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -35725,12 +34392,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35788,12 +34456,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -35816,12 +34485,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35863,7 +34533,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
@@ -35877,7 +34547,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
     gestorUsuarioId: number
@@ -35979,7 +34649,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
@@ -35993,7 +34663,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
     gestorUsuarioId: number
@@ -36017,12 +34687,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
@@ -36045,12 +34716,13 @@ export namespace Prisma {
     dataDesligamento?: Date | string | null
     cargo: string
     funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
     cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
     demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
     avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
     comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
     pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -36126,12 +34798,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
@@ -36154,12 +34827,13 @@ export namespace Prisma {
     dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     cargo?: StringFieldUpdateOperationsInput | string
     funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
     demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
     avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
     comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
     pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    prestacaoContasUsuario?: PretacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -36174,7 +34848,7 @@ export namespace Prisma {
     id?: number
     titulo: string
     descricao: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
   }
 
   export type DemandaCreateManyGestorInput = {
@@ -36183,7 +34857,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
   }
@@ -36192,7 +34866,7 @@ export namespace Prisma {
     id?: number
     assunto: string
     conteudo: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
   }
 
   export type ComentarioCreateManyUsuarioInput = {
@@ -36205,23 +34879,25 @@ export namespace Prisma {
 
   export type PontoCreateManyUsuarioInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ip: string
     imagem: string
+    latitude: number
+    longitude: number
   }
 
-  export type PretacaoContasCreateManyUsuarioInput = {
+  export type PrestacaoContasCreateManyUsuarioInput = {
     id?: number
     descricao: string
     data: Date | string
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
   }
 
   export type AtestadoCreateManyUsuarioInput = {
     id?: number
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAtestado: Date | string
     horaInicio?: Date | string | null
     horaTermino?: Date | string | null
@@ -36232,7 +34908,7 @@ export namespace Prisma {
   export type AssinaturaCreateManyUsuarioInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     certificadoDigitalId: number
@@ -36244,7 +34920,7 @@ export namespace Prisma {
     nome: string
     url: string
     hash: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusDocumento
   }
 
@@ -36253,19 +34929,19 @@ export namespace Prisma {
     horario: Date | string
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     pontoId: number
   }
 
   export type GerenciamentoAjsutePontoCreateManyUsuarioRhInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     ajustePontoId: number
   }
 
   export type AvisoUsuarioCreateManyUsuarioInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     avisoId: number
   }
 
@@ -36390,7 +35066,8 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
-    localizacao?: LocalizacaoUpdateOneWithoutPontoNestedInput
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
 
@@ -36399,7 +35076,8 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
-    localizacao?: LocalizacaoUncheckedUpdateOneWithoutPontoNestedInput
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
     ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
@@ -36408,9 +35086,11 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
+    latitude?: FloatFieldUpdateOperationsInput | number
+    longitude?: FloatFieldUpdateOperationsInput | number
   }
 
-  export type PretacaoContasUpdateWithoutUsuarioInput = {
+  export type PrestacaoContasUpdateWithoutUsuarioInput = {
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -36418,7 +35098,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PretacaoContasUncheckedUpdateWithoutUsuarioInput = {
+  export type PrestacaoContasUncheckedUpdateWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -36427,7 +35107,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PretacaoContasUncheckedUpdateManyWithoutUsuarioInput = {
+  export type PrestacaoContasUncheckedUpdateManyWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
     descricao?: StringFieldUpdateOperationsInput | string
     data?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -36691,7 +35371,7 @@ export namespace Prisma {
     descricao: string
     prazo?: Date | string | null
     status: $Enums.StatusDemanda
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     gestorUsuarioId: number
   }
@@ -36736,7 +35416,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioCreateManyAvisoInput = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     usuarioId: number
   }
 
@@ -36809,7 +35489,7 @@ export namespace Prisma {
   export type AssinaturaCreateManyCertificadoDigitalInput = {
     id?: number
     assinatura: string
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     status: $Enums.StatusAssinatura
     ip: string
     usuarioId: number
@@ -36847,7 +35527,7 @@ export namespace Prisma {
 
   export type GerenciamentoAjsutePontoCreateManyAjustePontoInput = {
     status: $Enums.StatusAjuste
-    dateTimestamp: Date | string
+    dateTimestamp?: Date | string
     rhUsuarioId: number
   }
 

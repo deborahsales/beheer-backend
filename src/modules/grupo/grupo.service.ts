@@ -1,8 +1,7 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { FuncaoUsuario } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
 import { userSelect } from '../usuario/types/user-select.type';
-import { AddUsuarioDto } from './dto/add-usuario.dto';
 import { CreateGrupoDto } from './dto/create-grupo.dto';
 import { UpdateGrupoDto } from './dto/update-grupo.dto';
 
@@ -41,50 +40,6 @@ export class GrupoService {
 				},
 			},
 		});
-
-		return grupo;
-	}
-
-	async addGestor(dto: AddUsuarioDto) {
-		const usuario = await this.prisma.usuario.findUnique({
-			where: { id: dto.usuarioId },
-		});
-
-		if (!usuario) {
-			throw new BadRequestException('Usuário não encontrado');
-		}
-
-		if (usuario.funcao !== FuncaoUsuario.GESTOR) {
-			throw new BadRequestException('Usuário não possui permissão de gestor');
-		}
-
-		await this.prisma.grupoGestor.create({
-			data: dto,
-		});
-
-		const grupo = await this.findOne(dto.grupoId);
-
-		return grupo;
-	}
-
-	async addUsuario(dto: AddUsuarioDto) {
-		const usuario = await this.prisma.usuario.findUnique({
-			where: { id: dto.usuarioId },
-		});
-
-		if (!usuario) {
-			throw new BadRequestException('Usuário não encontrado');
-		}
-
-		if (usuario.funcao !== FuncaoUsuario.COLABORADOR) {
-			throw new BadRequestException('Usuário não possui permissão de gestor');
-		}
-
-		await this.prisma.usuarioGrupo.create({
-			data: dto,
-		});
-
-		const grupo = await this.findOne(dto.grupoId);
 
 		return grupo;
 	}
@@ -155,19 +110,96 @@ export class GrupoService {
 	}
 
 	async update(id: number, dto: UpdateGrupoDto, gestorId: number) {
-		const data: any = { ...dto };
-
 		const grupo = await this.findOne(id, gestorId);
 		if (!grupo) throw new NotFoundException('Grupo não encontrado ou acesso não autorizado');
 
-		const updated = await this.prisma.grupo.update({
+		await this.prisma.grupo.update({
 			where: { id: Number(id) },
 			data: {
 				nome: dto.nome,
 				descricao: dto.descricao,
 			},
 		});
-		return updated;
+
+		// Atualiza colaboradores
+		if (dto.usuarios) {
+			const usuariosValidos = await this.prisma.usuario.findMany({
+				where: {
+					id: { in: dto.usuarios },
+					funcao: FuncaoUsuario.COLABORADOR,
+				},
+				select: { id: true },
+			});
+
+			const novosUsuarios = usuariosValidos.map((u) => u.id);
+
+			const usuariosAtuais = await this.prisma.usuarioGrupo.findMany({
+				where: { grupoId: Number(id) },
+				select: { usuarioId: true },
+			});
+
+			const idsAtuais = usuariosAtuais.map((u) => u.usuarioId);
+
+			const remover = idsAtuais.filter((id) => !novosUsuarios.includes(id));
+			const adicionar = novosUsuarios.filter((id) => !idsAtuais.includes(id));
+
+			if (remover.length) {
+				await this.prisma.usuarioGrupo.deleteMany({
+					where: {
+						grupoId: Number(id),
+						usuarioId: { in: remover },
+					},
+				});
+			}
+
+			if (adicionar.length) {
+				await this.prisma.usuarioGrupo.createMany({
+					data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: Number(id) })),
+					skipDuplicates: true,
+				});
+			}
+		}
+
+		// Atualiza gestores
+		if (dto.gestores) {
+			const gestoresValidos = await this.prisma.usuario.findMany({
+				where: {
+					id: { in: dto.gestores },
+					funcao: FuncaoUsuario.GESTOR,
+				},
+				select: { id: true },
+			});
+
+			const novosGestores = gestoresValidos.map((u) => u.id);
+
+			const gestoresAtuais = await this.prisma.usuarioGrupo.findMany({
+				where: { grupoId: Number(id) },
+				select: { usuarioId: true },
+			});
+
+			const idsAtuais = gestoresAtuais.map((u) => u.usuarioId);
+
+			const remover = idsAtuais.filter((id) => !novosGestores.includes(id));
+			const adicionar = novosGestores.filter((id) => !idsAtuais.includes(id));
+
+			if (remover.length) {
+				await this.prisma.grupoGestor.deleteMany({
+					where: {
+						grupoId: Number(id),
+						usuarioId: { in: remover },
+					},
+				});
+			}
+
+			if (adicionar.length) {
+				await this.prisma.grupoGestor.createMany({
+					data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: Number(id) })),
+					skipDuplicates: true,
+				});
+			}
+		}
+
+		return this.findOne(id);
 	}
 
 	async remove(id: number, gestorId: number) {

@@ -22,7 +22,6 @@ const roles_guard_1 = require("../../common/guards/roles.guard");
 const prisma_1 = require("../../../generated/prisma/index.js");
 const create_grupo_dto_1 = require("./dto/create-grupo.dto");
 const grupo_entity_1 = require("./entities/grupo.entity");
-const add_usuario_dto_1 = require("./dto/add-usuario.dto");
 const update_grupo_dto_1 = require("./dto/update-grupo.dto");
 let GrupoController = class GrupoController {
     grupoService;
@@ -32,12 +31,6 @@ let GrupoController = class GrupoController {
     create(createGrupoDto, req) {
         const gestorId = req.user['id'];
         return this.grupoService.create(createGrupoDto, gestorId);
-    }
-    addGestor(addUsuarioDto) {
-        return this.grupoService.addGestor(addUsuarioDto);
-    }
-    addUsuario(addUsuarioDto) {
-        return this.grupoService.addUsuario(addUsuarioDto);
     }
     findAll(req) {
         const usuarioId = req.user['id'];
@@ -67,26 +60,6 @@ __decorate([
     __metadata("design:paramtypes", [create_grupo_dto_1.CreateGrupoDto, Object]),
     __metadata("design:returntype", void 0)
 ], GrupoController.prototype, "create", null);
-__decorate([
-    (0, common_1.Post)('/gestor'),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
-    (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
-    (0, swagger_1.ApiResponse)({ status: 201, type: grupo_entity_1.GrupoEntity }),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [add_usuario_dto_1.AddUsuarioDto]),
-    __metadata("design:returntype", void 0)
-], GrupoController.prototype, "addGestor", null);
-__decorate([
-    (0, common_1.Post)('/usuario'),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
-    (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
-    (0, swagger_1.ApiResponse)({ status: 201, type: grupo_entity_1.GrupoEntity }),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [add_usuario_dto_1.AddUsuarioDto]),
-    __metadata("design:returntype", void 0)
-], GrupoController.prototype, "addUsuario", null);
 __decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),

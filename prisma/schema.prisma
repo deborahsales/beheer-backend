@@ -33,13 +33,14 @@ model Usuario {
   dataDesligamento DateTime?
   cargo String
   funcao FuncaoUsuario @default(COLABORADOR)
+  dateTimestamp DateTime @default(now())
 
   cronogramasGerenciados Cronograma[] @relation("GestorUsuario")
   demandasGerenciadas Demanda[] @relation("GestorDemanda")
   avisosGerenciados Aviso[] @relation("GestorRHAviso")
   comentariosPublicados Comentario[] @relation("UsuarioComentario")
   pontosUsuario Ponto[] @relation("PontoUsuario")
-  prestacaoContasUsuario PretacaoContas[] @relation("PrestacaoContasUsuario")
+  prestacaoContasUsuario PrestacaoContas[] @relation("PrestacaoContasUsuario")
   atestadosUsuario Atestado[] @relation("AtestadoUsuario")
   assinaturasUsuario Assinatura[] @relation("AssinaturaUsuario")
   documentosUsuario Documento[] @relation("UsuarioDocumento")
@@ -70,7 +71,7 @@ model Demanda {
   descricao String
   prazo DateTime?
   status StatusDemanda
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now()) 
   prioridade PrioridadeDemanda
 
   cronogramaId  Int?
@@ -89,7 +90,7 @@ model Cronograma {
   id Int @id @default(autoincrement())
   titulo String
   descricao String
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
 
   gestorUsuarioId Int
   gestor Usuario @relation("GestorUsuario", fields: [gestorUsuarioId], references: [id], onDelete: Cascade)
@@ -101,7 +102,7 @@ model Aviso {
   id Int @id @default(autoincrement())
   assunto String
   conteudo String
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
 
   gestorRhUsuarioId Int
   gestor Usuario @relation("GestorRHAviso", fields: [gestorRhUsuarioId], references: [id], onDelete: Cascade)
@@ -132,35 +133,27 @@ model Comentario{
   usuario Usuario @relation("UsuarioComentario", fields: [usuarioId], references: [id], onDelete: Cascade)
 }
 
-model Localizacao{
-  id Int @id @default(autoincrement())
-  latitude Float
-  longitude Float
-
-  pontoId Int @unique
-  ponto Ponto @relation("LocalizacaoPonto", fields: [pontoId], references: [id], onDelete: Cascade)
-}
-
 model Ponto {
   id Int @id @default(autoincrement())
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
   ip String
-  imagem String
+  imagem String  
+  latitude Float
+  longitude Float
 
   usuarioId Int
   usuario Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
   
-  localizacao Localizacao? @relation("LocalizacaoPonto")
   ajuste AjustePonto? @relation("PontoAjuste")
 }
 
-model PretacaoContas {
+model PrestacaoContas {
   id Int @id @default(autoincrement())
   descricao String
   data DateTime
   valor Decimal
   imagem String
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
 
   usuarioId Int
   usuario Usuario @relation("PrestacaoContasUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
@@ -173,7 +166,7 @@ enum DiaInteiro {
 
 model Atestado {
   id Int @id @default(autoincrement())
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
   dataAtestado DateTime
   horaInicio DateTime?
   horaTermino DateTime?
@@ -193,7 +186,7 @@ enum StatusAssinatura {
 model Assinatura {
   id Int @id @default(autoincrement())
   assinatura String
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
   status StatusAssinatura
   ip String
 
@@ -235,7 +228,7 @@ model Documento{
   nome String
   url String
   hash String
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
   status StatusDocumento
 
   usuarioId Int
@@ -259,7 +252,7 @@ model AjustePonto {
   horario DateTime
   motivo MotivoAjuste
   status StatusAjuste
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
 
   usuarioId Int
   usuario Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id], onDelete: Cascade)
@@ -272,7 +265,7 @@ model AjustePonto {
 
 model GerenciamentoAjsutePonto {
   status StatusAjuste
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
 
   ajustePontoId Int
   ajustePonto AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id], onDelete: Cascade)
@@ -290,7 +283,7 @@ enum StatusAviso {
 
 model AvisoUsuario {
   status StatusAviso
-  dateTimestamp DateTime
+  dateTimestamp DateTime @default(now())
 
   usuarioId Int
   usuario Usuario @relation("UsuarioAviso", fields: [usuarioId], references: [id], onDelete: Cascade)

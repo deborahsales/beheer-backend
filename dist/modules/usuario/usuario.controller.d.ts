@@ -16,6 +16,7 @@ export declare class UsuarioController {
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         id: number;
+        dateTimestamp: Date;
     }>;
     findAll(): import("generated/prisma").Prisma.PrismaPromise<{
         cpf: string;
@@ -40,6 +41,7 @@ export declare class UsuarioController {
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         id: number;
+        dateTimestamp: Date;
     }>;
     update(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<{
         cpf: string;
@@ -52,6 +54,7 @@ export declare class UsuarioController {
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         id: number;
+        dateTimestamp: Date;
     }>;
     remove(id: number, req: RequestWithUser): Promise<void>;
 }

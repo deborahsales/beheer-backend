@@ -131,7 +131,8 @@ exports.Prisma.UsuarioScalarFieldEnum = {
   dataAdmissao: 'dataAdmissao',
   dataDesligamento: 'dataDesligamento',
   cargo: 'cargo',
-  funcao: 'funcao'
+  funcao: 'funcao',
+  dateTimestamp: 'dateTimestamp'
 };
 
 exports.Prisma.DemandaScalarFieldEnum = {
@@ -177,22 +178,17 @@ exports.Prisma.ComentarioScalarFieldEnum = {
   usuarioId: 'usuarioId'
 };
 
-exports.Prisma.LocalizacaoScalarFieldEnum = {
-  id: 'id',
-  latitude: 'latitude',
-  longitude: 'longitude',
-  pontoId: 'pontoId'
-};
-
 exports.Prisma.PontoScalarFieldEnum = {
   id: 'id',
   dateTimestamp: 'dateTimestamp',
   ip: 'ip',
   imagem: 'imagem',
+  latitude: 'latitude',
+  longitude: 'longitude',
   usuarioId: 'usuarioId'
 };
 
-exports.Prisma.PretacaoContasScalarFieldEnum = {
+exports.Prisma.PrestacaoContasScalarFieldEnum = {
   id: 'id',
   descricao: 'descricao',
   data: 'data',
@@ -366,9 +362,8 @@ exports.Prisma.ModelName = {
   Aviso: 'Aviso',
   Grupo: 'Grupo',
   Comentario: 'Comentario',
-  Localizacao: 'Localizacao',
   Ponto: 'Ponto',
-  PretacaoContas: 'PretacaoContas',
+  PrestacaoContas: 'PrestacaoContas',
   Atestado: 'Atestado',
   Assinatura: 'Assinatura',
   CertificadoDigital: 'CertificadoDigital',

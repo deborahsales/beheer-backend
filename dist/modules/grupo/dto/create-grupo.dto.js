@@ -16,6 +16,7 @@ class CreateGrupoDto {
     nome;
     descricao;
     usuarios;
+    gestores;
 }
 exports.CreateGrupoDto = CreateGrupoDto;
 __decorate([
@@ -37,4 +38,11 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Array)
 ], CreateGrupoDto.prototype, "usuarios", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ type: [Number], example: [2, 3] }),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsInt)({ each: true }),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateGrupoDto.prototype, "gestores", void 0);
 //# sourceMappingURL=create-grupo.dto.js.map

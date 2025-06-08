@@ -26,22 +26,6 @@ export class GrupoController {
 		return this.grupoService.create(createGrupoDto, gestorId);
 	}
 
-	@Post('/gestor')
-	@UseGuards(JwtAuthGuard, RolesGuard)
-	@Role(FuncaoUsuario.GESTOR)
-	@ApiResponse({ status: 201, type: GrupoEntity })
-	addGestor(@Body() addUsuarioDto: AddUsuarioDto) {
-		return this.grupoService.addGestor(addUsuarioDto);
-	}
-
-	@Post('/usuario')
-	@UseGuards(JwtAuthGuard, RolesGuard)
-	@Role(FuncaoUsuario.GESTOR)
-	@ApiResponse({ status: 201, type: GrupoEntity })
-	addUsuario(@Body() addUsuarioDto: AddUsuarioDto) {
-		return this.grupoService.addUsuario(addUsuarioDto);
-	}
-
 	@Get()
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: [GrupoEntity] })
