@@ -1,4 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Req, UseGuards } from '@nestjs/common';
+import {
+	Body,
+	Controller,
+	Delete,
+	Get,
+	Param,
+	Patch,
+	Post,
+	Query,
+	Req,
+	UseGuards,
+} from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { FuncaoUsuario } from 'generated/prisma';
 import { Role } from 'src/common/decorators/role.decorator';
@@ -7,6 +18,7 @@ import { RolesGuard } from 'src/common/guards/roles.guard';
 import { RequestWithUser } from '../auth/interfaces/request-with-user.interface';
 import { DemandaService } from './demanda.service';
 import { CreateDemandaDto } from './dto/create-demanda.dto';
+import { FilterDemandasDto } from './dto/filter-demanda.dto';
 import { UpdateDemandaDto } from './dto/update-demanda.dto';
 import { DemandaEntity } from './entitities/demanda.entity';
 
@@ -28,9 +40,9 @@ export class DemandaController {
 	@Get()
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: [DemandaEntity] })
-	findAll(@Req() req: RequestWithUser) {
+	findAll(@Query() filterDemandasDto: FilterDemandasDto, @Req() req: RequestWithUser) {
 		const usuarioId = req.user['id'];
-		return this.demandaService.findAll(usuarioId);
+		return this.demandaService.findAll(usuarioId, filterDemandasDto);
 	}
 
 	@Get(':id')

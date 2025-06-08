@@ -3,6 +3,7 @@ import { FuncaoUsuario } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
 import { userSelect } from '../usuario/types/user-select.type';
 import { CreateDemandaDto } from './dto/create-demanda.dto';
+import { FilterDemandasDto } from './dto/filter-demanda.dto';
 import { UpdateDemandaDto } from './dto/update-demanda.dto';
 
 @Injectable()
@@ -17,18 +18,14 @@ export class DemandaService {
 		return demanda;
 	}
 
-	async findAll(usuarioId: number) {
+	async findAll(usuarioId: number, filters: FilterDemandasDto) {
 		const gruposUsuario = await this.prisma.grupo.findMany({
 			where: {
-				OR: [
-					{
-						usuarios: {
-							some: {
-								usuarioId: usuarioId,
-							},
-						},
+				usuarios: {
+					some: {
+						usuarioId: usuarioId,
 					},
-				],
+				},
 			},
 			include: {
 				usuarios: {
@@ -40,6 +37,8 @@ export class DemandaService {
 		});
 
 		const grupoIds = gruposUsuario.map((grupo) => grupo.id);
+
+		const { status, prioridade } = filters;
 
 		return this.prisma.demanda.findMany({
 			where: {
@@ -62,6 +61,8 @@ export class DemandaService {
 						},
 					},
 				],
+				status: status ? { equals: status } : undefined,
+				prioridade: prioridade ? { equals: prioridade } : undefined,
 			},
 		});
 	}

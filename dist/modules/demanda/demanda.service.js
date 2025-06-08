@@ -25,18 +25,14 @@ let DemandaService = class DemandaService {
         });
         return demanda;
     }
-    async findAll(usuarioId) {
+    async findAll(usuarioId, filters) {
         const gruposUsuario = await this.prisma.grupo.findMany({
             where: {
-                OR: [
-                    {
-                        usuarios: {
-                            some: {
-                                usuarioId: usuarioId,
-                            },
-                        },
+                usuarios: {
+                    some: {
+                        usuarioId: usuarioId,
                     },
-                ],
+                },
             },
             include: {
                 usuarios: {
@@ -47,6 +43,7 @@ let DemandaService = class DemandaService {
             },
         });
         const grupoIds = gruposUsuario.map((grupo) => grupo.id);
+        const { status, prioridade } = filters;
         return this.prisma.demanda.findMany({
             where: {
                 OR: [
@@ -68,6 +65,8 @@ let DemandaService = class DemandaService {
                         },
                     },
                 ],
+                status: status ? { equals: status } : undefined,
+                prioridade: prioridade ? { equals: prioridade } : undefined,
             },
         });
     }

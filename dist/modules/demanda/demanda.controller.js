@@ -21,6 +21,7 @@ const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
 const demanda_service_1 = require("./demanda.service");
 const create_demanda_dto_1 = require("./dto/create-demanda.dto");
+const filter_demanda_dto_1 = require("./dto/filter-demanda.dto");
 const update_demanda_dto_1 = require("./dto/update-demanda.dto");
 const demanda_entity_1 = require("./entitities/demanda.entity");
 let DemandaController = class DemandaController {
@@ -32,9 +33,9 @@ let DemandaController = class DemandaController {
         const gestorId = req.user['id'];
         return this.demandaService.create(createDemandaDto, gestorId);
     }
-    findAll(req) {
+    findAll(filterDemandasDto, req) {
         const usuarioId = req.user['id'];
-        return this.demandaService.findAll(usuarioId);
+        return this.demandaService.findAll(usuarioId, filterDemandasDto);
     }
     findOne(id) {
         return this.demandaService.findOne(Number(id));
@@ -64,9 +65,10 @@ __decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: [demanda_entity_1.DemandaEntity] }),
-    __param(0, (0, common_1.Req)()),
+    __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [filter_demanda_dto_1.FilterDemandasDto, Object]),
     __metadata("design:returntype", void 0)
 ], DemandaController.prototype, "findAll", null);
 __decorate([
