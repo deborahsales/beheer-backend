@@ -120,10 +120,10 @@ model Grupo {
 }
 
 model Comentario {
-  id             Int       @id @default(autoincrement())
-  conteudo       String
-  dateTtimestamp DateTime
-  dataAlteracao  DateTime?
+  id            Int       @id @default(autoincrement())
+  conteudo      String
+  dateTimestamp DateTime  @default(now())
+  dataAlteracao DateTime?
 
   demandaId Int
   demanda   Demanda @relation("DemandaComentario", fields: [demandaId], references: [id], onDelete: Cascade)

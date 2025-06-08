@@ -172,7 +172,7 @@ exports.Prisma.GrupoScalarFieldEnum = {
 exports.Prisma.ComentarioScalarFieldEnum = {
   id: 'id',
   conteudo: 'conteudo',
-  dateTtimestamp: 'dateTtimestamp',
+  dateTimestamp: 'dateTimestamp',
   dataAlteracao: 'dataAlteracao',
   demandaId: 'demandaId',
   usuarioId: 'usuarioId'

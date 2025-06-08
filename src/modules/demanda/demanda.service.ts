@@ -64,6 +64,10 @@ export class DemandaService {
 				status: status ? { equals: status } : undefined,
 				prioridade: prioridade ? { equals: prioridade } : undefined,
 			},
+			include: {
+				usuariosDemanda: true,
+				gruposDemanda: true,
+			},
 		});
 	}
 

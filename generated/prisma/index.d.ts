@@ -9284,7 +9284,7 @@ export namespace Prisma {
   export type ComentarioMinAggregateOutputType = {
     id: number | null
     conteudo: string | null
-    dateTtimestamp: Date | null
+    dateTimestamp: Date | null
     dataAlteracao: Date | null
     demandaId: number | null
     usuarioId: number | null
@@ -9293,7 +9293,7 @@ export namespace Prisma {
   export type ComentarioMaxAggregateOutputType = {
     id: number | null
     conteudo: string | null
-    dateTtimestamp: Date | null
+    dateTimestamp: Date | null
     dataAlteracao: Date | null
     demandaId: number | null
     usuarioId: number | null
@@ -9302,7 +9302,7 @@ export namespace Prisma {
   export type ComentarioCountAggregateOutputType = {
     id: number
     conteudo: number
-    dateTtimestamp: number
+    dateTimestamp: number
     dataAlteracao: number
     demandaId: number
     usuarioId: number
@@ -9325,7 +9325,7 @@ export namespace Prisma {
   export type ComentarioMinAggregateInputType = {
     id?: true
     conteudo?: true
-    dateTtimestamp?: true
+    dateTimestamp?: true
     dataAlteracao?: true
     demandaId?: true
     usuarioId?: true
@@ -9334,7 +9334,7 @@ export namespace Prisma {
   export type ComentarioMaxAggregateInputType = {
     id?: true
     conteudo?: true
-    dateTtimestamp?: true
+    dateTimestamp?: true
     dataAlteracao?: true
     demandaId?: true
     usuarioId?: true
@@ -9343,7 +9343,7 @@ export namespace Prisma {
   export type ComentarioCountAggregateInputType = {
     id?: true
     conteudo?: true
-    dateTtimestamp?: true
+    dateTimestamp?: true
     dataAlteracao?: true
     demandaId?: true
     usuarioId?: true
@@ -9439,7 +9439,7 @@ export namespace Prisma {
   export type ComentarioGroupByOutputType = {
     id: number
     conteudo: string
-    dateTtimestamp: Date
+    dateTimestamp: Date
     dataAlteracao: Date | null
     demandaId: number
     usuarioId: number
@@ -9467,7 +9467,7 @@ export namespace Prisma {
   export type ComentarioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     conteudo?: boolean
-    dateTtimestamp?: boolean
+    dateTimestamp?: boolean
     dataAlteracao?: boolean
     demandaId?: boolean
     usuarioId?: boolean
@@ -9478,7 +9478,7 @@ export namespace Prisma {
   export type ComentarioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     conteudo?: boolean
-    dateTtimestamp?: boolean
+    dateTimestamp?: boolean
     dataAlteracao?: boolean
     demandaId?: boolean
     usuarioId?: boolean
@@ -9489,7 +9489,7 @@ export namespace Prisma {
   export type ComentarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     conteudo?: boolean
-    dateTtimestamp?: boolean
+    dateTimestamp?: boolean
     dataAlteracao?: boolean
     demandaId?: boolean
     usuarioId?: boolean
@@ -9500,13 +9500,13 @@ export namespace Prisma {
   export type ComentarioSelectScalar = {
     id?: boolean
     conteudo?: boolean
-    dateTtimestamp?: boolean
+    dateTimestamp?: boolean
     dataAlteracao?: boolean
     demandaId?: boolean
     usuarioId?: boolean
   }
 
-  export type ComentarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "conteudo" | "dateTtimestamp" | "dataAlteracao" | "demandaId" | "usuarioId", ExtArgs["result"]["comentario"]>
+  export type ComentarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "conteudo" | "dateTimestamp" | "dataAlteracao" | "demandaId" | "usuarioId", ExtArgs["result"]["comentario"]>
   export type ComentarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     demanda?: boolean | DemandaDefaultArgs<ExtArgs>
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -9529,7 +9529,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       conteudo: string
-      dateTtimestamp: Date
+      dateTimestamp: Date
       dataAlteracao: Date | null
       demandaId: number
       usuarioId: number
@@ -9960,7 +9960,7 @@ export namespace Prisma {
   interface ComentarioFieldRefs {
     readonly id: FieldRef<"Comentario", 'Int'>
     readonly conteudo: FieldRef<"Comentario", 'String'>
-    readonly dateTtimestamp: FieldRef<"Comentario", 'DateTime'>
+    readonly dateTimestamp: FieldRef<"Comentario", 'DateTime'>
     readonly dataAlteracao: FieldRef<"Comentario", 'DateTime'>
     readonly demandaId: FieldRef<"Comentario", 'Int'>
     readonly usuarioId: FieldRef<"Comentario", 'Int'>
@@ -24887,7 +24887,7 @@ export namespace Prisma {
   export const ComentarioScalarFieldEnum: {
     id: 'id',
     conteudo: 'conteudo',
-    dateTtimestamp: 'dateTtimestamp',
+    dateTimestamp: 'dateTimestamp',
     dataAlteracao: 'dataAlteracao',
     demandaId: 'demandaId',
     usuarioId: 'usuarioId'
@@ -25683,7 +25683,7 @@ export namespace Prisma {
     NOT?: ComentarioWhereInput | ComentarioWhereInput[]
     id?: IntFilter<"Comentario"> | number
     conteudo?: StringFilter<"Comentario"> | string
-    dateTtimestamp?: DateTimeFilter<"Comentario"> | Date | string
+    dateTimestamp?: DateTimeFilter<"Comentario"> | Date | string
     dataAlteracao?: DateTimeNullableFilter<"Comentario"> | Date | string | null
     demandaId?: IntFilter<"Comentario"> | number
     usuarioId?: IntFilter<"Comentario"> | number
@@ -25694,7 +25694,7 @@ export namespace Prisma {
   export type ComentarioOrderByWithRelationInput = {
     id?: SortOrder
     conteudo?: SortOrder
-    dateTtimestamp?: SortOrder
+    dateTimestamp?: SortOrder
     dataAlteracao?: SortOrderInput | SortOrder
     demandaId?: SortOrder
     usuarioId?: SortOrder
@@ -25708,7 +25708,7 @@ export namespace Prisma {
     OR?: ComentarioWhereInput[]
     NOT?: ComentarioWhereInput | ComentarioWhereInput[]
     conteudo?: StringFilter<"Comentario"> | string
-    dateTtimestamp?: DateTimeFilter<"Comentario"> | Date | string
+    dateTimestamp?: DateTimeFilter<"Comentario"> | Date | string
     dataAlteracao?: DateTimeNullableFilter<"Comentario"> | Date | string | null
     demandaId?: IntFilter<"Comentario"> | number
     usuarioId?: IntFilter<"Comentario"> | number
@@ -25719,7 +25719,7 @@ export namespace Prisma {
   export type ComentarioOrderByWithAggregationInput = {
     id?: SortOrder
     conteudo?: SortOrder
-    dateTtimestamp?: SortOrder
+    dateTimestamp?: SortOrder
     dataAlteracao?: SortOrderInput | SortOrder
     demandaId?: SortOrder
     usuarioId?: SortOrder
@@ -25736,7 +25736,7 @@ export namespace Prisma {
     NOT?: ComentarioScalarWhereWithAggregatesInput | ComentarioScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Comentario"> | number
     conteudo?: StringWithAggregatesFilter<"Comentario"> | string
-    dateTtimestamp?: DateTimeWithAggregatesFilter<"Comentario"> | Date | string
+    dateTimestamp?: DateTimeWithAggregatesFilter<"Comentario"> | Date | string
     dataAlteracao?: DateTimeNullableWithAggregatesFilter<"Comentario"> | Date | string | null
     demandaId?: IntWithAggregatesFilter<"Comentario"> | number
     usuarioId?: IntWithAggregatesFilter<"Comentario"> | number
@@ -26943,7 +26943,7 @@ export namespace Prisma {
 
   export type ComentarioCreateInput = {
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     demanda: DemandaCreateNestedOneWithoutComentariosDemandaInput
     usuario: UsuarioCreateNestedOneWithoutComentariosPublicadosInput
@@ -26952,7 +26952,7 @@ export namespace Prisma {
   export type ComentarioUncheckedCreateInput = {
     id?: number
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     demandaId: number
     usuarioId: number
@@ -26960,7 +26960,7 @@ export namespace Prisma {
 
   export type ComentarioUpdateInput = {
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     demanda?: DemandaUpdateOneRequiredWithoutComentariosDemandaNestedInput
     usuario?: UsuarioUpdateOneRequiredWithoutComentariosPublicadosNestedInput
@@ -26969,7 +26969,7 @@ export namespace Prisma {
   export type ComentarioUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     demandaId?: IntFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
@@ -26978,7 +26978,7 @@ export namespace Prisma {
   export type ComentarioCreateManyInput = {
     id?: number
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     demandaId: number
     usuarioId: number
@@ -26986,14 +26986,14 @@ export namespace Prisma {
 
   export type ComentarioUpdateManyMutationInput = {
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ComentarioUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     demandaId?: IntFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
@@ -28271,7 +28271,7 @@ export namespace Prisma {
   export type ComentarioCountOrderByAggregateInput = {
     id?: SortOrder
     conteudo?: SortOrder
-    dateTtimestamp?: SortOrder
+    dateTimestamp?: SortOrder
     dataAlteracao?: SortOrder
     demandaId?: SortOrder
     usuarioId?: SortOrder
@@ -28286,7 +28286,7 @@ export namespace Prisma {
   export type ComentarioMaxOrderByAggregateInput = {
     id?: SortOrder
     conteudo?: SortOrder
-    dateTtimestamp?: SortOrder
+    dateTimestamp?: SortOrder
     dataAlteracao?: SortOrder
     demandaId?: SortOrder
     usuarioId?: SortOrder
@@ -28295,7 +28295,7 @@ export namespace Prisma {
   export type ComentarioMinOrderByAggregateInput = {
     id?: SortOrder
     conteudo?: SortOrder
-    dateTtimestamp?: SortOrder
+    dateTimestamp?: SortOrder
     dataAlteracao?: SortOrder
     demandaId?: SortOrder
     usuarioId?: SortOrder
@@ -31039,7 +31039,7 @@ export namespace Prisma {
 
   export type ComentarioCreateWithoutUsuarioInput = {
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     demanda: DemandaCreateNestedOneWithoutComentariosDemandaInput
   }
@@ -31047,7 +31047,7 @@ export namespace Prisma {
   export type ComentarioUncheckedCreateWithoutUsuarioInput = {
     id?: number
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     demandaId: number
   }
@@ -31439,7 +31439,7 @@ export namespace Prisma {
     NOT?: ComentarioScalarWhereInput | ComentarioScalarWhereInput[]
     id?: IntFilter<"Comentario"> | number
     conteudo?: StringFilter<"Comentario"> | string
-    dateTtimestamp?: DateTimeFilter<"Comentario"> | Date | string
+    dateTimestamp?: DateTimeFilter<"Comentario"> | Date | string
     dataAlteracao?: DateTimeNullableFilter<"Comentario"> | Date | string | null
     demandaId?: IntFilter<"Comentario"> | number
     usuarioId?: IntFilter<"Comentario"> | number
@@ -31829,7 +31829,7 @@ export namespace Prisma {
 
   export type ComentarioCreateWithoutDemandaInput = {
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     usuario: UsuarioCreateNestedOneWithoutComentariosPublicadosInput
   }
@@ -31837,7 +31837,7 @@ export namespace Prisma {
   export type ComentarioUncheckedCreateWithoutDemandaInput = {
     id?: number
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     usuarioId: number
   }
@@ -34872,7 +34872,7 @@ export namespace Prisma {
   export type ComentarioCreateManyUsuarioInput = {
     id?: number
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     demandaId: number
   }
@@ -35041,7 +35041,7 @@ export namespace Prisma {
 
   export type ComentarioUpdateWithoutUsuarioInput = {
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     demanda?: DemandaUpdateOneRequiredWithoutComentariosDemandaNestedInput
   }
@@ -35049,7 +35049,7 @@ export namespace Prisma {
   export type ComentarioUncheckedUpdateWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     demandaId?: IntFieldUpdateOperationsInput | number
   }
@@ -35057,7 +35057,7 @@ export namespace Prisma {
   export type ComentarioUncheckedUpdateManyWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     demandaId?: IntFieldUpdateOperationsInput | number
   }
@@ -35305,7 +35305,7 @@ export namespace Prisma {
   export type ComentarioCreateManyDemandaInput = {
     id?: number
     conteudo: string
-    dateTtimestamp: Date | string
+    dateTimestamp?: Date | string
     dataAlteracao?: Date | string | null
     usuarioId: number
   }
@@ -35320,7 +35320,7 @@ export namespace Prisma {
 
   export type ComentarioUpdateWithoutDemandaInput = {
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     usuario?: UsuarioUpdateOneRequiredWithoutComentariosPublicadosNestedInput
   }
@@ -35328,7 +35328,7 @@ export namespace Prisma {
   export type ComentarioUncheckedUpdateWithoutDemandaInput = {
     id?: IntFieldUpdateOperationsInput | number
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -35336,7 +35336,7 @@ export namespace Prisma {
   export type ComentarioUncheckedUpdateManyWithoutDemandaInput = {
     id?: IntFieldUpdateOperationsInput | number
     conteudo?: StringFieldUpdateOperationsInput | string
-    dateTtimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     dataAlteracao?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
