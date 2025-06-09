@@ -27,7 +27,7 @@ class UsuarioEntity {
 exports.UsuarioEntity = UsuarioEntity;
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], UsuarioEntity.prototype, "id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),

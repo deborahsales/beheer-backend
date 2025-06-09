@@ -3,7 +3,7 @@ import { FuncaoUsuario } from 'generated/prisma';
 
 export class UsuarioEntity {
 	@ApiProperty()
-	id: string;
+	id: number;
 
 	@ApiProperty()
 	cpf: string;

@@ -1,63 +1,10 @@
 import { PrismaService } from '../prisma/prisma.service';
-import { AddUsuarioDto } from './dto/add-usuario.dto';
 import { CreateGrupoDto } from './dto/create-grupo.dto';
 import { UpdateGrupoDto } from './dto/update-grupo.dto';
 export declare class GrupoService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateGrupoDto, gestorId: number): Promise<{
-        usuarios: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-        gestores: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-    } & {
-        nome: string;
-        id: number;
-        descricao: string;
-    }>;
-    addGestor(dto: AddUsuarioDto): Promise<{
-        usuarios: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-        gestores: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-    } & {
-        nome: string;
-        id: number;
-        descricao: string;
-    }>;
-    addUsuario(dto: AddUsuarioDto): Promise<{
         usuarios: ({
             usuario: {
                 nome: string;
@@ -136,9 +83,34 @@ export declare class GrupoService {
         descricao: string;
     }>;
     update(id: number, dto: UpdateGrupoDto, gestorId: number): Promise<{
+        usuarios: ({
+            usuario: {
+                nome: string;
+                email: string;
+                cargo: string;
+            };
+        } & {
+            usuarioId: number;
+            grupoId: number;
+        })[];
+        gestores: ({
+            usuario: {
+                nome: string;
+                email: string;
+                cargo: string;
+            };
+        } & {
+            usuarioId: number;
+            grupoId: number;
+        })[];
+    } & {
         nome: string;
         id: number;
         descricao: string;
     }>;
-    remove(id: number, gestorId: number): Promise<void>;
+    remove(id: number, gestorId: number): Promise<{
+        nome: string;
+        id: number;
+        descricao: string;
+    }>;
 }

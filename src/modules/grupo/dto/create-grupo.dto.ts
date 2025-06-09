@@ -17,4 +17,10 @@ export class CreateGrupoDto {
 	@IsInt({ each: true })
 	@IsOptional()
 	usuarios?: number[];
+
+	@ApiProperty({ type: [Number], example: [2, 3] })
+	@IsArray()
+	@IsInt({ each: true })
+	@IsOptional()
+	gestores?: number[];
 }

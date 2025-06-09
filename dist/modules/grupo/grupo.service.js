@@ -20,7 +20,17 @@ let GrupoService = class GrupoService {
         this.prisma = prisma;
     }
     async create(dto, gestorId) {
-        const grupo = await this.prisma.grupo.create({
+        const colaboradores = dto.usuarios?.length
+            ? await this.prisma.usuario.findMany({
+                where: {
+                    id: { in: dto.usuarios },
+                    funcao: prisma_1.FuncaoUsuario.COLABORADOR,
+                },
+                select: { id: true },
+            })
+            : [];
+        const colaboradorIds = colaboradores.map((u) => u.id);
+        return this.prisma.grupo.create({
             data: {
                 nome: dto.nome,
                 descricao: dto.descricao,
@@ -29,9 +39,9 @@ let GrupoService = class GrupoService {
                         usuarioId: gestorId,
                     },
                 },
-                usuarios: dto.usuarios?.length
+                usuarios: colaboradorIds.length
                     ? {
-                        create: dto.usuarios.map((id) => ({
+                        create: colaboradorIds.map((id) => ({
                             usuarioId: id,
                         })),
                     }
@@ -50,39 +60,6 @@ let GrupoService = class GrupoService {
                 },
             },
         });
-        return grupo;
-    }
-    async addGestor(dto) {
-        const usuario = await this.prisma.usuario.findUnique({
-            where: { id: dto.usuarioId },
-        });
-        if (!usuario) {
-            throw new common_1.BadRequestException('Usuário não encontrado');
-        }
-        if (usuario.funcao !== prisma_1.FuncaoUsuario.GESTOR) {
-            throw new common_1.BadRequestException('Usuário não possui permissão de gestor');
-        }
-        await this.prisma.grupoGestor.create({
-            data: dto,
-        });
-        const grupo = await this.findOne(dto.grupoId);
-        return grupo;
-    }
-    async addUsuario(dto) {
-        const usuario = await this.prisma.usuario.findUnique({
-            where: { id: dto.usuarioId },
-        });
-        if (!usuario) {
-            throw new common_1.BadRequestException('Usuário não encontrado');
-        }
-        if (usuario.funcao !== prisma_1.FuncaoUsuario.COLABORADOR) {
-            throw new common_1.BadRequestException('Usuário não possui permissão de gestor');
-        }
-        await this.prisma.usuarioGrupo.create({
-            data: dto,
-        });
-        const grupo = await this.findOne(dto.grupoId);
-        return grupo;
     }
     findAll(usuarioId) {
         return this.prisma.grupo.findMany({
@@ -121,7 +98,7 @@ let GrupoService = class GrupoService {
     async findOne(id, gestorId) {
         const grupo = await this.prisma.grupo.findFirst({
             where: {
-                id: Number(id),
+                id: id,
                 ...(gestorId && {
                     gestores: {
                         some: {
@@ -144,28 +121,88 @@ let GrupoService = class GrupoService {
             },
         });
         if (!grupo)
-            throw new common_1.NotFoundException('Grupo não encontrado');
+            throw new common_1.NotFoundException('Grupo não encontrado ou acesso não autorizado');
         return grupo;
     }
     async update(id, dto, gestorId) {
-        const data = { ...dto };
-        const grupo = await this.findOne(id, gestorId);
-        if (!grupo)
-            throw new common_1.NotFoundException('Grupo não encontrado ou acesso não autorizado');
-        const updated = await this.prisma.grupo.update({
-            where: { id: Number(id) },
+        await this.findOne(id, gestorId);
+        await this.prisma.grupo.update({
+            where: { id: id },
             data: {
                 nome: dto.nome,
                 descricao: dto.descricao,
             },
         });
-        return updated;
+        if (dto.usuarios) {
+            const usuariosValidos = await this.prisma.usuario.findMany({
+                where: {
+                    id: { in: dto.usuarios },
+                    funcao: prisma_1.FuncaoUsuario.COLABORADOR,
+                },
+                select: { id: true },
+            });
+            const novosUsuarios = usuariosValidos.map((u) => u.id);
+            const usuariosAtuais = await this.prisma.usuarioGrupo.findMany({
+                where: { grupoId: id },
+                select: { usuarioId: true },
+            });
+            const idsAtuais = usuariosAtuais.map((u) => u.usuarioId);
+            const remover = idsAtuais.filter((id) => !novosUsuarios.includes(id));
+            const adicionar = novosUsuarios.filter((id) => !idsAtuais.includes(id));
+            if (remover.length) {
+                await this.prisma.usuarioGrupo.deleteMany({
+                    where: {
+                        grupoId: id,
+                        usuarioId: { in: remover },
+                    },
+                });
+            }
+            if (adicionar.length) {
+                await this.prisma.usuarioGrupo.createMany({
+                    data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: id })),
+                    skipDuplicates: true,
+                });
+            }
+        }
+        if (dto.gestores) {
+            const gestoresValidos = await this.prisma.usuario.findMany({
+                where: {
+                    id: { in: dto.gestores },
+                    funcao: prisma_1.FuncaoUsuario.GESTOR,
+                },
+                select: { id: true },
+            });
+            let novosGestores = gestoresValidos.map((u) => u.id);
+            if (!novosGestores.includes(gestorId)) {
+                novosGestores.push(gestorId);
+            }
+            const gestoresAtuais = await this.prisma.usuarioGrupo.findMany({
+                where: { grupoId: id },
+                select: { usuarioId: true },
+            });
+            const idsAtuais = gestoresAtuais.map((u) => u.usuarioId);
+            const remover = idsAtuais.filter((id) => !novosGestores.includes(id));
+            const adicionar = novosGestores.filter((id) => !idsAtuais.includes(id));
+            if (remover.length) {
+                await this.prisma.grupoGestor.deleteMany({
+                    where: {
+                        grupoId: id,
+                        usuarioId: { in: remover },
+                    },
+                });
+            }
+            if (adicionar.length) {
+                await this.prisma.grupoGestor.createMany({
+                    data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: id })),
+                    skipDuplicates: true,
+                });
+            }
+        }
+        return this.findOne(id);
     }
     async remove(id, gestorId) {
-        const grupo = await this.findOne(id, gestorId);
-        if (!grupo)
-            throw new common_1.NotFoundException('Grupo não encontrado ou acesso não autorizado');
-        await this.prisma.grupo.delete({ where: { id: Number(id) } });
+        await this.findOne(id, gestorId);
+        return this.prisma.grupo.delete({ where: { id: id } });
     }
 };
 exports.GrupoService = GrupoService;

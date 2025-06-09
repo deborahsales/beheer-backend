@@ -1,0 +1,35 @@
+-- AlterTable
+ALTER TABLE "AjustePonto" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Assinatura" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Atestado" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Aviso" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "AvisoUsuario" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Cronograma" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Demanda" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Documento" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "GerenciamentoAjsutePonto" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Ponto" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "PrestacaoContas" ALTER COLUMN "dateTimestamp" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "Usuario" ADD COLUMN     "dateTimestamp" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

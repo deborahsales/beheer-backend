@@ -15,15 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrupoController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-const grupo_service_1 = require("./grupo.service");
+const prisma_1 = require("../../../generated/prisma/index.js");
 const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
-const prisma_1 = require("../../../generated/prisma/index.js");
 const create_grupo_dto_1 = require("./dto/create-grupo.dto");
-const grupo_entity_1 = require("./entities/grupo.entity");
-const add_usuario_dto_1 = require("./dto/add-usuario.dto");
 const update_grupo_dto_1 = require("./dto/update-grupo.dto");
+const grupo_entity_1 = require("./entities/grupo.entity");
+const grupo_service_1 = require("./grupo.service");
 let GrupoController = class GrupoController {
     grupoService;
     constructor(grupoService) {
@@ -33,18 +32,12 @@ let GrupoController = class GrupoController {
         const gestorId = req.user['id'];
         return this.grupoService.create(createGrupoDto, gestorId);
     }
-    addGestor(addUsuarioDto) {
-        return this.grupoService.addGestor(addUsuarioDto);
-    }
-    addUsuario(addUsuarioDto) {
-        return this.grupoService.addUsuario(addUsuarioDto);
-    }
     findAll(req) {
         const usuarioId = req.user['id'];
         return this.grupoService.findAll(usuarioId);
     }
     findOne(id) {
-        return this.grupoService.findOne(Number(id));
+        return this.grupoService.findOne(id);
     }
     update(id, updateGrupoDto, req) {
         const gestorId = req.user['id'];
@@ -68,26 +61,6 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], GrupoController.prototype, "create", null);
 __decorate([
-    (0, common_1.Post)('/gestor'),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
-    (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
-    (0, swagger_1.ApiResponse)({ status: 201, type: grupo_entity_1.GrupoEntity }),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [add_usuario_dto_1.AddUsuarioDto]),
-    __metadata("design:returntype", void 0)
-], GrupoController.prototype, "addGestor", null);
-__decorate([
-    (0, common_1.Post)('/usuario'),
-    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
-    (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
-    (0, swagger_1.ApiResponse)({ status: 201, type: grupo_entity_1.GrupoEntity }),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [add_usuario_dto_1.AddUsuarioDto]),
-    __metadata("design:returntype", void 0)
-], GrupoController.prototype, "addUsuario", null);
-__decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: [grupo_entity_1.GrupoEntity] }),
@@ -100,7 +73,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: grupo_entity_1.GrupoEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
@@ -110,7 +83,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
     (0, swagger_1.ApiResponse)({ status: 200, type: grupo_entity_1.GrupoEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -122,7 +95,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
     (0, swagger_1.ApiResponse)({ status: 204 }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),

@@ -16,7 +16,7 @@ exports.ComentarioModule = ComentarioModule;
 exports.ComentarioModule = ComentarioModule = __decorate([
     (0, common_1.Module)({
         controllers: [comentario_controller_1.ComentarioController],
-        providers: [comentario_service_1.ComentarioService]
+        providers: [comentario_service_1.ComentarioService],
     })
 ], ComentarioModule);
 //# sourceMappingURL=comentario.module.js.map

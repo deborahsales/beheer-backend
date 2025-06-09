@@ -9,22 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddUsuarioDto = void 0;
+exports.CronogramaEntity = void 0;
 const swagger_1 = require("@nestjs/swagger");
-const class_validator_1 = require("class-validator");
-class AddUsuarioDto {
-    usuarioId;
-    grupoId;
+class CronogramaEntity {
+    id;
+    titulo;
+    descricao;
+    gestorUsuarioId;
+    demandasCronograma;
 }
-exports.AddUsuarioDto = AddUsuarioDto;
+exports.CronogramaEntity = CronogramaEntity;
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: Number, example: 5 }),
-    (0, class_validator_1.IsInt)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
-], AddUsuarioDto.prototype, "usuarioId", void 0);
+], CronogramaEntity.prototype, "id", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: Number, example: 5 }),
-    (0, class_validator_1.IsInt)(),
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CronogramaEntity.prototype, "titulo", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CronogramaEntity.prototype, "descricao", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
-], AddUsuarioDto.prototype, "grupoId", void 0);
-//# sourceMappingURL=add-usuario.dto.js.map
+], CronogramaEntity.prototype, "gestorUsuarioId", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Array)
+], CronogramaEntity.prototype, "demandasCronograma", void 0);
+//# sourceMappingURL=cronograma.entity.js.map

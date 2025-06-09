@@ -15,6 +15,7 @@ export declare class AuthService {
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         id: number;
+        dateTimestamp: Date;
     }>;
     login(usuario: any): Promise<{
         access_token: string;
