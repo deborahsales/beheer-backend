@@ -19479,21 +19479,21 @@ export namespace Prisma {
 
   export type AvisoUsuarioMinAggregateOutputType = {
     status: $Enums.StatusAviso | null
-    dateTimestamp: Date | null
+    dataLeitura: Date | null
     usuarioId: number | null
     avisoId: number | null
   }
 
   export type AvisoUsuarioMaxAggregateOutputType = {
     status: $Enums.StatusAviso | null
-    dateTimestamp: Date | null
+    dataLeitura: Date | null
     usuarioId: number | null
     avisoId: number | null
   }
 
   export type AvisoUsuarioCountAggregateOutputType = {
     status: number
-    dateTimestamp: number
+    dataLeitura: number
     usuarioId: number
     avisoId: number
     _all: number
@@ -19512,21 +19512,21 @@ export namespace Prisma {
 
   export type AvisoUsuarioMinAggregateInputType = {
     status?: true
-    dateTimestamp?: true
+    dataLeitura?: true
     usuarioId?: true
     avisoId?: true
   }
 
   export type AvisoUsuarioMaxAggregateInputType = {
     status?: true
-    dateTimestamp?: true
+    dataLeitura?: true
     usuarioId?: true
     avisoId?: true
   }
 
   export type AvisoUsuarioCountAggregateInputType = {
     status?: true
-    dateTimestamp?: true
+    dataLeitura?: true
     usuarioId?: true
     avisoId?: true
     _all?: true
@@ -19620,7 +19620,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioGroupByOutputType = {
     status: $Enums.StatusAviso
-    dateTimestamp: Date
+    dataLeitura: Date
     usuarioId: number
     avisoId: number
     _count: AvisoUsuarioCountAggregateOutputType | null
@@ -19646,7 +19646,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     status?: boolean
-    dateTimestamp?: boolean
+    dataLeitura?: boolean
     usuarioId?: boolean
     avisoId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -19655,7 +19655,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     status?: boolean
-    dateTimestamp?: boolean
+    dataLeitura?: boolean
     usuarioId?: boolean
     avisoId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -19664,7 +19664,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     status?: boolean
-    dateTimestamp?: boolean
+    dataLeitura?: boolean
     usuarioId?: boolean
     avisoId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -19673,12 +19673,12 @@ export namespace Prisma {
 
   export type AvisoUsuarioSelectScalar = {
     status?: boolean
-    dateTimestamp?: boolean
+    dataLeitura?: boolean
     usuarioId?: boolean
     avisoId?: boolean
   }
 
-  export type AvisoUsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"status" | "dateTimestamp" | "usuarioId" | "avisoId", ExtArgs["result"]["avisoUsuario"]>
+  export type AvisoUsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"status" | "dataLeitura" | "usuarioId" | "avisoId", ExtArgs["result"]["avisoUsuario"]>
   export type AvisoUsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     aviso?: boolean | AvisoDefaultArgs<ExtArgs>
@@ -19700,7 +19700,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       status: $Enums.StatusAviso
-      dateTimestamp: Date
+      dataLeitura: Date
       usuarioId: number
       avisoId: number
     }, ExtArgs["result"]["avisoUsuario"]>
@@ -19786,8 +19786,8 @@ export namespace Prisma {
      * // Get first 10 AvisoUsuarios
      * const avisoUsuarios = await prisma.avisoUsuario.findMany({ take: 10 })
      * 
-     * // Only select the `dateTimestamp`
-     * const avisoUsuarioWithDateTimestampOnly = await prisma.avisoUsuario.findMany({ select: { dateTimestamp: true } })
+     * // Only select the `dataLeitura`
+     * const avisoUsuarioWithDataLeituraOnly = await prisma.avisoUsuario.findMany({ select: { dataLeitura: true } })
      * 
      */
     findMany<T extends AvisoUsuarioFindManyArgs>(args?: SelectSubset<T, AvisoUsuarioFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvisoUsuarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -19831,9 +19831,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many AvisoUsuarios and only return the `dateTimestamp`
-     * const avisoUsuarioWithDateTimestampOnly = await prisma.avisoUsuario.createManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Create many AvisoUsuarios and only return the `dataLeitura`
+     * const avisoUsuarioWithDataLeituraOnly = await prisma.avisoUsuario.createManyAndReturn({
+     *   select: { dataLeitura: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -19922,9 +19922,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more AvisoUsuarios and only return the `dateTimestamp`
-     * const avisoUsuarioWithDateTimestampOnly = await prisma.avisoUsuario.updateManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Update zero or more AvisoUsuarios and only return the `dataLeitura`
+     * const avisoUsuarioWithDataLeituraOnly = await prisma.avisoUsuario.updateManyAndReturn({
+     *   select: { dataLeitura: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20129,7 +20129,7 @@ export namespace Prisma {
    */
   interface AvisoUsuarioFieldRefs {
     readonly status: FieldRef<"AvisoUsuario", 'StatusAviso'>
-    readonly dateTimestamp: FieldRef<"AvisoUsuario", 'DateTime'>
+    readonly dataLeitura: FieldRef<"AvisoUsuario", 'DateTime'>
     readonly usuarioId: FieldRef<"AvisoUsuario", 'Int'>
     readonly avisoId: FieldRef<"AvisoUsuario", 'Int'>
   }
@@ -24999,7 +24999,7 @@ export namespace Prisma {
 
   export const AvisoUsuarioScalarFieldEnum: {
     status: 'status',
-    dateTimestamp: 'dateTimestamp',
+    dataLeitura: 'dataLeitura',
     usuarioId: 'usuarioId',
     avisoId: 'avisoId'
   };
@@ -26290,7 +26290,7 @@ export namespace Prisma {
     OR?: AvisoUsuarioWhereInput[]
     NOT?: AvisoUsuarioWhereInput | AvisoUsuarioWhereInput[]
     status?: EnumStatusAvisoFilter<"AvisoUsuario"> | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFilter<"AvisoUsuario"> | Date | string
+    dataLeitura?: DateTimeFilter<"AvisoUsuario"> | Date | string
     usuarioId?: IntFilter<"AvisoUsuario"> | number
     avisoId?: IntFilter<"AvisoUsuario"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
@@ -26299,7 +26299,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioOrderByWithRelationInput = {
     status?: SortOrder
-    dateTimestamp?: SortOrder
+    dataLeitura?: SortOrder
     usuarioId?: SortOrder
     avisoId?: SortOrder
     usuario?: UsuarioOrderByWithRelationInput
@@ -26312,7 +26312,7 @@ export namespace Prisma {
     OR?: AvisoUsuarioWhereInput[]
     NOT?: AvisoUsuarioWhereInput | AvisoUsuarioWhereInput[]
     status?: EnumStatusAvisoFilter<"AvisoUsuario"> | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFilter<"AvisoUsuario"> | Date | string
+    dataLeitura?: DateTimeFilter<"AvisoUsuario"> | Date | string
     usuarioId?: IntFilter<"AvisoUsuario"> | number
     avisoId?: IntFilter<"AvisoUsuario"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
@@ -26321,7 +26321,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioOrderByWithAggregationInput = {
     status?: SortOrder
-    dateTimestamp?: SortOrder
+    dataLeitura?: SortOrder
     usuarioId?: SortOrder
     avisoId?: SortOrder
     _count?: AvisoUsuarioCountOrderByAggregateInput
@@ -26336,7 +26336,7 @@ export namespace Prisma {
     OR?: AvisoUsuarioScalarWhereWithAggregatesInput[]
     NOT?: AvisoUsuarioScalarWhereWithAggregatesInput | AvisoUsuarioScalarWhereWithAggregatesInput[]
     status?: EnumStatusAvisoWithAggregatesFilter<"AvisoUsuario"> | $Enums.StatusAviso
-    dateTimestamp?: DateTimeWithAggregatesFilter<"AvisoUsuario"> | Date | string
+    dataLeitura?: DateTimeWithAggregatesFilter<"AvisoUsuario"> | Date | string
     usuarioId?: IntWithAggregatesFilter<"AvisoUsuario"> | number
     avisoId?: IntWithAggregatesFilter<"AvisoUsuario"> | number
   }
@@ -27523,48 +27523,48 @@ export namespace Prisma {
   }
 
   export type AvisoUsuarioCreateInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAvisosUsuarioInput
     aviso: AvisoCreateNestedOneWithoutAvisoUsuarioInput
   }
 
   export type AvisoUsuarioUncheckedCreateInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     usuarioId: number
     avisoId: number
   }
 
   export type AvisoUsuarioUpdateInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     usuario?: UsuarioUpdateOneRequiredWithoutAvisosUsuarioNestedInput
     aviso?: AvisoUpdateOneRequiredWithoutAvisoUsuarioNestedInput
   }
 
   export type AvisoUsuarioUncheckedUpdateInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioId?: IntFieldUpdateOperationsInput | number
     avisoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type AvisoUsuarioCreateManyInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     usuarioId: number
     avisoId: number
   }
 
   export type AvisoUsuarioUpdateManyMutationInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AvisoUsuarioUncheckedUpdateManyInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioId?: IntFieldUpdateOperationsInput | number
     avisoId?: IntFieldUpdateOperationsInput | number
   }
@@ -28871,7 +28871,7 @@ export namespace Prisma {
 
   export type AvisoUsuarioCountOrderByAggregateInput = {
     status?: SortOrder
-    dateTimestamp?: SortOrder
+    dataLeitura?: SortOrder
     usuarioId?: SortOrder
     avisoId?: SortOrder
   }
@@ -28883,14 +28883,14 @@ export namespace Prisma {
 
   export type AvisoUsuarioMaxOrderByAggregateInput = {
     status?: SortOrder
-    dateTimestamp?: SortOrder
+    dataLeitura?: SortOrder
     usuarioId?: SortOrder
     avisoId?: SortOrder
   }
 
   export type AvisoUsuarioMinOrderByAggregateInput = {
     status?: SortOrder
-    dateTimestamp?: SortOrder
+    dataLeitura?: SortOrder
     usuarioId?: SortOrder
     avisoId?: SortOrder
   }
@@ -31325,14 +31325,14 @@ export namespace Prisma {
   }
 
   export type AvisoUsuarioCreateWithoutUsuarioInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     aviso: AvisoCreateNestedOneWithoutAvisoUsuarioInput
   }
 
   export type AvisoUsuarioUncheckedCreateWithoutUsuarioInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     avisoId: number
   }
 
@@ -31736,7 +31736,7 @@ export namespace Prisma {
     OR?: AvisoUsuarioScalarWhereInput[]
     NOT?: AvisoUsuarioScalarWhereInput | AvisoUsuarioScalarWhereInput[]
     status?: EnumStatusAvisoFilter<"AvisoUsuario"> | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFilter<"AvisoUsuario"> | Date | string
+    dataLeitura?: DateTimeFilter<"AvisoUsuario"> | Date | string
     usuarioId?: IntFilter<"AvisoUsuario"> | number
     avisoId?: IntFilter<"AvisoUsuario"> | number
   }
@@ -32352,14 +32352,14 @@ export namespace Prisma {
   }
 
   export type AvisoUsuarioCreateWithoutAvisoInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAvisosUsuarioInput
   }
 
   export type AvisoUsuarioUncheckedCreateWithoutAvisoInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     usuarioId: number
   }
 
@@ -35008,8 +35008,8 @@ export namespace Prisma {
   }
 
   export type AvisoUsuarioCreateManyUsuarioInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     avisoId: number
   }
 
@@ -35318,19 +35318,19 @@ export namespace Prisma {
 
   export type AvisoUsuarioUpdateWithoutUsuarioInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     aviso?: AvisoUpdateOneRequiredWithoutAvisoUsuarioNestedInput
   }
 
   export type AvisoUsuarioUncheckedUpdateWithoutUsuarioInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     avisoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type AvisoUsuarioUncheckedUpdateManyWithoutUsuarioInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     avisoId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -35483,26 +35483,26 @@ export namespace Prisma {
   }
 
   export type AvisoUsuarioCreateManyAvisoInput = {
-    status: $Enums.StatusAviso
-    dateTimestamp?: Date | string
+    status?: $Enums.StatusAviso
+    dataLeitura?: Date | string
     usuarioId: number
   }
 
   export type AvisoUsuarioUpdateWithoutAvisoInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     usuario?: UsuarioUpdateOneRequiredWithoutAvisosUsuarioNestedInput
   }
 
   export type AvisoUsuarioUncheckedUpdateWithoutAvisoInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type AvisoUsuarioUncheckedUpdateManyWithoutAvisoInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
-    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 

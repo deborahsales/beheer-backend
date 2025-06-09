@@ -257,7 +257,7 @@ exports.Prisma.GerenciamentoAjsutePontoScalarFieldEnum = {
 
 exports.Prisma.AvisoUsuarioScalarFieldEnum = {
   status: 'status',
-  dateTimestamp: 'dateTimestamp',
+  dataLeitura: 'dataLeitura',
   usuarioId: 'usuarioId',
   avisoId: 'avisoId'
 };
