@@ -4,6 +4,7 @@ import {
 	Delete,
 	Get,
 	Param,
+	ParseIntPipe,
 	Patch,
 	Post,
 	Query,
@@ -48,8 +49,8 @@ export class DemandaController {
 	@Get(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: DemandaEntity })
-	findOne(@Param('id') id: number) {
-		return this.demandaService.findOne(Number(id));
+	findOne(@Param('id', ParseIntPipe) id: number) {
+		return this.demandaService.findOne(id);
 	}
 
 	@Patch(':id')
@@ -57,7 +58,7 @@ export class DemandaController {
 	@Role(FuncaoUsuario.GESTOR)
 	@ApiResponse({ status: 200, type: DemandaEntity })
 	update(
-		@Param('id') id: number,
+		@Param('id', ParseIntPipe) id: number,
 		@Body() updateDemandaDto: UpdateDemandaDto,
 		@Req() req: RequestWithUser,
 	) {
@@ -69,7 +70,7 @@ export class DemandaController {
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@Role(FuncaoUsuario.GESTOR)
 	@ApiResponse({ status: 204 })
-	delete(@Param('id') id: number, @Req() req: RequestWithUser) {
+	delete(@Param('id', ParseIntPipe) id: number, @Req() req: RequestWithUser) {
 		const gestorId = req.user['id'];
 		return this.demandaService.remove(id, gestorId);
 	}

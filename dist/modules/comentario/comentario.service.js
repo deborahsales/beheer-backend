@@ -29,18 +29,17 @@ let ComentarioService = class ComentarioService {
         });
         if (!demanda)
             throw new common_1.NotFoundException('Demanda não encontrada ou acesso não autorizado');
-        const comentario = await this.prisma.comentario.create({
+        return this.prisma.comentario.create({
             data: {
                 ...dto,
                 usuarioId: usuarioId,
             },
         });
-        return comentario;
     }
     async findAll(demandaId, usuarioId) {
         const demanda = await this.prisma.demanda.findFirst({
             where: {
-                id: Number(demandaId),
+                id: demandaId,
                 OR: [
                     { usuariosDemanda: { some: { usuarioId: usuarioId } } },
                     { gestorUsuarioId: usuarioId },
@@ -49,11 +48,11 @@ let ComentarioService = class ComentarioService {
         });
         if (!demanda)
             throw new common_1.NotFoundException('Demanda não encontrada ou acesso não autorizado');
-        return this.prisma.comentario.findMany({ where: { demandaId: Number(demandaId) } });
+        return this.prisma.comentario.findMany({ where: { demandaId: demandaId } });
     }
     async findOne(comentarioId) {
         const comentario = await this.prisma.comentario.findFirst({
-            where: { id: Number(comentarioId) },
+            where: { id: comentarioId },
         });
         if (!comentario)
             throw new common_1.NotFoundException('Comentário não encontrado');
@@ -61,26 +60,26 @@ let ComentarioService = class ComentarioService {
     }
     async update(dto, comentarioId, usuarioId) {
         const comentario = await this.prisma.comentario.findFirst({
-            where: { id: Number(comentarioId), usuarioId: Number(usuarioId) },
+            where: { id: comentarioId, usuarioId: usuarioId },
         });
         if (!comentario)
             throw new common_1.NotFoundException('Comentário não encontrado  ou acesso não autorizado');
-        const resultado = await this.prisma.comentario.update({
-            where: { id: Number(comentarioId), usuarioId: Number(usuarioId) },
+        return this.prisma.comentario.update({
+            where: { id: comentarioId, usuarioId: usuarioId },
             data: {
-                ...dto,
+                conteudo: dto.conteudo,
+                dataAlteracao: new Date(),
             },
         });
-        return resultado;
     }
     async remove(comentarioId, usuarioId) {
         const comentario = await this.prisma.comentario.findFirst({
-            where: { id: Number(comentarioId), usuarioId: Number(usuarioId) },
+            where: { id: comentarioId, usuarioId: usuarioId },
         });
         if (!comentario)
             throw new common_1.NotFoundException('Comentário não encontrado ou acesso não autorizado');
         return this.prisma.comentario.delete({
-            where: { id: Number(comentarioId), usuarioId: Number(usuarioId) },
+            where: { id: comentarioId, usuarioId: usuarioId },
         });
     }
 };

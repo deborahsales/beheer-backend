@@ -40,7 +40,7 @@ export class UsuarioService {
 	}
 
 	async findOne(id: number) {
-		const usuario = await this.prisma.usuario.findUnique({ where: { id: Number(id) } });
+		const usuario = await this.prisma.usuario.findUnique({ where: { id: id } });
 		if (!usuario) throw new NotFoundException('Usuário não encontrado');
 		const { senha, ...result } = usuario;
 		return result;
@@ -59,14 +59,13 @@ export class UsuarioService {
 			data.senha = await bcrypt.hash(dto.senha, 10);
 		}
 
-		const updated = await this.prisma.usuario.update({ where: { id: Number(id) }, data });
+		const updated = await this.prisma.usuario.update({ where: { id: id }, data });
 		const { senha, ...result } = updated;
 		return result;
 	}
 
 	async remove(id: number) {
-		const usuario = await this.findOne(Number(id));
-		if (!usuario) throw new NotFoundException('Usuário não encontrado ou acesso não autorizado');
-		await this.prisma.usuario.delete({ where: { id: Number(id) } });
+		await this.findOne(id);
+		return this.prisma.usuario.delete({ where: { id: id } });
 	}
 }

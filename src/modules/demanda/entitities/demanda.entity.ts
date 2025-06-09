@@ -3,7 +3,7 @@ import { PrioridadeDemanda, StatusDemanda } from 'generated/prisma';
 
 export class DemandaEntity {
 	@ApiProperty()
-	id: string;
+	id: number;
 
 	@ApiProperty()
 	titulo: string;
@@ -21,8 +21,8 @@ export class DemandaEntity {
 	prioridade: PrioridadeDemanda;
 
 	@ApiProperty()
-	cronogramaId: string;
+	cronogramaId: number;
 
 	@ApiProperty()
-	gestorId: string;
+	gestorId: number;
 }

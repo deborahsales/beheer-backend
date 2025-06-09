@@ -1,4 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Req, UseGuards } from '@nestjs/common';
+import {
+	Body,
+	Controller,
+	Delete,
+	Get,
+	Param,
+	ParseIntPipe,
+	Patch,
+	Post,
+	Req,
+	UseGuards,
+} from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { FuncaoUsuario } from 'generated/prisma';
 import { Role } from 'src/common/decorators/role.decorator';
@@ -28,23 +39,23 @@ export class ComentarioController {
 	@Get('/demanda/:id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: ComentarioEntity })
-	findAll(@Param('id') demandaId: number, @Req() req: RequestWithUser) {
+	findAll(@Param('id', ParseIntPipe) demandaId: number, @Req() req: RequestWithUser) {
 		const usuarioId = req.user['id'];
-		return this.comentarioService.findAll(Number(demandaId), usuarioId);
+		return this.comentarioService.findAll(demandaId, usuarioId);
 	}
 
 	@Get(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: ComentarioEntity })
-	findOne(@Param('id') comentarioId: number) {
-		return this.comentarioService.findOne(Number(comentarioId));
+	findOne(@Param('id', ParseIntPipe) comentarioId: number) {
+		return this.comentarioService.findOne(comentarioId);
 	}
 
 	@Patch(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: ComentarioEntity })
 	update(
-		@Param('id') comentarioId: number,
+		@Param('id', ParseIntPipe) comentarioId: number,
 		@Body() updateComentarioDto: UpdateComentarioDto,
 		@Req() req: RequestWithUser,
 	) {
@@ -55,7 +66,7 @@ export class ComentarioController {
 	@Delete(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 204 })
-	delete(@Param('id') comentarioId: number, @Req() req: RequestWithUser) {
+	delete(@Param('id', ParseIntPipe) comentarioId: number, @Req() req: RequestWithUser) {
 		const usuarioId = req.user['id'];
 		return this.comentarioService.remove(comentarioId, usuarioId);
 	}

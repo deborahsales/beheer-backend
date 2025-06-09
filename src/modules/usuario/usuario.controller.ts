@@ -5,6 +5,7 @@ import {
 	ForbiddenException,
 	Get,
 	Param,
+	ParseIntPipe,
 	Patch,
 	Post,
 	Req,
@@ -45,7 +46,7 @@ export class UsuarioController {
 	@Get(':id')
 	@UseGuards(JwtAuthGuard)
 	@ApiResponse({ status: 200, type: [UsuarioEntity] })
-	findOne(@Param('id') id: number) {
+	findOne(@Param('id', ParseIntPipe) id: number) {
 		return this.usuarioService.findOne(id);
 	}
 
@@ -53,7 +54,7 @@ export class UsuarioController {
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@Role(FuncaoUsuario.ADMINISTRADOR)
 	@ApiResponse({ status: 200, type: UsuarioEntity })
-	update(@Param('id') id: number, @Body() updateUsuarioDto: UpdateUsuarioDto) {
+	update(@Param('id', ParseIntPipe) id: number, @Body() updateUsuarioDto: UpdateUsuarioDto) {
 		return this.usuarioService.update(id, updateUsuarioDto);
 	}
 
@@ -61,10 +62,10 @@ export class UsuarioController {
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@Role(FuncaoUsuario.ADMINISTRADOR)
 	@ApiResponse({ status: 204 })
-	remove(@Param('id') id: number, @Req() req: RequestWithUser) {
+	remove(@Param('id', ParseIntPipe) id: number, @Req() req: RequestWithUser) {
 		const userId = req.user['id'];
 
-		if (Number(id) === userId) {
+		if (id === userId) {
 			throw new ForbiddenException('Você não pode deletar a si mesmo.');
 		}
 

@@ -1,6 +1,6 @@
 import { FuncaoUsuario } from 'generated/prisma';
 export declare class UsuarioEntity {
-    id: string;
+    id: number;
     cpf: string;
     nome: string;
     email: string;

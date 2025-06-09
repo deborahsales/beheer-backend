@@ -25,7 +25,7 @@ class DemandaEntity {
 exports.DemandaEntity = DemandaEntity;
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], DemandaEntity.prototype, "id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
@@ -49,10 +49,10 @@ __decorate([
 ], DemandaEntity.prototype, "prioridade", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], DemandaEntity.prototype, "cronogramaId", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], DemandaEntity.prototype, "gestorId", void 0);
 //# sourceMappingURL=demanda.entity.js.map

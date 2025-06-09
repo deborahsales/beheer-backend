@@ -56,5 +56,18 @@ export declare class UsuarioController {
         id: number;
         dateTimestamp: Date;
     }>;
-    remove(id: number, req: RequestWithUser): Promise<void>;
+    remove(id: number, req: RequestWithUser): Promise<{
+        cpf: string;
+        nome: string;
+        email: string;
+        senha: string;
+        telefone: string;
+        dataNascimento: Date;
+        dataAdmissao: Date;
+        dataDesligamento: Date | null;
+        cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        id: number;
+        dateTimestamp: Date;
+    }>;
 }

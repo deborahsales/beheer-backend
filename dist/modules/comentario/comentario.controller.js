@@ -34,10 +34,10 @@ let ComentarioController = class ComentarioController {
     }
     findAll(demandaId, req) {
         const usuarioId = req.user['id'];
-        return this.comentarioService.findAll(Number(demandaId), usuarioId);
+        return this.comentarioService.findAll(demandaId, usuarioId);
     }
     findOne(comentarioId) {
-        return this.comentarioService.findOne(Number(comentarioId));
+        return this.comentarioService.findOne(comentarioId);
     }
     update(comentarioId, updateComentarioDto, req) {
         const usuarioId = req.user['id'];
@@ -64,7 +64,7 @@ __decorate([
     (0, common_1.Get)('/demanda/:id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: comentario_entity_1.ComentarioEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),
@@ -74,7 +74,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: comentario_entity_1.ComentarioEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
@@ -83,7 +83,7 @@ __decorate([
     (0, common_1.Patch)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: comentario_entity_1.ComentarioEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -94,7 +94,7 @@ __decorate([
     (0, common_1.Delete)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 204 }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),

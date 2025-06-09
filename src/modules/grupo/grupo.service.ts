@@ -10,7 +10,19 @@ export class GrupoService {
 	constructor(private prisma: PrismaService) {}
 
 	async create(dto: CreateGrupoDto, gestorId: number) {
-		const grupo = await this.prisma.grupo.create({
+		const colaboradores = dto.usuarios?.length
+			? await this.prisma.usuario.findMany({
+					where: {
+						id: { in: dto.usuarios },
+						funcao: FuncaoUsuario.COLABORADOR,
+					},
+					select: { id: true },
+				})
+			: [];
+
+		const colaboradorIds = colaboradores.map((u) => u.id);
+
+		return this.prisma.grupo.create({
 			data: {
 				nome: dto.nome,
 				descricao: dto.descricao,
@@ -19,9 +31,9 @@ export class GrupoService {
 						usuarioId: gestorId,
 					},
 				},
-				usuarios: dto.usuarios?.length
+				usuarios: colaboradorIds.length
 					? {
-							create: dto.usuarios.map((id) => ({
+							create: colaboradorIds.map((id) => ({
 								usuarioId: id,
 							})),
 						}
@@ -40,8 +52,6 @@ export class GrupoService {
 				},
 			},
 		});
-
-		return grupo;
 	}
 
 	findAll(usuarioId: number) {
@@ -82,7 +92,7 @@ export class GrupoService {
 	async findOne(id: number, gestorId?: number) {
 		const grupo = await this.prisma.grupo.findFirst({
 			where: {
-				id: Number(id),
+				id: id,
 				...(gestorId && {
 					gestores: {
 						some: {
@@ -104,17 +114,16 @@ export class GrupoService {
 				},
 			},
 		});
-		if (!grupo) throw new NotFoundException('Grupo não encontrado');
+		if (!grupo) throw new NotFoundException('Grupo não encontrado ou acesso não autorizado');
 
 		return grupo;
 	}
 
 	async update(id: number, dto: UpdateGrupoDto, gestorId: number) {
-		const grupo = await this.findOne(id, gestorId);
-		if (!grupo) throw new NotFoundException('Grupo não encontrado ou acesso não autorizado');
+		await this.findOne(id, gestorId);
 
 		await this.prisma.grupo.update({
-			where: { id: Number(id) },
+			where: { id: id },
 			data: {
 				nome: dto.nome,
 				descricao: dto.descricao,
@@ -134,7 +143,7 @@ export class GrupoService {
 			const novosUsuarios = usuariosValidos.map((u) => u.id);
 
 			const usuariosAtuais = await this.prisma.usuarioGrupo.findMany({
-				where: { grupoId: Number(id) },
+				where: { grupoId: id },
 				select: { usuarioId: true },
 			});
 
@@ -146,7 +155,7 @@ export class GrupoService {
 			if (remover.length) {
 				await this.prisma.usuarioGrupo.deleteMany({
 					where: {
-						grupoId: Number(id),
+						grupoId: id,
 						usuarioId: { in: remover },
 					},
 				});
@@ -154,7 +163,7 @@ export class GrupoService {
 
 			if (adicionar.length) {
 				await this.prisma.usuarioGrupo.createMany({
-					data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: Number(id) })),
+					data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: id })),
 					skipDuplicates: true,
 				});
 			}
@@ -170,10 +179,14 @@ export class GrupoService {
 				select: { id: true },
 			});
 
-			const novosGestores = gestoresValidos.map((u) => u.id);
+			let novosGestores = gestoresValidos.map((u) => u.id);
+
+			if (!novosGestores.includes(gestorId)) {
+				novosGestores.push(gestorId);
+			}
 
 			const gestoresAtuais = await this.prisma.usuarioGrupo.findMany({
-				where: { grupoId: Number(id) },
+				where: { grupoId: id },
 				select: { usuarioId: true },
 			});
 
@@ -185,7 +198,7 @@ export class GrupoService {
 			if (remover.length) {
 				await this.prisma.grupoGestor.deleteMany({
 					where: {
-						grupoId: Number(id),
+						grupoId: id,
 						usuarioId: { in: remover },
 					},
 				});
@@ -193,7 +206,7 @@ export class GrupoService {
 
 			if (adicionar.length) {
 				await this.prisma.grupoGestor.createMany({
-					data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: Number(id) })),
+					data: adicionar.map((usuarioId) => ({ usuarioId, grupoId: id })),
 					skipDuplicates: true,
 				});
 			}
@@ -203,8 +216,7 @@ export class GrupoService {
 	}
 
 	async remove(id: number, gestorId: number) {
-		const grupo = await this.findOne(id, gestorId);
-		if (!grupo) throw new NotFoundException('Grupo não encontrado ou acesso não autorizado');
-		await this.prisma.grupo.delete({ where: { id: Number(id) } });
+		await this.findOne(id, gestorId);
+		return this.prisma.grupo.delete({ where: { id: id } });
 	}
 }

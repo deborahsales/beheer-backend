@@ -2,16 +2,16 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class ComentarioEntity {
 	@ApiProperty()
-	id: string;
+	id: number;
 
 	@ApiProperty()
 	conteudo: string;
 
 	@ApiProperty()
-	demandaId: string;
+	demandaId: number;
 
 	@ApiProperty()
-	usuarioId: string;
+	usuarioId: number;
 
 	@ApiProperty()
 	dateTimestamp: string;

@@ -5,7 +5,7 @@ import { UpdateDemandaDto } from './dto/update-demanda.dto';
 export declare class DemandaService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(dto: CreateDemandaDto, gestorId: number): Promise<{
+    create(dto: CreateDemandaDto, gestorId: number): import("generated/prisma").Prisma.Prisma__DemandaClient<{
         id: number;
         dateTimestamp: Date;
         titulo: string;
@@ -15,7 +15,7 @@ export declare class DemandaService {
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
-    }>;
+    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(usuarioId: number, filters: FilterDemandasDto): Promise<({
         usuariosDemanda: {
             usuarioId: number;
@@ -36,7 +36,7 @@ export declare class DemandaService {
         cronogramaId: number | null;
         gestorUsuarioId: number;
     })[]>;
-    findOne(id: number, gestorId?: number): Promise<({
+    findOne(id: number, gestorId?: number): Promise<{
         usuariosDemanda: {
             usuarioId: number;
             demandaId: number;
@@ -63,8 +63,8 @@ export declare class DemandaService {
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
-    }) | null>;
-    update(id: number, dto: UpdateDemandaDto, gestorId: number): Promise<({
+    }>;
+    update(id: number, dto: UpdateDemandaDto, gestorId: number): Promise<{
         usuariosDemanda: {
             usuarioId: number;
             demandaId: number;
@@ -91,6 +91,16 @@ export declare class DemandaService {
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
-    }) | null>;
-    remove(id: number, gestorId: number): Promise<void>;
+    }>;
+    remove(id: number, gestorId: number): Promise<{
+        id: number;
+        dateTimestamp: Date;
+        titulo: string;
+        descricao: string;
+        prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
+        cronogramaId: number | null;
+        gestorUsuarioId: number;
+    }>;
 }

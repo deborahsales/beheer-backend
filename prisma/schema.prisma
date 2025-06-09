@@ -89,7 +89,7 @@ model Demanda {
 model Cronograma {
   id Int @id @default(autoincrement())
   titulo String
-  descricao String
+  descricao String?
   dateTimestamp DateTime @default(now())
 
   gestorUsuarioId Int
@@ -124,7 +124,7 @@ model Comentario{
   id Int @id @default(autoincrement())
   conteudo String
   dateTimestamp DateTime @default(now())
-  dataAlteracao DateTime?
+  dataAlteracao DateTime? @updatedAt
 
   demandaId Int
   demanda Demanda @relation("DemandaComentario", fields: [demandaId], references: [id], onDelete: Cascade)

@@ -1,8 +1,8 @@
 export declare class ComentarioEntity {
-    id: string;
+    id: number;
     conteudo: string;
-    demandaId: string;
-    usuarioId: string;
+    demandaId: number;
+    usuarioId: number;
     dateTimestamp: string;
     dataAlteracao: string;
 }

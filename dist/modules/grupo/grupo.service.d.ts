@@ -108,5 +108,9 @@ export declare class GrupoService {
         id: number;
         descricao: string;
     }>;
-    remove(id: number, gestorId: number): Promise<void>;
+    remove(id: number, gestorId: number): Promise<{
+        nome: string;
+        id: number;
+        descricao: string;
+    }>;
 }

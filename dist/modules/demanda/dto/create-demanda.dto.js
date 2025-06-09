@@ -19,6 +19,7 @@ class CreateDemandaDto {
     prazo;
     status;
     prioridade;
+    cronogramaId;
 }
 exports.CreateDemandaDto = CreateDemandaDto;
 __decorate([
@@ -52,4 +53,9 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CreateDemandaDto.prototype, "prioridade", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", Number)
+], CreateDemandaDto.prototype, "cronogramaId", void 0);
 //# sourceMappingURL=create-demanda.dto.js.map

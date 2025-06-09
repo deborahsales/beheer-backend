@@ -38,7 +38,7 @@ let DemandaController = class DemandaController {
         return this.demandaService.findAll(usuarioId, filterDemandasDto);
     }
     findOne(id) {
-        return this.demandaService.findOne(Number(id));
+        return this.demandaService.findOne(id);
     }
     update(id, updateDemandaDto, req) {
         const gestorId = req.user['id'];
@@ -75,7 +75,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: demanda_entity_1.DemandaEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
@@ -85,7 +85,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
     (0, swagger_1.ApiResponse)({ status: 200, type: demanda_entity_1.DemandaEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -97,7 +97,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.GESTOR),
     (0, swagger_1.ApiResponse)({ status: 204 }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),

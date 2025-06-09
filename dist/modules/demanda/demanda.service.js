@@ -19,11 +19,10 @@ let DemandaService = class DemandaService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async create(dto, gestorId) {
-        const demanda = await this.prisma.demanda.create({
+    create(dto, gestorId) {
+        return this.prisma.demanda.create({
             data: { ...dto, gestorUsuarioId: gestorId },
         });
-        return demanda;
     }
     async findAll(usuarioId, filters) {
         const gruposUsuario = await this.prisma.grupo.findMany({
@@ -77,7 +76,7 @@ let DemandaService = class DemandaService {
     async findOne(id, gestorId) {
         const demanda = await this.prisma.demanda.findFirst({
             where: {
-                id: Number(id),
+                id: id,
                 ...(gestorId && {
                     gestorUsuarioId: gestorId,
                 }),
@@ -88,14 +87,14 @@ let DemandaService = class DemandaService {
                 comentariosDemanda: true,
             },
         });
+        if (!demanda)
+            throw new common_1.NotFoundException('Demanda não encontrada ou acesso não autorizado');
         return demanda;
     }
     async update(id, dto, gestorId) {
-        const demanda = await this.findOne(id, gestorId);
-        if (!demanda)
-            throw new common_1.NotFoundException('Demanda não encontrada ou acesso não autorizado');
+        await this.findOne(id, gestorId);
         await this.prisma.demanda.update({
-            where: { id: Number(id) },
+            where: { id: id },
             data: {
                 titulo: dto.titulo,
                 descricao: dto.descricao,
@@ -114,7 +113,7 @@ let DemandaService = class DemandaService {
             });
             const novosUsuarios = usuariosValidos.map((u) => u.id);
             const usuariosAtuais = await this.prisma.demandaUsuario.findMany({
-                where: { demandaId: Number(id) },
+                where: { demandaId: id },
                 select: { usuarioId: true },
             });
             const idsAtuais = usuariosAtuais.map((u) => u.usuarioId);
@@ -123,14 +122,14 @@ let DemandaService = class DemandaService {
             if (remover.length) {
                 await this.prisma.demandaUsuario.deleteMany({
                     where: {
-                        demandaId: Number(id),
+                        demandaId: id,
                         usuarioId: { in: remover },
                     },
                 });
             }
             if (adicionar.length) {
                 await this.prisma.demandaUsuario.createMany({
-                    data: adicionar.map((usuarioId) => ({ usuarioId, demandaId: Number(id) })),
+                    data: adicionar.map((usuarioId) => ({ usuarioId, demandaId: id })),
                     skipDuplicates: true,
                 });
             }
@@ -144,7 +143,7 @@ let DemandaService = class DemandaService {
             });
             const novosGrupos = gruposValidos.map((u) => u.id);
             const gruposAtuais = await this.prisma.demandaGrupo.findMany({
-                where: { demandaId: Number(id) },
+                where: { demandaId: id },
                 select: { grupoId: true },
             });
             const idsAtuais = gruposAtuais.map((u) => u.grupoId);
@@ -153,14 +152,14 @@ let DemandaService = class DemandaService {
             if (remover.length) {
                 await this.prisma.demandaGrupo.deleteMany({
                     where: {
-                        demandaId: Number(id),
+                        demandaId: id,
                         grupoId: { in: remover },
                     },
                 });
             }
             if (adicionar.length) {
                 await this.prisma.demandaGrupo.createMany({
-                    data: adicionar.map((grupoId) => ({ grupoId, demandaId: Number(id) })),
+                    data: adicionar.map((grupoId) => ({ grupoId, demandaId: id })),
                     skipDuplicates: true,
                 });
             }
@@ -168,10 +167,8 @@ let DemandaService = class DemandaService {
         return this.findOne(id);
     }
     async remove(id, gestorId) {
-        const demanda = await this.findOne(id, gestorId);
-        if (!demanda)
-            throw new common_1.NotFoundException('Demanda não encontrada ou acesso não autorizado');
-        await this.prisma.demanda.delete({ where: { id: Number(id) } });
+        await this.findOne(id, gestorId);
+        return this.prisma.demanda.delete({ where: { id: id } });
     }
 };
 exports.DemandaService = DemandaService;

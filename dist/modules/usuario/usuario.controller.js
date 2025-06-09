@@ -42,7 +42,7 @@ let UsuarioController = class UsuarioController {
     }
     remove(id, req) {
         const userId = req.user['id'];
-        if (Number(id) === userId) {
+        if (id === userId) {
             throw new common_1.ForbiddenException('Você não pode deletar a si mesmo.');
         }
         return this.usuarioService.remove(id);
@@ -71,7 +71,7 @@ __decorate([
     (0, common_1.Get)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: [usuario_entity_1.UsuarioEntity] }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
@@ -81,7 +81,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.ADMINISTRADOR),
     (0, swagger_1.ApiResponse)({ status: 200, type: usuario_entity_1.UsuarioEntity }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, update_usuario_dto_1.UpdateUsuarioDto]),
@@ -92,7 +92,7 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.ADMINISTRADOR),
     (0, swagger_1.ApiResponse)({ status: 204 }),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),

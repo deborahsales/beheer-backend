@@ -1,5 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsEnum, IsString } from 'class-validator';
 import { PrioridadeDemanda, StatusDemanda } from 'generated/prisma';
 
 export class CreateDemandaDto {
@@ -28,4 +28,8 @@ export class CreateDemandaDto {
 		example: PrioridadeDemanda.BAIXA,
 	})
 	prioridade: PrioridadeDemanda;
+
+	@ApiPropertyOptional()
+	@IsString()
+	cronogramaId: number;
 }

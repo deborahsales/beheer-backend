@@ -12,10 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrupoEntity = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class GrupoEntity {
+    id;
     nome;
     descricao;
 }
 exports.GrupoEntity = GrupoEntity;
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Number)
+], GrupoEntity.prototype, "id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)

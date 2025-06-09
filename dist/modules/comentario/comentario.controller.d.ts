@@ -7,42 +7,42 @@ export declare class ComentarioController {
     constructor(comentarioService: ComentarioService);
     create(createComentarioDto: CreateComentarioDto, req: RequestWithUser): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        demandaId: number;
+        conteudo: string;
+        dataAlteracao: Date | null;
     }>;
     findAll(demandaId: number, req: RequestWithUser): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        demandaId: number;
+        conteudo: string;
+        dataAlteracao: Date | null;
     }[]>;
     findOne(comentarioId: number): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        demandaId: number;
+        conteudo: string;
+        dataAlteracao: Date | null;
     }>;
     update(comentarioId: number, updateComentarioDto: UpdateComentarioDto, req: RequestWithUser): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        demandaId: number;
+        conteudo: string;
+        dataAlteracao: Date | null;
     }>;
     delete(comentarioId: number, req: RequestWithUser): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        demandaId: number;
+        conteudo: string;
+        dataAlteracao: Date | null;
     }>;
 }

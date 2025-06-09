@@ -22,7 +22,7 @@ class ComentarioEntity {
 exports.ComentarioEntity = ComentarioEntity;
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], ComentarioEntity.prototype, "id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
@@ -30,11 +30,11 @@ __decorate([
 ], ComentarioEntity.prototype, "conteudo", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], ComentarioEntity.prototype, "demandaId", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], ComentarioEntity.prototype, "usuarioId", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),

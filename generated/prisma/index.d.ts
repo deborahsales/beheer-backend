@@ -6043,7 +6043,7 @@ export namespace Prisma {
   export type CronogramaGroupByOutputType = {
     id: number
     titulo: string
-    descricao: string
+    descricao: string | null
     dateTimestamp: Date
     gestorUsuarioId: number
     _count: CronogramaCountAggregateOutputType | null
@@ -6126,7 +6126,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       titulo: string
-      descricao: string
+      descricao: string | null
       dateTimestamp: Date
       gestorUsuarioId: number
     }, ExtArgs["result"]["cronograma"]>
@@ -25510,7 +25510,7 @@ export namespace Prisma {
     NOT?: CronogramaWhereInput | CronogramaWhereInput[]
     id?: IntFilter<"Cronograma"> | number
     titulo?: StringFilter<"Cronograma"> | string
-    descricao?: StringFilter<"Cronograma"> | string
+    descricao?: StringNullableFilter<"Cronograma"> | string | null
     dateTimestamp?: DateTimeFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntFilter<"Cronograma"> | number
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
@@ -25520,7 +25520,7 @@ export namespace Prisma {
   export type CronogramaOrderByWithRelationInput = {
     id?: SortOrder
     titulo?: SortOrder
-    descricao?: SortOrder
+    descricao?: SortOrderInput | SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
     gestor?: UsuarioOrderByWithRelationInput
@@ -25533,7 +25533,7 @@ export namespace Prisma {
     OR?: CronogramaWhereInput[]
     NOT?: CronogramaWhereInput | CronogramaWhereInput[]
     titulo?: StringFilter<"Cronograma"> | string
-    descricao?: StringFilter<"Cronograma"> | string
+    descricao?: StringNullableFilter<"Cronograma"> | string | null
     dateTimestamp?: DateTimeFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntFilter<"Cronograma"> | number
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
@@ -25543,7 +25543,7 @@ export namespace Prisma {
   export type CronogramaOrderByWithAggregationInput = {
     id?: SortOrder
     titulo?: SortOrder
-    descricao?: SortOrder
+    descricao?: SortOrderInput | SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
     _count?: CronogramaCountOrderByAggregateInput
@@ -25559,7 +25559,7 @@ export namespace Prisma {
     NOT?: CronogramaScalarWhereWithAggregatesInput | CronogramaScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Cronograma"> | number
     titulo?: StringWithAggregatesFilter<"Cronograma"> | string
-    descricao?: StringWithAggregatesFilter<"Cronograma"> | string
+    descricao?: StringNullableWithAggregatesFilter<"Cronograma"> | string | null
     dateTimestamp?: DateTimeWithAggregatesFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntWithAggregatesFilter<"Cronograma"> | number
   }
@@ -26780,7 +26780,7 @@ export namespace Prisma {
 
   export type CronogramaCreateInput = {
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutCronogramasGerenciadosInput
     demandasCronograma?: DemandaCreateNestedManyWithoutCronogramaInput
@@ -26789,7 +26789,7 @@ export namespace Prisma {
   export type CronogramaUncheckedCreateInput = {
     id?: number
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     gestorUsuarioId: number
     demandasCronograma?: DemandaUncheckedCreateNestedManyWithoutCronogramaInput
@@ -26797,7 +26797,7 @@ export namespace Prisma {
 
   export type CronogramaUpdateInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestor?: UsuarioUpdateOneRequiredWithoutCronogramasGerenciadosNestedInput
     demandasCronograma?: DemandaUpdateManyWithoutCronogramaNestedInput
@@ -26806,7 +26806,7 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
     demandasCronograma?: DemandaUncheckedUpdateManyWithoutCronogramaNestedInput
@@ -26815,21 +26815,21 @@ export namespace Prisma {
   export type CronogramaCreateManyInput = {
     id?: number
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     gestorUsuarioId: number
   }
 
   export type CronogramaUpdateManyMutationInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CronogramaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -28169,6 +28169,21 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type CronogramaCountOrderByAggregateInput = {
     id?: SortOrder
     titulo?: SortOrder
@@ -28201,6 +28216,24 @@ export namespace Prisma {
   export type CronogramaSumOrderByAggregateInput = {
     id?: SortOrder
     gestorUsuarioId?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type AvisoCountOrderByAggregateInput = {
@@ -29848,6 +29881,10 @@ export namespace Prisma {
     connect?: DemandaWhereUniqueInput | DemandaWhereUniqueInput[]
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type UsuarioUpdateOneRequiredWithoutCronogramasGerenciadosNestedInput = {
     create?: XOR<UsuarioCreateWithoutCronogramasGerenciadosInput, UsuarioUncheckedCreateWithoutCronogramasGerenciadosInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutCronogramasGerenciadosInput
@@ -30788,6 +30825,37 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -30952,7 +31020,7 @@ export namespace Prisma {
 
   export type CronogramaCreateWithoutGestorInput = {
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     demandasCronograma?: DemandaCreateNestedManyWithoutCronogramaInput
   }
@@ -30960,7 +31028,7 @@ export namespace Prisma {
   export type CronogramaUncheckedCreateWithoutGestorInput = {
     id?: number
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     demandasCronograma?: DemandaUncheckedCreateNestedManyWithoutCronogramaInput
   }
@@ -31354,7 +31422,7 @@ export namespace Prisma {
     NOT?: CronogramaScalarWhereInput | CronogramaScalarWhereInput[]
     id?: IntFilter<"Cronograma"> | number
     titulo?: StringFilter<"Cronograma"> | string
-    descricao?: StringFilter<"Cronograma"> | string
+    descricao?: StringNullableFilter<"Cronograma"> | string | null
     dateTimestamp?: DateTimeFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntFilter<"Cronograma"> | number
   }
@@ -31747,7 +31815,7 @@ export namespace Prisma {
 
   export type CronogramaCreateWithoutDemandasCronogramaInput = {
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutCronogramasGerenciadosInput
   }
@@ -31755,7 +31823,7 @@ export namespace Prisma {
   export type CronogramaUncheckedCreateWithoutDemandasCronogramaInput = {
     id?: number
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
     gestorUsuarioId: number
   }
@@ -31901,7 +31969,7 @@ export namespace Prisma {
 
   export type CronogramaUpdateWithoutDemandasCronogramaInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestor?: UsuarioUpdateOneRequiredWithoutCronogramasGerenciadosNestedInput
   }
@@ -31909,7 +31977,7 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateWithoutDemandasCronogramaInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -34847,7 +34915,7 @@ export namespace Prisma {
   export type CronogramaCreateManyGestorInput = {
     id?: number
     titulo: string
-    descricao: string
+    descricao?: string | null
     dateTimestamp?: Date | string
   }
 
@@ -34959,7 +35027,7 @@ export namespace Prisma {
 
   export type CronogramaUpdateWithoutGestorInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     demandasCronograma?: DemandaUpdateManyWithoutCronogramaNestedInput
   }
@@ -34967,7 +35035,7 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateWithoutGestorInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     demandasCronograma?: DemandaUncheckedUpdateManyWithoutCronogramaNestedInput
   }
@@ -34975,7 +35043,7 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateManyWithoutGestorInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

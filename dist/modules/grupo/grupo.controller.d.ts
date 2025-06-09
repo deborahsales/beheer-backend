@@ -1,7 +1,7 @@
-import { GrupoService } from './grupo.service';
-import { CreateGrupoDto } from './dto/create-grupo.dto';
 import { RequestWithUser } from '../auth/interfaces/request-with-user.interface';
+import { CreateGrupoDto } from './dto/create-grupo.dto';
 import { UpdateGrupoDto } from './dto/update-grupo.dto';
+import { GrupoService } from './grupo.service';
 export declare class GrupoController {
     private readonly grupoService;
     constructor(grupoService: GrupoService);
@@ -109,5 +109,9 @@ export declare class GrupoController {
         id: number;
         descricao: string;
     }>;
-    delete(id: number, req: RequestWithUser): Promise<void>;
+    delete(id: number, req: RequestWithUser): Promise<{
+        nome: string;
+        id: number;
+        descricao: string;
+    }>;
 }
