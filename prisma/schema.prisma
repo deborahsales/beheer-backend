@@ -249,9 +249,9 @@ enum StatusAjuste {
 
 model AjustePonto {
   id Int @id @default(autoincrement())
-  horario DateTime
+  dateTimestampAjustado DateTime
   motivo MotivoAjuste
-  status StatusAjuste
+  status StatusAjuste @default(PENDENTE)
   dateTimestamp DateTime @default(now())
 
   usuarioId Int

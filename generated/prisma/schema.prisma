@@ -247,11 +247,11 @@ enum StatusAjuste {
 }
 
 model AjustePonto {
-  id            Int          @id @default(autoincrement())
-  horario       DateTime
-  motivo        MotivoAjuste
-  status        StatusAjuste
-  dateTimestamp DateTime     @default(now())
+  id                    Int          @id @default(autoincrement())
+  dateTimestampAjustado DateTime
+  motivo                MotivoAjuste
+  status                StatusAjuste @default(PENDENTE)
+  dateTimestamp         DateTime     @default(now())
 
   usuarioId Int
   usuario   Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id], onDelete: Cascade)

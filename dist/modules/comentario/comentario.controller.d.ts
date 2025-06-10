@@ -9,40 +9,40 @@ export declare class ComentarioController {
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
-        demandaId: number;
         conteudo: string;
+        demandaId: number;
         dataAlteracao: Date | null;
     }>;
     findAll(demandaId: number, req: RequestWithUser): Promise<{
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
-        demandaId: number;
         conteudo: string;
+        demandaId: number;
         dataAlteracao: Date | null;
     }[]>;
     findOne(comentarioId: number): Promise<{
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
-        demandaId: number;
         conteudo: string;
+        demandaId: number;
         dataAlteracao: Date | null;
     }>;
     update(comentarioId: number, updateComentarioDto: UpdateComentarioDto, req: RequestWithUser): Promise<{
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
-        demandaId: number;
         conteudo: string;
+        demandaId: number;
         dataAlteracao: Date | null;
     }>;
     delete(comentarioId: number, req: RequestWithUser): Promise<{
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
-        demandaId: number;
         conteudo: string;
+        demandaId: number;
         dataAlteracao: Date | null;
     }>;
 }

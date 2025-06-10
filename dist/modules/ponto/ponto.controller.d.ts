@@ -14,24 +14,8 @@ export declare class PontoController {
         longitude: number;
         usuarioId: number;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<{
-        id: number;
-        dateTimestamp: Date;
-        ip: string;
-        imagem: string;
-        latitude: number;
-        longitude: number;
-        usuarioId: number;
-    }[]>;
-    findOne(id: number): Promise<{
-        id: number;
-        dateTimestamp: Date;
-        ip: string;
-        imagem: string;
-        latitude: number;
-        longitude: number;
-        usuarioId: number;
-    }>;
+    findAll(req: RequestWithUser): Promise<any>;
+    findOne(id: number, req: RequestWithUser): Promise<any>;
     update(id: number, updatePontoDto: UpdatePontoDto): Promise<{
         id: number;
         dateTimestamp: Date;

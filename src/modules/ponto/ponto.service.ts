@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { FuncaoUsuario } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreatePontoDto } from './dto/create-ponto.dto';
 import { UpdatePontoDto } from './dto/update-ponto.dto';
@@ -19,20 +20,26 @@ export class PontoService {
 		});
 	}
 
-	findAll(usuarioId: number) {
-		return this.prisma.ponto.findMany({ where: { usuarioId } });
+	async findAll(funcaoUsuario: string, usuarioId: number) {
+		let pontos;
+
+		if (funcaoUsuario === FuncaoUsuario.RH) {
+			pontos = await this.prisma.ponto.findMany();
+		} else {
+			pontos = await this.prisma.ponto.findMany({ where: { usuarioId } });
+		}
+
+		return pontos;
 	}
 
-	async findOne(id: number) {
-		const ponto = await this.prisma.ponto.findFirst({ where: { id } });
+	async findOne(id: number, funcaoUsuario: string, usuarioId: number) {
+		let ponto;
 
-		if (!ponto) throw new NotFoundException('Ponto não encontrado');
-
-		return ponto;
-	}
-
-	async findOneWithUser(id: number, usuarioId: number) {
-		const ponto = await this.prisma.ponto.findFirst({ where: { id, usuarioId } });
+		if (funcaoUsuario === FuncaoUsuario.RH) {
+			ponto = await this.prisma.ponto.findFirst({ where: { id } });
+		} else {
+			ponto = await this.prisma.ponto.findFirst({ where: { id, usuarioId } });
+		}
 
 		if (!ponto) throw new NotFoundException('Ponto não encontrado ou acesso não autorizado');
 
@@ -40,13 +47,17 @@ export class PontoService {
 	}
 
 	async update(dto: UpdatePontoDto, id: number) {
-		await this.findOne(id);
+		const ponto = await this.prisma.ponto.findFirst({ where: { id } });
+
+		if (!ponto) throw new NotFoundException('Ponto não encontrado');
 
 		return this.prisma.ponto.update({ where: { id }, data: { ...dto } });
 	}
 
 	async remove(id: number) {
-		await this.findOne(id);
+		const ponto = await this.prisma.ponto.findFirst({ where: { id } });
+
+		if (!ponto) throw new NotFoundException('Ponto não encontrado');
 
 		return this.prisma.ponto.delete({ where: { id } });
 	}

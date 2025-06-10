@@ -12,8 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdatePontoDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
-const create_ponto_dto_1 = require("./create-ponto.dto");
-class UpdatePontoDto extends (0, swagger_1.PartialType)((0, swagger_1.OmitType)(create_ponto_dto_1.CreatePontoDto, ['imagem', 'latitude', 'longitude'])) {
+class UpdatePontoDto {
     dateTimestamp;
 }
 exports.UpdatePontoDto = UpdatePontoDto;

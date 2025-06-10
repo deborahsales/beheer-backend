@@ -17226,7 +17226,7 @@ export namespace Prisma {
 
   export type AjustePontoMinAggregateOutputType = {
     id: number | null
-    horario: Date | null
+    dateTimestampAjustado: Date | null
     motivo: $Enums.MotivoAjuste | null
     status: $Enums.StatusAjuste | null
     dateTimestamp: Date | null
@@ -17236,7 +17236,7 @@ export namespace Prisma {
 
   export type AjustePontoMaxAggregateOutputType = {
     id: number | null
-    horario: Date | null
+    dateTimestampAjustado: Date | null
     motivo: $Enums.MotivoAjuste | null
     status: $Enums.StatusAjuste | null
     dateTimestamp: Date | null
@@ -17246,7 +17246,7 @@ export namespace Prisma {
 
   export type AjustePontoCountAggregateOutputType = {
     id: number
-    horario: number
+    dateTimestampAjustado: number
     motivo: number
     status: number
     dateTimestamp: number
@@ -17270,7 +17270,7 @@ export namespace Prisma {
 
   export type AjustePontoMinAggregateInputType = {
     id?: true
-    horario?: true
+    dateTimestampAjustado?: true
     motivo?: true
     status?: true
     dateTimestamp?: true
@@ -17280,7 +17280,7 @@ export namespace Prisma {
 
   export type AjustePontoMaxAggregateInputType = {
     id?: true
-    horario?: true
+    dateTimestampAjustado?: true
     motivo?: true
     status?: true
     dateTimestamp?: true
@@ -17290,7 +17290,7 @@ export namespace Prisma {
 
   export type AjustePontoCountAggregateInputType = {
     id?: true
-    horario?: true
+    dateTimestampAjustado?: true
     motivo?: true
     status?: true
     dateTimestamp?: true
@@ -17387,7 +17387,7 @@ export namespace Prisma {
 
   export type AjustePontoGroupByOutputType = {
     id: number
-    horario: Date
+    dateTimestampAjustado: Date
     motivo: $Enums.MotivoAjuste
     status: $Enums.StatusAjuste
     dateTimestamp: Date
@@ -17416,7 +17416,7 @@ export namespace Prisma {
 
   export type AjustePontoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    horario?: boolean
+    dateTimestampAjustado?: boolean
     motivo?: boolean
     status?: boolean
     dateTimestamp?: boolean
@@ -17430,7 +17430,7 @@ export namespace Prisma {
 
   export type AjustePontoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    horario?: boolean
+    dateTimestampAjustado?: boolean
     motivo?: boolean
     status?: boolean
     dateTimestamp?: boolean
@@ -17442,7 +17442,7 @@ export namespace Prisma {
 
   export type AjustePontoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    horario?: boolean
+    dateTimestampAjustado?: boolean
     motivo?: boolean
     status?: boolean
     dateTimestamp?: boolean
@@ -17454,7 +17454,7 @@ export namespace Prisma {
 
   export type AjustePontoSelectScalar = {
     id?: boolean
-    horario?: boolean
+    dateTimestampAjustado?: boolean
     motivo?: boolean
     status?: boolean
     dateTimestamp?: boolean
@@ -17462,7 +17462,7 @@ export namespace Prisma {
     pontoId?: boolean
   }
 
-  export type AjustePontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "horario" | "motivo" | "status" | "dateTimestamp" | "usuarioId" | "pontoId", ExtArgs["result"]["ajustePonto"]>
+  export type AjustePontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestampAjustado" | "motivo" | "status" | "dateTimestamp" | "usuarioId" | "pontoId", ExtArgs["result"]["ajustePonto"]>
   export type AjustePontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     ponto?: boolean | PontoDefaultArgs<ExtArgs>
@@ -17487,7 +17487,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      horario: Date
+      dateTimestampAjustado: Date
       motivo: $Enums.MotivoAjuste
       status: $Enums.StatusAjuste
       dateTimestamp: Date
@@ -17920,7 +17920,7 @@ export namespace Prisma {
    */
   interface AjustePontoFieldRefs {
     readonly id: FieldRef<"AjustePonto", 'Int'>
-    readonly horario: FieldRef<"AjustePonto", 'DateTime'>
+    readonly dateTimestampAjustado: FieldRef<"AjustePonto", 'DateTime'>
     readonly motivo: FieldRef<"AjustePonto", 'MotivoAjuste'>
     readonly status: FieldRef<"AjustePonto", 'StatusAjuste'>
     readonly dateTimestamp: FieldRef<"AjustePonto", 'DateTime'>
@@ -24976,7 +24976,7 @@ export namespace Prisma {
 
   export const AjustePontoScalarFieldEnum: {
     id: 'id',
-    horario: 'horario',
+    dateTimestampAjustado: 'dateTimestampAjustado',
     motivo: 'motivo',
     status: 'status',
     dateTimestamp: 'dateTimestamp',
@@ -26161,7 +26161,7 @@ export namespace Prisma {
     OR?: AjustePontoWhereInput[]
     NOT?: AjustePontoWhereInput | AjustePontoWhereInput[]
     id?: IntFilter<"AjustePonto"> | number
-    horario?: DateTimeFilter<"AjustePonto"> | Date | string
+    dateTimestampAjustado?: DateTimeFilter<"AjustePonto"> | Date | string
     motivo?: EnumMotivoAjusteFilter<"AjustePonto"> | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFilter<"AjustePonto"> | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFilter<"AjustePonto"> | Date | string
@@ -26174,7 +26174,7 @@ export namespace Prisma {
 
   export type AjustePontoOrderByWithRelationInput = {
     id?: SortOrder
-    horario?: SortOrder
+    dateTimestampAjustado?: SortOrder
     motivo?: SortOrder
     status?: SortOrder
     dateTimestamp?: SortOrder
@@ -26191,7 +26191,7 @@ export namespace Prisma {
     AND?: AjustePontoWhereInput | AjustePontoWhereInput[]
     OR?: AjustePontoWhereInput[]
     NOT?: AjustePontoWhereInput | AjustePontoWhereInput[]
-    horario?: DateTimeFilter<"AjustePonto"> | Date | string
+    dateTimestampAjustado?: DateTimeFilter<"AjustePonto"> | Date | string
     motivo?: EnumMotivoAjusteFilter<"AjustePonto"> | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFilter<"AjustePonto"> | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFilter<"AjustePonto"> | Date | string
@@ -26203,7 +26203,7 @@ export namespace Prisma {
 
   export type AjustePontoOrderByWithAggregationInput = {
     id?: SortOrder
-    horario?: SortOrder
+    dateTimestampAjustado?: SortOrder
     motivo?: SortOrder
     status?: SortOrder
     dateTimestamp?: SortOrder
@@ -26221,7 +26221,7 @@ export namespace Prisma {
     OR?: AjustePontoScalarWhereWithAggregatesInput[]
     NOT?: AjustePontoScalarWhereWithAggregatesInput | AjustePontoScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"AjustePonto"> | number
-    horario?: DateTimeWithAggregatesFilter<"AjustePonto"> | Date | string
+    dateTimestampAjustado?: DateTimeWithAggregatesFilter<"AjustePonto"> | Date | string
     motivo?: EnumMotivoAjusteWithAggregatesFilter<"AjustePonto"> | $Enums.MotivoAjuste
     status?: EnumStatusAjusteWithAggregatesFilter<"AjustePonto"> | $Enums.StatusAjuste
     dateTimestamp?: DateTimeWithAggregatesFilter<"AjustePonto"> | Date | string
@@ -27407,9 +27407,9 @@ export namespace Prisma {
   }
 
   export type AjustePontoCreateInput = {
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     ponto: PontoCreateNestedOneWithoutAjusteInput
@@ -27418,9 +27418,9 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedCreateInput = {
     id?: number
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
@@ -27428,7 +27428,7 @@ export namespace Prisma {
   }
 
   export type AjustePontoUpdateInput = {
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27439,7 +27439,7 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27450,16 +27450,16 @@ export namespace Prisma {
 
   export type AjustePontoCreateManyInput = {
     id?: number
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
   }
 
   export type AjustePontoUpdateManyMutationInput = {
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27467,7 +27467,7 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28751,7 +28751,7 @@ export namespace Prisma {
 
   export type AjustePontoCountOrderByAggregateInput = {
     id?: SortOrder
-    horario?: SortOrder
+    dateTimestampAjustado?: SortOrder
     motivo?: SortOrder
     status?: SortOrder
     dateTimestamp?: SortOrder
@@ -28767,7 +28767,7 @@ export namespace Prisma {
 
   export type AjustePontoMaxOrderByAggregateInput = {
     id?: SortOrder
-    horario?: SortOrder
+    dateTimestampAjustado?: SortOrder
     motivo?: SortOrder
     status?: SortOrder
     dateTimestamp?: SortOrder
@@ -28777,7 +28777,7 @@ export namespace Prisma {
 
   export type AjustePontoMinOrderByAggregateInput = {
     id?: SortOrder
-    horario?: SortOrder
+    dateTimestampAjustado?: SortOrder
     motivo?: SortOrder
     status?: SortOrder
     dateTimestamp?: SortOrder
@@ -31274,9 +31274,9 @@ export namespace Prisma {
   }
 
   export type AjustePontoCreateWithoutUsuarioInput = {
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ponto: PontoCreateNestedOneWithoutAjusteInput
     gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
@@ -31284,9 +31284,9 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedCreateWithoutUsuarioInput = {
     id?: number
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     pontoId: number
     gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
@@ -31681,7 +31681,7 @@ export namespace Prisma {
     OR?: AjustePontoScalarWhereInput[]
     NOT?: AjustePontoScalarWhereInput | AjustePontoScalarWhereInput[]
     id?: IntFilter<"AjustePonto"> | number
-    horario?: DateTimeFilter<"AjustePonto"> | Date | string
+    dateTimestampAjustado?: DateTimeFilter<"AjustePonto"> | Date | string
     motivo?: EnumMotivoAjusteFilter<"AjustePonto"> | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFilter<"AjustePonto"> | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFilter<"AjustePonto"> | Date | string
@@ -32822,9 +32822,9 @@ export namespace Prisma {
   }
 
   export type AjustePontoCreateWithoutPontoInput = {
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
@@ -32832,9 +32832,9 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedCreateWithoutPontoInput = {
     id?: number
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuarioId: number
     gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
@@ -32925,7 +32925,7 @@ export namespace Prisma {
   }
 
   export type AjustePontoUpdateWithoutPontoInput = {
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32935,7 +32935,7 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedUpdateWithoutPontoInput = {
     id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33885,9 +33885,9 @@ export namespace Prisma {
   }
 
   export type AjustePontoCreateWithoutGerenciamentoAjusteInput = {
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     ponto: PontoCreateNestedOneWithoutAjusteInput
@@ -33895,9 +33895,9 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedCreateWithoutGerenciamentoAjusteInput = {
     id?: number
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
@@ -33982,7 +33982,7 @@ export namespace Prisma {
   }
 
   export type AjustePontoUpdateWithoutGerenciamentoAjusteInput = {
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33992,7 +33992,7 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedUpdateWithoutGerenciamentoAjusteInput = {
     id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34994,9 +34994,9 @@ export namespace Prisma {
 
   export type AjustePontoCreateManyUsuarioInput = {
     id?: number
-    horario: Date | string
+    dateTimestampAjustado: Date | string
     motivo: $Enums.MotivoAjuste
-    status: $Enums.StatusAjuste
+    status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     pontoId: number
   }
@@ -35271,7 +35271,7 @@ export namespace Prisma {
   }
 
   export type AjustePontoUpdateWithoutUsuarioInput = {
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35281,7 +35281,7 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedUpdateWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35291,7 +35291,7 @@ export namespace Prisma {
 
   export type AjustePontoUncheckedUpdateManyWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: DateTimeFieldUpdateOperationsInput | Date | string
     motivo?: EnumMotivoAjusteFieldUpdateOperationsInput | $Enums.MotivoAjuste
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string

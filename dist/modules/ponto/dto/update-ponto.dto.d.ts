@@ -1,6 +1,3 @@
-import { CreatePontoDto } from './create-ponto.dto';
-declare const UpdatePontoDto_base: import("@nestjs/common").Type<Partial<Omit<CreatePontoDto, "imagem" | "latitude" | "longitude">>>;
-export declare class UpdatePontoDto extends UpdatePontoDto_base {
+export declare class UpdatePontoDto {
     dateTimestamp: Date;
 }
-export {};

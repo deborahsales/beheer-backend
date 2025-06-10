@@ -240,7 +240,7 @@ exports.Prisma.DocumentoScalarFieldEnum = {
 
 exports.Prisma.AjustePontoScalarFieldEnum = {
   id: 'id',
-  horario: 'horario',
+  dateTimestampAjustado: 'dateTimestampAjustado',
   motivo: 'motivo',
   status: 'status',
   dateTimestamp: 'dateTimestamp',
