@@ -1,9 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as Express from 'express';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
+	(app.getHttpAdapter().getInstance() as Express.Application).set('trust proxy', 1);
 
 	// Configuração do Swagger
 	const config = new DocumentBuilder()

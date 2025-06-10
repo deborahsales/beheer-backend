@@ -8,22 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const usuario_module_1 = require("./modules/usuario/usuario.module");
-const demanda_module_1 = require("./modules/demanda/demanda.module");
-const cronograma_module_1 = require("./modules/cronograma/cronograma.module");
+const ajuste_ponto_module_1 = require("./modules/ajuste-ponto/ajuste-ponto.module");
+const assinatura_module_1 = require("./modules/assinatura/assinatura.module");
+const atestado_module_1 = require("./modules/atestado/atestado.module");
+const auth_module_1 = require("./modules/auth/auth.module");
 const aviso_module_1 = require("./modules/aviso/aviso.module");
-const grupo_module_1 = require("./modules/grupo/grupo.module");
+const certificado_digital_module_1 = require("./modules/certificado-digital/certificado-digital.module");
 const comentario_module_1 = require("./modules/comentario/comentario.module");
-const localizacao_module_1 = require("./modules/localizacao/localizacao.module");
+const cronograma_module_1 = require("./modules/cronograma/cronograma.module");
+const demanda_module_1 = require("./modules/demanda/demanda.module");
+const documento_module_1 = require("./modules/documento/documento.module");
+const grupo_module_1 = require("./modules/grupo/grupo.module");
 const ponto_module_1 = require("./modules/ponto/ponto.module");
 const prestacao_contas_module_1 = require("./modules/prestacao-contas/prestacao-contas.module");
-const atestado_module_1 = require("./modules/atestado/atestado.module");
-const assinatura_module_1 = require("./modules/assinatura/assinatura.module");
-const certificado_digital_module_1 = require("./modules/certificado-digital/certificado-digital.module");
-const documento_module_1 = require("./modules/documento/documento.module");
-const ajuste_ponto_module_1 = require("./modules/ajuste-ponto/ajuste-ponto.module");
-const auth_module_1 = require("./modules/auth/auth.module");
 const prisma_module_1 = require("./modules/prisma/prisma.module");
+const usuario_module_1 = require("./modules/usuario/usuario.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -36,7 +35,6 @@ exports.AppModule = AppModule = __decorate([
             aviso_module_1.AvisoModule,
             grupo_module_1.GrupoModule,
             comentario_module_1.ComentarioModule,
-            localizacao_module_1.LocalizacaoModule,
             ponto_module_1.PontoModule,
             prestacao_contas_module_1.PrestacaoContasModule,
             atestado_module_1.AtestadoModule,
