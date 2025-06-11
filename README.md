@@ -1,4 +1,4 @@
-<p align="center"><img src="beheer.svg" width="300" alt="Nest Logo" />
+<p align="center"><img src="beheer.svg" width="300" alt="Beheer Logo" />
 </p>
 <p align="center">Plataforma de gerenciamento de equipes remotas.</p>
 
@@ -16,7 +16,16 @@ Aplicação em desenvolvimento como TCC para o curso de Ciências da Computaçã
 $ npm install
 ```
 
-## 2. Compilar e executar o projeto
+## 2. Variáveis de ambiente
+
+Crie o arquivo .env na raiz do projeto e insira as variáveis
+
+```bash
+DATABASE_URL=""
+JWT_SECRET=""
+```
+
+## 3. Compilar e executar o projeto
 
 ```bash
 # development
@@ -29,7 +38,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## 3. Prisma
+## 4. Prisma
 
 ```bash
 # generate new migration
