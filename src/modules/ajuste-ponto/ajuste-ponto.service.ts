@@ -67,9 +67,9 @@ export class AjustePontoService {
 			throw new NotFoundException('Ajuste não encontrado ou acesso não autorizado');
 		}
 
-		if (ajuste.status === StatusAjuste.AJUSTADO)
+		if (ajuste.status === StatusAjuste.AJUSTADO || ajuste.status === StatusAjuste.RECUSADO)
 			throw new NotFoundException(
-				'Não é possível editar uma solicitação de ajuste que já foi aceita',
+				'Não é possível editar uma solicitação de ajuste que já foi gerenciado',
 			);
 
 		return this.prisma.ajustePonto.update({
@@ -82,7 +82,7 @@ export class AjustePontoService {
 		const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id } });
 
 		if (!ajuste) {
-			throw new NotFoundException('Ajuste não encontrado ou acesso não autorizado');
+			throw new NotFoundException('Ajuste não encontrado');
 		}
 
 		const ajusteAtualizado = await this.prisma.ajustePonto.update({
@@ -108,7 +108,6 @@ export class AjustePontoService {
 
 		await this.prisma.gerenciamentoAjustePonto.create({
 			data: {
-				status: StatusAjuste.AJUSTADO,
 				ajustePontoId: id,
 				rhUsuarioId: usuarioId,
 			},
@@ -122,9 +121,9 @@ export class AjustePontoService {
 
 		if (!ajuste) throw new NotFoundException('Ajuste não encontrado ou acesso não autorizado');
 
-		if (ajuste.status === StatusAjuste.AJUSTADO)
+		if (ajuste.status === StatusAjuste.AJUSTADO || ajuste.status === StatusAjuste.RECUSADO)
 			throw new NotFoundException(
-				'Não é possível remover uma solicitação de ajuste que já foi aceita',
+				'Não é possível remover uma solicitação de ajuste que já foi gerenciado',
 			);
 
 		return this.prisma.ajustePonto.delete({

@@ -68,8 +68,8 @@ let AjustePontoService = class AjustePontoService {
         if (!ajuste) {
             throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
         }
-        if (ajuste.status === prisma_1.StatusAjuste.AJUSTADO)
-            throw new common_1.NotFoundException('Não é possível editar uma solicitação de ajuste que já foi aceita');
+        if (ajuste.status === prisma_1.StatusAjuste.AJUSTADO || ajuste.status === prisma_1.StatusAjuste.RECUSADO)
+            throw new common_1.NotFoundException('Não é possível editar uma solicitação de ajuste que já foi gerenciado');
         return this.prisma.ajustePonto.update({
             where: { id, usuarioId },
             data: { dateTimestampAjustado: dto.dateTimestampAjustado, motivo: dto.motivo },
@@ -78,7 +78,7 @@ let AjustePontoService = class AjustePontoService {
     async updateRh(dto, id, usuarioId) {
         const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id } });
         if (!ajuste) {
-            throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
+            throw new common_1.NotFoundException('Ajuste não encontrado');
         }
         const ajusteAtualizado = await this.prisma.ajustePonto.update({
             where: { id },
@@ -102,7 +102,6 @@ let AjustePontoService = class AjustePontoService {
         }
         await this.prisma.gerenciamentoAjustePonto.create({
             data: {
-                status: prisma_1.StatusAjuste.AJUSTADO,
                 ajustePontoId: id,
                 rhUsuarioId: usuarioId,
             },
@@ -113,8 +112,8 @@ let AjustePontoService = class AjustePontoService {
         const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id, usuarioId } });
         if (!ajuste)
             throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
-        if (ajuste.status === prisma_1.StatusAjuste.AJUSTADO)
-            throw new common_1.NotFoundException('Não é possível remover uma solicitação de ajuste que já foi aceita');
+        if (ajuste.status === prisma_1.StatusAjuste.AJUSTADO || ajuste.status === prisma_1.StatusAjuste.RECUSADO)
+            throw new common_1.NotFoundException('Não é possível remover uma solicitação de ajuste que já foi gerenciado');
         return this.prisma.ajustePonto.delete({
             where: { id, usuarioId: usuarioId },
         });

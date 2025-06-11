@@ -46,6 +46,7 @@ model Usuario {
   documentosUsuario      Documento[]                @relation("UsuarioDocumento")
   ajustesUsuario         AjustePonto[]              @relation("UsuarioAjuste")
   ajustesGerenciados     GerenciamentoAjustePonto[] @relation("UsuarioGerenciamentoPonto")
+  atestadosGerenciados   GerenciamentoAtestado[]    @relation("UsuarioGerenciamentoAtestado")
   avisosUsuario          AvisoUsuario[]             @relation("UsuarioAviso")
   gruposUsuario          UsuarioGrupo[]             @relation("GruposUsuario")
   gruposGestor           GrupoGestor[]              @relation("GruposGestor")
@@ -164,17 +165,26 @@ enum DiaInteiro {
   NAO
 }
 
+enum StatusAtestado {
+  CADASTRADO
+  ACEITE
+  RECUSADO
+}
+
 model Atestado {
-  id            Int        @id @default(autoincrement())
-  dateTimestamp DateTime   @default(now())
+  id            Int            @id @default(autoincrement())
+  dateTimestamp DateTime       @default(now())
   dataAtestado  DateTime
   horaInicio    DateTime?
   horaTermino   DateTime?
   diaInteiro    DiaInteiro
   imagem        String
+  status        StatusAtestado @default(CADASTRADO)
 
   usuarioId Int
   usuario   Usuario @relation("AtestadoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  gerenciamentoAtestado GerenciamentoAtestado[] @relation("AtestadoGerenciado")
 }
 
 enum StatusAssinatura {
@@ -265,8 +275,7 @@ model AjustePonto {
 }
 
 model GerenciamentoAjustePonto {
-  status        StatusAjuste
-  dateTimestamp DateTime     @default(now())
+  dateTimestamp DateTime @default(now())
 
   ajustePontoId Int
   ajustePonto   AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id], onDelete: Cascade)
@@ -275,6 +284,18 @@ model GerenciamentoAjustePonto {
   usuarioRh   Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
   @@id([ajustePontoId, rhUsuarioId])
+}
+
+model GerenciamentoAtestado {
+  dateTimestamp DateTime @default(now())
+
+  atestadoId Int
+  atestado   Atestado? @relation("AtestadoGerenciado", fields: [atestadoId], references: [id], onDelete: Cascade)
+
+  rhUsuarioId Int
+  usuarioRh   Usuario @relation("UsuarioGerenciamentoAtestado", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
+
+  @@id([atestadoId, rhUsuarioId])
 }
 
 enum StatusAviso {

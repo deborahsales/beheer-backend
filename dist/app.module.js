@@ -9,15 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const ajuste_ponto_module_1 = require("./modules/ajuste-ponto/ajuste-ponto.module");
-const assinatura_module_1 = require("./modules/assinatura/assinatura.module");
 const atestado_module_1 = require("./modules/atestado/atestado.module");
 const auth_module_1 = require("./modules/auth/auth.module");
 const aviso_module_1 = require("./modules/aviso/aviso.module");
-const certificado_digital_module_1 = require("./modules/certificado-digital/certificado-digital.module");
 const comentario_module_1 = require("./modules/comentario/comentario.module");
 const cronograma_module_1 = require("./modules/cronograma/cronograma.module");
 const demanda_module_1 = require("./modules/demanda/demanda.module");
-const documento_module_1 = require("./modules/documento/documento.module");
 const grupo_module_1 = require("./modules/grupo/grupo.module");
 const ponto_module_1 = require("./modules/ponto/ponto.module");
 const prestacao_contas_module_1 = require("./modules/prestacao-contas/prestacao-contas.module");
@@ -38,9 +35,6 @@ exports.AppModule = AppModule = __decorate([
             ponto_module_1.PontoModule,
             prestacao_contas_module_1.PrestacaoContasModule,
             atestado_module_1.AtestadoModule,
-            assinatura_module_1.AssinaturaModule,
-            certificado_digital_module_1.CertificadoDigitalModule,
-            documento_module_1.DocumentoModule,
             ajuste_ponto_module_1.AjustePontoModule,
             auth_module_1.AuthModule,
             prisma_module_1.PrismaModule,

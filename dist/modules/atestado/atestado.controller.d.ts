@@ -1,2 +1,55 @@
+import { RequestWithUser } from '../auth/interfaces/request-with-user.interface';
+import { AtestadoService } from './atestado.service';
+import { CreateAtestadoDto } from './dto/create-atestado.dto';
+import { UpdateAtestadoDto } from './dto/update-atestado.dto';
+import { UpdateGerenciamentoAtestadoDto } from './dto/update-gerenciamento-atestado';
 export declare class AtestadoController {
+    private atestadoService;
+    constructor(atestadoService: AtestadoService);
+    create(createAtestadoDto: CreateAtestadoDto, req: RequestWithUser): import("generated/prisma").Prisma.Prisma__AtestadoClient<{
+        id: number;
+        dateTimestamp: Date;
+        dataAtestado: Date;
+        horaInicio: Date | null;
+        horaTermino: Date | null;
+        diaInteiro: import("generated/prisma").$Enums.DiaInteiro;
+        imagem: string;
+        status: import("generated/prisma").$Enums.StatusAtestado;
+        usuarioId: number;
+    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    findAll(req: RequestWithUser): any;
+    findOne(id: number, req: RequestWithUser): any;
+    update(id: number, updateAtestadoDto: UpdateAtestadoDto, req: RequestWithUser): Promise<{
+        id: number;
+        dateTimestamp: Date;
+        dataAtestado: Date;
+        horaInicio: Date | null;
+        horaTermino: Date | null;
+        diaInteiro: import("generated/prisma").$Enums.DiaInteiro;
+        imagem: string;
+        status: import("generated/prisma").$Enums.StatusAtestado;
+        usuarioId: number;
+    }>;
+    updateRh(id: number, UpdateAtestadoDto: UpdateGerenciamentoAtestadoDto, req: RequestWithUser): Promise<{
+        id: number;
+        dateTimestamp: Date;
+        dataAtestado: Date;
+        horaInicio: Date | null;
+        horaTermino: Date | null;
+        diaInteiro: import("generated/prisma").$Enums.DiaInteiro;
+        imagem: string;
+        status: import("generated/prisma").$Enums.StatusAtestado;
+        usuarioId: number;
+    }>;
+    delete(id: number, req: RequestWithUser): Promise<{
+        id: number;
+        dateTimestamp: Date;
+        dataAtestado: Date;
+        horaInicio: Date | null;
+        horaTermino: Date | null;
+        diaInteiro: import("generated/prisma").$Enums.DiaInteiro;
+        imagem: string;
+        status: import("generated/prisma").$Enums.StatusAtestado;
+        usuarioId: number;
+    }>;
 }

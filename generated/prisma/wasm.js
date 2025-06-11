@@ -207,6 +207,7 @@ exports.Prisma.AtestadoScalarFieldEnum = {
   horaTermino: 'horaTermino',
   diaInteiro: 'diaInteiro',
   imagem: 'imagem',
+  status: 'status',
   usuarioId: 'usuarioId'
 };
 
@@ -250,9 +251,14 @@ exports.Prisma.AjustePontoScalarFieldEnum = {
 };
 
 exports.Prisma.GerenciamentoAjustePontoScalarFieldEnum = {
-  status: 'status',
   dateTimestamp: 'dateTimestamp',
   ajustePontoId: 'ajustePontoId',
+  rhUsuarioId: 'rhUsuarioId'
+};
+
+exports.Prisma.GerenciamentoAtestadoScalarFieldEnum = {
+  dateTimestamp: 'dateTimestamp',
+  atestadoId: 'atestadoId',
   rhUsuarioId: 'rhUsuarioId'
 };
 
@@ -322,6 +328,12 @@ exports.DiaInteiro = exports.$Enums.DiaInteiro = {
   NAO: 'NAO'
 };
 
+exports.StatusAtestado = exports.$Enums.StatusAtestado = {
+  CADASTRADO: 'CADASTRADO',
+  ACEITE: 'ACEITE',
+  RECUSADO: 'RECUSADO'
+};
+
 exports.StatusAssinatura = exports.$Enums.StatusAssinatura = {
   ATIVA: 'ATIVA',
   INATIVA: 'INATIVA',
@@ -372,6 +384,7 @@ exports.Prisma.ModelName = {
   Documento: 'Documento',
   AjustePonto: 'AjustePonto',
   GerenciamentoAjustePonto: 'GerenciamentoAjustePonto',
+  GerenciamentoAtestado: 'GerenciamentoAtestado',
   AvisoUsuario: 'AvisoUsuario',
   UsuarioGrupo: 'UsuarioGrupo',
   GrupoGestor: 'GrupoGestor',
