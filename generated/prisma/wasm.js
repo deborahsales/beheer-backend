@@ -185,6 +185,7 @@ exports.Prisma.PontoScalarFieldEnum = {
   imagem: 'imagem',
   latitude: 'latitude',
   longitude: 'longitude',
+  ativo: 'ativo',
   usuarioId: 'usuarioId'
 };
 
@@ -195,6 +196,7 @@ exports.Prisma.PrestacaoContasScalarFieldEnum = {
   valor: 'valor',
   imagem: 'imagem',
   dateTimestamp: 'dateTimestamp',
+  status: 'status',
   usuarioId: 'usuarioId'
 };
 
@@ -206,6 +208,7 @@ exports.Prisma.AtestadoScalarFieldEnum = {
   horaTermino: 'horaTermino',
   diaInteiro: 'diaInteiro',
   imagem: 'imagem',
+  status: 'status',
   usuarioId: 'usuarioId'
 };
 
@@ -240,7 +243,7 @@ exports.Prisma.DocumentoScalarFieldEnum = {
 
 exports.Prisma.AjustePontoScalarFieldEnum = {
   id: 'id',
-  horario: 'horario',
+  dateTimestampAjustado: 'dateTimestampAjustado',
   motivo: 'motivo',
   status: 'status',
   dateTimestamp: 'dateTimestamp',
@@ -248,10 +251,21 @@ exports.Prisma.AjustePontoScalarFieldEnum = {
   pontoId: 'pontoId'
 };
 
-exports.Prisma.GerenciamentoAjsutePontoScalarFieldEnum = {
-  status: 'status',
+exports.Prisma.GerenciamentoAjustePontoScalarFieldEnum = {
   dateTimestamp: 'dateTimestamp',
   ajustePontoId: 'ajustePontoId',
+  rhUsuarioId: 'rhUsuarioId'
+};
+
+exports.Prisma.GerenciamentoAtestadoScalarFieldEnum = {
+  dateTimestamp: 'dateTimestamp',
+  atestadoId: 'atestadoId',
+  rhUsuarioId: 'rhUsuarioId'
+};
+
+exports.Prisma.GerenciamentoPrestacaoScalarFieldEnum = {
+  dateTimestamp: 'dateTimestamp',
+  prestacaoId: 'prestacaoId',
   rhUsuarioId: 'rhUsuarioId'
 };
 
@@ -316,9 +330,21 @@ exports.PrioridadeDemanda = exports.$Enums.PrioridadeDemanda = {
   ALTA: 'ALTA'
 };
 
+exports.StatusPrestacao = exports.$Enums.StatusPrestacao = {
+  CADASTRADA: 'CADASTRADA',
+  ACEITE: 'ACEITE',
+  RECUSADA: 'RECUSADA'
+};
+
 exports.DiaInteiro = exports.$Enums.DiaInteiro = {
   SIM: 'SIM',
   NAO: 'NAO'
+};
+
+exports.StatusAtestado = exports.$Enums.StatusAtestado = {
+  CADASTRADO: 'CADASTRADO',
+  ACEITE: 'ACEITE',
+  RECUSADO: 'RECUSADO'
 };
 
 exports.StatusAssinatura = exports.$Enums.StatusAssinatura = {
@@ -342,12 +368,13 @@ exports.StatusDocumento = exports.$Enums.StatusDocumento = {
 
 exports.MotivoAjuste = exports.$Enums.MotivoAjuste = {
   ERRO: 'ERRO',
-  DUPLICAÇÃO: 'DUPLICAÇÃO'
+  DUPLICADO: 'DUPLICADO'
 };
 
 exports.StatusAjuste = exports.$Enums.StatusAjuste = {
   AJUSTADO: 'AJUSTADO',
-  PENDENTE: 'PENDENTE'
+  PENDENTE: 'PENDENTE',
+  RECUSADO: 'RECUSADO'
 };
 
 exports.StatusAviso = exports.$Enums.StatusAviso = {
@@ -369,7 +396,9 @@ exports.Prisma.ModelName = {
   CertificadoDigital: 'CertificadoDigital',
   Documento: 'Documento',
   AjustePonto: 'AjustePonto',
-  GerenciamentoAjsutePonto: 'GerenciamentoAjsutePonto',
+  GerenciamentoAjustePonto: 'GerenciamentoAjustePonto',
+  GerenciamentoAtestado: 'GerenciamentoAtestado',
+  GerenciamentoPrestacao: 'GerenciamentoPrestacao',
   AvisoUsuario: 'AvisoUsuario',
   UsuarioGrupo: 'UsuarioGrupo',
   GrupoGestor: 'GrupoGestor',

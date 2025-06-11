@@ -27,8 +27,8 @@ export declare class GrupoController {
             grupoId: number;
         })[];
     } & {
-        nome: string;
         id: number;
+        nome: string;
         descricao: string;
     }>;
     findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<({
@@ -53,8 +53,8 @@ export declare class GrupoController {
             grupoId: number;
         })[];
     } & {
-        nome: string;
         id: number;
+        nome: string;
         descricao: string;
     })[]>;
     findOne(id: number): Promise<{
@@ -79,8 +79,8 @@ export declare class GrupoController {
             grupoId: number;
         })[];
     } & {
-        nome: string;
         id: number;
+        nome: string;
         descricao: string;
     }>;
     update(id: number, updateGrupoDto: UpdateGrupoDto, req: RequestWithUser): Promise<{
@@ -105,13 +105,13 @@ export declare class GrupoController {
             grupoId: number;
         })[];
     } & {
-        nome: string;
         id: number;
+        nome: string;
         descricao: string;
     }>;
     delete(id: number, req: RequestWithUser): Promise<{
-        nome: string;
         id: number;
+        nome: string;
         descricao: string;
     }>;
 }

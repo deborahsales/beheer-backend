@@ -11,35 +11,11 @@ export declare class PontoService {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(usuarioId: number): import("generated/prisma").Prisma.PrismaPromise<{
-        id: number;
-        dateTimestamp: Date;
-        ip: string;
-        imagem: string;
-        latitude: number;
-        longitude: number;
-        usuarioId: number;
-    }[]>;
-    findOne(id: number): Promise<{
-        id: number;
-        dateTimestamp: Date;
-        ip: string;
-        imagem: string;
-        latitude: number;
-        longitude: number;
-        usuarioId: number;
-    }>;
-    findOneWithUser(id: number, usuarioId: number): Promise<{
-        id: number;
-        dateTimestamp: Date;
-        ip: string;
-        imagem: string;
-        latitude: number;
-        longitude: number;
-        usuarioId: number;
-    }>;
+    findAll(funcaoUsuario: string, usuarioId: number): Promise<any>;
+    findOne(id: number, funcaoUsuario: string, usuarioId: number): Promise<any>;
     update(dto: UpdatePontoDto, id: number): Promise<{
         id: number;
         dateTimestamp: Date;
@@ -47,6 +23,7 @@ export declare class PontoService {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }>;
     remove(id: number): Promise<{
@@ -56,6 +33,7 @@ export declare class PontoService {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }>;
 }

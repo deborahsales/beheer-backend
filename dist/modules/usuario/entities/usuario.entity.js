@@ -54,7 +54,7 @@ __decorate([
     __metadata("design:type", Date)
 ], UsuarioEntity.prototype, "dataAdmissao", void 0);
 __decorate([
-    (0, swagger_1.ApiPropertyOptional)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Date)
 ], UsuarioEntity.prototype, "dataDesligamento", void 0);
 __decorate([
@@ -62,7 +62,7 @@ __decorate([
     __metadata("design:type", String)
 ], UsuarioEntity.prototype, "cargo", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ enum: prisma_1.FuncaoUsuario }),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], UsuarioEntity.prototype, "funcao", void 0);
 //# sourceMappingURL=usuario.entity.js.map

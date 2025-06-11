@@ -1,4 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { FuncaoUsuario } from 'generated/prisma';
 
 export class UsuarioEntity {
@@ -23,12 +23,12 @@ export class UsuarioEntity {
 	@ApiProperty()
 	dataAdmissao: Date;
 
-	@ApiPropertyOptional()
+	@ApiProperty()
 	dataDesligamento?: Date;
 
 	@ApiProperty()
 	cargo: string;
 
-	@ApiProperty({ enum: FuncaoUsuario })
+	@ApiProperty()
 	funcao: FuncaoUsuario;
 }

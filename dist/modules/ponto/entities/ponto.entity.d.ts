@@ -6,4 +6,5 @@ export declare class PontoEntity {
     latitude: number;
     longitude: number;
     usuarioId: number;
+    ativo: boolean;
 }

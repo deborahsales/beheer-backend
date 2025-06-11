@@ -35,10 +35,13 @@ let PontoController = class PontoController {
     }
     findAll(req) {
         const usuarioId = req.user['id'];
-        return this.pontoService.findAll(usuarioId);
+        const funcaoUsuario = req.user['funcao'];
+        return this.pontoService.findAll(funcaoUsuario, usuarioId);
     }
-    findOne(id) {
-        return this.pontoService.findOne(id);
+    findOne(id, req) {
+        const usuarioId = req.user['id'];
+        const funcaoUsuario = req.user['funcao'];
+        return this.pontoService.findOne(id, funcaoUsuario, usuarioId);
     }
     update(id, updatePontoDto) {
         return this.pontoService.update(updatePontoDto, id);
@@ -72,8 +75,9 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: ponto_entity_1.PontoEntity }),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], PontoController.prototype, "findOne", null);
 __decorate([

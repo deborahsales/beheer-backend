@@ -21,4 +21,7 @@ export class PontoEntity {
 
 	@ApiProperty()
 	usuarioId: number;
+
+	@ApiProperty()
+	ativo: boolean;
 }

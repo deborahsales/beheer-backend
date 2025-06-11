@@ -29,7 +29,7 @@ export class CreateDemandaDto {
 	})
 	prioridade: PrioridadeDemanda;
 
-	@ApiPropertyOptional()
+	@ApiPropertyOptional({ type: Number, example: 1 })
 	@IsString()
 	cronogramaId: number;
 }

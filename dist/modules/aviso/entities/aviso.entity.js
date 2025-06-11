@@ -36,7 +36,7 @@ __decorate([
     __metadata("design:type", Number)
 ], AvisoEntity.prototype, "gestorRhUsuarioId", void 0);
 __decorate([
-    (0, swagger_1.ApiPropertyOptional)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Array)
 ], AvisoEntity.prototype, "avisoUsuario", void 0);
 //# sourceMappingURL=aviso.entity.js.map

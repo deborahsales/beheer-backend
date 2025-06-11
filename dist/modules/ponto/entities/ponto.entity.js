@@ -19,6 +19,7 @@ class PontoEntity {
     latitude;
     longitude;
     usuarioId;
+    ativo;
 }
 exports.PontoEntity = PontoEntity;
 __decorate([
@@ -49,4 +50,8 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)
 ], PontoEntity.prototype, "usuarioId", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", Boolean)
+], PontoEntity.prototype, "ativo", void 0);
 //# sourceMappingURL=ponto.entity.js.map

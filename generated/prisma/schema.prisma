@@ -45,7 +45,9 @@ model Usuario {
   assinaturasUsuario     Assinatura[]               @relation("AssinaturaUsuario")
   documentosUsuario      Documento[]                @relation("UsuarioDocumento")
   ajustesUsuario         AjustePonto[]              @relation("UsuarioAjuste")
-  ajustesGerenciados     GerenciamentoAjsutePonto[] @relation("UsuarioGerenciamentoPonto")
+  ajustesGerenciados     GerenciamentoAjustePonto[] @relation("UsuarioGerenciamentoPonto")
+  atestadosGerenciados   GerenciamentoAtestado[]    @relation("UsuarioGerenciamentoAtestado")
+  prestacoesGerenciadas  GerenciamentoPrestacao[]   @relation("UsuarioGerenciamentoPrestacao")
   avisosUsuario          AvisoUsuario[]             @relation("UsuarioAviso")
   gruposUsuario          UsuarioGrupo[]             @relation("GruposUsuario")
   gruposGestor           GrupoGestor[]              @relation("GruposGestor")
@@ -139,6 +141,7 @@ model Ponto {
   imagem        String
   latitude      Float
   longitude     Float
+  ativo         Boolean  @default(true)
 
   usuarioId Int
   usuario   Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
@@ -146,16 +149,25 @@ model Ponto {
   ajuste AjustePonto? @relation("PontoAjuste")
 }
 
+enum StatusPrestacao {
+  CADASTRADA
+  ACEITE
+  RECUSADA
+}
+
 model PrestacaoContas {
-  id            Int      @id @default(autoincrement())
+  id            Int             @id @default(autoincrement())
   descricao     String
   data          DateTime
   valor         Decimal
   imagem        String
-  dateTimestamp DateTime @default(now())
+  dateTimestamp DateTime        @default(now())
+  status        StatusPrestacao @default(CADASTRADA)
 
   usuarioId Int
   usuario   Usuario @relation("PrestacaoContasUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  gerenciamentoPrestacao GerenciamentoPrestacao[] @relation("PrestacaoGerenciada")
 }
 
 enum DiaInteiro {
@@ -163,17 +175,26 @@ enum DiaInteiro {
   NAO
 }
 
+enum StatusAtestado {
+  CADASTRADO
+  ACEITE
+  RECUSADO
+}
+
 model Atestado {
-  id            Int        @id @default(autoincrement())
-  dateTimestamp DateTime   @default(now())
+  id            Int            @id @default(autoincrement())
+  dateTimestamp DateTime       @default(now())
   dataAtestado  DateTime
   horaInicio    DateTime?
   horaTermino   DateTime?
   diaInteiro    DiaInteiro
   imagem        String
+  status        StatusAtestado @default(CADASTRADO)
 
   usuarioId Int
   usuario   Usuario @relation("AtestadoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  gerenciamentoAtestado GerenciamentoAtestado[] @relation("AtestadoGerenciado")
 }
 
 enum StatusAssinatura {
@@ -238,20 +259,21 @@ model Documento {
 
 enum MotivoAjuste {
   ERRO
-  DUPLICAÇÃO
+  DUPLICADO
 }
 
 enum StatusAjuste {
   AJUSTADO
   PENDENTE
+  RECUSADO
 }
 
 model AjustePonto {
-  id            Int          @id @default(autoincrement())
-  horario       DateTime
-  motivo        MotivoAjuste
-  status        StatusAjuste
-  dateTimestamp DateTime     @default(now())
+  id                    Int          @id @default(autoincrement())
+  dateTimestampAjustado DateTime
+  motivo                MotivoAjuste
+  status                StatusAjuste @default(PENDENTE)
+  dateTimestamp         DateTime     @default(now())
 
   usuarioId Int
   usuario   Usuario @relation("UsuarioAjuste", fields: [usuarioId], references: [id], onDelete: Cascade)
@@ -259,12 +281,11 @@ model AjustePonto {
   pontoId Int   @unique
   ponto   Ponto @relation("PontoAjuste", fields: [pontoId], references: [id], onDelete: Cascade)
 
-  gerenciamentoAjuste GerenciamentoAjsutePonto[] @relation("PontoAjustado")
+  gerenciamentoAjuste GerenciamentoAjustePonto[] @relation("PontoAjustado")
 }
 
-model GerenciamentoAjsutePonto {
-  status        StatusAjuste
-  dateTimestamp DateTime     @default(now())
+model GerenciamentoAjustePonto {
+  dateTimestamp DateTime @default(now())
 
   ajustePontoId Int
   ajustePonto   AjustePonto @relation("PontoAjustado", fields: [ajustePontoId], references: [id], onDelete: Cascade)
@@ -273,6 +294,30 @@ model GerenciamentoAjsutePonto {
   usuarioRh   Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
   @@id([ajustePontoId, rhUsuarioId])
+}
+
+model GerenciamentoAtestado {
+  dateTimestamp DateTime @default(now())
+
+  atestadoId Int
+  atestado   Atestado? @relation("AtestadoGerenciado", fields: [atestadoId], references: [id], onDelete: Cascade)
+
+  rhUsuarioId Int
+  usuarioRh   Usuario @relation("UsuarioGerenciamentoAtestado", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
+
+  @@id([atestadoId, rhUsuarioId])
+}
+
+model GerenciamentoPrestacao {
+  dateTimestamp DateTime @default(now())
+
+  prestacaoId Int
+  prestacao   PrestacaoContas? @relation("PrestacaoGerenciada", fields: [prestacaoId], references: [id], onDelete: Cascade)
+
+  rhUsuarioId Int
+  usuarioRh   Usuario @relation("UsuarioGerenciamentoPrestacao", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
+
+  @@id([prestacaoId, rhUsuarioId])
 }
 
 enum StatusAviso {

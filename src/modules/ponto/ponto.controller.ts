@@ -42,14 +42,17 @@ export class PontoController {
 	@ApiResponse({ status: 200, type: [PontoEntity] })
 	findAll(@Req() req: RequestWithUser) {
 		const usuarioId = req.user['id'];
-		return this.pontoService.findAll(usuarioId);
+		const funcaoUsuario = req.user['funcao'];
+		return this.pontoService.findAll(funcaoUsuario, usuarioId);
 	}
 
 	@Get(':id')
 	@UseGuards(JwtAuthGuard)
 	@ApiResponse({ status: 200, type: PontoEntity })
-	findOne(@Param('id', ParseIntPipe) id: number) {
-		return this.pontoService.findOne(id);
+	findOne(@Param('id', ParseIntPipe) id: number, @Req() req: RequestWithUser) {
+		const usuarioId = req.user['id'];
+		const funcaoUsuario = req.user['funcao'];
+		return this.pontoService.findOne(id, funcaoUsuario, usuarioId);
 	}
 
 	@Patch(':id')
