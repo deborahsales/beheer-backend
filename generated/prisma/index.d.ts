@@ -89,6 +89,11 @@ export type GerenciamentoAjustePonto = $Result.DefaultSelection<Prisma.$Gerencia
  */
 export type GerenciamentoAtestado = $Result.DefaultSelection<Prisma.$GerenciamentoAtestadoPayload>
 /**
+ * Model GerenciamentoPrestacao
+ * 
+ */
+export type GerenciamentoPrestacao = $Result.DefaultSelection<Prisma.$GerenciamentoPrestacaoPayload>
+/**
  * Model AvisoUsuario
  * 
  */
@@ -145,6 +150,15 @@ export const StatusDemanda: {
 };
 
 export type StatusDemanda = (typeof StatusDemanda)[keyof typeof StatusDemanda]
+
+
+export const StatusPrestacao: {
+  CADASTRADA: 'CADASTRADA',
+  ACEITE: 'ACEITE',
+  RECUSADA: 'RECUSADA'
+};
+
+export type StatusPrestacao = (typeof StatusPrestacao)[keyof typeof StatusPrestacao]
 
 
 export const DiaInteiro: {
@@ -229,6 +243,10 @@ export const PrioridadeDemanda: typeof $Enums.PrioridadeDemanda
 export type StatusDemanda = $Enums.StatusDemanda
 
 export const StatusDemanda: typeof $Enums.StatusDemanda
+
+export type StatusPrestacao = $Enums.StatusPrestacao
+
+export const StatusPrestacao: typeof $Enums.StatusPrestacao
 
 export type DiaInteiro = $Enums.DiaInteiro
 
@@ -536,6 +554,16 @@ export class PrismaClient<
     * ```
     */
   get gerenciamentoAtestado(): Prisma.GerenciamentoAtestadoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.gerenciamentoPrestacao`: Exposes CRUD operations for the **GerenciamentoPrestacao** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GerenciamentoPrestacaos
+    * const gerenciamentoPrestacaos = await prisma.gerenciamentoPrestacao.findMany()
+    * ```
+    */
+  get gerenciamentoPrestacao(): Prisma.GerenciamentoPrestacaoDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.avisoUsuario`: Exposes CRUD operations for the **AvisoUsuario** model.
@@ -1041,6 +1069,7 @@ export namespace Prisma {
     AjustePonto: 'AjustePonto',
     GerenciamentoAjustePonto: 'GerenciamentoAjustePonto',
     GerenciamentoAtestado: 'GerenciamentoAtestado',
+    GerenciamentoPrestacao: 'GerenciamentoPrestacao',
     AvisoUsuario: 'AvisoUsuario',
     UsuarioGrupo: 'UsuarioGrupo',
     GrupoGestor: 'GrupoGestor',
@@ -1064,7 +1093,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjustePonto" | "gerenciamentoAtestado" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
+      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjustePonto" | "gerenciamentoAtestado" | "gerenciamentoPrestacao" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2178,6 +2207,80 @@ export namespace Prisma {
           }
         }
       }
+      GerenciamentoPrestacao: {
+        payload: Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>
+        fields: Prisma.GerenciamentoPrestacaoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GerenciamentoPrestacaoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GerenciamentoPrestacaoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>
+          }
+          findFirst: {
+            args: Prisma.GerenciamentoPrestacaoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GerenciamentoPrestacaoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>
+          }
+          findMany: {
+            args: Prisma.GerenciamentoPrestacaoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>[]
+          }
+          create: {
+            args: Prisma.GerenciamentoPrestacaoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>
+          }
+          createMany: {
+            args: Prisma.GerenciamentoPrestacaoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.GerenciamentoPrestacaoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>[]
+          }
+          delete: {
+            args: Prisma.GerenciamentoPrestacaoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>
+          }
+          update: {
+            args: Prisma.GerenciamentoPrestacaoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>
+          }
+          deleteMany: {
+            args: Prisma.GerenciamentoPrestacaoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GerenciamentoPrestacaoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.GerenciamentoPrestacaoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>[]
+          }
+          upsert: {
+            args: Prisma.GerenciamentoPrestacaoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoPrestacaoPayload>
+          }
+          aggregate: {
+            args: Prisma.GerenciamentoPrestacaoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGerenciamentoPrestacao>
+          }
+          groupBy: {
+            args: Prisma.GerenciamentoPrestacaoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GerenciamentoPrestacaoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GerenciamentoPrestacaoCountArgs<ExtArgs>
+            result: $Utils.Optional<GerenciamentoPrestacaoCountAggregateOutputType> | number
+          }
+        }
+      }
       AvisoUsuario: {
         payload: Prisma.$AvisoUsuarioPayload<ExtArgs>
         fields: Prisma.AvisoUsuarioFieldRefs
@@ -2647,6 +2750,7 @@ export namespace Prisma {
     ajustePonto?: AjustePontoOmit
     gerenciamentoAjustePonto?: GerenciamentoAjustePontoOmit
     gerenciamentoAtestado?: GerenciamentoAtestadoOmit
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoOmit
     avisoUsuario?: AvisoUsuarioOmit
     usuarioGrupo?: UsuarioGrupoOmit
     grupoGestor?: GrupoGestorOmit
@@ -2758,6 +2862,7 @@ export namespace Prisma {
     ajustesUsuario: number
     ajustesGerenciados: number
     atestadosGerenciados: number
+    prestacoesGerenciadas: number
     avisosUsuario: number
     gruposUsuario: number
     gruposGestor: number
@@ -2777,6 +2882,7 @@ export namespace Prisma {
     ajustesUsuario?: boolean | UsuarioCountOutputTypeCountAjustesUsuarioArgs
     ajustesGerenciados?: boolean | UsuarioCountOutputTypeCountAjustesGerenciadosArgs
     atestadosGerenciados?: boolean | UsuarioCountOutputTypeCountAtestadosGerenciadosArgs
+    prestacoesGerenciadas?: boolean | UsuarioCountOutputTypeCountPrestacoesGerenciadasArgs
     avisosUsuario?: boolean | UsuarioCountOutputTypeCountAvisosUsuarioArgs
     gruposUsuario?: boolean | UsuarioCountOutputTypeCountGruposUsuarioArgs
     gruposGestor?: boolean | UsuarioCountOutputTypeCountGruposGestorArgs
@@ -2876,6 +2982,13 @@ export namespace Prisma {
    */
   export type UsuarioCountOutputTypeCountAtestadosGerenciadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: GerenciamentoAtestadoWhereInput
+  }
+
+  /**
+   * UsuarioCountOutputType without action
+   */
+  export type UsuarioCountOutputTypeCountPrestacoesGerenciadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GerenciamentoPrestacaoWhereInput
   }
 
   /**
@@ -3064,6 +3177,37 @@ export namespace Prisma {
    */
   export type GrupoCountOutputTypeCountDemandasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DemandaGrupoWhereInput
+  }
+
+
+  /**
+   * Count Type PrestacaoContasCountOutputType
+   */
+
+  export type PrestacaoContasCountOutputType = {
+    gerenciamentoPrestacao: number
+  }
+
+  export type PrestacaoContasCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    gerenciamentoPrestacao?: boolean | PrestacaoContasCountOutputTypeCountGerenciamentoPrestacaoArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PrestacaoContasCountOutputType without action
+   */
+  export type PrestacaoContasCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PrestacaoContasCountOutputType
+     */
+    select?: PrestacaoContasCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PrestacaoContasCountOutputType without action
+   */
+  export type PrestacaoContasCountOutputTypeCountGerenciamentoPrestacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GerenciamentoPrestacaoWhereInput
   }
 
 
@@ -3430,6 +3574,7 @@ export namespace Prisma {
     ajustesUsuario?: boolean | Usuario$ajustesUsuarioArgs<ExtArgs>
     ajustesGerenciados?: boolean | Usuario$ajustesGerenciadosArgs<ExtArgs>
     atestadosGerenciados?: boolean | Usuario$atestadosGerenciadosArgs<ExtArgs>
+    prestacoesGerenciadas?: boolean | Usuario$prestacoesGerenciadasArgs<ExtArgs>
     avisosUsuario?: boolean | Usuario$avisosUsuarioArgs<ExtArgs>
     gruposUsuario?: boolean | Usuario$gruposUsuarioArgs<ExtArgs>
     gruposGestor?: boolean | Usuario$gruposGestorArgs<ExtArgs>
@@ -3496,6 +3641,7 @@ export namespace Prisma {
     ajustesUsuario?: boolean | Usuario$ajustesUsuarioArgs<ExtArgs>
     ajustesGerenciados?: boolean | Usuario$ajustesGerenciadosArgs<ExtArgs>
     atestadosGerenciados?: boolean | Usuario$atestadosGerenciadosArgs<ExtArgs>
+    prestacoesGerenciadas?: boolean | Usuario$prestacoesGerenciadasArgs<ExtArgs>
     avisosUsuario?: boolean | Usuario$avisosUsuarioArgs<ExtArgs>
     gruposUsuario?: boolean | Usuario$gruposUsuarioArgs<ExtArgs>
     gruposGestor?: boolean | Usuario$gruposGestorArgs<ExtArgs>
@@ -3520,6 +3666,7 @@ export namespace Prisma {
       ajustesUsuario: Prisma.$AjustePontoPayload<ExtArgs>[]
       ajustesGerenciados: Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>[]
       atestadosGerenciados: Prisma.$GerenciamentoAtestadoPayload<ExtArgs>[]
+      prestacoesGerenciadas: Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>[]
       avisosUsuario: Prisma.$AvisoUsuarioPayload<ExtArgs>[]
       gruposUsuario: Prisma.$UsuarioGrupoPayload<ExtArgs>[]
       gruposGestor: Prisma.$GrupoGestorPayload<ExtArgs>[]
@@ -3944,6 +4091,7 @@ export namespace Prisma {
     ajustesUsuario<T extends Usuario$ajustesUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$ajustesUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     ajustesGerenciados<T extends Usuario$ajustesGerenciadosArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$ajustesGerenciadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     atestadosGerenciados<T extends Usuario$atestadosGerenciadosArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$atestadosGerenciadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAtestadoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    prestacoesGerenciadas<T extends Usuario$prestacoesGerenciadasArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$prestacoesGerenciadasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     avisosUsuario<T extends Usuario$avisosUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$avisosUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvisoUsuarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     gruposUsuario<T extends Usuario$gruposUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$gruposUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioGrupoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     gruposGestor<T extends Usuario$gruposGestorArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$gruposGestorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GrupoGestorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -4662,6 +4810,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: GerenciamentoAtestadoScalarFieldEnum | GerenciamentoAtestadoScalarFieldEnum[]
+  }
+
+  /**
+   * Usuario.prestacoesGerenciadas
+   */
+  export type Usuario$prestacoesGerenciadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    where?: GerenciamentoPrestacaoWhereInput
+    orderBy?: GerenciamentoPrestacaoOrderByWithRelationInput | GerenciamentoPrestacaoOrderByWithRelationInput[]
+    cursor?: GerenciamentoPrestacaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GerenciamentoPrestacaoScalarFieldEnum | GerenciamentoPrestacaoScalarFieldEnum[]
   }
 
   /**
@@ -11748,6 +11920,7 @@ export namespace Prisma {
     valor: Decimal | null
     imagem: string | null
     dateTimestamp: Date | null
+    status: $Enums.StatusPrestacao | null
     usuarioId: number | null
   }
 
@@ -11758,6 +11931,7 @@ export namespace Prisma {
     valor: Decimal | null
     imagem: string | null
     dateTimestamp: Date | null
+    status: $Enums.StatusPrestacao | null
     usuarioId: number | null
   }
 
@@ -11768,6 +11942,7 @@ export namespace Prisma {
     valor: number
     imagem: number
     dateTimestamp: number
+    status: number
     usuarioId: number
     _all: number
   }
@@ -11792,6 +11967,7 @@ export namespace Prisma {
     valor?: true
     imagem?: true
     dateTimestamp?: true
+    status?: true
     usuarioId?: true
   }
 
@@ -11802,6 +11978,7 @@ export namespace Prisma {
     valor?: true
     imagem?: true
     dateTimestamp?: true
+    status?: true
     usuarioId?: true
   }
 
@@ -11812,6 +11989,7 @@ export namespace Prisma {
     valor?: true
     imagem?: true
     dateTimestamp?: true
+    status?: true
     usuarioId?: true
     _all?: true
   }
@@ -11909,6 +12087,7 @@ export namespace Prisma {
     valor: Decimal
     imagem: string
     dateTimestamp: Date
+    status: $Enums.StatusPrestacao
     usuarioId: number
     _count: PrestacaoContasCountAggregateOutputType | null
     _avg: PrestacaoContasAvgAggregateOutputType | null
@@ -11938,8 +12117,11 @@ export namespace Prisma {
     valor?: boolean
     imagem?: boolean
     dateTimestamp?: boolean
+    status?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    gerenciamentoPrestacao?: boolean | PrestacaoContas$gerenciamentoPrestacaoArgs<ExtArgs>
+    _count?: boolean | PrestacaoContasCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["prestacaoContas"]>
 
   export type PrestacaoContasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11949,6 +12131,7 @@ export namespace Prisma {
     valor?: boolean
     imagem?: boolean
     dateTimestamp?: boolean
+    status?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["prestacaoContas"]>
@@ -11960,6 +12143,7 @@ export namespace Prisma {
     valor?: boolean
     imagem?: boolean
     dateTimestamp?: boolean
+    status?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["prestacaoContas"]>
@@ -11971,12 +12155,15 @@ export namespace Prisma {
     valor?: boolean
     imagem?: boolean
     dateTimestamp?: boolean
+    status?: boolean
     usuarioId?: boolean
   }
 
-  export type PrestacaoContasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "descricao" | "data" | "valor" | "imagem" | "dateTimestamp" | "usuarioId", ExtArgs["result"]["prestacaoContas"]>
+  export type PrestacaoContasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "descricao" | "data" | "valor" | "imagem" | "dateTimestamp" | "status" | "usuarioId", ExtArgs["result"]["prestacaoContas"]>
   export type PrestacaoContasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+    gerenciamentoPrestacao?: boolean | PrestacaoContas$gerenciamentoPrestacaoArgs<ExtArgs>
+    _count?: boolean | PrestacaoContasCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PrestacaoContasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -11989,6 +12176,7 @@ export namespace Prisma {
     name: "PrestacaoContas"
     objects: {
       usuario: Prisma.$UsuarioPayload<ExtArgs>
+      gerenciamentoPrestacao: Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -11997,6 +12185,7 @@ export namespace Prisma {
       valor: Prisma.Decimal
       imagem: string
       dateTimestamp: Date
+      status: $Enums.StatusPrestacao
       usuarioId: number
     }, ExtArgs["result"]["prestacaoContas"]>
     composites: {}
@@ -12393,6 +12582,7 @@ export namespace Prisma {
   export interface Prisma__PrestacaoContasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    gerenciamentoPrestacao<T extends PrestacaoContas$gerenciamentoPrestacaoArgs<ExtArgs> = {}>(args?: Subset<T, PrestacaoContas$gerenciamentoPrestacaoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12428,6 +12618,7 @@ export namespace Prisma {
     readonly valor: FieldRef<"PrestacaoContas", 'Decimal'>
     readonly imagem: FieldRef<"PrestacaoContas", 'String'>
     readonly dateTimestamp: FieldRef<"PrestacaoContas", 'DateTime'>
+    readonly status: FieldRef<"PrestacaoContas", 'StatusPrestacao'>
     readonly usuarioId: FieldRef<"PrestacaoContas", 'Int'>
   }
     
@@ -12822,6 +13013,30 @@ export namespace Prisma {
      * Limit how many PrestacaoContas to delete.
      */
     limit?: number
+  }
+
+  /**
+   * PrestacaoContas.gerenciamentoPrestacao
+   */
+  export type PrestacaoContas$gerenciamentoPrestacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    where?: GerenciamentoPrestacaoWhereInput
+    orderBy?: GerenciamentoPrestacaoOrderByWithRelationInput | GerenciamentoPrestacaoOrderByWithRelationInput[]
+    cursor?: GerenciamentoPrestacaoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GerenciamentoPrestacaoScalarFieldEnum | GerenciamentoPrestacaoScalarFieldEnum[]
   }
 
   /**
@@ -20769,6 +20984,1103 @@ export namespace Prisma {
 
 
   /**
+   * Model GerenciamentoPrestacao
+   */
+
+  export type AggregateGerenciamentoPrestacao = {
+    _count: GerenciamentoPrestacaoCountAggregateOutputType | null
+    _avg: GerenciamentoPrestacaoAvgAggregateOutputType | null
+    _sum: GerenciamentoPrestacaoSumAggregateOutputType | null
+    _min: GerenciamentoPrestacaoMinAggregateOutputType | null
+    _max: GerenciamentoPrestacaoMaxAggregateOutputType | null
+  }
+
+  export type GerenciamentoPrestacaoAvgAggregateOutputType = {
+    prestacaoId: number | null
+    rhUsuarioId: number | null
+  }
+
+  export type GerenciamentoPrestacaoSumAggregateOutputType = {
+    prestacaoId: number | null
+    rhUsuarioId: number | null
+  }
+
+  export type GerenciamentoPrestacaoMinAggregateOutputType = {
+    dateTimestamp: Date | null
+    prestacaoId: number | null
+    rhUsuarioId: number | null
+  }
+
+  export type GerenciamentoPrestacaoMaxAggregateOutputType = {
+    dateTimestamp: Date | null
+    prestacaoId: number | null
+    rhUsuarioId: number | null
+  }
+
+  export type GerenciamentoPrestacaoCountAggregateOutputType = {
+    dateTimestamp: number
+    prestacaoId: number
+    rhUsuarioId: number
+    _all: number
+  }
+
+
+  export type GerenciamentoPrestacaoAvgAggregateInputType = {
+    prestacaoId?: true
+    rhUsuarioId?: true
+  }
+
+  export type GerenciamentoPrestacaoSumAggregateInputType = {
+    prestacaoId?: true
+    rhUsuarioId?: true
+  }
+
+  export type GerenciamentoPrestacaoMinAggregateInputType = {
+    dateTimestamp?: true
+    prestacaoId?: true
+    rhUsuarioId?: true
+  }
+
+  export type GerenciamentoPrestacaoMaxAggregateInputType = {
+    dateTimestamp?: true
+    prestacaoId?: true
+    rhUsuarioId?: true
+  }
+
+  export type GerenciamentoPrestacaoCountAggregateInputType = {
+    dateTimestamp?: true
+    prestacaoId?: true
+    rhUsuarioId?: true
+    _all?: true
+  }
+
+  export type GerenciamentoPrestacaoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GerenciamentoPrestacao to aggregate.
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GerenciamentoPrestacaos to fetch.
+     */
+    orderBy?: GerenciamentoPrestacaoOrderByWithRelationInput | GerenciamentoPrestacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GerenciamentoPrestacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GerenciamentoPrestacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GerenciamentoPrestacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GerenciamentoPrestacaos
+    **/
+    _count?: true | GerenciamentoPrestacaoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GerenciamentoPrestacaoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GerenciamentoPrestacaoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GerenciamentoPrestacaoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GerenciamentoPrestacaoMaxAggregateInputType
+  }
+
+  export type GetGerenciamentoPrestacaoAggregateType<T extends GerenciamentoPrestacaoAggregateArgs> = {
+        [P in keyof T & keyof AggregateGerenciamentoPrestacao]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGerenciamentoPrestacao[P]>
+      : GetScalarType<T[P], AggregateGerenciamentoPrestacao[P]>
+  }
+
+
+
+
+  export type GerenciamentoPrestacaoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GerenciamentoPrestacaoWhereInput
+    orderBy?: GerenciamentoPrestacaoOrderByWithAggregationInput | GerenciamentoPrestacaoOrderByWithAggregationInput[]
+    by: GerenciamentoPrestacaoScalarFieldEnum[] | GerenciamentoPrestacaoScalarFieldEnum
+    having?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GerenciamentoPrestacaoCountAggregateInputType | true
+    _avg?: GerenciamentoPrestacaoAvgAggregateInputType
+    _sum?: GerenciamentoPrestacaoSumAggregateInputType
+    _min?: GerenciamentoPrestacaoMinAggregateInputType
+    _max?: GerenciamentoPrestacaoMaxAggregateInputType
+  }
+
+  export type GerenciamentoPrestacaoGroupByOutputType = {
+    dateTimestamp: Date
+    prestacaoId: number
+    rhUsuarioId: number
+    _count: GerenciamentoPrestacaoCountAggregateOutputType | null
+    _avg: GerenciamentoPrestacaoAvgAggregateOutputType | null
+    _sum: GerenciamentoPrestacaoSumAggregateOutputType | null
+    _min: GerenciamentoPrestacaoMinAggregateOutputType | null
+    _max: GerenciamentoPrestacaoMaxAggregateOutputType | null
+  }
+
+  type GetGerenciamentoPrestacaoGroupByPayload<T extends GerenciamentoPrestacaoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GerenciamentoPrestacaoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GerenciamentoPrestacaoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GerenciamentoPrestacaoGroupByOutputType[P]>
+            : GetScalarType<T[P], GerenciamentoPrestacaoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GerenciamentoPrestacaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    dateTimestamp?: boolean
+    prestacaoId?: boolean
+    rhUsuarioId?: boolean
+    prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
+    usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gerenciamentoPrestacao"]>
+
+  export type GerenciamentoPrestacaoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    dateTimestamp?: boolean
+    prestacaoId?: boolean
+    rhUsuarioId?: boolean
+    prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
+    usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gerenciamentoPrestacao"]>
+
+  export type GerenciamentoPrestacaoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    dateTimestamp?: boolean
+    prestacaoId?: boolean
+    rhUsuarioId?: boolean
+    prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
+    usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gerenciamentoPrestacao"]>
+
+  export type GerenciamentoPrestacaoSelectScalar = {
+    dateTimestamp?: boolean
+    prestacaoId?: boolean
+    rhUsuarioId?: boolean
+  }
+
+  export type GerenciamentoPrestacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"dateTimestamp" | "prestacaoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoPrestacao"]>
+  export type GerenciamentoPrestacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
+    usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+  export type GerenciamentoPrestacaoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
+    usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+  export type GerenciamentoPrestacaoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
+    usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+
+  export type $GerenciamentoPrestacaoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GerenciamentoPrestacao"
+    objects: {
+      prestacao: Prisma.$PrestacaoContasPayload<ExtArgs> | null
+      usuarioRh: Prisma.$UsuarioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      dateTimestamp: Date
+      prestacaoId: number
+      rhUsuarioId: number
+    }, ExtArgs["result"]["gerenciamentoPrestacao"]>
+    composites: {}
+  }
+
+  type GerenciamentoPrestacaoGetPayload<S extends boolean | null | undefined | GerenciamentoPrestacaoDefaultArgs> = $Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload, S>
+
+  type GerenciamentoPrestacaoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GerenciamentoPrestacaoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GerenciamentoPrestacaoCountAggregateInputType | true
+    }
+
+  export interface GerenciamentoPrestacaoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GerenciamentoPrestacao'], meta: { name: 'GerenciamentoPrestacao' } }
+    /**
+     * Find zero or one GerenciamentoPrestacao that matches the filter.
+     * @param {GerenciamentoPrestacaoFindUniqueArgs} args - Arguments to find a GerenciamentoPrestacao
+     * @example
+     * // Get one GerenciamentoPrestacao
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GerenciamentoPrestacaoFindUniqueArgs>(args: SelectSubset<T, GerenciamentoPrestacaoFindUniqueArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GerenciamentoPrestacao that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GerenciamentoPrestacaoFindUniqueOrThrowArgs} args - Arguments to find a GerenciamentoPrestacao
+     * @example
+     * // Get one GerenciamentoPrestacao
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GerenciamentoPrestacaoFindUniqueOrThrowArgs>(args: SelectSubset<T, GerenciamentoPrestacaoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GerenciamentoPrestacao that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoFindFirstArgs} args - Arguments to find a GerenciamentoPrestacao
+     * @example
+     * // Get one GerenciamentoPrestacao
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GerenciamentoPrestacaoFindFirstArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoFindFirstArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GerenciamentoPrestacao that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoFindFirstOrThrowArgs} args - Arguments to find a GerenciamentoPrestacao
+     * @example
+     * // Get one GerenciamentoPrestacao
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GerenciamentoPrestacaoFindFirstOrThrowArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoFindFirstOrThrowArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GerenciamentoPrestacaos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GerenciamentoPrestacaos
+     * const gerenciamentoPrestacaos = await prisma.gerenciamentoPrestacao.findMany()
+     * 
+     * // Get first 10 GerenciamentoPrestacaos
+     * const gerenciamentoPrestacaos = await prisma.gerenciamentoPrestacao.findMany({ take: 10 })
+     * 
+     * // Only select the `dateTimestamp`
+     * const gerenciamentoPrestacaoWithDateTimestampOnly = await prisma.gerenciamentoPrestacao.findMany({ select: { dateTimestamp: true } })
+     * 
+     */
+    findMany<T extends GerenciamentoPrestacaoFindManyArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GerenciamentoPrestacao.
+     * @param {GerenciamentoPrestacaoCreateArgs} args - Arguments to create a GerenciamentoPrestacao.
+     * @example
+     * // Create one GerenciamentoPrestacao
+     * const GerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.create({
+     *   data: {
+     *     // ... data to create a GerenciamentoPrestacao
+     *   }
+     * })
+     * 
+     */
+    create<T extends GerenciamentoPrestacaoCreateArgs>(args: SelectSubset<T, GerenciamentoPrestacaoCreateArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GerenciamentoPrestacaos.
+     * @param {GerenciamentoPrestacaoCreateManyArgs} args - Arguments to create many GerenciamentoPrestacaos.
+     * @example
+     * // Create many GerenciamentoPrestacaos
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GerenciamentoPrestacaoCreateManyArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many GerenciamentoPrestacaos and returns the data saved in the database.
+     * @param {GerenciamentoPrestacaoCreateManyAndReturnArgs} args - Arguments to create many GerenciamentoPrestacaos.
+     * @example
+     * // Create many GerenciamentoPrestacaos
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many GerenciamentoPrestacaos and only return the `dateTimestamp`
+     * const gerenciamentoPrestacaoWithDateTimestampOnly = await prisma.gerenciamentoPrestacao.createManyAndReturn({
+     *   select: { dateTimestamp: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends GerenciamentoPrestacaoCreateManyAndReturnArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a GerenciamentoPrestacao.
+     * @param {GerenciamentoPrestacaoDeleteArgs} args - Arguments to delete one GerenciamentoPrestacao.
+     * @example
+     * // Delete one GerenciamentoPrestacao
+     * const GerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.delete({
+     *   where: {
+     *     // ... filter to delete one GerenciamentoPrestacao
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GerenciamentoPrestacaoDeleteArgs>(args: SelectSubset<T, GerenciamentoPrestacaoDeleteArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GerenciamentoPrestacao.
+     * @param {GerenciamentoPrestacaoUpdateArgs} args - Arguments to update one GerenciamentoPrestacao.
+     * @example
+     * // Update one GerenciamentoPrestacao
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GerenciamentoPrestacaoUpdateArgs>(args: SelectSubset<T, GerenciamentoPrestacaoUpdateArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GerenciamentoPrestacaos.
+     * @param {GerenciamentoPrestacaoDeleteManyArgs} args - Arguments to filter GerenciamentoPrestacaos to delete.
+     * @example
+     * // Delete a few GerenciamentoPrestacaos
+     * const { count } = await prisma.gerenciamentoPrestacao.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GerenciamentoPrestacaoDeleteManyArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GerenciamentoPrestacaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GerenciamentoPrestacaos
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GerenciamentoPrestacaoUpdateManyArgs>(args: SelectSubset<T, GerenciamentoPrestacaoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GerenciamentoPrestacaos and returns the data updated in the database.
+     * @param {GerenciamentoPrestacaoUpdateManyAndReturnArgs} args - Arguments to update many GerenciamentoPrestacaos.
+     * @example
+     * // Update many GerenciamentoPrestacaos
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more GerenciamentoPrestacaos and only return the `dateTimestamp`
+     * const gerenciamentoPrestacaoWithDateTimestampOnly = await prisma.gerenciamentoPrestacao.updateManyAndReturn({
+     *   select: { dateTimestamp: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends GerenciamentoPrestacaoUpdateManyAndReturnArgs>(args: SelectSubset<T, GerenciamentoPrestacaoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one GerenciamentoPrestacao.
+     * @param {GerenciamentoPrestacaoUpsertArgs} args - Arguments to update or create a GerenciamentoPrestacao.
+     * @example
+     * // Update or create a GerenciamentoPrestacao
+     * const gerenciamentoPrestacao = await prisma.gerenciamentoPrestacao.upsert({
+     *   create: {
+     *     // ... data to create a GerenciamentoPrestacao
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GerenciamentoPrestacao we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GerenciamentoPrestacaoUpsertArgs>(args: SelectSubset<T, GerenciamentoPrestacaoUpsertArgs<ExtArgs>>): Prisma__GerenciamentoPrestacaoClient<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GerenciamentoPrestacaos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoCountArgs} args - Arguments to filter GerenciamentoPrestacaos to count.
+     * @example
+     * // Count the number of GerenciamentoPrestacaos
+     * const count = await prisma.gerenciamentoPrestacao.count({
+     *   where: {
+     *     // ... the filter for the GerenciamentoPrestacaos we want to count
+     *   }
+     * })
+    **/
+    count<T extends GerenciamentoPrestacaoCountArgs>(
+      args?: Subset<T, GerenciamentoPrestacaoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GerenciamentoPrestacaoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GerenciamentoPrestacao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GerenciamentoPrestacaoAggregateArgs>(args: Subset<T, GerenciamentoPrestacaoAggregateArgs>): Prisma.PrismaPromise<GetGerenciamentoPrestacaoAggregateType<T>>
+
+    /**
+     * Group by GerenciamentoPrestacao.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GerenciamentoPrestacaoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GerenciamentoPrestacaoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GerenciamentoPrestacaoGroupByArgs['orderBy'] }
+        : { orderBy?: GerenciamentoPrestacaoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GerenciamentoPrestacaoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGerenciamentoPrestacaoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GerenciamentoPrestacao model
+   */
+  readonly fields: GerenciamentoPrestacaoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GerenciamentoPrestacao.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GerenciamentoPrestacaoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    prestacao<T extends GerenciamentoPrestacao$prestacaoArgs<ExtArgs> = {}>(args?: Subset<T, GerenciamentoPrestacao$prestacaoArgs<ExtArgs>>): Prisma__PrestacaoContasClient<$Result.GetResult<Prisma.$PrestacaoContasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    usuarioRh<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GerenciamentoPrestacao model
+   */
+  interface GerenciamentoPrestacaoFieldRefs {
+    readonly dateTimestamp: FieldRef<"GerenciamentoPrestacao", 'DateTime'>
+    readonly prestacaoId: FieldRef<"GerenciamentoPrestacao", 'Int'>
+    readonly rhUsuarioId: FieldRef<"GerenciamentoPrestacao", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GerenciamentoPrestacao findUnique
+   */
+  export type GerenciamentoPrestacaoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which GerenciamentoPrestacao to fetch.
+     */
+    where: GerenciamentoPrestacaoWhereUniqueInput
+  }
+
+  /**
+   * GerenciamentoPrestacao findUniqueOrThrow
+   */
+  export type GerenciamentoPrestacaoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which GerenciamentoPrestacao to fetch.
+     */
+    where: GerenciamentoPrestacaoWhereUniqueInput
+  }
+
+  /**
+   * GerenciamentoPrestacao findFirst
+   */
+  export type GerenciamentoPrestacaoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which GerenciamentoPrestacao to fetch.
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GerenciamentoPrestacaos to fetch.
+     */
+    orderBy?: GerenciamentoPrestacaoOrderByWithRelationInput | GerenciamentoPrestacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GerenciamentoPrestacaos.
+     */
+    cursor?: GerenciamentoPrestacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GerenciamentoPrestacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GerenciamentoPrestacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GerenciamentoPrestacaos.
+     */
+    distinct?: GerenciamentoPrestacaoScalarFieldEnum | GerenciamentoPrestacaoScalarFieldEnum[]
+  }
+
+  /**
+   * GerenciamentoPrestacao findFirstOrThrow
+   */
+  export type GerenciamentoPrestacaoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which GerenciamentoPrestacao to fetch.
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GerenciamentoPrestacaos to fetch.
+     */
+    orderBy?: GerenciamentoPrestacaoOrderByWithRelationInput | GerenciamentoPrestacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GerenciamentoPrestacaos.
+     */
+    cursor?: GerenciamentoPrestacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GerenciamentoPrestacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GerenciamentoPrestacaos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GerenciamentoPrestacaos.
+     */
+    distinct?: GerenciamentoPrestacaoScalarFieldEnum | GerenciamentoPrestacaoScalarFieldEnum[]
+  }
+
+  /**
+   * GerenciamentoPrestacao findMany
+   */
+  export type GerenciamentoPrestacaoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * Filter, which GerenciamentoPrestacaos to fetch.
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GerenciamentoPrestacaos to fetch.
+     */
+    orderBy?: GerenciamentoPrestacaoOrderByWithRelationInput | GerenciamentoPrestacaoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GerenciamentoPrestacaos.
+     */
+    cursor?: GerenciamentoPrestacaoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GerenciamentoPrestacaos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GerenciamentoPrestacaos.
+     */
+    skip?: number
+    distinct?: GerenciamentoPrestacaoScalarFieldEnum | GerenciamentoPrestacaoScalarFieldEnum[]
+  }
+
+  /**
+   * GerenciamentoPrestacao create
+   */
+  export type GerenciamentoPrestacaoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GerenciamentoPrestacao.
+     */
+    data: XOR<GerenciamentoPrestacaoCreateInput, GerenciamentoPrestacaoUncheckedCreateInput>
+  }
+
+  /**
+   * GerenciamentoPrestacao createMany
+   */
+  export type GerenciamentoPrestacaoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GerenciamentoPrestacaos.
+     */
+    data: GerenciamentoPrestacaoCreateManyInput | GerenciamentoPrestacaoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GerenciamentoPrestacao createManyAndReturn
+   */
+  export type GerenciamentoPrestacaoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * The data used to create many GerenciamentoPrestacaos.
+     */
+    data: GerenciamentoPrestacaoCreateManyInput | GerenciamentoPrestacaoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * GerenciamentoPrestacao update
+   */
+  export type GerenciamentoPrestacaoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GerenciamentoPrestacao.
+     */
+    data: XOR<GerenciamentoPrestacaoUpdateInput, GerenciamentoPrestacaoUncheckedUpdateInput>
+    /**
+     * Choose, which GerenciamentoPrestacao to update.
+     */
+    where: GerenciamentoPrestacaoWhereUniqueInput
+  }
+
+  /**
+   * GerenciamentoPrestacao updateMany
+   */
+  export type GerenciamentoPrestacaoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GerenciamentoPrestacaos.
+     */
+    data: XOR<GerenciamentoPrestacaoUpdateManyMutationInput, GerenciamentoPrestacaoUncheckedUpdateManyInput>
+    /**
+     * Filter which GerenciamentoPrestacaos to update
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * Limit how many GerenciamentoPrestacaos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GerenciamentoPrestacao updateManyAndReturn
+   */
+  export type GerenciamentoPrestacaoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * The data used to update GerenciamentoPrestacaos.
+     */
+    data: XOR<GerenciamentoPrestacaoUpdateManyMutationInput, GerenciamentoPrestacaoUncheckedUpdateManyInput>
+    /**
+     * Filter which GerenciamentoPrestacaos to update
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * Limit how many GerenciamentoPrestacaos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * GerenciamentoPrestacao upsert
+   */
+  export type GerenciamentoPrestacaoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GerenciamentoPrestacao to update in case it exists.
+     */
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    /**
+     * In case the GerenciamentoPrestacao found by the `where` argument doesn't exist, create a new GerenciamentoPrestacao with this data.
+     */
+    create: XOR<GerenciamentoPrestacaoCreateInput, GerenciamentoPrestacaoUncheckedCreateInput>
+    /**
+     * In case the GerenciamentoPrestacao was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GerenciamentoPrestacaoUpdateInput, GerenciamentoPrestacaoUncheckedUpdateInput>
+  }
+
+  /**
+   * GerenciamentoPrestacao delete
+   */
+  export type GerenciamentoPrestacaoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+    /**
+     * Filter which GerenciamentoPrestacao to delete.
+     */
+    where: GerenciamentoPrestacaoWhereUniqueInput
+  }
+
+  /**
+   * GerenciamentoPrestacao deleteMany
+   */
+  export type GerenciamentoPrestacaoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GerenciamentoPrestacaos to delete
+     */
+    where?: GerenciamentoPrestacaoWhereInput
+    /**
+     * Limit how many GerenciamentoPrestacaos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GerenciamentoPrestacao.prestacao
+   */
+  export type GerenciamentoPrestacao$prestacaoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PrestacaoContas
+     */
+    select?: PrestacaoContasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PrestacaoContas
+     */
+    omit?: PrestacaoContasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PrestacaoContasInclude<ExtArgs> | null
+    where?: PrestacaoContasWhereInput
+  }
+
+  /**
+   * GerenciamentoPrestacao without action
+   */
+  export type GerenciamentoPrestacaoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GerenciamentoPrestacao
+     */
+    select?: GerenciamentoPrestacaoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GerenciamentoPrestacao
+     */
+    omit?: GerenciamentoPrestacaoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GerenciamentoPrestacaoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model AvisoUsuario
    */
 
@@ -26230,6 +27542,7 @@ export namespace Prisma {
     valor: 'valor',
     imagem: 'imagem',
     dateTimestamp: 'dateTimestamp',
+    status: 'status',
     usuarioId: 'usuarioId'
   };
 
@@ -26318,6 +27631,15 @@ export namespace Prisma {
   };
 
   export type GerenciamentoAtestadoScalarFieldEnum = (typeof GerenciamentoAtestadoScalarFieldEnum)[keyof typeof GerenciamentoAtestadoScalarFieldEnum]
+
+
+  export const GerenciamentoPrestacaoScalarFieldEnum: {
+    dateTimestamp: 'dateTimestamp',
+    prestacaoId: 'prestacaoId',
+    rhUsuarioId: 'rhUsuarioId'
+  };
+
+  export type GerenciamentoPrestacaoScalarFieldEnum = (typeof GerenciamentoPrestacaoScalarFieldEnum)[keyof typeof GerenciamentoPrestacaoScalarFieldEnum]
 
 
   export const AvisoUsuarioScalarFieldEnum: {
@@ -26511,6 +27833,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'StatusPrestacao'
+   */
+  export type EnumStatusPrestacaoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusPrestacao'>
+    
+
+
+  /**
+   * Reference to a field of type 'StatusPrestacao[]'
+   */
+  export type ListEnumStatusPrestacaoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StatusPrestacao[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DiaInteiro'
    */
   export type EnumDiaInteiroFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DiaInteiro'>
@@ -26653,6 +27989,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoListRelationFilter
     ajustesGerenciados?: GerenciamentoAjustePontoListRelationFilter
     atestadosGerenciados?: GerenciamentoAtestadoListRelationFilter
+    prestacoesGerenciadas?: GerenciamentoPrestacaoListRelationFilter
     avisosUsuario?: AvisoUsuarioListRelationFilter
     gruposUsuario?: UsuarioGrupoListRelationFilter
     gruposGestor?: GrupoGestorListRelationFilter
@@ -26684,6 +28021,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoOrderByRelationAggregateInput
     ajustesGerenciados?: GerenciamentoAjustePontoOrderByRelationAggregateInput
     atestadosGerenciados?: GerenciamentoAtestadoOrderByRelationAggregateInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoOrderByRelationAggregateInput
     avisosUsuario?: AvisoUsuarioOrderByRelationAggregateInput
     gruposUsuario?: UsuarioGrupoOrderByRelationAggregateInput
     gruposGestor?: GrupoGestorOrderByRelationAggregateInput
@@ -26718,6 +28056,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoListRelationFilter
     ajustesGerenciados?: GerenciamentoAjustePontoListRelationFilter
     atestadosGerenciados?: GerenciamentoAtestadoListRelationFilter
+    prestacoesGerenciadas?: GerenciamentoPrestacaoListRelationFilter
     avisosUsuario?: AvisoUsuarioListRelationFilter
     gruposUsuario?: UsuarioGrupoListRelationFilter
     gruposGestor?: GrupoGestorListRelationFilter
@@ -27174,8 +28513,10 @@ export namespace Prisma {
     valor?: DecimalFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
     imagem?: StringFilter<"PrestacaoContas"> | string
     dateTimestamp?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    status?: EnumStatusPrestacaoFilter<"PrestacaoContas"> | $Enums.StatusPrestacao
     usuarioId?: IntFilter<"PrestacaoContas"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoListRelationFilter
   }
 
   export type PrestacaoContasOrderByWithRelationInput = {
@@ -27185,8 +28526,10 @@ export namespace Prisma {
     valor?: SortOrder
     imagem?: SortOrder
     dateTimestamp?: SortOrder
+    status?: SortOrder
     usuarioId?: SortOrder
     usuario?: UsuarioOrderByWithRelationInput
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoOrderByRelationAggregateInput
   }
 
   export type PrestacaoContasWhereUniqueInput = Prisma.AtLeast<{
@@ -27199,8 +28542,10 @@ export namespace Prisma {
     valor?: DecimalFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
     imagem?: StringFilter<"PrestacaoContas"> | string
     dateTimestamp?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    status?: EnumStatusPrestacaoFilter<"PrestacaoContas"> | $Enums.StatusPrestacao
     usuarioId?: IntFilter<"PrestacaoContas"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoListRelationFilter
   }, "id">
 
   export type PrestacaoContasOrderByWithAggregationInput = {
@@ -27210,6 +28555,7 @@ export namespace Prisma {
     valor?: SortOrder
     imagem?: SortOrder
     dateTimestamp?: SortOrder
+    status?: SortOrder
     usuarioId?: SortOrder
     _count?: PrestacaoContasCountOrderByAggregateInput
     _avg?: PrestacaoContasAvgOrderByAggregateInput
@@ -27228,6 +28574,7 @@ export namespace Prisma {
     valor?: DecimalWithAggregatesFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
     imagem?: StringWithAggregatesFilter<"PrestacaoContas"> | string
     dateTimestamp?: DateTimeWithAggregatesFilter<"PrestacaoContas"> | Date | string
+    status?: EnumStatusPrestacaoWithAggregatesFilter<"PrestacaoContas"> | $Enums.StatusPrestacao
     usuarioId?: IntWithAggregatesFilter<"PrestacaoContas"> | number
   }
 
@@ -27691,6 +29038,57 @@ export namespace Prisma {
     rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoAtestado"> | number
   }
 
+  export type GerenciamentoPrestacaoWhereInput = {
+    AND?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
+    OR?: GerenciamentoPrestacaoWhereInput[]
+    NOT?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
+    dateTimestamp?: DateTimeFilter<"GerenciamentoPrestacao"> | Date | string
+    prestacaoId?: IntFilter<"GerenciamentoPrestacao"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoPrestacao"> | number
+    prestacao?: XOR<PrestacaoContasNullableScalarRelationFilter, PrestacaoContasWhereInput> | null
+    usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+  }
+
+  export type GerenciamentoPrestacaoOrderByWithRelationInput = {
+    dateTimestamp?: SortOrder
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+    prestacao?: PrestacaoContasOrderByWithRelationInput
+    usuarioRh?: UsuarioOrderByWithRelationInput
+  }
+
+  export type GerenciamentoPrestacaoWhereUniqueInput = Prisma.AtLeast<{
+    prestacaoId_rhUsuarioId?: GerenciamentoPrestacaoPrestacaoIdRhUsuarioIdCompoundUniqueInput
+    AND?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
+    OR?: GerenciamentoPrestacaoWhereInput[]
+    NOT?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
+    dateTimestamp?: DateTimeFilter<"GerenciamentoPrestacao"> | Date | string
+    prestacaoId?: IntFilter<"GerenciamentoPrestacao"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoPrestacao"> | number
+    prestacao?: XOR<PrestacaoContasNullableScalarRelationFilter, PrestacaoContasWhereInput> | null
+    usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+  }, "prestacaoId_rhUsuarioId">
+
+  export type GerenciamentoPrestacaoOrderByWithAggregationInput = {
+    dateTimestamp?: SortOrder
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+    _count?: GerenciamentoPrestacaoCountOrderByAggregateInput
+    _avg?: GerenciamentoPrestacaoAvgOrderByAggregateInput
+    _max?: GerenciamentoPrestacaoMaxOrderByAggregateInput
+    _min?: GerenciamentoPrestacaoMinOrderByAggregateInput
+    _sum?: GerenciamentoPrestacaoSumOrderByAggregateInput
+  }
+
+  export type GerenciamentoPrestacaoScalarWhereWithAggregatesInput = {
+    AND?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput | GerenciamentoPrestacaoScalarWhereWithAggregatesInput[]
+    OR?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput[]
+    NOT?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput | GerenciamentoPrestacaoScalarWhereWithAggregatesInput[]
+    dateTimestamp?: DateTimeWithAggregatesFilter<"GerenciamentoPrestacao"> | Date | string
+    prestacaoId?: IntWithAggregatesFilter<"GerenciamentoPrestacao"> | number
+    rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoPrestacao"> | number
+  }
+
   export type AvisoUsuarioWhereInput = {
     AND?: AvisoUsuarioWhereInput | AvisoUsuarioWhereInput[]
     OR?: AvisoUsuarioWhereInput[]
@@ -27955,6 +29353,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -27986,6 +29385,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -28016,6 +29416,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -28047,6 +29448,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -28492,7 +29894,9 @@ export namespace Prisma {
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
     dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
     usuario: UsuarioCreateNestedOneWithoutPrestacaoContasUsuarioInput
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoCreateNestedManyWithoutPrestacaoInput
   }
 
   export type PrestacaoContasUncheckedCreateInput = {
@@ -28502,7 +29906,9 @@ export namespace Prisma {
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
     dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
     usuarioId: number
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutPrestacaoInput
   }
 
   export type PrestacaoContasUpdateInput = {
@@ -28511,7 +29917,9 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
     usuario?: UsuarioUpdateOneRequiredWithoutPrestacaoContasUsuarioNestedInput
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoUpdateManyWithoutPrestacaoNestedInput
   }
 
   export type PrestacaoContasUncheckedUpdateInput = {
@@ -28521,7 +29929,9 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
     usuarioId?: IntFieldUpdateOperationsInput | number
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutPrestacaoNestedInput
   }
 
   export type PrestacaoContasCreateManyInput = {
@@ -28531,6 +29941,7 @@ export namespace Prisma {
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
     dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
     usuarioId: number
   }
 
@@ -28540,6 +29951,7 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
   }
 
   export type PrestacaoContasUncheckedUpdateManyInput = {
@@ -28549,6 +29961,7 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -28983,6 +30396,46 @@ export namespace Prisma {
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type GerenciamentoPrestacaoCreateInput = {
+    dateTimestamp?: Date | string
+    prestacao?: PrestacaoContasCreateNestedOneWithoutGerenciamentoPrestacaoInput
+    usuarioRh: UsuarioCreateNestedOneWithoutPrestacoesGerenciadasInput
+  }
+
+  export type GerenciamentoPrestacaoUncheckedCreateInput = {
+    dateTimestamp?: Date | string
+    prestacaoId: number
+    rhUsuarioId: number
+  }
+
+  export type GerenciamentoPrestacaoUpdateInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    prestacao?: PrestacaoContasUpdateOneWithoutGerenciamentoPrestacaoNestedInput
+    usuarioRh?: UsuarioUpdateOneRequiredWithoutPrestacoesGerenciadasNestedInput
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    prestacaoId?: IntFieldUpdateOperationsInput | number
+    rhUsuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GerenciamentoPrestacaoCreateManyInput = {
+    dateTimestamp?: Date | string
+    prestacaoId: number
+    rhUsuarioId: number
+  }
+
+  export type GerenciamentoPrestacaoUpdateManyMutationInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateManyInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    prestacaoId?: IntFieldUpdateOperationsInput | number
+    rhUsuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type AvisoUsuarioCreateInput = {
     status?: $Enums.StatusAviso
     dataLeitura?: Date | string
@@ -29293,6 +30746,12 @@ export namespace Prisma {
     none?: GerenciamentoAtestadoWhereInput
   }
 
+  export type GerenciamentoPrestacaoListRelationFilter = {
+    every?: GerenciamentoPrestacaoWhereInput
+    some?: GerenciamentoPrestacaoWhereInput
+    none?: GerenciamentoPrestacaoWhereInput
+  }
+
   export type AvisoUsuarioListRelationFilter = {
     every?: AvisoUsuarioWhereInput
     some?: AvisoUsuarioWhereInput
@@ -29367,6 +30826,10 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type GerenciamentoPrestacaoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -29914,6 +31377,13 @@ export namespace Prisma {
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
+  export type EnumStatusPrestacaoFilter<$PrismaModel = never> = {
+    equals?: $Enums.StatusPrestacao | EnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    in?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusPrestacaoFilter<$PrismaModel> | $Enums.StatusPrestacao
+  }
+
   export type PrestacaoContasCountOrderByAggregateInput = {
     id?: SortOrder
     descricao?: SortOrder
@@ -29921,6 +31391,7 @@ export namespace Prisma {
     valor?: SortOrder
     imagem?: SortOrder
     dateTimestamp?: SortOrder
+    status?: SortOrder
     usuarioId?: SortOrder
   }
 
@@ -29937,6 +31408,7 @@ export namespace Prisma {
     valor?: SortOrder
     imagem?: SortOrder
     dateTimestamp?: SortOrder
+    status?: SortOrder
     usuarioId?: SortOrder
   }
 
@@ -29947,6 +31419,7 @@ export namespace Prisma {
     valor?: SortOrder
     imagem?: SortOrder
     dateTimestamp?: SortOrder
+    status?: SortOrder
     usuarioId?: SortOrder
   }
 
@@ -29970,6 +31443,16 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type EnumStatusPrestacaoWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.StatusPrestacao | EnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    in?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusPrestacaoWithAggregatesFilter<$PrismaModel> | $Enums.StatusPrestacao
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusPrestacaoFilter<$PrismaModel>
+    _max?: NestedEnumStatusPrestacaoFilter<$PrismaModel>
   }
 
   export type EnumDiaInteiroFilter<$PrismaModel = never> = {
@@ -30394,6 +31877,44 @@ export namespace Prisma {
     rhUsuarioId?: SortOrder
   }
 
+  export type PrestacaoContasNullableScalarRelationFilter = {
+    is?: PrestacaoContasWhereInput | null
+    isNot?: PrestacaoContasWhereInput | null
+  }
+
+  export type GerenciamentoPrestacaoPrestacaoIdRhUsuarioIdCompoundUniqueInput = {
+    prestacaoId: number
+    rhUsuarioId: number
+  }
+
+  export type GerenciamentoPrestacaoCountOrderByAggregateInput = {
+    dateTimestamp?: SortOrder
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+  }
+
+  export type GerenciamentoPrestacaoAvgOrderByAggregateInput = {
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+  }
+
+  export type GerenciamentoPrestacaoMaxOrderByAggregateInput = {
+    dateTimestamp?: SortOrder
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+  }
+
+  export type GerenciamentoPrestacaoMinOrderByAggregateInput = {
+    dateTimestamp?: SortOrder
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+  }
+
+  export type GerenciamentoPrestacaoSumOrderByAggregateInput = {
+    prestacaoId?: SortOrder
+    rhUsuarioId?: SortOrder
+  }
+
   export type EnumStatusAvisoFilter<$PrismaModel = never> = {
     equals?: $Enums.StatusAviso | EnumStatusAvisoFieldRefInput<$PrismaModel>
     in?: $Enums.StatusAviso[] | ListEnumStatusAvisoFieldRefInput<$PrismaModel>
@@ -30661,6 +32182,13 @@ export namespace Prisma {
     connect?: GerenciamentoAtestadoWhereUniqueInput | GerenciamentoAtestadoWhereUniqueInput[]
   }
 
+  export type GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoPrestacaoCreateWithoutUsuarioRhInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyUsuarioRhInputEnvelope
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+  }
+
   export type AvisoUsuarioCreateNestedManyWithoutUsuarioInput = {
     create?: XOR<AvisoUsuarioCreateWithoutUsuarioInput, AvisoUsuarioUncheckedCreateWithoutUsuarioInput> | AvisoUsuarioCreateWithoutUsuarioInput[] | AvisoUsuarioUncheckedCreateWithoutUsuarioInput[]
     connectOrCreate?: AvisoUsuarioCreateOrConnectWithoutUsuarioInput | AvisoUsuarioCreateOrConnectWithoutUsuarioInput[]
@@ -30771,6 +32299,13 @@ export namespace Prisma {
     connectOrCreate?: GerenciamentoAtestadoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAtestadoCreateOrConnectWithoutUsuarioRhInput[]
     createMany?: GerenciamentoAtestadoCreateManyUsuarioRhInputEnvelope
     connect?: GerenciamentoAtestadoWhereUniqueInput | GerenciamentoAtestadoWhereUniqueInput[]
+  }
+
+  export type GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoPrestacaoCreateWithoutUsuarioRhInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyUsuarioRhInputEnvelope
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
   }
 
   export type AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput = {
@@ -30983,6 +32518,20 @@ export namespace Prisma {
     update?: GerenciamentoAtestadoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAtestadoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
     updateMany?: GerenciamentoAtestadoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoAtestadoUpdateManyWithWhereWithoutUsuarioRhInput[]
     deleteMany?: GerenciamentoAtestadoScalarWhereInput | GerenciamentoAtestadoScalarWhereInput[]
+  }
+
+  export type GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoPrestacaoCreateWithoutUsuarioRhInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput[]
+    upsert?: GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyUsuarioRhInputEnvelope
+    set?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    disconnect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    delete?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    update?: GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
+    updateMany?: GerenciamentoPrestacaoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoPrestacaoUpdateManyWithWhereWithoutUsuarioRhInput[]
+    deleteMany?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
   }
 
   export type AvisoUsuarioUpdateManyWithoutUsuarioNestedInput = {
@@ -31215,6 +32764,20 @@ export namespace Prisma {
     update?: GerenciamentoAtestadoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAtestadoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
     updateMany?: GerenciamentoAtestadoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoAtestadoUpdateManyWithWhereWithoutUsuarioRhInput[]
     deleteMany?: GerenciamentoAtestadoScalarWhereInput | GerenciamentoAtestadoScalarWhereInput[]
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoPrestacaoCreateWithoutUsuarioRhInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput[]
+    upsert?: GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyUsuarioRhInputEnvelope
+    set?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    disconnect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    delete?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    update?: GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
+    updateMany?: GerenciamentoPrestacaoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoPrestacaoUpdateManyWithWhereWithoutUsuarioRhInput[]
+    deleteMany?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
   }
 
   export type AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput = {
@@ -31779,6 +33342,20 @@ export namespace Prisma {
     connect?: UsuarioWhereUniqueInput
   }
 
+  export type GerenciamentoPrestacaoCreateNestedManyWithoutPrestacaoInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput> | GerenciamentoPrestacaoCreateWithoutPrestacaoInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput | GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyPrestacaoInputEnvelope
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+  }
+
+  export type GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutPrestacaoInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput> | GerenciamentoPrestacaoCreateWithoutPrestacaoInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput | GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyPrestacaoInputEnvelope
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+  }
+
   export type DecimalFieldUpdateOperationsInput = {
     set?: Decimal | DecimalJsLike | number | string
     increment?: Decimal | DecimalJsLike | number | string
@@ -31787,12 +33364,44 @@ export namespace Prisma {
     divide?: Decimal | DecimalJsLike | number | string
   }
 
+  export type EnumStatusPrestacaoFieldUpdateOperationsInput = {
+    set?: $Enums.StatusPrestacao
+  }
+
   export type UsuarioUpdateOneRequiredWithoutPrestacaoContasUsuarioNestedInput = {
     create?: XOR<UsuarioCreateWithoutPrestacaoContasUsuarioInput, UsuarioUncheckedCreateWithoutPrestacaoContasUsuarioInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutPrestacaoContasUsuarioInput
     upsert?: UsuarioUpsertWithoutPrestacaoContasUsuarioInput
     connect?: UsuarioWhereUniqueInput
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutPrestacaoContasUsuarioInput, UsuarioUpdateWithoutPrestacaoContasUsuarioInput>, UsuarioUncheckedUpdateWithoutPrestacaoContasUsuarioInput>
+  }
+
+  export type GerenciamentoPrestacaoUpdateManyWithoutPrestacaoNestedInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput> | GerenciamentoPrestacaoCreateWithoutPrestacaoInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput | GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput[]
+    upsert?: GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutPrestacaoInput | GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutPrestacaoInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyPrestacaoInputEnvelope
+    set?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    disconnect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    delete?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    update?: GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutPrestacaoInput | GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutPrestacaoInput[]
+    updateMany?: GerenciamentoPrestacaoUpdateManyWithWhereWithoutPrestacaoInput | GerenciamentoPrestacaoUpdateManyWithWhereWithoutPrestacaoInput[]
+    deleteMany?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateManyWithoutPrestacaoNestedInput = {
+    create?: XOR<GerenciamentoPrestacaoCreateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput> | GerenciamentoPrestacaoCreateWithoutPrestacaoInput[] | GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput[]
+    connectOrCreate?: GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput | GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput[]
+    upsert?: GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutPrestacaoInput | GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutPrestacaoInput[]
+    createMany?: GerenciamentoPrestacaoCreateManyPrestacaoInputEnvelope
+    set?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    disconnect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    delete?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    connect?: GerenciamentoPrestacaoWhereUniqueInput | GerenciamentoPrestacaoWhereUniqueInput[]
+    update?: GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutPrestacaoInput | GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutPrestacaoInput[]
+    updateMany?: GerenciamentoPrestacaoUpdateManyWithWhereWithoutPrestacaoInput | GerenciamentoPrestacaoUpdateManyWithWhereWithoutPrestacaoInput[]
+    deleteMany?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
   }
 
   export type UsuarioCreateNestedOneWithoutAtestadosUsuarioInput = {
@@ -32135,6 +33744,36 @@ export namespace Prisma {
     upsert?: UsuarioUpsertWithoutAtestadosGerenciadosInput
     connect?: UsuarioWhereUniqueInput
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutAtestadosGerenciadosInput, UsuarioUpdateWithoutAtestadosGerenciadosInput>, UsuarioUncheckedUpdateWithoutAtestadosGerenciadosInput>
+  }
+
+  export type PrestacaoContasCreateNestedOneWithoutGerenciamentoPrestacaoInput = {
+    create?: XOR<PrestacaoContasCreateWithoutGerenciamentoPrestacaoInput, PrestacaoContasUncheckedCreateWithoutGerenciamentoPrestacaoInput>
+    connectOrCreate?: PrestacaoContasCreateOrConnectWithoutGerenciamentoPrestacaoInput
+    connect?: PrestacaoContasWhereUniqueInput
+  }
+
+  export type UsuarioCreateNestedOneWithoutPrestacoesGerenciadasInput = {
+    create?: XOR<UsuarioCreateWithoutPrestacoesGerenciadasInput, UsuarioUncheckedCreateWithoutPrestacoesGerenciadasInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutPrestacoesGerenciadasInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type PrestacaoContasUpdateOneWithoutGerenciamentoPrestacaoNestedInput = {
+    create?: XOR<PrestacaoContasCreateWithoutGerenciamentoPrestacaoInput, PrestacaoContasUncheckedCreateWithoutGerenciamentoPrestacaoInput>
+    connectOrCreate?: PrestacaoContasCreateOrConnectWithoutGerenciamentoPrestacaoInput
+    upsert?: PrestacaoContasUpsertWithoutGerenciamentoPrestacaoInput
+    disconnect?: PrestacaoContasWhereInput | boolean
+    delete?: PrestacaoContasWhereInput | boolean
+    connect?: PrestacaoContasWhereUniqueInput
+    update?: XOR<XOR<PrestacaoContasUpdateToOneWithWhereWithoutGerenciamentoPrestacaoInput, PrestacaoContasUpdateWithoutGerenciamentoPrestacaoInput>, PrestacaoContasUncheckedUpdateWithoutGerenciamentoPrestacaoInput>
+  }
+
+  export type UsuarioUpdateOneRequiredWithoutPrestacoesGerenciadasNestedInput = {
+    create?: XOR<UsuarioCreateWithoutPrestacoesGerenciadasInput, UsuarioUncheckedCreateWithoutPrestacoesGerenciadasInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutPrestacoesGerenciadasInput
+    upsert?: UsuarioUpsertWithoutPrestacoesGerenciadasInput
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutPrestacoesGerenciadasInput, UsuarioUpdateWithoutPrestacoesGerenciadasInput>, UsuarioUncheckedUpdateWithoutPrestacoesGerenciadasInput>
   }
 
   export type UsuarioCreateNestedOneWithoutAvisosUsuarioInput = {
@@ -32560,6 +34199,13 @@ export namespace Prisma {
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
+  export type NestedEnumStatusPrestacaoFilter<$PrismaModel = never> = {
+    equals?: $Enums.StatusPrestacao | EnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    in?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusPrestacaoFilter<$PrismaModel> | $Enums.StatusPrestacao
+  }
+
   export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
@@ -32574,6 +34220,16 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedEnumStatusPrestacaoWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.StatusPrestacao | EnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    in?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StatusPrestacao[] | ListEnumStatusPrestacaoFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusPrestacaoWithAggregatesFilter<$PrismaModel> | $Enums.StatusPrestacao
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusPrestacaoFilter<$PrismaModel>
+    _max?: NestedEnumStatusPrestacaoFilter<$PrismaModel>
   }
 
   export type NestedEnumDiaInteiroFilter<$PrismaModel = never> = {
@@ -32861,6 +34517,8 @@ export namespace Prisma {
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
     dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoCreateNestedManyWithoutPrestacaoInput
   }
 
   export type PrestacaoContasUncheckedCreateWithoutUsuarioInput = {
@@ -32870,6 +34528,8 @@ export namespace Prisma {
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
     dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutPrestacaoInput
   }
 
   export type PrestacaoContasCreateOrConnectWithoutUsuarioInput = {
@@ -33039,6 +34699,26 @@ export namespace Prisma {
 
   export type GerenciamentoAtestadoCreateManyUsuarioRhInputEnvelope = {
     data: GerenciamentoAtestadoCreateManyUsuarioRhInput | GerenciamentoAtestadoCreateManyUsuarioRhInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type GerenciamentoPrestacaoCreateWithoutUsuarioRhInput = {
+    dateTimestamp?: Date | string
+    prestacao?: PrestacaoContasCreateNestedOneWithoutGerenciamentoPrestacaoInput
+  }
+
+  export type GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput = {
+    dateTimestamp?: Date | string
+    prestacaoId: number
+  }
+
+  export type GerenciamentoPrestacaoCreateOrConnectWithoutUsuarioRhInput = {
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    create: XOR<GerenciamentoPrestacaoCreateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput>
+  }
+
+  export type GerenciamentoPrestacaoCreateManyUsuarioRhInputEnvelope = {
+    data: GerenciamentoPrestacaoCreateManyUsuarioRhInput | GerenciamentoPrestacaoCreateManyUsuarioRhInput[]
     skipDuplicates?: boolean
   }
 
@@ -33287,6 +34967,7 @@ export namespace Prisma {
     valor?: DecimalFilter<"PrestacaoContas"> | Decimal | DecimalJsLike | number | string
     imagem?: StringFilter<"PrestacaoContas"> | string
     dateTimestamp?: DateTimeFilter<"PrestacaoContas"> | Date | string
+    status?: EnumStatusPrestacaoFilter<"PrestacaoContas"> | $Enums.StatusPrestacao
     usuarioId?: IntFilter<"PrestacaoContas"> | number
   }
 
@@ -33459,6 +35140,31 @@ export namespace Prisma {
     rhUsuarioId?: IntFilter<"GerenciamentoAtestado"> | number
   }
 
+  export type GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutUsuarioRhInput = {
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    update: XOR<GerenciamentoPrestacaoUpdateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedUpdateWithoutUsuarioRhInput>
+    create: XOR<GerenciamentoPrestacaoCreateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput>
+  }
+
+  export type GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutUsuarioRhInput = {
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    data: XOR<GerenciamentoPrestacaoUpdateWithoutUsuarioRhInput, GerenciamentoPrestacaoUncheckedUpdateWithoutUsuarioRhInput>
+  }
+
+  export type GerenciamentoPrestacaoUpdateManyWithWhereWithoutUsuarioRhInput = {
+    where: GerenciamentoPrestacaoScalarWhereInput
+    data: XOR<GerenciamentoPrestacaoUpdateManyMutationInput, GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhInput>
+  }
+
+  export type GerenciamentoPrestacaoScalarWhereInput = {
+    AND?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
+    OR?: GerenciamentoPrestacaoScalarWhereInput[]
+    NOT?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
+    dateTimestamp?: DateTimeFilter<"GerenciamentoPrestacao"> | Date | string
+    prestacaoId?: IntFilter<"GerenciamentoPrestacao"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoPrestacao"> | number
+  }
+
   export type AvisoUsuarioUpsertWithWhereUniqueWithoutUsuarioInput = {
     where: AvisoUsuarioWhereUniqueInput
     update: XOR<AvisoUsuarioUpdateWithoutUsuarioInput, AvisoUsuarioUncheckedUpdateWithoutUsuarioInput>
@@ -33600,6 +35306,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -33630,6 +35337,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33762,6 +35470,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -33792,6 +35501,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33877,6 +35587,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -33907,6 +35618,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33989,6 +35701,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34019,6 +35732,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34064,6 +35778,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -34094,6 +35809,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34161,6 +35877,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34191,6 +35908,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34370,6 +36088,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -34400,6 +36119,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34483,6 +36203,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34513,6 +36234,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34542,6 +36264,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -34572,6 +36295,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34641,6 +36365,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34671,6 +36396,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34730,6 +36456,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -34760,6 +36487,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34769,6 +36497,26 @@ export namespace Prisma {
   export type UsuarioCreateOrConnectWithoutPrestacaoContasUsuarioInput = {
     where: UsuarioWhereUniqueInput
     create: XOR<UsuarioCreateWithoutPrestacaoContasUsuarioInput, UsuarioUncheckedCreateWithoutPrestacaoContasUsuarioInput>
+  }
+
+  export type GerenciamentoPrestacaoCreateWithoutPrestacaoInput = {
+    dateTimestamp?: Date | string
+    usuarioRh: UsuarioCreateNestedOneWithoutPrestacoesGerenciadasInput
+  }
+
+  export type GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput = {
+    dateTimestamp?: Date | string
+    rhUsuarioId: number
+  }
+
+  export type GerenciamentoPrestacaoCreateOrConnectWithoutPrestacaoInput = {
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    create: XOR<GerenciamentoPrestacaoCreateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput>
+  }
+
+  export type GerenciamentoPrestacaoCreateManyPrestacaoInputEnvelope = {
+    data: GerenciamentoPrestacaoCreateManyPrestacaoInput | GerenciamentoPrestacaoCreateManyPrestacaoInput[]
+    skipDuplicates?: boolean
   }
 
   export type UsuarioUpsertWithoutPrestacaoContasUsuarioInput = {
@@ -34805,6 +36553,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34835,10 +36584,27 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type GerenciamentoPrestacaoUpsertWithWhereUniqueWithoutPrestacaoInput = {
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    update: XOR<GerenciamentoPrestacaoUpdateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedUpdateWithoutPrestacaoInput>
+    create: XOR<GerenciamentoPrestacaoCreateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput>
+  }
+
+  export type GerenciamentoPrestacaoUpdateWithWhereUniqueWithoutPrestacaoInput = {
+    where: GerenciamentoPrestacaoWhereUniqueInput
+    data: XOR<GerenciamentoPrestacaoUpdateWithoutPrestacaoInput, GerenciamentoPrestacaoUncheckedUpdateWithoutPrestacaoInput>
+  }
+
+  export type GerenciamentoPrestacaoUpdateManyWithWhereWithoutPrestacaoInput = {
+    where: GerenciamentoPrestacaoScalarWhereInput
+    data: XOR<GerenciamentoPrestacaoUpdateManyMutationInput, GerenciamentoPrestacaoUncheckedUpdateManyWithoutPrestacaoInput>
   }
 
   export type UsuarioCreateWithoutAtestadosUsuarioInput = {
@@ -34864,6 +36630,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -34894,6 +36661,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34959,6 +36727,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34989,6 +36758,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35054,6 +36824,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -35084,6 +36855,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35179,6 +36951,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -35209,6 +36982,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35313,6 +37087,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -35343,6 +37118,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35412,6 +37188,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -35442,6 +37219,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35501,6 +37279,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -35531,6 +37310,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35622,6 +37402,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -35652,6 +37433,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35753,6 +37535,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -35783,6 +37566,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -35858,6 +37642,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -35888,6 +37673,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -35945,6 +37731,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -35975,6 +37762,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -36054,6 +37842,7 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -36084,6 +37873,203 @@ export namespace Prisma {
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
+    gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
+    gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
+    demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type PrestacaoContasCreateWithoutGerenciamentoPrestacaoInput = {
+    descricao: string
+    data: Date | string
+    valor: Decimal | DecimalJsLike | number | string
+    imagem: string
+    dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
+    usuario: UsuarioCreateNestedOneWithoutPrestacaoContasUsuarioInput
+  }
+
+  export type PrestacaoContasUncheckedCreateWithoutGerenciamentoPrestacaoInput = {
+    id?: number
+    descricao: string
+    data: Date | string
+    valor: Decimal | DecimalJsLike | number | string
+    imagem: string
+    dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
+    usuarioId: number
+  }
+
+  export type PrestacaoContasCreateOrConnectWithoutGerenciamentoPrestacaoInput = {
+    where: PrestacaoContasWhereUniqueInput
+    create: XOR<PrestacaoContasCreateWithoutGerenciamentoPrestacaoInput, PrestacaoContasUncheckedCreateWithoutGerenciamentoPrestacaoInput>
+  }
+
+  export type UsuarioCreateWithoutPrestacoesGerenciadasInput = {
+    cpf: string
+    nome: string
+    email: string
+    senha: string
+    telefone: string
+    dataNascimento: Date | string
+    dataAdmissao: Date | string
+    dataDesligamento?: Date | string | null
+    cargo: string
+    funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
+    cronogramasGerenciados?: CronogramaCreateNestedManyWithoutGestorInput
+    demandasGerenciadas?: DemandaCreateNestedManyWithoutGestorInput
+    avisosGerenciados?: AvisoCreateNestedManyWithoutGestorInput
+    comentariosPublicados?: ComentarioCreateNestedManyWithoutUsuarioInput
+    pontosUsuario?: PontoCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasCreateNestedManyWithoutUsuarioInput
+    atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
+    assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
+    documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
+    ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
+    atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
+    gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
+    gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
+    demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutPrestacoesGerenciadasInput = {
+    id?: number
+    cpf: string
+    nome: string
+    email: string
+    senha: string
+    telefone: string
+    dataNascimento: Date | string
+    dataAdmissao: Date | string
+    dataDesligamento?: Date | string | null
+    cargo: string
+    funcao?: $Enums.FuncaoUsuario
+    dateTimestamp?: Date | string
+    cronogramasGerenciados?: CronogramaUncheckedCreateNestedManyWithoutGestorInput
+    demandasGerenciadas?: DemandaUncheckedCreateNestedManyWithoutGestorInput
+    avisosGerenciados?: AvisoUncheckedCreateNestedManyWithoutGestorInput
+    comentariosPublicados?: ComentarioUncheckedCreateNestedManyWithoutUsuarioInput
+    pontosUsuario?: PontoUncheckedCreateNestedManyWithoutUsuarioInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedCreateNestedManyWithoutUsuarioInput
+    atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
+    assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
+    documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
+    ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
+    gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
+    gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
+    demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
+  }
+
+  export type UsuarioCreateOrConnectWithoutPrestacoesGerenciadasInput = {
+    where: UsuarioWhereUniqueInput
+    create: XOR<UsuarioCreateWithoutPrestacoesGerenciadasInput, UsuarioUncheckedCreateWithoutPrestacoesGerenciadasInput>
+  }
+
+  export type PrestacaoContasUpsertWithoutGerenciamentoPrestacaoInput = {
+    update: XOR<PrestacaoContasUpdateWithoutGerenciamentoPrestacaoInput, PrestacaoContasUncheckedUpdateWithoutGerenciamentoPrestacaoInput>
+    create: XOR<PrestacaoContasCreateWithoutGerenciamentoPrestacaoInput, PrestacaoContasUncheckedCreateWithoutGerenciamentoPrestacaoInput>
+    where?: PrestacaoContasWhereInput
+  }
+
+  export type PrestacaoContasUpdateToOneWithWhereWithoutGerenciamentoPrestacaoInput = {
+    where?: PrestacaoContasWhereInput
+    data: XOR<PrestacaoContasUpdateWithoutGerenciamentoPrestacaoInput, PrestacaoContasUncheckedUpdateWithoutGerenciamentoPrestacaoInput>
+  }
+
+  export type PrestacaoContasUpdateWithoutGerenciamentoPrestacaoInput = {
+    descricao?: StringFieldUpdateOperationsInput | string
+    data?: DateTimeFieldUpdateOperationsInput | Date | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    imagem?: StringFieldUpdateOperationsInput | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
+    usuario?: UsuarioUpdateOneRequiredWithoutPrestacaoContasUsuarioNestedInput
+  }
+
+  export type PrestacaoContasUncheckedUpdateWithoutGerenciamentoPrestacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    descricao?: StringFieldUpdateOperationsInput | string
+    data?: DateTimeFieldUpdateOperationsInput | Date | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    imagem?: StringFieldUpdateOperationsInput | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
+    usuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type UsuarioUpsertWithoutPrestacoesGerenciadasInput = {
+    update: XOR<UsuarioUpdateWithoutPrestacoesGerenciadasInput, UsuarioUncheckedUpdateWithoutPrestacoesGerenciadasInput>
+    create: XOR<UsuarioCreateWithoutPrestacoesGerenciadasInput, UsuarioUncheckedCreateWithoutPrestacoesGerenciadasInput>
+    where?: UsuarioWhereInput
+  }
+
+  export type UsuarioUpdateToOneWithWhereWithoutPrestacoesGerenciadasInput = {
+    where?: UsuarioWhereInput
+    data: XOR<UsuarioUpdateWithoutPrestacoesGerenciadasInput, UsuarioUncheckedUpdateWithoutPrestacoesGerenciadasInput>
+  }
+
+  export type UsuarioUpdateWithoutPrestacoesGerenciadasInput = {
+    cpf?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    telefone?: StringFieldUpdateOperationsInput | string
+    dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cargo?: StringFieldUpdateOperationsInput | string
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    cronogramasGerenciados?: CronogramaUpdateManyWithoutGestorNestedInput
+    demandasGerenciadas?: DemandaUpdateManyWithoutGestorNestedInput
+    avisosGerenciados?: AvisoUpdateManyWithoutGestorNestedInput
+    comentariosPublicados?: ComentarioUpdateManyWithoutUsuarioNestedInput
+    pontosUsuario?: PontoUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUpdateManyWithoutUsuarioNestedInput
+    atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
+    assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
+    documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
+    ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
+    atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
+    gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
+    gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
+    demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutPrestacoesGerenciadasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    cpf?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    telefone?: StringFieldUpdateOperationsInput | string
+    dataNascimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataAdmissao?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataDesligamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    cargo?: StringFieldUpdateOperationsInput | string
+    funcao?: EnumFuncaoUsuarioFieldUpdateOperationsInput | $Enums.FuncaoUsuario
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    cronogramasGerenciados?: CronogramaUncheckedUpdateManyWithoutGestorNestedInput
+    demandasGerenciadas?: DemandaUncheckedUpdateManyWithoutGestorNestedInput
+    avisosGerenciados?: AvisoUncheckedUpdateManyWithoutGestorNestedInput
+    comentariosPublicados?: ComentarioUncheckedUpdateManyWithoutUsuarioNestedInput
+    pontosUsuario?: PontoUncheckedUpdateManyWithoutUsuarioNestedInput
+    prestacaoContasUsuario?: PrestacaoContasUncheckedUpdateManyWithoutUsuarioNestedInput
+    atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
+    assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
+    documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
+    ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -36114,6 +38100,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
@@ -36144,6 +38131,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -36209,6 +38197,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
@@ -36239,6 +38228,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -36294,6 +38284,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
@@ -36324,6 +38315,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -36389,6 +38381,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
@@ -36419,6 +38412,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -36474,6 +38468,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
@@ -36504,6 +38499,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -36569,6 +38565,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
@@ -36599,6 +38596,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -36802,6 +38800,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -36832,6 +38831,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -36915,6 +38915,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -36945,6 +38946,7 @@ export namespace Prisma {
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     atestadosGerenciados?: GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    prestacoesGerenciadas?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -37000,6 +39002,7 @@ export namespace Prisma {
     valor: Decimal | DecimalJsLike | number | string
     imagem: string
     dateTimestamp?: Date | string
+    status?: $Enums.StatusPrestacao
   }
 
   export type AtestadoCreateManyUsuarioInput = {
@@ -37049,6 +39052,11 @@ export namespace Prisma {
   export type GerenciamentoAtestadoCreateManyUsuarioRhInput = {
     dateTimestamp?: Date | string
     atestadoId: number
+  }
+
+  export type GerenciamentoPrestacaoCreateManyUsuarioRhInput = {
+    dateTimestamp?: Date | string
+    prestacaoId: number
   }
 
   export type AvisoUsuarioCreateManyUsuarioInput = {
@@ -37211,6 +39219,8 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoUpdateManyWithoutPrestacaoNestedInput
   }
 
   export type PrestacaoContasUncheckedUpdateWithoutUsuarioInput = {
@@ -37220,6 +39230,8 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
+    gerenciamentoPrestacao?: GerenciamentoPrestacaoUncheckedUpdateManyWithoutPrestacaoNestedInput
   }
 
   export type PrestacaoContasUncheckedUpdateManyWithoutUsuarioInput = {
@@ -37229,6 +39241,7 @@ export namespace Prisma {
     valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imagem?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    status?: EnumStatusPrestacaoFieldUpdateOperationsInput | $Enums.StatusPrestacao
   }
 
   export type AtestadoUpdateWithoutUsuarioInput = {
@@ -37378,6 +39391,21 @@ export namespace Prisma {
   export type GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhInput = {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     atestadoId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GerenciamentoPrestacaoUpdateWithoutUsuarioRhInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    prestacao?: PrestacaoContasUpdateOneWithoutGerenciamentoPrestacaoNestedInput
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateWithoutUsuarioRhInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    prestacaoId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    prestacaoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type AvisoUsuarioUpdateWithoutUsuarioInput = {
@@ -37616,6 +39644,26 @@ export namespace Prisma {
 
   export type DemandaGrupoUncheckedUpdateManyWithoutGrupoInput = {
     demandaId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GerenciamentoPrestacaoCreateManyPrestacaoInput = {
+    dateTimestamp?: Date | string
+    rhUsuarioId: number
+  }
+
+  export type GerenciamentoPrestacaoUpdateWithoutPrestacaoInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    usuarioRh?: UsuarioUpdateOneRequiredWithoutPrestacoesGerenciadasNestedInput
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateWithoutPrestacaoInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    rhUsuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GerenciamentoPrestacaoUncheckedUpdateManyWithoutPrestacaoInput = {
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAtestadoCreateManyAtestadoInput = {

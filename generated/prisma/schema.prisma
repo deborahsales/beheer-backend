@@ -47,6 +47,7 @@ model Usuario {
   ajustesUsuario         AjustePonto[]              @relation("UsuarioAjuste")
   ajustesGerenciados     GerenciamentoAjustePonto[] @relation("UsuarioGerenciamentoPonto")
   atestadosGerenciados   GerenciamentoAtestado[]    @relation("UsuarioGerenciamentoAtestado")
+  prestacoesGerenciadas  GerenciamentoPrestacao[]   @relation("UsuarioGerenciamentoPrestacao")
   avisosUsuario          AvisoUsuario[]             @relation("UsuarioAviso")
   gruposUsuario          UsuarioGrupo[]             @relation("GruposUsuario")
   gruposGestor           GrupoGestor[]              @relation("GruposGestor")
@@ -148,16 +149,25 @@ model Ponto {
   ajuste AjustePonto? @relation("PontoAjuste")
 }
 
+enum StatusPrestacao {
+  CADASTRADA
+  ACEITE
+  RECUSADA
+}
+
 model PrestacaoContas {
-  id            Int      @id @default(autoincrement())
+  id            Int             @id @default(autoincrement())
   descricao     String
   data          DateTime
   valor         Decimal
   imagem        String
-  dateTimestamp DateTime @default(now())
+  dateTimestamp DateTime        @default(now())
+  status        StatusPrestacao @default(CADASTRADA)
 
   usuarioId Int
   usuario   Usuario @relation("PrestacaoContasUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  gerenciamentoPrestacao GerenciamentoPrestacao[] @relation("PrestacaoGerenciada")
 }
 
 enum DiaInteiro {
@@ -296,6 +306,18 @@ model GerenciamentoAtestado {
   usuarioRh   Usuario @relation("UsuarioGerenciamentoAtestado", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
   @@id([atestadoId, rhUsuarioId])
+}
+
+model GerenciamentoPrestacao {
+  dateTimestamp DateTime @default(now())
+
+  prestacaoId Int
+  prestacao   PrestacaoContas? @relation("PrestacaoGerenciada", fields: [prestacaoId], references: [id], onDelete: Cascade)
+
+  rhUsuarioId Int
+  usuarioRh   Usuario @relation("UsuarioGerenciamentoPrestacao", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
+
+  @@id([prestacaoId, rhUsuarioId])
 }
 
 enum StatusAviso {
