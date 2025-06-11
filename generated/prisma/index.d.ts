@@ -79,10 +79,10 @@ export type Documento = $Result.DefaultSelection<Prisma.$DocumentoPayload>
  */
 export type AjustePonto = $Result.DefaultSelection<Prisma.$AjustePontoPayload>
 /**
- * Model GerenciamentoAjsutePonto
+ * Model GerenciamentoAjustePonto
  * 
  */
-export type GerenciamentoAjsutePonto = $Result.DefaultSelection<Prisma.$GerenciamentoAjsutePontoPayload>
+export type GerenciamentoAjustePonto = $Result.DefaultSelection<Prisma.$GerenciamentoAjustePontoPayload>
 /**
  * Model AvisoUsuario
  * 
@@ -180,7 +180,7 @@ export type StatusDocumento = (typeof StatusDocumento)[keyof typeof StatusDocume
 
 export const MotivoAjuste: {
   ERRO: 'ERRO',
-  DUPLICAÇÃO: 'DUPLICAÇÃO'
+  DUPLICADO: 'DUPLICADO'
 };
 
 export type MotivoAjuste = (typeof MotivoAjuste)[keyof typeof MotivoAjuste]
@@ -188,7 +188,8 @@ export type MotivoAjuste = (typeof MotivoAjuste)[keyof typeof MotivoAjuste]
 
 export const StatusAjuste: {
   AJUSTADO: 'AJUSTADO',
-  PENDENTE: 'PENDENTE'
+  PENDENTE: 'PENDENTE',
+  RECUSADO: 'RECUSADO'
 };
 
 export type StatusAjuste = (typeof StatusAjuste)[keyof typeof StatusAjuste]
@@ -499,14 +500,14 @@ export class PrismaClient<
   get ajustePonto(): Prisma.AjustePontoDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.gerenciamentoAjsutePonto`: Exposes CRUD operations for the **GerenciamentoAjsutePonto** model.
+   * `prisma.gerenciamentoAjustePonto`: Exposes CRUD operations for the **GerenciamentoAjustePonto** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more GerenciamentoAjsutePontos
-    * const gerenciamentoAjsutePontos = await prisma.gerenciamentoAjsutePonto.findMany()
+    * // Fetch zero or more GerenciamentoAjustePontos
+    * const gerenciamentoAjustePontos = await prisma.gerenciamentoAjustePonto.findMany()
     * ```
     */
-  get gerenciamentoAjsutePonto(): Prisma.GerenciamentoAjsutePontoDelegate<ExtArgs, ClientOptions>;
+  get gerenciamentoAjustePonto(): Prisma.GerenciamentoAjustePontoDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.avisoUsuario`: Exposes CRUD operations for the **AvisoUsuario** model.
@@ -1010,7 +1011,7 @@ export namespace Prisma {
     CertificadoDigital: 'CertificadoDigital',
     Documento: 'Documento',
     AjustePonto: 'AjustePonto',
-    GerenciamentoAjsutePonto: 'GerenciamentoAjsutePonto',
+    GerenciamentoAjustePonto: 'GerenciamentoAjustePonto',
     AvisoUsuario: 'AvisoUsuario',
     UsuarioGrupo: 'UsuarioGrupo',
     GrupoGestor: 'GrupoGestor',
@@ -1034,7 +1035,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjsutePonto" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
+      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjustePonto" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2000,77 +2001,77 @@ export namespace Prisma {
           }
         }
       }
-      GerenciamentoAjsutePonto: {
-        payload: Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>
-        fields: Prisma.GerenciamentoAjsutePontoFieldRefs
+      GerenciamentoAjustePonto: {
+        payload: Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>
+        fields: Prisma.GerenciamentoAjustePontoFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.GerenciamentoAjsutePontoFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload> | null
+            args: Prisma.GerenciamentoAjustePontoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.GerenciamentoAjsutePontoFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>
+            args: Prisma.GerenciamentoAjustePontoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>
           }
           findFirst: {
-            args: Prisma.GerenciamentoAjsutePontoFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload> | null
+            args: Prisma.GerenciamentoAjustePontoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.GerenciamentoAjsutePontoFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>
+            args: Prisma.GerenciamentoAjustePontoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>
           }
           findMany: {
-            args: Prisma.GerenciamentoAjsutePontoFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>[]
+            args: Prisma.GerenciamentoAjustePontoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>[]
           }
           create: {
-            args: Prisma.GerenciamentoAjsutePontoCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>
+            args: Prisma.GerenciamentoAjustePontoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>
           }
           createMany: {
-            args: Prisma.GerenciamentoAjsutePontoCreateManyArgs<ExtArgs>
+            args: Prisma.GerenciamentoAjustePontoCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.GerenciamentoAjsutePontoCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>[]
+            args: Prisma.GerenciamentoAjustePontoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>[]
           }
           delete: {
-            args: Prisma.GerenciamentoAjsutePontoDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>
+            args: Prisma.GerenciamentoAjustePontoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>
           }
           update: {
-            args: Prisma.GerenciamentoAjsutePontoUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>
+            args: Prisma.GerenciamentoAjustePontoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>
           }
           deleteMany: {
-            args: Prisma.GerenciamentoAjsutePontoDeleteManyArgs<ExtArgs>
+            args: Prisma.GerenciamentoAjustePontoDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.GerenciamentoAjsutePontoUpdateManyArgs<ExtArgs>
+            args: Prisma.GerenciamentoAjustePontoUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.GerenciamentoAjsutePontoUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>[]
+            args: Prisma.GerenciamentoAjustePontoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>[]
           }
           upsert: {
-            args: Prisma.GerenciamentoAjsutePontoUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjsutePontoPayload>
+            args: Prisma.GerenciamentoAjustePontoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GerenciamentoAjustePontoPayload>
           }
           aggregate: {
-            args: Prisma.GerenciamentoAjsutePontoAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateGerenciamentoAjsutePonto>
+            args: Prisma.GerenciamentoAjustePontoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGerenciamentoAjustePonto>
           }
           groupBy: {
-            args: Prisma.GerenciamentoAjsutePontoGroupByArgs<ExtArgs>
-            result: $Utils.Optional<GerenciamentoAjsutePontoGroupByOutputType>[]
+            args: Prisma.GerenciamentoAjustePontoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GerenciamentoAjustePontoGroupByOutputType>[]
           }
           count: {
-            args: Prisma.GerenciamentoAjsutePontoCountArgs<ExtArgs>
-            result: $Utils.Optional<GerenciamentoAjsutePontoCountAggregateOutputType> | number
+            args: Prisma.GerenciamentoAjustePontoCountArgs<ExtArgs>
+            result: $Utils.Optional<GerenciamentoAjustePontoCountAggregateOutputType> | number
           }
         }
       }
@@ -2541,7 +2542,7 @@ export namespace Prisma {
     certificadoDigital?: CertificadoDigitalOmit
     documento?: DocumentoOmit
     ajustePonto?: AjustePontoOmit
-    gerenciamentoAjsutePonto?: GerenciamentoAjsutePontoOmit
+    gerenciamentoAjustePonto?: GerenciamentoAjustePontoOmit
     avisoUsuario?: AvisoUsuarioOmit
     usuarioGrupo?: UsuarioGrupoOmit
     grupoGestor?: GrupoGestorOmit
@@ -2761,7 +2762,7 @@ export namespace Prisma {
    * UsuarioCountOutputType without action
    */
   export type UsuarioCountOutputTypeCountAjustesGerenciadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
   }
 
   /**
@@ -3011,7 +3012,7 @@ export namespace Prisma {
    * AjustePontoCountOutputType without action
    */
   export type AjustePontoCountOutputTypeCountGerenciamentoAjusteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
   }
 
 
@@ -3371,7 +3372,7 @@ export namespace Prisma {
       assinaturasUsuario: Prisma.$AssinaturaPayload<ExtArgs>[]
       documentosUsuario: Prisma.$DocumentoPayload<ExtArgs>[]
       ajustesUsuario: Prisma.$AjustePontoPayload<ExtArgs>[]
-      ajustesGerenciados: Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>[]
+      ajustesGerenciados: Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>[]
       avisosUsuario: Prisma.$AvisoUsuarioPayload<ExtArgs>[]
       gruposUsuario: Prisma.$UsuarioGrupoPayload<ExtArgs>[]
       gruposGestor: Prisma.$GrupoGestorPayload<ExtArgs>[]
@@ -3794,7 +3795,7 @@ export namespace Prisma {
     assinaturasUsuario<T extends Usuario$assinaturasUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$assinaturasUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssinaturaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     documentosUsuario<T extends Usuario$documentosUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$documentosUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     ajustesUsuario<T extends Usuario$ajustesUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$ajustesUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    ajustesGerenciados<T extends Usuario$ajustesGerenciadosArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$ajustesGerenciadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ajustesGerenciados<T extends Usuario$ajustesGerenciadosArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$ajustesGerenciadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     avisosUsuario<T extends Usuario$avisosUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$avisosUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvisoUsuarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     gruposUsuario<T extends Usuario$gruposUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$gruposUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioGrupoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     gruposGestor<T extends Usuario$gruposGestorArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$gruposGestorArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GrupoGestorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -4472,23 +4473,23 @@ export namespace Prisma {
    */
   export type Usuario$ajustesGerenciadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
-    where?: GerenciamentoAjsutePontoWhereInput
-    orderBy?: GerenciamentoAjsutePontoOrderByWithRelationInput | GerenciamentoAjsutePontoOrderByWithRelationInput[]
-    cursor?: GerenciamentoAjsutePontoWhereUniqueInput
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
+    where?: GerenciamentoAjustePontoWhereInput
+    orderBy?: GerenciamentoAjustePontoOrderByWithRelationInput | GerenciamentoAjustePontoOrderByWithRelationInput[]
+    cursor?: GerenciamentoAjustePontoWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: GerenciamentoAjsutePontoScalarFieldEnum | GerenciamentoAjsutePontoScalarFieldEnum[]
+    distinct?: GerenciamentoAjustePontoScalarFieldEnum | GerenciamentoAjustePontoScalarFieldEnum[]
   }
 
   /**
@@ -10411,6 +10412,7 @@ export namespace Prisma {
     imagem: string | null
     latitude: number | null
     longitude: number | null
+    ativo: boolean | null
     usuarioId: number | null
   }
 
@@ -10421,6 +10423,7 @@ export namespace Prisma {
     imagem: string | null
     latitude: number | null
     longitude: number | null
+    ativo: boolean | null
     usuarioId: number | null
   }
 
@@ -10431,6 +10434,7 @@ export namespace Prisma {
     imagem: number
     latitude: number
     longitude: number
+    ativo: number
     usuarioId: number
     _all: number
   }
@@ -10457,6 +10461,7 @@ export namespace Prisma {
     imagem?: true
     latitude?: true
     longitude?: true
+    ativo?: true
     usuarioId?: true
   }
 
@@ -10467,6 +10472,7 @@ export namespace Prisma {
     imagem?: true
     latitude?: true
     longitude?: true
+    ativo?: true
     usuarioId?: true
   }
 
@@ -10477,6 +10483,7 @@ export namespace Prisma {
     imagem?: true
     latitude?: true
     longitude?: true
+    ativo?: true
     usuarioId?: true
     _all?: true
   }
@@ -10574,6 +10581,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo: boolean
     usuarioId: number
     _count: PontoCountAggregateOutputType | null
     _avg: PontoAvgAggregateOutputType | null
@@ -10603,6 +10611,7 @@ export namespace Prisma {
     imagem?: boolean
     latitude?: boolean
     longitude?: boolean
+    ativo?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
@@ -10615,6 +10624,7 @@ export namespace Prisma {
     imagem?: boolean
     latitude?: boolean
     longitude?: boolean
+    ativo?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ponto"]>
@@ -10626,6 +10636,7 @@ export namespace Prisma {
     imagem?: boolean
     latitude?: boolean
     longitude?: boolean
+    ativo?: boolean
     usuarioId?: boolean
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ponto"]>
@@ -10637,10 +10648,11 @@ export namespace Prisma {
     imagem?: boolean
     latitude?: boolean
     longitude?: boolean
+    ativo?: boolean
     usuarioId?: boolean
   }
 
-  export type PontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "ip" | "imagem" | "latitude" | "longitude" | "usuarioId", ExtArgs["result"]["ponto"]>
+  export type PontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "ip" | "imagem" | "latitude" | "longitude" | "ativo" | "usuarioId", ExtArgs["result"]["ponto"]>
   export type PontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
@@ -10665,6 +10677,7 @@ export namespace Prisma {
       imagem: string
       latitude: number
       longitude: number
+      ativo: boolean
       usuarioId: number
     }, ExtArgs["result"]["ponto"]>
     composites: {}
@@ -11097,6 +11110,7 @@ export namespace Prisma {
     readonly imagem: FieldRef<"Ponto", 'String'>
     readonly latitude: FieldRef<"Ponto", 'Float'>
     readonly longitude: FieldRef<"Ponto", 'Float'>
+    readonly ativo: FieldRef<"Ponto", 'Boolean'>
     readonly usuarioId: FieldRef<"Ponto", 'Int'>
   }
     
@@ -17483,7 +17497,7 @@ export namespace Prisma {
     objects: {
       usuario: Prisma.$UsuarioPayload<ExtArgs>
       ponto: Prisma.$PontoPayload<ExtArgs>
-      gerenciamentoAjuste: Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>[]
+      gerenciamentoAjuste: Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -17889,7 +17903,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     ponto<T extends PontoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PontoDefaultArgs<ExtArgs>>): Prisma__PontoClient<$Result.GetResult<Prisma.$PontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    gerenciamentoAjuste<T extends AjustePonto$gerenciamentoAjusteArgs<ExtArgs> = {}>(args?: Subset<T, AjustePonto$gerenciamentoAjusteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    gerenciamentoAjuste<T extends AjustePonto$gerenciamentoAjusteArgs<ExtArgs> = {}>(args?: Subset<T, AjustePonto$gerenciamentoAjusteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18326,23 +18340,23 @@ export namespace Prisma {
    */
   export type AjustePonto$gerenciamentoAjusteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
-    where?: GerenciamentoAjsutePontoWhereInput
-    orderBy?: GerenciamentoAjsutePontoOrderByWithRelationInput | GerenciamentoAjsutePontoOrderByWithRelationInput[]
-    cursor?: GerenciamentoAjsutePontoWhereUniqueInput
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
+    where?: GerenciamentoAjustePontoWhereInput
+    orderBy?: GerenciamentoAjustePontoOrderByWithRelationInput | GerenciamentoAjustePontoOrderByWithRelationInput[]
+    cursor?: GerenciamentoAjustePontoWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: GerenciamentoAjsutePontoScalarFieldEnum | GerenciamentoAjsutePontoScalarFieldEnum[]
+    distinct?: GerenciamentoAjustePontoScalarFieldEnum | GerenciamentoAjustePontoScalarFieldEnum[]
   }
 
   /**
@@ -18365,42 +18379,42 @@ export namespace Prisma {
 
 
   /**
-   * Model GerenciamentoAjsutePonto
+   * Model GerenciamentoAjustePonto
    */
 
-  export type AggregateGerenciamentoAjsutePonto = {
-    _count: GerenciamentoAjsutePontoCountAggregateOutputType | null
-    _avg: GerenciamentoAjsutePontoAvgAggregateOutputType | null
-    _sum: GerenciamentoAjsutePontoSumAggregateOutputType | null
-    _min: GerenciamentoAjsutePontoMinAggregateOutputType | null
-    _max: GerenciamentoAjsutePontoMaxAggregateOutputType | null
+  export type AggregateGerenciamentoAjustePonto = {
+    _count: GerenciamentoAjustePontoCountAggregateOutputType | null
+    _avg: GerenciamentoAjustePontoAvgAggregateOutputType | null
+    _sum: GerenciamentoAjustePontoSumAggregateOutputType | null
+    _min: GerenciamentoAjustePontoMinAggregateOutputType | null
+    _max: GerenciamentoAjustePontoMaxAggregateOutputType | null
   }
 
-  export type GerenciamentoAjsutePontoAvgAggregateOutputType = {
+  export type GerenciamentoAjustePontoAvgAggregateOutputType = {
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
-  export type GerenciamentoAjsutePontoSumAggregateOutputType = {
+  export type GerenciamentoAjustePontoSumAggregateOutputType = {
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
-  export type GerenciamentoAjsutePontoMinAggregateOutputType = {
+  export type GerenciamentoAjustePontoMinAggregateOutputType = {
     status: $Enums.StatusAjuste | null
     dateTimestamp: Date | null
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
-  export type GerenciamentoAjsutePontoMaxAggregateOutputType = {
+  export type GerenciamentoAjustePontoMaxAggregateOutputType = {
     status: $Enums.StatusAjuste | null
     dateTimestamp: Date | null
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
-  export type GerenciamentoAjsutePontoCountAggregateOutputType = {
+  export type GerenciamentoAjustePontoCountAggregateOutputType = {
     status: number
     dateTimestamp: number
     ajustePontoId: number
@@ -18409,31 +18423,31 @@ export namespace Prisma {
   }
 
 
-  export type GerenciamentoAjsutePontoAvgAggregateInputType = {
+  export type GerenciamentoAjustePontoAvgAggregateInputType = {
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
-  export type GerenciamentoAjsutePontoSumAggregateInputType = {
+  export type GerenciamentoAjustePontoSumAggregateInputType = {
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
-  export type GerenciamentoAjsutePontoMinAggregateInputType = {
+  export type GerenciamentoAjustePontoMinAggregateInputType = {
     status?: true
     dateTimestamp?: true
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
-  export type GerenciamentoAjsutePontoMaxAggregateInputType = {
+  export type GerenciamentoAjustePontoMaxAggregateInputType = {
     status?: true
     dateTimestamp?: true
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
-  export type GerenciamentoAjsutePontoCountAggregateInputType = {
+  export type GerenciamentoAjustePontoCountAggregateInputType = {
     status?: true
     dateTimestamp?: true
     ajustePontoId?: true
@@ -18441,168 +18455,168 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type GerenciamentoAjsutePontoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which GerenciamentoAjsutePonto to aggregate.
+     * Filter which GerenciamentoAjustePonto to aggregate.
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GerenciamentoAjsutePontos to fetch.
+     * Determine the order of GerenciamentoAjustePontos to fetch.
      */
-    orderBy?: GerenciamentoAjsutePontoOrderByWithRelationInput | GerenciamentoAjsutePontoOrderByWithRelationInput[]
+    orderBy?: GerenciamentoAjustePontoOrderByWithRelationInput | GerenciamentoAjustePontoOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: GerenciamentoAjsutePontoWhereUniqueInput
+    cursor?: GerenciamentoAjustePontoWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GerenciamentoAjsutePontos from the position of the cursor.
+     * Take `±n` GerenciamentoAjustePontos from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GerenciamentoAjsutePontos.
+     * Skip the first `n` GerenciamentoAjustePontos.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned GerenciamentoAjsutePontos
+     * Count returned GerenciamentoAjustePontos
     **/
-    _count?: true | GerenciamentoAjsutePontoCountAggregateInputType
+    _count?: true | GerenciamentoAjustePontoCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: GerenciamentoAjsutePontoAvgAggregateInputType
+    _avg?: GerenciamentoAjustePontoAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: GerenciamentoAjsutePontoSumAggregateInputType
+    _sum?: GerenciamentoAjustePontoSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: GerenciamentoAjsutePontoMinAggregateInputType
+    _min?: GerenciamentoAjustePontoMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: GerenciamentoAjsutePontoMaxAggregateInputType
+    _max?: GerenciamentoAjustePontoMaxAggregateInputType
   }
 
-  export type GetGerenciamentoAjsutePontoAggregateType<T extends GerenciamentoAjsutePontoAggregateArgs> = {
-        [P in keyof T & keyof AggregateGerenciamentoAjsutePonto]: P extends '_count' | 'count'
+  export type GetGerenciamentoAjustePontoAggregateType<T extends GerenciamentoAjustePontoAggregateArgs> = {
+        [P in keyof T & keyof AggregateGerenciamentoAjustePonto]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateGerenciamentoAjsutePonto[P]>
-      : GetScalarType<T[P], AggregateGerenciamentoAjsutePonto[P]>
+        : GetScalarType<T[P], AggregateGerenciamentoAjustePonto[P]>
+      : GetScalarType<T[P], AggregateGerenciamentoAjustePonto[P]>
   }
 
 
 
 
-  export type GerenciamentoAjsutePontoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GerenciamentoAjsutePontoWhereInput
-    orderBy?: GerenciamentoAjsutePontoOrderByWithAggregationInput | GerenciamentoAjsutePontoOrderByWithAggregationInput[]
-    by: GerenciamentoAjsutePontoScalarFieldEnum[] | GerenciamentoAjsutePontoScalarFieldEnum
-    having?: GerenciamentoAjsutePontoScalarWhereWithAggregatesInput
+  export type GerenciamentoAjustePontoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GerenciamentoAjustePontoWhereInput
+    orderBy?: GerenciamentoAjustePontoOrderByWithAggregationInput | GerenciamentoAjustePontoOrderByWithAggregationInput[]
+    by: GerenciamentoAjustePontoScalarFieldEnum[] | GerenciamentoAjustePontoScalarFieldEnum
+    having?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: GerenciamentoAjsutePontoCountAggregateInputType | true
-    _avg?: GerenciamentoAjsutePontoAvgAggregateInputType
-    _sum?: GerenciamentoAjsutePontoSumAggregateInputType
-    _min?: GerenciamentoAjsutePontoMinAggregateInputType
-    _max?: GerenciamentoAjsutePontoMaxAggregateInputType
+    _count?: GerenciamentoAjustePontoCountAggregateInputType | true
+    _avg?: GerenciamentoAjustePontoAvgAggregateInputType
+    _sum?: GerenciamentoAjustePontoSumAggregateInputType
+    _min?: GerenciamentoAjustePontoMinAggregateInputType
+    _max?: GerenciamentoAjustePontoMaxAggregateInputType
   }
 
-  export type GerenciamentoAjsutePontoGroupByOutputType = {
+  export type GerenciamentoAjustePontoGroupByOutputType = {
     status: $Enums.StatusAjuste
     dateTimestamp: Date
     ajustePontoId: number
     rhUsuarioId: number
-    _count: GerenciamentoAjsutePontoCountAggregateOutputType | null
-    _avg: GerenciamentoAjsutePontoAvgAggregateOutputType | null
-    _sum: GerenciamentoAjsutePontoSumAggregateOutputType | null
-    _min: GerenciamentoAjsutePontoMinAggregateOutputType | null
-    _max: GerenciamentoAjsutePontoMaxAggregateOutputType | null
+    _count: GerenciamentoAjustePontoCountAggregateOutputType | null
+    _avg: GerenciamentoAjustePontoAvgAggregateOutputType | null
+    _sum: GerenciamentoAjustePontoSumAggregateOutputType | null
+    _min: GerenciamentoAjustePontoMinAggregateOutputType | null
+    _max: GerenciamentoAjustePontoMaxAggregateOutputType | null
   }
 
-  type GetGerenciamentoAjsutePontoGroupByPayload<T extends GerenciamentoAjsutePontoGroupByArgs> = Prisma.PrismaPromise<
+  type GetGerenciamentoAjustePontoGroupByPayload<T extends GerenciamentoAjustePontoGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<GerenciamentoAjsutePontoGroupByOutputType, T['by']> &
+      PickEnumerable<GerenciamentoAjustePontoGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof GerenciamentoAjsutePontoGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof GerenciamentoAjustePontoGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], GerenciamentoAjsutePontoGroupByOutputType[P]>
-            : GetScalarType<T[P], GerenciamentoAjsutePontoGroupByOutputType[P]>
+              : GetScalarType<T[P], GerenciamentoAjustePontoGroupByOutputType[P]>
+            : GetScalarType<T[P], GerenciamentoAjustePontoGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type GerenciamentoAjsutePontoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type GerenciamentoAjustePontoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     status?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["gerenciamentoAjsutePonto"]>
+  }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
 
-  export type GerenciamentoAjsutePontoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type GerenciamentoAjustePontoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     status?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["gerenciamentoAjsutePonto"]>
+  }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
 
-  export type GerenciamentoAjsutePontoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type GerenciamentoAjustePontoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     status?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["gerenciamentoAjsutePonto"]>
+  }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
 
-  export type GerenciamentoAjsutePontoSelectScalar = {
+  export type GerenciamentoAjustePontoSelectScalar = {
     status?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
   }
 
-  export type GerenciamentoAjsutePontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"status" | "dateTimestamp" | "ajustePontoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoAjsutePonto"]>
-  export type GerenciamentoAjsutePontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"status" | "dateTimestamp" | "ajustePontoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoAjustePonto"]>
+  export type GerenciamentoAjustePontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
-  export type GerenciamentoAjsutePontoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
-  export type GerenciamentoAjsutePontoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
   }
 
-  export type $GerenciamentoAjsutePontoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "GerenciamentoAjsutePonto"
+  export type $GerenciamentoAjustePontoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GerenciamentoAjustePonto"
     objects: {
       ajustePonto: Prisma.$AjustePontoPayload<ExtArgs>
       usuarioRh: Prisma.$UsuarioPayload<ExtArgs>
@@ -18612,136 +18626,136 @@ export namespace Prisma {
       dateTimestamp: Date
       ajustePontoId: number
       rhUsuarioId: number
-    }, ExtArgs["result"]["gerenciamentoAjsutePonto"]>
+    }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
     composites: {}
   }
 
-  type GerenciamentoAjsutePontoGetPayload<S extends boolean | null | undefined | GerenciamentoAjsutePontoDefaultArgs> = $Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload, S>
+  type GerenciamentoAjustePontoGetPayload<S extends boolean | null | undefined | GerenciamentoAjustePontoDefaultArgs> = $Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload, S>
 
-  type GerenciamentoAjsutePontoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<GerenciamentoAjsutePontoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: GerenciamentoAjsutePontoCountAggregateInputType | true
+  type GerenciamentoAjustePontoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GerenciamentoAjustePontoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GerenciamentoAjustePontoCountAggregateInputType | true
     }
 
-  export interface GerenciamentoAjsutePontoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GerenciamentoAjsutePonto'], meta: { name: 'GerenciamentoAjsutePonto' } }
+  export interface GerenciamentoAjustePontoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GerenciamentoAjustePonto'], meta: { name: 'GerenciamentoAjustePonto' } }
     /**
-     * Find zero or one GerenciamentoAjsutePonto that matches the filter.
-     * @param {GerenciamentoAjsutePontoFindUniqueArgs} args - Arguments to find a GerenciamentoAjsutePonto
+     * Find zero or one GerenciamentoAjustePonto that matches the filter.
+     * @param {GerenciamentoAjustePontoFindUniqueArgs} args - Arguments to find a GerenciamentoAjustePonto
      * @example
-     * // Get one GerenciamentoAjsutePonto
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.findUnique({
+     * // Get one GerenciamentoAjustePonto
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends GerenciamentoAjsutePontoFindUniqueArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoFindUniqueArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends GerenciamentoAjustePontoFindUniqueArgs>(args: SelectSubset<T, GerenciamentoAjustePontoFindUniqueArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one GerenciamentoAjsutePonto that matches the filter or throw an error with `error.code='P2025'`
+     * Find one GerenciamentoAjustePonto that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {GerenciamentoAjsutePontoFindUniqueOrThrowArgs} args - Arguments to find a GerenciamentoAjsutePonto
+     * @param {GerenciamentoAjustePontoFindUniqueOrThrowArgs} args - Arguments to find a GerenciamentoAjustePonto
      * @example
-     * // Get one GerenciamentoAjsutePonto
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.findUniqueOrThrow({
+     * // Get one GerenciamentoAjustePonto
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends GerenciamentoAjsutePontoFindUniqueOrThrowArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends GerenciamentoAjustePontoFindUniqueOrThrowArgs>(args: SelectSubset<T, GerenciamentoAjustePontoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first GerenciamentoAjsutePonto that matches the filter.
+     * Find the first GerenciamentoAjustePonto that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoFindFirstArgs} args - Arguments to find a GerenciamentoAjsutePonto
+     * @param {GerenciamentoAjustePontoFindFirstArgs} args - Arguments to find a GerenciamentoAjustePonto
      * @example
-     * // Get one GerenciamentoAjsutePonto
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.findFirst({
+     * // Get one GerenciamentoAjustePonto
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends GerenciamentoAjsutePontoFindFirstArgs>(args?: SelectSubset<T, GerenciamentoAjsutePontoFindFirstArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends GerenciamentoAjustePontoFindFirstArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoFindFirstArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first GerenciamentoAjsutePonto that matches the filter or
+     * Find the first GerenciamentoAjustePonto that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoFindFirstOrThrowArgs} args - Arguments to find a GerenciamentoAjsutePonto
+     * @param {GerenciamentoAjustePontoFindFirstOrThrowArgs} args - Arguments to find a GerenciamentoAjustePonto
      * @example
-     * // Get one GerenciamentoAjsutePonto
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.findFirstOrThrow({
+     * // Get one GerenciamentoAjustePonto
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends GerenciamentoAjsutePontoFindFirstOrThrowArgs>(args?: SelectSubset<T, GerenciamentoAjsutePontoFindFirstOrThrowArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends GerenciamentoAjustePontoFindFirstOrThrowArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoFindFirstOrThrowArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more GerenciamentoAjsutePontos that matches the filter.
+     * Find zero or more GerenciamentoAjustePontos that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {GerenciamentoAjustePontoFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all GerenciamentoAjsutePontos
-     * const gerenciamentoAjsutePontos = await prisma.gerenciamentoAjsutePonto.findMany()
+     * // Get all GerenciamentoAjustePontos
+     * const gerenciamentoAjustePontos = await prisma.gerenciamentoAjustePonto.findMany()
      * 
-     * // Get first 10 GerenciamentoAjsutePontos
-     * const gerenciamentoAjsutePontos = await prisma.gerenciamentoAjsutePonto.findMany({ take: 10 })
+     * // Get first 10 GerenciamentoAjustePontos
+     * const gerenciamentoAjustePontos = await prisma.gerenciamentoAjustePonto.findMany({ take: 10 })
      * 
      * // Only select the `dateTimestamp`
-     * const gerenciamentoAjsutePontoWithDateTimestampOnly = await prisma.gerenciamentoAjsutePonto.findMany({ select: { dateTimestamp: true } })
+     * const gerenciamentoAjustePontoWithDateTimestampOnly = await prisma.gerenciamentoAjustePonto.findMany({ select: { dateTimestamp: true } })
      * 
      */
-    findMany<T extends GerenciamentoAjsutePontoFindManyArgs>(args?: SelectSubset<T, GerenciamentoAjsutePontoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends GerenciamentoAjustePontoFindManyArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a GerenciamentoAjsutePonto.
-     * @param {GerenciamentoAjsutePontoCreateArgs} args - Arguments to create a GerenciamentoAjsutePonto.
+     * Create a GerenciamentoAjustePonto.
+     * @param {GerenciamentoAjustePontoCreateArgs} args - Arguments to create a GerenciamentoAjustePonto.
      * @example
-     * // Create one GerenciamentoAjsutePonto
-     * const GerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.create({
+     * // Create one GerenciamentoAjustePonto
+     * const GerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.create({
      *   data: {
-     *     // ... data to create a GerenciamentoAjsutePonto
+     *     // ... data to create a GerenciamentoAjustePonto
      *   }
      * })
      * 
      */
-    create<T extends GerenciamentoAjsutePontoCreateArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoCreateArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends GerenciamentoAjustePontoCreateArgs>(args: SelectSubset<T, GerenciamentoAjustePontoCreateArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many GerenciamentoAjsutePontos.
-     * @param {GerenciamentoAjsutePontoCreateManyArgs} args - Arguments to create many GerenciamentoAjsutePontos.
+     * Create many GerenciamentoAjustePontos.
+     * @param {GerenciamentoAjustePontoCreateManyArgs} args - Arguments to create many GerenciamentoAjustePontos.
      * @example
-     * // Create many GerenciamentoAjsutePontos
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.createMany({
+     * // Create many GerenciamentoAjustePontos
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends GerenciamentoAjsutePontoCreateManyArgs>(args?: SelectSubset<T, GerenciamentoAjsutePontoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends GerenciamentoAjustePontoCreateManyArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many GerenciamentoAjsutePontos and returns the data saved in the database.
-     * @param {GerenciamentoAjsutePontoCreateManyAndReturnArgs} args - Arguments to create many GerenciamentoAjsutePontos.
+     * Create many GerenciamentoAjustePontos and returns the data saved in the database.
+     * @param {GerenciamentoAjustePontoCreateManyAndReturnArgs} args - Arguments to create many GerenciamentoAjustePontos.
      * @example
-     * // Create many GerenciamentoAjsutePontos
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.createManyAndReturn({
+     * // Create many GerenciamentoAjustePontos
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many GerenciamentoAjsutePontos and only return the `dateTimestamp`
-     * const gerenciamentoAjsutePontoWithDateTimestampOnly = await prisma.gerenciamentoAjsutePonto.createManyAndReturn({
+     * // Create many GerenciamentoAjustePontos and only return the `dateTimestamp`
+     * const gerenciamentoAjustePontoWithDateTimestampOnly = await prisma.gerenciamentoAjustePonto.createManyAndReturn({
      *   select: { dateTimestamp: true },
      *   data: [
      *     // ... provide data here
@@ -18751,28 +18765,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends GerenciamentoAjsutePontoCreateManyAndReturnArgs>(args?: SelectSubset<T, GerenciamentoAjsutePontoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends GerenciamentoAjustePontoCreateManyAndReturnArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a GerenciamentoAjsutePonto.
-     * @param {GerenciamentoAjsutePontoDeleteArgs} args - Arguments to delete one GerenciamentoAjsutePonto.
+     * Delete a GerenciamentoAjustePonto.
+     * @param {GerenciamentoAjustePontoDeleteArgs} args - Arguments to delete one GerenciamentoAjustePonto.
      * @example
-     * // Delete one GerenciamentoAjsutePonto
-     * const GerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.delete({
+     * // Delete one GerenciamentoAjustePonto
+     * const GerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.delete({
      *   where: {
-     *     // ... filter to delete one GerenciamentoAjsutePonto
+     *     // ... filter to delete one GerenciamentoAjustePonto
      *   }
      * })
      * 
      */
-    delete<T extends GerenciamentoAjsutePontoDeleteArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoDeleteArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends GerenciamentoAjustePontoDeleteArgs>(args: SelectSubset<T, GerenciamentoAjustePontoDeleteArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one GerenciamentoAjsutePonto.
-     * @param {GerenciamentoAjsutePontoUpdateArgs} args - Arguments to update one GerenciamentoAjsutePonto.
+     * Update one GerenciamentoAjustePonto.
+     * @param {GerenciamentoAjustePontoUpdateArgs} args - Arguments to update one GerenciamentoAjustePonto.
      * @example
-     * // Update one GerenciamentoAjsutePonto
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.update({
+     * // Update one GerenciamentoAjustePonto
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -18782,30 +18796,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends GerenciamentoAjsutePontoUpdateArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoUpdateArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends GerenciamentoAjustePontoUpdateArgs>(args: SelectSubset<T, GerenciamentoAjustePontoUpdateArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more GerenciamentoAjsutePontos.
-     * @param {GerenciamentoAjsutePontoDeleteManyArgs} args - Arguments to filter GerenciamentoAjsutePontos to delete.
+     * Delete zero or more GerenciamentoAjustePontos.
+     * @param {GerenciamentoAjustePontoDeleteManyArgs} args - Arguments to filter GerenciamentoAjustePontos to delete.
      * @example
-     * // Delete a few GerenciamentoAjsutePontos
-     * const { count } = await prisma.gerenciamentoAjsutePonto.deleteMany({
+     * // Delete a few GerenciamentoAjustePontos
+     * const { count } = await prisma.gerenciamentoAjustePonto.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends GerenciamentoAjsutePontoDeleteManyArgs>(args?: SelectSubset<T, GerenciamentoAjsutePontoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends GerenciamentoAjustePontoDeleteManyArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more GerenciamentoAjsutePontos.
+     * Update zero or more GerenciamentoAjustePontos.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {GerenciamentoAjustePontoUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many GerenciamentoAjsutePontos
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.updateMany({
+     * // Update many GerenciamentoAjustePontos
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -18815,14 +18829,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends GerenciamentoAjsutePontoUpdateManyArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends GerenciamentoAjustePontoUpdateManyArgs>(args: SelectSubset<T, GerenciamentoAjustePontoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more GerenciamentoAjsutePontos and returns the data updated in the database.
-     * @param {GerenciamentoAjsutePontoUpdateManyAndReturnArgs} args - Arguments to update many GerenciamentoAjsutePontos.
+     * Update zero or more GerenciamentoAjustePontos and returns the data updated in the database.
+     * @param {GerenciamentoAjustePontoUpdateManyAndReturnArgs} args - Arguments to update many GerenciamentoAjustePontos.
      * @example
-     * // Update many GerenciamentoAjsutePontos
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.updateManyAndReturn({
+     * // Update many GerenciamentoAjustePontos
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -18831,8 +18845,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more GerenciamentoAjsutePontos and only return the `dateTimestamp`
-     * const gerenciamentoAjsutePontoWithDateTimestampOnly = await prisma.gerenciamentoAjsutePonto.updateManyAndReturn({
+     * // Update zero or more GerenciamentoAjustePontos and only return the `dateTimestamp`
+     * const gerenciamentoAjustePontoWithDateTimestampOnly = await prisma.gerenciamentoAjustePonto.updateManyAndReturn({
      *   select: { dateTimestamp: true },
      *   where: {
      *     // ... provide filter here
@@ -18845,56 +18859,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends GerenciamentoAjsutePontoUpdateManyAndReturnArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends GerenciamentoAjustePontoUpdateManyAndReturnArgs>(args: SelectSubset<T, GerenciamentoAjustePontoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one GerenciamentoAjsutePonto.
-     * @param {GerenciamentoAjsutePontoUpsertArgs} args - Arguments to update or create a GerenciamentoAjsutePonto.
+     * Create or update one GerenciamentoAjustePonto.
+     * @param {GerenciamentoAjustePontoUpsertArgs} args - Arguments to update or create a GerenciamentoAjustePonto.
      * @example
-     * // Update or create a GerenciamentoAjsutePonto
-     * const gerenciamentoAjsutePonto = await prisma.gerenciamentoAjsutePonto.upsert({
+     * // Update or create a GerenciamentoAjustePonto
+     * const gerenciamentoAjustePonto = await prisma.gerenciamentoAjustePonto.upsert({
      *   create: {
-     *     // ... data to create a GerenciamentoAjsutePonto
+     *     // ... data to create a GerenciamentoAjustePonto
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the GerenciamentoAjsutePonto we want to update
+     *     // ... the filter for the GerenciamentoAjustePonto we want to update
      *   }
      * })
      */
-    upsert<T extends GerenciamentoAjsutePontoUpsertArgs>(args: SelectSubset<T, GerenciamentoAjsutePontoUpsertArgs<ExtArgs>>): Prisma__GerenciamentoAjsutePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjsutePontoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends GerenciamentoAjustePontoUpsertArgs>(args: SelectSubset<T, GerenciamentoAjustePontoUpsertArgs<ExtArgs>>): Prisma__GerenciamentoAjustePontoClient<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of GerenciamentoAjsutePontos.
+     * Count the number of GerenciamentoAjustePontos.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoCountArgs} args - Arguments to filter GerenciamentoAjsutePontos to count.
+     * @param {GerenciamentoAjustePontoCountArgs} args - Arguments to filter GerenciamentoAjustePontos to count.
      * @example
-     * // Count the number of GerenciamentoAjsutePontos
-     * const count = await prisma.gerenciamentoAjsutePonto.count({
+     * // Count the number of GerenciamentoAjustePontos
+     * const count = await prisma.gerenciamentoAjustePonto.count({
      *   where: {
-     *     // ... the filter for the GerenciamentoAjsutePontos we want to count
+     *     // ... the filter for the GerenciamentoAjustePontos we want to count
      *   }
      * })
     **/
-    count<T extends GerenciamentoAjsutePontoCountArgs>(
-      args?: Subset<T, GerenciamentoAjsutePontoCountArgs>,
+    count<T extends GerenciamentoAjustePontoCountArgs>(
+      args?: Subset<T, GerenciamentoAjustePontoCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], GerenciamentoAjsutePontoCountAggregateOutputType>
+          : GetScalarType<T['select'], GerenciamentoAjustePontoCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a GerenciamentoAjsutePonto.
+     * Allows you to perform aggregations operations on a GerenciamentoAjustePonto.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {GerenciamentoAjustePontoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -18914,13 +18928,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends GerenciamentoAjsutePontoAggregateArgs>(args: Subset<T, GerenciamentoAjsutePontoAggregateArgs>): Prisma.PrismaPromise<GetGerenciamentoAjsutePontoAggregateType<T>>
+    aggregate<T extends GerenciamentoAjustePontoAggregateArgs>(args: Subset<T, GerenciamentoAjustePontoAggregateArgs>): Prisma.PrismaPromise<GetGerenciamentoAjustePontoAggregateType<T>>
 
     /**
-     * Group by GerenciamentoAjsutePonto.
+     * Group by GerenciamentoAjustePonto.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {GerenciamentoAjsutePontoGroupByArgs} args - Group by arguments.
+     * @param {GerenciamentoAjustePontoGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -18935,14 +18949,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends GerenciamentoAjsutePontoGroupByArgs,
+      T extends GerenciamentoAjustePontoGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: GerenciamentoAjsutePontoGroupByArgs['orderBy'] }
-        : { orderBy?: GerenciamentoAjsutePontoGroupByArgs['orderBy'] },
+        ? { orderBy: GerenciamentoAjustePontoGroupByArgs['orderBy'] }
+        : { orderBy?: GerenciamentoAjustePontoGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -18991,20 +19005,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, GerenciamentoAjsutePontoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGerenciamentoAjsutePontoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, GerenciamentoAjustePontoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGerenciamentoAjustePontoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the GerenciamentoAjsutePonto model
+   * Fields of the GerenciamentoAjustePonto model
    */
-  readonly fields: GerenciamentoAjsutePontoFieldRefs;
+  readonly fields: GerenciamentoAjustePontoFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for GerenciamentoAjsutePonto.
+   * The delegate class that acts as a "Promise-like" for GerenciamentoAjustePonto.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__GerenciamentoAjsutePontoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__GerenciamentoAjustePontoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     ajustePonto<T extends AjustePontoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AjustePontoDefaultArgs<ExtArgs>>): Prisma__AjustePontoClient<$Result.GetResult<Prisma.$AjustePontoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     usuarioRh<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -19034,424 +19048,424 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the GerenciamentoAjsutePonto model
+   * Fields of the GerenciamentoAjustePonto model
    */
-  interface GerenciamentoAjsutePontoFieldRefs {
-    readonly status: FieldRef<"GerenciamentoAjsutePonto", 'StatusAjuste'>
-    readonly dateTimestamp: FieldRef<"GerenciamentoAjsutePonto", 'DateTime'>
-    readonly ajustePontoId: FieldRef<"GerenciamentoAjsutePonto", 'Int'>
-    readonly rhUsuarioId: FieldRef<"GerenciamentoAjsutePonto", 'Int'>
+  interface GerenciamentoAjustePontoFieldRefs {
+    readonly status: FieldRef<"GerenciamentoAjustePonto", 'StatusAjuste'>
+    readonly dateTimestamp: FieldRef<"GerenciamentoAjustePonto", 'DateTime'>
+    readonly ajustePontoId: FieldRef<"GerenciamentoAjustePonto", 'Int'>
+    readonly rhUsuarioId: FieldRef<"GerenciamentoAjustePonto", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * GerenciamentoAjsutePonto findUnique
+   * GerenciamentoAjustePonto findUnique
    */
-  export type GerenciamentoAjsutePontoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * Filter, which GerenciamentoAjsutePonto to fetch.
+     * Filter, which GerenciamentoAjustePonto to fetch.
      */
-    where: GerenciamentoAjsutePontoWhereUniqueInput
+    where: GerenciamentoAjustePontoWhereUniqueInput
   }
 
   /**
-   * GerenciamentoAjsutePonto findUniqueOrThrow
+   * GerenciamentoAjustePonto findUniqueOrThrow
    */
-  export type GerenciamentoAjsutePontoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * Filter, which GerenciamentoAjsutePonto to fetch.
+     * Filter, which GerenciamentoAjustePonto to fetch.
      */
-    where: GerenciamentoAjsutePontoWhereUniqueInput
+    where: GerenciamentoAjustePontoWhereUniqueInput
   }
 
   /**
-   * GerenciamentoAjsutePonto findFirst
+   * GerenciamentoAjustePonto findFirst
    */
-  export type GerenciamentoAjsutePontoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * Filter, which GerenciamentoAjsutePonto to fetch.
+     * Filter, which GerenciamentoAjustePonto to fetch.
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GerenciamentoAjsutePontos to fetch.
+     * Determine the order of GerenciamentoAjustePontos to fetch.
      */
-    orderBy?: GerenciamentoAjsutePontoOrderByWithRelationInput | GerenciamentoAjsutePontoOrderByWithRelationInput[]
+    orderBy?: GerenciamentoAjustePontoOrderByWithRelationInput | GerenciamentoAjustePontoOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for GerenciamentoAjsutePontos.
+     * Sets the position for searching for GerenciamentoAjustePontos.
      */
-    cursor?: GerenciamentoAjsutePontoWhereUniqueInput
+    cursor?: GerenciamentoAjustePontoWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GerenciamentoAjsutePontos from the position of the cursor.
+     * Take `±n` GerenciamentoAjustePontos from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GerenciamentoAjsutePontos.
+     * Skip the first `n` GerenciamentoAjustePontos.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of GerenciamentoAjsutePontos.
+     * Filter by unique combinations of GerenciamentoAjustePontos.
      */
-    distinct?: GerenciamentoAjsutePontoScalarFieldEnum | GerenciamentoAjsutePontoScalarFieldEnum[]
+    distinct?: GerenciamentoAjustePontoScalarFieldEnum | GerenciamentoAjustePontoScalarFieldEnum[]
   }
 
   /**
-   * GerenciamentoAjsutePonto findFirstOrThrow
+   * GerenciamentoAjustePonto findFirstOrThrow
    */
-  export type GerenciamentoAjsutePontoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * Filter, which GerenciamentoAjsutePonto to fetch.
+     * Filter, which GerenciamentoAjustePonto to fetch.
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GerenciamentoAjsutePontos to fetch.
+     * Determine the order of GerenciamentoAjustePontos to fetch.
      */
-    orderBy?: GerenciamentoAjsutePontoOrderByWithRelationInput | GerenciamentoAjsutePontoOrderByWithRelationInput[]
+    orderBy?: GerenciamentoAjustePontoOrderByWithRelationInput | GerenciamentoAjustePontoOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for GerenciamentoAjsutePontos.
+     * Sets the position for searching for GerenciamentoAjustePontos.
      */
-    cursor?: GerenciamentoAjsutePontoWhereUniqueInput
+    cursor?: GerenciamentoAjustePontoWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GerenciamentoAjsutePontos from the position of the cursor.
+     * Take `±n` GerenciamentoAjustePontos from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GerenciamentoAjsutePontos.
+     * Skip the first `n` GerenciamentoAjustePontos.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of GerenciamentoAjsutePontos.
+     * Filter by unique combinations of GerenciamentoAjustePontos.
      */
-    distinct?: GerenciamentoAjsutePontoScalarFieldEnum | GerenciamentoAjsutePontoScalarFieldEnum[]
+    distinct?: GerenciamentoAjustePontoScalarFieldEnum | GerenciamentoAjustePontoScalarFieldEnum[]
   }
 
   /**
-   * GerenciamentoAjsutePonto findMany
+   * GerenciamentoAjustePonto findMany
    */
-  export type GerenciamentoAjsutePontoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * Filter, which GerenciamentoAjsutePontos to fetch.
+     * Filter, which GerenciamentoAjustePontos to fetch.
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of GerenciamentoAjsutePontos to fetch.
+     * Determine the order of GerenciamentoAjustePontos to fetch.
      */
-    orderBy?: GerenciamentoAjsutePontoOrderByWithRelationInput | GerenciamentoAjsutePontoOrderByWithRelationInput[]
+    orderBy?: GerenciamentoAjustePontoOrderByWithRelationInput | GerenciamentoAjustePontoOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing GerenciamentoAjsutePontos.
+     * Sets the position for listing GerenciamentoAjustePontos.
      */
-    cursor?: GerenciamentoAjsutePontoWhereUniqueInput
+    cursor?: GerenciamentoAjustePontoWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` GerenciamentoAjsutePontos from the position of the cursor.
+     * Take `±n` GerenciamentoAjustePontos from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` GerenciamentoAjsutePontos.
+     * Skip the first `n` GerenciamentoAjustePontos.
      */
     skip?: number
-    distinct?: GerenciamentoAjsutePontoScalarFieldEnum | GerenciamentoAjsutePontoScalarFieldEnum[]
+    distinct?: GerenciamentoAjustePontoScalarFieldEnum | GerenciamentoAjustePontoScalarFieldEnum[]
   }
 
   /**
-   * GerenciamentoAjsutePonto create
+   * GerenciamentoAjustePonto create
    */
-  export type GerenciamentoAjsutePontoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * The data needed to create a GerenciamentoAjsutePonto.
+     * The data needed to create a GerenciamentoAjustePonto.
      */
-    data: XOR<GerenciamentoAjsutePontoCreateInput, GerenciamentoAjsutePontoUncheckedCreateInput>
+    data: XOR<GerenciamentoAjustePontoCreateInput, GerenciamentoAjustePontoUncheckedCreateInput>
   }
 
   /**
-   * GerenciamentoAjsutePonto createMany
+   * GerenciamentoAjustePonto createMany
    */
-  export type GerenciamentoAjsutePontoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many GerenciamentoAjsutePontos.
+     * The data used to create many GerenciamentoAjustePontos.
      */
-    data: GerenciamentoAjsutePontoCreateManyInput | GerenciamentoAjsutePontoCreateManyInput[]
+    data: GerenciamentoAjustePontoCreateManyInput | GerenciamentoAjustePontoCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * GerenciamentoAjsutePonto createManyAndReturn
+   * GerenciamentoAjustePonto createManyAndReturn
    */
-  export type GerenciamentoAjsutePontoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelectCreateManyAndReturn<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
-     * The data used to create many GerenciamentoAjsutePontos.
+     * The data used to create many GerenciamentoAjustePontos.
      */
-    data: GerenciamentoAjsutePontoCreateManyInput | GerenciamentoAjsutePontoCreateManyInput[]
+    data: GerenciamentoAjustePontoCreateManyInput | GerenciamentoAjustePontoCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: GerenciamentoAjustePontoIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * GerenciamentoAjsutePonto update
+   * GerenciamentoAjustePonto update
    */
-  export type GerenciamentoAjsutePontoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * The data needed to update a GerenciamentoAjsutePonto.
+     * The data needed to update a GerenciamentoAjustePonto.
      */
-    data: XOR<GerenciamentoAjsutePontoUpdateInput, GerenciamentoAjsutePontoUncheckedUpdateInput>
+    data: XOR<GerenciamentoAjustePontoUpdateInput, GerenciamentoAjustePontoUncheckedUpdateInput>
     /**
-     * Choose, which GerenciamentoAjsutePonto to update.
+     * Choose, which GerenciamentoAjustePonto to update.
      */
-    where: GerenciamentoAjsutePontoWhereUniqueInput
+    where: GerenciamentoAjustePontoWhereUniqueInput
   }
 
   /**
-   * GerenciamentoAjsutePonto updateMany
+   * GerenciamentoAjustePonto updateMany
    */
-  export type GerenciamentoAjsutePontoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update GerenciamentoAjsutePontos.
+     * The data used to update GerenciamentoAjustePontos.
      */
-    data: XOR<GerenciamentoAjsutePontoUpdateManyMutationInput, GerenciamentoAjsutePontoUncheckedUpdateManyInput>
+    data: XOR<GerenciamentoAjustePontoUpdateManyMutationInput, GerenciamentoAjustePontoUncheckedUpdateManyInput>
     /**
-     * Filter which GerenciamentoAjsutePontos to update
+     * Filter which GerenciamentoAjustePontos to update
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
-     * Limit how many GerenciamentoAjsutePontos to update.
+     * Limit how many GerenciamentoAjustePontos to update.
      */
     limit?: number
   }
 
   /**
-   * GerenciamentoAjsutePonto updateManyAndReturn
+   * GerenciamentoAjustePonto updateManyAndReturn
    */
-  export type GerenciamentoAjsutePontoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
-     * The data used to update GerenciamentoAjsutePontos.
+     * The data used to update GerenciamentoAjustePontos.
      */
-    data: XOR<GerenciamentoAjsutePontoUpdateManyMutationInput, GerenciamentoAjsutePontoUncheckedUpdateManyInput>
+    data: XOR<GerenciamentoAjustePontoUpdateManyMutationInput, GerenciamentoAjustePontoUncheckedUpdateManyInput>
     /**
-     * Filter which GerenciamentoAjsutePontos to update
+     * Filter which GerenciamentoAjustePontos to update
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
-     * Limit how many GerenciamentoAjsutePontos to update.
+     * Limit how many GerenciamentoAjustePontos to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: GerenciamentoAjustePontoIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * GerenciamentoAjsutePonto upsert
+   * GerenciamentoAjustePonto upsert
    */
-  export type GerenciamentoAjsutePontoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * The filter to search for the GerenciamentoAjsutePonto to update in case it exists.
+     * The filter to search for the GerenciamentoAjustePonto to update in case it exists.
      */
-    where: GerenciamentoAjsutePontoWhereUniqueInput
+    where: GerenciamentoAjustePontoWhereUniqueInput
     /**
-     * In case the GerenciamentoAjsutePonto found by the `where` argument doesn't exist, create a new GerenciamentoAjsutePonto with this data.
+     * In case the GerenciamentoAjustePonto found by the `where` argument doesn't exist, create a new GerenciamentoAjustePonto with this data.
      */
-    create: XOR<GerenciamentoAjsutePontoCreateInput, GerenciamentoAjsutePontoUncheckedCreateInput>
+    create: XOR<GerenciamentoAjustePontoCreateInput, GerenciamentoAjustePontoUncheckedCreateInput>
     /**
-     * In case the GerenciamentoAjsutePonto was found with the provided `where` argument, update it with this data.
+     * In case the GerenciamentoAjustePonto was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<GerenciamentoAjsutePontoUpdateInput, GerenciamentoAjsutePontoUncheckedUpdateInput>
+    update: XOR<GerenciamentoAjustePontoUpdateInput, GerenciamentoAjustePontoUncheckedUpdateInput>
   }
 
   /**
-   * GerenciamentoAjsutePonto delete
+   * GerenciamentoAjustePonto delete
    */
-  export type GerenciamentoAjsutePontoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
     /**
-     * Filter which GerenciamentoAjsutePonto to delete.
+     * Filter which GerenciamentoAjustePonto to delete.
      */
-    where: GerenciamentoAjsutePontoWhereUniqueInput
+    where: GerenciamentoAjustePontoWhereUniqueInput
   }
 
   /**
-   * GerenciamentoAjsutePonto deleteMany
+   * GerenciamentoAjustePonto deleteMany
    */
-  export type GerenciamentoAjsutePontoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which GerenciamentoAjsutePontos to delete
+     * Filter which GerenciamentoAjustePontos to delete
      */
-    where?: GerenciamentoAjsutePontoWhereInput
+    where?: GerenciamentoAjustePontoWhereInput
     /**
-     * Limit how many GerenciamentoAjsutePontos to delete.
+     * Limit how many GerenciamentoAjustePontos to delete.
      */
     limit?: number
   }
 
   /**
-   * GerenciamentoAjsutePonto without action
+   * GerenciamentoAjustePonto without action
    */
-  export type GerenciamentoAjsutePontoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GerenciamentoAjustePontoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the GerenciamentoAjsutePonto
+     * Select specific fields to fetch from the GerenciamentoAjustePonto
      */
-    select?: GerenciamentoAjsutePontoSelect<ExtArgs> | null
+    select?: GerenciamentoAjustePontoSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the GerenciamentoAjsutePonto
+     * Omit specific fields from the GerenciamentoAjustePonto
      */
-    omit?: GerenciamentoAjsutePontoOmit<ExtArgs> | null
+    omit?: GerenciamentoAjustePontoOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: GerenciamentoAjsutePontoInclude<ExtArgs> | null
+    include?: GerenciamentoAjustePontoInclude<ExtArgs> | null
   }
 
 
@@ -24903,6 +24917,7 @@ export namespace Prisma {
     imagem: 'imagem',
     latitude: 'latitude',
     longitude: 'longitude',
+    ativo: 'ativo',
     usuarioId: 'usuarioId'
   };
 
@@ -24987,14 +25002,14 @@ export namespace Prisma {
   export type AjustePontoScalarFieldEnum = (typeof AjustePontoScalarFieldEnum)[keyof typeof AjustePontoScalarFieldEnum]
 
 
-  export const GerenciamentoAjsutePontoScalarFieldEnum: {
+  export const GerenciamentoAjustePontoScalarFieldEnum: {
     status: 'status',
     dateTimestamp: 'dateTimestamp',
     ajustePontoId: 'ajustePontoId',
     rhUsuarioId: 'rhUsuarioId'
   };
 
-  export type GerenciamentoAjsutePontoScalarFieldEnum = (typeof GerenciamentoAjsutePontoScalarFieldEnum)[keyof typeof GerenciamentoAjsutePontoScalarFieldEnum]
+  export type GerenciamentoAjustePontoScalarFieldEnum = (typeof GerenciamentoAjustePontoScalarFieldEnum)[keyof typeof GerenciamentoAjustePontoScalarFieldEnum]
 
 
   export const AvisoUsuarioScalarFieldEnum: {
@@ -25167,6 +25182,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Decimal'
    */
   export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
@@ -25307,7 +25329,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaListRelationFilter
     documentosUsuario?: DocumentoListRelationFilter
     ajustesUsuario?: AjustePontoListRelationFilter
-    ajustesGerenciados?: GerenciamentoAjsutePontoListRelationFilter
+    ajustesGerenciados?: GerenciamentoAjustePontoListRelationFilter
     avisosUsuario?: AvisoUsuarioListRelationFilter
     gruposUsuario?: UsuarioGrupoListRelationFilter
     gruposGestor?: GrupoGestorListRelationFilter
@@ -25337,7 +25359,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaOrderByRelationAggregateInput
     documentosUsuario?: DocumentoOrderByRelationAggregateInput
     ajustesUsuario?: AjustePontoOrderByRelationAggregateInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoOrderByRelationAggregateInput
+    ajustesGerenciados?: GerenciamentoAjustePontoOrderByRelationAggregateInput
     avisosUsuario?: AvisoUsuarioOrderByRelationAggregateInput
     gruposUsuario?: UsuarioGrupoOrderByRelationAggregateInput
     gruposGestor?: GrupoGestorOrderByRelationAggregateInput
@@ -25370,7 +25392,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaListRelationFilter
     documentosUsuario?: DocumentoListRelationFilter
     ajustesUsuario?: AjustePontoListRelationFilter
-    ajustesGerenciados?: GerenciamentoAjsutePontoListRelationFilter
+    ajustesGerenciados?: GerenciamentoAjustePontoListRelationFilter
     avisosUsuario?: AvisoUsuarioListRelationFilter
     gruposUsuario?: UsuarioGrupoListRelationFilter
     gruposGestor?: GrupoGestorListRelationFilter
@@ -25752,6 +25774,7 @@ export namespace Prisma {
     imagem?: StringFilter<"Ponto"> | string
     latitude?: FloatFilter<"Ponto"> | number
     longitude?: FloatFilter<"Ponto"> | number
+    ativo?: BoolFilter<"Ponto"> | boolean
     usuarioId?: IntFilter<"Ponto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     ajuste?: XOR<AjustePontoNullableScalarRelationFilter, AjustePontoWhereInput> | null
@@ -25764,6 +25787,7 @@ export namespace Prisma {
     imagem?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    ativo?: SortOrder
     usuarioId?: SortOrder
     usuario?: UsuarioOrderByWithRelationInput
     ajuste?: AjustePontoOrderByWithRelationInput
@@ -25779,6 +25803,7 @@ export namespace Prisma {
     imagem?: StringFilter<"Ponto"> | string
     latitude?: FloatFilter<"Ponto"> | number
     longitude?: FloatFilter<"Ponto"> | number
+    ativo?: BoolFilter<"Ponto"> | boolean
     usuarioId?: IntFilter<"Ponto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     ajuste?: XOR<AjustePontoNullableScalarRelationFilter, AjustePontoWhereInput> | null
@@ -25791,6 +25816,7 @@ export namespace Prisma {
     imagem?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    ativo?: SortOrder
     usuarioId?: SortOrder
     _count?: PontoCountOrderByAggregateInput
     _avg?: PontoAvgOrderByAggregateInput
@@ -25809,6 +25835,7 @@ export namespace Prisma {
     imagem?: StringWithAggregatesFilter<"Ponto"> | string
     latitude?: FloatWithAggregatesFilter<"Ponto"> | number
     longitude?: FloatWithAggregatesFilter<"Ponto"> | number
+    ativo?: BoolWithAggregatesFilter<"Ponto"> | boolean
     usuarioId?: IntWithAggregatesFilter<"Ponto"> | number
   }
 
@@ -26169,7 +26196,7 @@ export namespace Prisma {
     pontoId?: IntFilter<"AjustePonto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     ponto?: XOR<PontoScalarRelationFilter, PontoWhereInput>
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoListRelationFilter
+    gerenciamentoAjuste?: GerenciamentoAjustePontoListRelationFilter
   }
 
   export type AjustePontoOrderByWithRelationInput = {
@@ -26182,7 +26209,7 @@ export namespace Prisma {
     pontoId?: SortOrder
     usuario?: UsuarioOrderByWithRelationInput
     ponto?: PontoOrderByWithRelationInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoOrderByRelationAggregateInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoOrderByRelationAggregateInput
   }
 
   export type AjustePontoWhereUniqueInput = Prisma.AtLeast<{
@@ -26198,7 +26225,7 @@ export namespace Prisma {
     usuarioId?: IntFilter<"AjustePonto"> | number
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     ponto?: XOR<PontoScalarRelationFilter, PontoWhereInput>
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoListRelationFilter
+    gerenciamentoAjuste?: GerenciamentoAjustePontoListRelationFilter
   }, "id" | "pontoId">
 
   export type AjustePontoOrderByWithAggregationInput = {
@@ -26229,19 +26256,19 @@ export namespace Prisma {
     pontoId?: IntWithAggregatesFilter<"AjustePonto"> | number
   }
 
-  export type GerenciamentoAjsutePontoWhereInput = {
-    AND?: GerenciamentoAjsutePontoWhereInput | GerenciamentoAjsutePontoWhereInput[]
-    OR?: GerenciamentoAjsutePontoWhereInput[]
-    NOT?: GerenciamentoAjsutePontoWhereInput | GerenciamentoAjsutePontoWhereInput[]
-    status?: EnumStatusAjusteFilter<"GerenciamentoAjsutePonto"> | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeFilter<"GerenciamentoAjsutePonto"> | Date | string
-    ajustePontoId?: IntFilter<"GerenciamentoAjsutePonto"> | number
-    rhUsuarioId?: IntFilter<"GerenciamentoAjsutePonto"> | number
+  export type GerenciamentoAjustePontoWhereInput = {
+    AND?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
+    OR?: GerenciamentoAjustePontoWhereInput[]
+    NOT?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
+    status?: EnumStatusAjusteFilter<"GerenciamentoAjustePonto"> | $Enums.StatusAjuste
+    dateTimestamp?: DateTimeFilter<"GerenciamentoAjustePonto"> | Date | string
+    ajustePontoId?: IntFilter<"GerenciamentoAjustePonto"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoAjustePonto"> | number
     ajustePonto?: XOR<AjustePontoScalarRelationFilter, AjustePontoWhereInput>
     usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
   }
 
-  export type GerenciamentoAjsutePontoOrderByWithRelationInput = {
+  export type GerenciamentoAjustePontoOrderByWithRelationInput = {
     status?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
@@ -26250,39 +26277,39 @@ export namespace Prisma {
     usuarioRh?: UsuarioOrderByWithRelationInput
   }
 
-  export type GerenciamentoAjsutePontoWhereUniqueInput = Prisma.AtLeast<{
-    ajustePontoId_rhUsuarioId?: GerenciamentoAjsutePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput
-    AND?: GerenciamentoAjsutePontoWhereInput | GerenciamentoAjsutePontoWhereInput[]
-    OR?: GerenciamentoAjsutePontoWhereInput[]
-    NOT?: GerenciamentoAjsutePontoWhereInput | GerenciamentoAjsutePontoWhereInput[]
-    status?: EnumStatusAjusteFilter<"GerenciamentoAjsutePonto"> | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeFilter<"GerenciamentoAjsutePonto"> | Date | string
-    ajustePontoId?: IntFilter<"GerenciamentoAjsutePonto"> | number
-    rhUsuarioId?: IntFilter<"GerenciamentoAjsutePonto"> | number
+  export type GerenciamentoAjustePontoWhereUniqueInput = Prisma.AtLeast<{
+    ajustePontoId_rhUsuarioId?: GerenciamentoAjustePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput
+    AND?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
+    OR?: GerenciamentoAjustePontoWhereInput[]
+    NOT?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
+    status?: EnumStatusAjusteFilter<"GerenciamentoAjustePonto"> | $Enums.StatusAjuste
+    dateTimestamp?: DateTimeFilter<"GerenciamentoAjustePonto"> | Date | string
+    ajustePontoId?: IntFilter<"GerenciamentoAjustePonto"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoAjustePonto"> | number
     ajustePonto?: XOR<AjustePontoScalarRelationFilter, AjustePontoWhereInput>
     usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
   }, "ajustePontoId_rhUsuarioId">
 
-  export type GerenciamentoAjsutePontoOrderByWithAggregationInput = {
+  export type GerenciamentoAjustePontoOrderByWithAggregationInput = {
     status?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
-    _count?: GerenciamentoAjsutePontoCountOrderByAggregateInput
-    _avg?: GerenciamentoAjsutePontoAvgOrderByAggregateInput
-    _max?: GerenciamentoAjsutePontoMaxOrderByAggregateInput
-    _min?: GerenciamentoAjsutePontoMinOrderByAggregateInput
-    _sum?: GerenciamentoAjsutePontoSumOrderByAggregateInput
+    _count?: GerenciamentoAjustePontoCountOrderByAggregateInput
+    _avg?: GerenciamentoAjustePontoAvgOrderByAggregateInput
+    _max?: GerenciamentoAjustePontoMaxOrderByAggregateInput
+    _min?: GerenciamentoAjustePontoMinOrderByAggregateInput
+    _sum?: GerenciamentoAjustePontoSumOrderByAggregateInput
   }
 
-  export type GerenciamentoAjsutePontoScalarWhereWithAggregatesInput = {
-    AND?: GerenciamentoAjsutePontoScalarWhereWithAggregatesInput | GerenciamentoAjsutePontoScalarWhereWithAggregatesInput[]
-    OR?: GerenciamentoAjsutePontoScalarWhereWithAggregatesInput[]
-    NOT?: GerenciamentoAjsutePontoScalarWhereWithAggregatesInput | GerenciamentoAjsutePontoScalarWhereWithAggregatesInput[]
-    status?: EnumStatusAjusteWithAggregatesFilter<"GerenciamentoAjsutePonto"> | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeWithAggregatesFilter<"GerenciamentoAjsutePonto"> | Date | string
-    ajustePontoId?: IntWithAggregatesFilter<"GerenciamentoAjsutePonto"> | number
-    rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoAjsutePonto"> | number
+  export type GerenciamentoAjustePontoScalarWhereWithAggregatesInput = {
+    AND?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput | GerenciamentoAjustePontoScalarWhereWithAggregatesInput[]
+    OR?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput[]
+    NOT?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput | GerenciamentoAjustePontoScalarWhereWithAggregatesInput[]
+    status?: EnumStatusAjusteWithAggregatesFilter<"GerenciamentoAjustePonto"> | $Enums.StatusAjuste
+    dateTimestamp?: DateTimeWithAggregatesFilter<"GerenciamentoAjustePonto"> | Date | string
+    ajustePontoId?: IntWithAggregatesFilter<"GerenciamentoAjustePonto"> | number
+    rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoAjustePonto"> | number
   }
 
   export type AvisoUsuarioWhereInput = {
@@ -26547,7 +26574,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -26577,7 +26604,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -26606,7 +26633,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -26636,7 +26663,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -27005,6 +27032,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
     ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
@@ -27016,6 +27044,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     usuarioId: number
     ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
@@ -27026,6 +27055,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
     ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
@@ -27037,6 +27067,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     usuarioId?: IntFieldUpdateOperationsInput | number
     ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
@@ -27048,6 +27079,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     usuarioId: number
   }
 
@@ -27057,6 +27089,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type PontoUncheckedUpdateManyInput = {
@@ -27066,6 +27099,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -27413,7 +27447,7 @@ export namespace Prisma {
     dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
     ponto: PontoCreateNestedOneWithoutAjusteInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoCreateNestedManyWithoutAjustePontoInput
   }
 
   export type AjustePontoUncheckedCreateInput = {
@@ -27424,7 +27458,7 @@ export namespace Prisma {
     dateTimestamp?: Date | string
     usuarioId: number
     pontoId: number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutAjustePontoInput
   }
 
   export type AjustePontoUpdateInput = {
@@ -27434,7 +27468,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     usuario?: UsuarioUpdateOneRequiredWithoutAjustesUsuarioNestedInput
     ponto?: PontoUpdateOneRequiredWithoutAjusteNestedInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUpdateManyWithoutAjustePontoNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type AjustePontoUncheckedUpdateInput = {
@@ -27445,7 +27479,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioId?: IntFieldUpdateOperationsInput | number
     pontoId?: IntFieldUpdateOperationsInput | number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type AjustePontoCreateManyInput = {
@@ -27475,47 +27509,47 @@ export namespace Prisma {
     pontoId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoCreateInput = {
+  export type GerenciamentoAjustePontoCreateInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ajustePonto: AjustePontoCreateNestedOneWithoutGerenciamentoAjusteInput
     usuarioRh: UsuarioCreateNestedOneWithoutAjustesGerenciadosInput
   }
 
-  export type GerenciamentoAjsutePontoUncheckedCreateInput = {
+  export type GerenciamentoAjustePontoUncheckedCreateInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ajustePontoId: number
     rhUsuarioId: number
   }
 
-  export type GerenciamentoAjsutePontoUpdateInput = {
+  export type GerenciamentoAjustePontoUpdateInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePonto?: AjustePontoUpdateOneRequiredWithoutGerenciamentoAjusteNestedInput
     usuarioRh?: UsuarioUpdateOneRequiredWithoutAjustesGerenciadosNestedInput
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateInput = {
+  export type GerenciamentoAjustePontoUncheckedUpdateInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoCreateManyInput = {
+  export type GerenciamentoAjustePontoCreateManyInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ajustePontoId: number
     rhUsuarioId: number
   }
 
-  export type GerenciamentoAjsutePontoUpdateManyMutationInput = {
+  export type GerenciamentoAjustePontoUpdateManyMutationInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateManyInput = {
+  export type GerenciamentoAjustePontoUncheckedUpdateManyInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
@@ -27820,10 +27854,10 @@ export namespace Prisma {
     none?: AjustePontoWhereInput
   }
 
-  export type GerenciamentoAjsutePontoListRelationFilter = {
-    every?: GerenciamentoAjsutePontoWhereInput
-    some?: GerenciamentoAjsutePontoWhereInput
-    none?: GerenciamentoAjsutePontoWhereInput
+  export type GerenciamentoAjustePontoListRelationFilter = {
+    every?: GerenciamentoAjustePontoWhereInput
+    some?: GerenciamentoAjustePontoWhereInput
+    none?: GerenciamentoAjustePontoWhereInput
   }
 
   export type AvisoUsuarioListRelationFilter = {
@@ -27895,7 +27929,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type GerenciamentoAjsutePontoOrderByRelationAggregateInput = {
+  export type GerenciamentoAjustePontoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -28351,6 +28385,11 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type AjustePontoNullableScalarRelationFilter = {
     is?: AjustePontoWhereInput | null
     isNot?: AjustePontoWhereInput | null
@@ -28363,6 +28402,7 @@ export namespace Prisma {
     imagem?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    ativo?: SortOrder
     usuarioId?: SortOrder
   }
 
@@ -28380,6 +28420,7 @@ export namespace Prisma {
     imagem?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    ativo?: SortOrder
     usuarioId?: SortOrder
   }
 
@@ -28390,6 +28431,7 @@ export namespace Prisma {
     imagem?: SortOrder
     latitude?: SortOrder
     longitude?: SortOrder
+    ativo?: SortOrder
     usuarioId?: SortOrder
   }
 
@@ -28414,6 +28456,14 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DecimalFilter<$PrismaModel = never> = {
@@ -28816,38 +28866,38 @@ export namespace Prisma {
     isNot?: AjustePontoWhereInput
   }
 
-  export type GerenciamentoAjsutePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput = {
+  export type GerenciamentoAjustePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput = {
     ajustePontoId: number
     rhUsuarioId: number
   }
 
-  export type GerenciamentoAjsutePontoCountOrderByAggregateInput = {
+  export type GerenciamentoAjustePontoCountOrderByAggregateInput = {
     status?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
-  export type GerenciamentoAjsutePontoAvgOrderByAggregateInput = {
+  export type GerenciamentoAjustePontoAvgOrderByAggregateInput = {
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
-  export type GerenciamentoAjsutePontoMaxOrderByAggregateInput = {
+  export type GerenciamentoAjustePontoMaxOrderByAggregateInput = {
     status?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
-  export type GerenciamentoAjsutePontoMinOrderByAggregateInput = {
+  export type GerenciamentoAjustePontoMinOrderByAggregateInput = {
     status?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
-  export type GerenciamentoAjsutePontoSumOrderByAggregateInput = {
+  export type GerenciamentoAjustePontoSumOrderByAggregateInput = {
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
@@ -29105,11 +29155,11 @@ export namespace Prisma {
     connect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
   }
 
-  export type GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyUsuarioRhInputEnvelope
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
+  export type GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjustePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyUsuarioRhInputEnvelope
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
   }
 
   export type AvisoUsuarioCreateNestedManyWithoutUsuarioInput = {
@@ -29210,11 +29260,11 @@ export namespace Prisma {
     connect?: AjustePontoWhereUniqueInput | AjustePontoWhereUniqueInput[]
   }
 
-  export type GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyUsuarioRhInputEnvelope
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
+  export type GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjustePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyUsuarioRhInputEnvelope
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
   }
 
   export type AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput = {
@@ -29401,18 +29451,18 @@ export namespace Prisma {
     deleteMany?: AjustePontoScalarWhereInput | AjustePontoScalarWhereInput[]
   }
 
-  export type GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput[]
-    upsert?: GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutUsuarioRhInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyUsuarioRhInputEnvelope
-    set?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    disconnect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    delete?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    update?: GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
-    updateMany?: GerenciamentoAjsutePontoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoAjsutePontoUpdateManyWithWhereWithoutUsuarioRhInput[]
-    deleteMany?: GerenciamentoAjsutePontoScalarWhereInput | GerenciamentoAjsutePontoScalarWhereInput[]
+  export type GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjustePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput[]
+    upsert?: GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyUsuarioRhInputEnvelope
+    set?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    disconnect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    delete?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    update?: GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
+    updateMany?: GerenciamentoAjustePontoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoAjustePontoUpdateManyWithWhereWithoutUsuarioRhInput[]
+    deleteMany?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
   }
 
   export type AvisoUsuarioUpdateManyWithoutUsuarioNestedInput = {
@@ -29619,18 +29669,18 @@ export namespace Prisma {
     deleteMany?: AjustePontoScalarWhereInput | AjustePontoScalarWhereInput[]
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput[]
-    upsert?: GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutUsuarioRhInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyUsuarioRhInputEnvelope
-    set?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    disconnect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    delete?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    update?: GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
-    updateMany?: GerenciamentoAjsutePontoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoAjsutePontoUpdateManyWithWhereWithoutUsuarioRhInput[]
-    deleteMany?: GerenciamentoAjsutePontoScalarWhereInput | GerenciamentoAjsutePontoScalarWhereInput[]
+  export type GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput> | GerenciamentoAjustePontoCreateWithoutUsuarioRhInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput | GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput[]
+    upsert?: GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutUsuarioRhInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyUsuarioRhInputEnvelope
+    set?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    disconnect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    delete?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    update?: GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutUsuarioRhInput | GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutUsuarioRhInput[]
+    updateMany?: GerenciamentoAjustePontoUpdateManyWithWhereWithoutUsuarioRhInput | GerenciamentoAjustePontoUpdateManyWithWhereWithoutUsuarioRhInput[]
+    deleteMany?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
   }
 
   export type AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput = {
@@ -30157,6 +30207,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput = {
     create?: XOR<UsuarioCreateWithoutPontosUsuarioInput, UsuarioUncheckedCreateWithoutPontosUsuarioInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutPontosUsuarioInput
@@ -30379,18 +30433,18 @@ export namespace Prisma {
     connect?: PontoWhereUniqueInput
   }
 
-  export type GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjsutePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyAjustePontoInputEnvelope
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
+  export type GerenciamentoAjustePontoCreateNestedManyWithoutAjustePontoInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjustePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyAjustePontoInputEnvelope
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
   }
 
-  export type GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjsutePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyAjustePontoInputEnvelope
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
+  export type GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutAjustePontoInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjustePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyAjustePontoInputEnvelope
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
   }
 
   export type EnumMotivoAjusteFieldUpdateOperationsInput = {
@@ -30417,32 +30471,32 @@ export namespace Prisma {
     update?: XOR<XOR<PontoUpdateToOneWithWhereWithoutAjusteInput, PontoUpdateWithoutAjusteInput>, PontoUncheckedUpdateWithoutAjusteInput>
   }
 
-  export type GerenciamentoAjsutePontoUpdateManyWithoutAjustePontoNestedInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjsutePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput[]
-    upsert?: GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutAjustePontoInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyAjustePontoInputEnvelope
-    set?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    disconnect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    delete?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    update?: GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutAjustePontoInput[]
-    updateMany?: GerenciamentoAjsutePontoUpdateManyWithWhereWithoutAjustePontoInput | GerenciamentoAjsutePontoUpdateManyWithWhereWithoutAjustePontoInput[]
-    deleteMany?: GerenciamentoAjsutePontoScalarWhereInput | GerenciamentoAjsutePontoScalarWhereInput[]
+  export type GerenciamentoAjustePontoUpdateManyWithoutAjustePontoNestedInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjustePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput[]
+    upsert?: GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutAjustePontoInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyAjustePontoInputEnvelope
+    set?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    disconnect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    delete?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    update?: GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutAjustePontoInput[]
+    updateMany?: GerenciamentoAjustePontoUpdateManyWithWhereWithoutAjustePontoInput | GerenciamentoAjustePontoUpdateManyWithWhereWithoutAjustePontoInput[]
+    deleteMany?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoNestedInput = {
-    create?: XOR<GerenciamentoAjsutePontoCreateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjsutePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput[]
-    connectOrCreate?: GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput[]
-    upsert?: GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutAjustePontoInput[]
-    createMany?: GerenciamentoAjsutePontoCreateManyAjustePontoInputEnvelope
-    set?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    disconnect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    delete?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    connect?: GerenciamentoAjsutePontoWhereUniqueInput | GerenciamentoAjsutePontoWhereUniqueInput[]
-    update?: GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutAjustePontoInput[]
-    updateMany?: GerenciamentoAjsutePontoUpdateManyWithWhereWithoutAjustePontoInput | GerenciamentoAjsutePontoUpdateManyWithWhereWithoutAjustePontoInput[]
-    deleteMany?: GerenciamentoAjsutePontoScalarWhereInput | GerenciamentoAjsutePontoScalarWhereInput[]
+  export type GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoNestedInput = {
+    create?: XOR<GerenciamentoAjustePontoCreateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput> | GerenciamentoAjustePontoCreateWithoutAjustePontoInput[] | GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput[]
+    connectOrCreate?: GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput | GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput[]
+    upsert?: GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutAjustePontoInput[]
+    createMany?: GerenciamentoAjustePontoCreateManyAjustePontoInputEnvelope
+    set?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    disconnect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    delete?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    connect?: GerenciamentoAjustePontoWhereUniqueInput | GerenciamentoAjustePontoWhereUniqueInput[]
+    update?: GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutAjustePontoInput | GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutAjustePontoInput[]
+    updateMany?: GerenciamentoAjustePontoUpdateManyWithWhereWithoutAjustePontoInput | GerenciamentoAjustePontoUpdateManyWithWhereWithoutAjustePontoInput[]
+    deleteMany?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
   }
 
   export type AjustePontoCreateNestedOneWithoutGerenciamentoAjusteInput = {
@@ -30856,6 +30910,11 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -30870,6 +30929,14 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDecimalFilter<$PrismaModel = never> = {
@@ -31136,6 +31203,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     ajuste?: AjustePontoCreateNestedOneWithoutPontoInput
   }
 
@@ -31146,6 +31214,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     ajuste?: AjustePontoUncheckedCreateNestedOneWithoutPontoInput
   }
 
@@ -31279,7 +31348,7 @@ export namespace Prisma {
     status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ponto: PontoCreateNestedOneWithoutAjusteInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoCreateNestedManyWithoutAjustePontoInput
   }
 
   export type AjustePontoUncheckedCreateWithoutUsuarioInput = {
@@ -31289,7 +31358,7 @@ export namespace Prisma {
     status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     pontoId: number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutAjustePontoInput
   }
 
   export type AjustePontoCreateOrConnectWithoutUsuarioInput = {
@@ -31302,25 +31371,25 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput = {
+  export type GerenciamentoAjustePontoCreateWithoutUsuarioRhInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ajustePonto: AjustePontoCreateNestedOneWithoutGerenciamentoAjusteInput
   }
 
-  export type GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput = {
+  export type GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ajustePontoId: number
   }
 
-  export type GerenciamentoAjsutePontoCreateOrConnectWithoutUsuarioRhInput = {
-    where: GerenciamentoAjsutePontoWhereUniqueInput
-    create: XOR<GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput>
+  export type GerenciamentoAjustePontoCreateOrConnectWithoutUsuarioRhInput = {
+    where: GerenciamentoAjustePontoWhereUniqueInput
+    create: XOR<GerenciamentoAjustePontoCreateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput>
   }
 
-  export type GerenciamentoAjsutePontoCreateManyUsuarioRhInputEnvelope = {
-    data: GerenciamentoAjsutePontoCreateManyUsuarioRhInput | GerenciamentoAjsutePontoCreateManyUsuarioRhInput[]
+  export type GerenciamentoAjustePontoCreateManyUsuarioRhInputEnvelope = {
+    data: GerenciamentoAjustePontoCreateManyUsuarioRhInput | GerenciamentoAjustePontoCreateManyUsuarioRhInput[]
     skipDuplicates?: boolean
   }
 
@@ -31539,6 +31608,7 @@ export namespace Prisma {
     imagem?: StringFilter<"Ponto"> | string
     latitude?: FloatFilter<"Ponto"> | number
     longitude?: FloatFilter<"Ponto"> | number
+    ativo?: BoolFilter<"Ponto"> | boolean
     usuarioId?: IntFilter<"Ponto"> | number
   }
 
@@ -31689,30 +31759,30 @@ export namespace Prisma {
     pontoId?: IntFilter<"AjustePonto"> | number
   }
 
-  export type GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutUsuarioRhInput = {
-    where: GerenciamentoAjsutePontoWhereUniqueInput
-    update: XOR<GerenciamentoAjsutePontoUpdateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedUpdateWithoutUsuarioRhInput>
-    create: XOR<GerenciamentoAjsutePontoCreateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedCreateWithoutUsuarioRhInput>
+  export type GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutUsuarioRhInput = {
+    where: GerenciamentoAjustePontoWhereUniqueInput
+    update: XOR<GerenciamentoAjustePontoUpdateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedUpdateWithoutUsuarioRhInput>
+    create: XOR<GerenciamentoAjustePontoCreateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput>
   }
 
-  export type GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutUsuarioRhInput = {
-    where: GerenciamentoAjsutePontoWhereUniqueInput
-    data: XOR<GerenciamentoAjsutePontoUpdateWithoutUsuarioRhInput, GerenciamentoAjsutePontoUncheckedUpdateWithoutUsuarioRhInput>
+  export type GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutUsuarioRhInput = {
+    where: GerenciamentoAjustePontoWhereUniqueInput
+    data: XOR<GerenciamentoAjustePontoUpdateWithoutUsuarioRhInput, GerenciamentoAjustePontoUncheckedUpdateWithoutUsuarioRhInput>
   }
 
-  export type GerenciamentoAjsutePontoUpdateManyWithWhereWithoutUsuarioRhInput = {
-    where: GerenciamentoAjsutePontoScalarWhereInput
-    data: XOR<GerenciamentoAjsutePontoUpdateManyMutationInput, GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhInput>
+  export type GerenciamentoAjustePontoUpdateManyWithWhereWithoutUsuarioRhInput = {
+    where: GerenciamentoAjustePontoScalarWhereInput
+    data: XOR<GerenciamentoAjustePontoUpdateManyMutationInput, GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhInput>
   }
 
-  export type GerenciamentoAjsutePontoScalarWhereInput = {
-    AND?: GerenciamentoAjsutePontoScalarWhereInput | GerenciamentoAjsutePontoScalarWhereInput[]
-    OR?: GerenciamentoAjsutePontoScalarWhereInput[]
-    NOT?: GerenciamentoAjsutePontoScalarWhereInput | GerenciamentoAjsutePontoScalarWhereInput[]
-    status?: EnumStatusAjusteFilter<"GerenciamentoAjsutePonto"> | $Enums.StatusAjuste
-    dateTimestamp?: DateTimeFilter<"GerenciamentoAjsutePonto"> | Date | string
-    ajustePontoId?: IntFilter<"GerenciamentoAjsutePonto"> | number
-    rhUsuarioId?: IntFilter<"GerenciamentoAjsutePonto"> | number
+  export type GerenciamentoAjustePontoScalarWhereInput = {
+    AND?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
+    OR?: GerenciamentoAjustePontoScalarWhereInput[]
+    NOT?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
+    status?: EnumStatusAjusteFilter<"GerenciamentoAjustePonto"> | $Enums.StatusAjuste
+    dateTimestamp?: DateTimeFilter<"GerenciamentoAjustePonto"> | Date | string
+    ajustePontoId?: IntFilter<"GerenciamentoAjustePonto"> | number
+    rhUsuarioId?: IntFilter<"GerenciamentoAjustePonto"> | number
   }
 
   export type AvisoUsuarioUpsertWithWhereUniqueWithoutUsuarioInput = {
@@ -31854,7 +31924,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -31883,7 +31953,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -32014,7 +32084,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -32043,7 +32113,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -32127,7 +32197,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -32156,7 +32226,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -32237,7 +32307,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -32266,7 +32336,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -32310,7 +32380,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -32339,7 +32409,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -32405,7 +32475,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -32434,7 +32504,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -32612,7 +32682,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -32641,7 +32711,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -32723,7 +32793,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -32752,7 +32822,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -32780,7 +32850,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -32809,7 +32879,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -32827,7 +32897,7 @@ export namespace Prisma {
     status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuario: UsuarioCreateNestedOneWithoutAjustesUsuarioInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoCreateNestedManyWithoutAjustePontoInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoCreateNestedManyWithoutAjustePontoInput
   }
 
   export type AjustePontoUncheckedCreateWithoutPontoInput = {
@@ -32837,7 +32907,7 @@ export namespace Prisma {
     status?: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuarioId: number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutAjustePontoInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutAjustePontoInput
   }
 
   export type AjustePontoCreateOrConnectWithoutPontoInput = {
@@ -32877,7 +32947,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -32906,7 +32976,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -32930,7 +33000,7 @@ export namespace Prisma {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     usuario?: UsuarioUpdateOneRequiredWithoutAjustesUsuarioNestedInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUpdateManyWithoutAjustePontoNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type AjustePontoUncheckedUpdateWithoutPontoInput = {
@@ -32940,7 +33010,7 @@ export namespace Prisma {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioId?: IntFieldUpdateOperationsInput | number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type UsuarioCreateWithoutPrestacaoContasUsuarioInput = {
@@ -32964,7 +33034,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -32993,7 +33063,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33037,7 +33107,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -33066,7 +33136,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33094,7 +33164,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -33123,7 +33193,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33167,7 +33237,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -33196,7 +33266,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33244,7 +33314,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -33273,7 +33343,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33367,7 +33437,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -33396,7 +33466,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33499,7 +33569,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -33528,7 +33598,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33596,7 +33666,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -33625,7 +33695,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33683,7 +33753,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -33712,7 +33782,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUncheckedCreateNestedManyWithoutUsuarioInput
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -33730,6 +33800,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     usuario: UsuarioCreateNestedOneWithoutPontosUsuarioInput
   }
 
@@ -33740,6 +33811,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
     usuarioId: number
   }
 
@@ -33748,25 +33820,25 @@ export namespace Prisma {
     create: XOR<PontoCreateWithoutAjusteInput, PontoUncheckedCreateWithoutAjusteInput>
   }
 
-  export type GerenciamentoAjsutePontoCreateWithoutAjustePontoInput = {
+  export type GerenciamentoAjustePontoCreateWithoutAjustePontoInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     usuarioRh: UsuarioCreateNestedOneWithoutAjustesGerenciadosInput
   }
 
-  export type GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput = {
+  export type GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
 
-  export type GerenciamentoAjsutePontoCreateOrConnectWithoutAjustePontoInput = {
-    where: GerenciamentoAjsutePontoWhereUniqueInput
-    create: XOR<GerenciamentoAjsutePontoCreateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput>
+  export type GerenciamentoAjustePontoCreateOrConnectWithoutAjustePontoInput = {
+    where: GerenciamentoAjustePontoWhereUniqueInput
+    create: XOR<GerenciamentoAjustePontoCreateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput>
   }
 
-  export type GerenciamentoAjsutePontoCreateManyAjustePontoInputEnvelope = {
-    data: GerenciamentoAjsutePontoCreateManyAjustePontoInput | GerenciamentoAjsutePontoCreateManyAjustePontoInput[]
+  export type GerenciamentoAjustePontoCreateManyAjustePontoInputEnvelope = {
+    data: GerenciamentoAjustePontoCreateManyAjustePontoInput | GerenciamentoAjustePontoCreateManyAjustePontoInput[]
     skipDuplicates?: boolean
   }
 
@@ -33802,7 +33874,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -33831,7 +33903,7 @@ export namespace Prisma {
     atestadosUsuario?: AtestadoUncheckedUpdateManyWithoutUsuarioNestedInput
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -33855,6 +33927,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     usuario?: UsuarioUpdateOneRequiredWithoutPontosUsuarioNestedInput
   }
 
@@ -33865,23 +33938,24 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoUpsertWithWhereUniqueWithoutAjustePontoInput = {
-    where: GerenciamentoAjsutePontoWhereUniqueInput
-    update: XOR<GerenciamentoAjsutePontoUpdateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedUpdateWithoutAjustePontoInput>
-    create: XOR<GerenciamentoAjsutePontoCreateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedCreateWithoutAjustePontoInput>
+  export type GerenciamentoAjustePontoUpsertWithWhereUniqueWithoutAjustePontoInput = {
+    where: GerenciamentoAjustePontoWhereUniqueInput
+    update: XOR<GerenciamentoAjustePontoUpdateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedUpdateWithoutAjustePontoInput>
+    create: XOR<GerenciamentoAjustePontoCreateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput>
   }
 
-  export type GerenciamentoAjsutePontoUpdateWithWhereUniqueWithoutAjustePontoInput = {
-    where: GerenciamentoAjsutePontoWhereUniqueInput
-    data: XOR<GerenciamentoAjsutePontoUpdateWithoutAjustePontoInput, GerenciamentoAjsutePontoUncheckedUpdateWithoutAjustePontoInput>
+  export type GerenciamentoAjustePontoUpdateWithWhereUniqueWithoutAjustePontoInput = {
+    where: GerenciamentoAjustePontoWhereUniqueInput
+    data: XOR<GerenciamentoAjustePontoUpdateWithoutAjustePontoInput, GerenciamentoAjustePontoUncheckedUpdateWithoutAjustePontoInput>
   }
 
-  export type GerenciamentoAjsutePontoUpdateManyWithWhereWithoutAjustePontoInput = {
-    where: GerenciamentoAjsutePontoScalarWhereInput
-    data: XOR<GerenciamentoAjsutePontoUpdateManyMutationInput, GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoInput>
+  export type GerenciamentoAjustePontoUpdateManyWithWhereWithoutAjustePontoInput = {
+    where: GerenciamentoAjustePontoScalarWhereInput
+    data: XOR<GerenciamentoAjustePontoUpdateManyMutationInput, GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoInput>
   }
 
   export type AjustePontoCreateWithoutGerenciamentoAjusteInput = {
@@ -34090,7 +34164,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
@@ -34119,7 +34193,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34183,7 +34257,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
@@ -34212,7 +34286,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34266,7 +34340,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
@@ -34295,7 +34369,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34359,7 +34433,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
@@ -34388,7 +34462,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34442,7 +34516,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioCreateNestedManyWithoutUsuarioInput
@@ -34471,7 +34545,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     demandasUsuario?: DemandaUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34535,7 +34609,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUpdateManyWithoutUsuarioNestedInput
@@ -34564,7 +34638,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     demandasUsuario?: DemandaUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34766,7 +34840,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorCreateNestedManyWithoutUsuarioInput
@@ -34795,7 +34869,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedCreateNestedManyWithoutUsuarioInput
     documentosUsuario?: DocumentoUncheckedCreateNestedManyWithoutUsuarioInput
     ajustesUsuario?: AjustePontoUncheckedCreateNestedManyWithoutUsuarioInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedCreateNestedManyWithoutUsuarioRhInput
     avisosUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutUsuarioInput
     gruposUsuario?: UsuarioGrupoUncheckedCreateNestedManyWithoutUsuarioInput
     gruposGestor?: GrupoGestorUncheckedCreateNestedManyWithoutUsuarioInput
@@ -34877,7 +34951,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUpdateManyWithoutUsuarioNestedInput
@@ -34906,7 +34980,7 @@ export namespace Prisma {
     assinaturasUsuario?: AssinaturaUncheckedUpdateManyWithoutUsuarioNestedInput
     documentosUsuario?: DocumentoUncheckedUpdateManyWithoutUsuarioNestedInput
     ajustesUsuario?: AjustePontoUncheckedUpdateManyWithoutUsuarioNestedInput
-    ajustesGerenciados?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
+    ajustesGerenciados?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhNestedInput
     avisosUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposUsuario?: UsuarioGrupoUncheckedUpdateManyWithoutUsuarioNestedInput
     gruposGestor?: GrupoGestorUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -34952,6 +35026,7 @@ export namespace Prisma {
     imagem: string
     latitude: number
     longitude: number
+    ativo?: boolean
   }
 
   export type PrestacaoContasCreateManyUsuarioInput = {
@@ -35001,7 +35076,7 @@ export namespace Prisma {
     pontoId: number
   }
 
-  export type GerenciamentoAjsutePontoCreateManyUsuarioRhInput = {
+  export type GerenciamentoAjustePontoCreateManyUsuarioRhInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     ajustePontoId: number
@@ -35136,6 +35211,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     ajuste?: AjustePontoUpdateOneWithoutPontoNestedInput
   }
 
@@ -35146,6 +35222,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     ajuste?: AjustePontoUncheckedUpdateOneWithoutPontoNestedInput
   }
 
@@ -35156,6 +35233,7 @@ export namespace Prisma {
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
     longitude?: FloatFieldUpdateOperationsInput | number
+    ativo?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type PrestacaoContasUpdateWithoutUsuarioInput = {
@@ -35276,7 +35354,7 @@ export namespace Prisma {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ponto?: PontoUpdateOneRequiredWithoutAjusteNestedInput
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUpdateManyWithoutAjustePontoNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type AjustePontoUncheckedUpdateWithoutUsuarioInput = {
@@ -35286,7 +35364,7 @@ export namespace Prisma {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     pontoId?: IntFieldUpdateOperationsInput | number
-    gerenciamentoAjuste?: GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
+    gerenciamentoAjuste?: GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoNestedInput
   }
 
   export type AjustePontoUncheckedUpdateManyWithoutUsuarioInput = {
@@ -35298,19 +35376,19 @@ export namespace Prisma {
     pontoId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoUpdateWithoutUsuarioRhInput = {
+  export type GerenciamentoAjustePontoUpdateWithoutUsuarioRhInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePonto?: AjustePontoUpdateOneRequiredWithoutGerenciamentoAjusteNestedInput
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateWithoutUsuarioRhInput = {
+  export type GerenciamentoAjustePontoUncheckedUpdateWithoutUsuarioRhInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateManyWithoutUsuarioRhInput = {
+  export type GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
@@ -35593,25 +35671,25 @@ export namespace Prisma {
     documento_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoCreateManyAjustePontoInput = {
+  export type GerenciamentoAjustePontoCreateManyAjustePontoInput = {
     status: $Enums.StatusAjuste
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
 
-  export type GerenciamentoAjsutePontoUpdateWithoutAjustePontoInput = {
+  export type GerenciamentoAjustePontoUpdateWithoutAjustePontoInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     usuarioRh?: UsuarioUpdateOneRequiredWithoutAjustesGerenciadosNestedInput
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateWithoutAjustePontoInput = {
+  export type GerenciamentoAjustePontoUncheckedUpdateWithoutAjustePontoInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type GerenciamentoAjsutePontoUncheckedUpdateManyWithoutAjustePontoInput = {
+  export type GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoInput = {
     status?: EnumStatusAjusteFieldUpdateOperationsInput | $Enums.StatusAjuste
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number

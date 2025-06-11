@@ -12,6 +12,7 @@ export declare class PontoController {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(req: RequestWithUser): Promise<any>;
@@ -23,6 +24,7 @@ export declare class PontoController {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }>;
     delete(id: number): Promise<{
@@ -32,6 +34,7 @@ export declare class PontoController {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }>;
 }

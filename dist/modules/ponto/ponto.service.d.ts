@@ -11,6 +11,7 @@ export declare class PontoService {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(funcaoUsuario: string, usuarioId: number): Promise<any>;
@@ -22,6 +23,7 @@ export declare class PontoService {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }>;
     remove(id: number): Promise<{
@@ -31,6 +33,7 @@ export declare class PontoService {
         imagem: string;
         latitude: number;
         longitude: number;
+        ativo: boolean;
         usuarioId: number;
     }>;
 }

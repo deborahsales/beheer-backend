@@ -33,20 +33,31 @@ let AjustePontoService = class AjustePontoService {
     findAll(funcaoUsuario, usuarioId) {
         let ajustes;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
-            ajustes = this.prisma.ajustePonto.findMany();
+            ajustes = this.prisma.ajustePonto.findMany({
+                include: { gerenciamentoAjuste: true },
+            });
         }
         else {
-            ajustes = this.prisma.ajustePonto.findMany({ where: { usuarioId } });
+            ajustes = this.prisma.ajustePonto.findMany({
+                where: { usuarioId },
+                include: { gerenciamentoAjuste: true },
+            });
         }
         return ajustes;
     }
     findOne(id, funcaoUsuario, usuarioId) {
         let ajustes;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
-            ajustes = this.prisma.ajustePonto.findFirst({ where: { id } });
+            ajustes = this.prisma.ajustePonto.findFirst({
+                where: { id },
+                include: { gerenciamentoAjuste: true },
+            });
         }
         else {
-            ajustes = this.prisma.ajustePonto.findFirst({ where: { id, usuarioId } });
+            ajustes = this.prisma.ajustePonto.findFirst({
+                where: { id, usuarioId },
+                include: { gerenciamentoAjuste: true },
+            });
         }
         if (!ajustes)
             throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
@@ -54,19 +65,56 @@ let AjustePontoService = class AjustePontoService {
     }
     async update(dto, id, usuarioId) {
         const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id, usuarioId } });
-        if (!ajuste)
+        if (!ajuste) {
             throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
+        }
+        if (ajuste.status === prisma_1.StatusAjuste.AJUSTADO)
+            throw new common_1.NotFoundException('Não é possível editar uma solicitação de ajuste que já foi aceita');
         return this.prisma.ajustePonto.update({
-            where: { id, usuarioId: usuarioId },
+            where: { id, usuarioId },
+            data: { dateTimestampAjustado: dto.dateTimestampAjustado, motivo: dto.motivo },
+        });
+    }
+    async updateRh(dto, id, usuarioId) {
+        const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id } });
+        if (!ajuste) {
+            throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
+        }
+        const ajusteAtualizado = await this.prisma.ajustePonto.update({
+            where: { id },
+            data: { status: dto.status },
+        });
+        if (ajuste.motivo === prisma_1.MotivoAjuste.DUPLICADO) {
+            await this.prisma.ponto.update({
+                where: { id: ajuste.pontoId },
+                data: {
+                    ativo: false,
+                },
+            });
+        }
+        else {
+            await this.prisma.ponto.update({
+                where: { id: ajuste.pontoId },
+                data: {
+                    dateTimestamp: ajuste.dateTimestampAjustado,
+                },
+            });
+        }
+        await this.prisma.gerenciamentoAjustePonto.create({
             data: {
-                ...dto,
+                status: prisma_1.StatusAjuste.AJUSTADO,
+                ajustePontoId: id,
+                rhUsuarioId: usuarioId,
             },
         });
+        return ajusteAtualizado;
     }
     async remove(id, usuarioId) {
         const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id, usuarioId } });
         if (!ajuste)
             throw new common_1.NotFoundException('Ajuste não encontrado ou acesso não autorizado');
+        if (ajuste.status === prisma_1.StatusAjuste.AJUSTADO)
+            throw new common_1.NotFoundException('Não é possível remover uma solicitação de ajuste que já foi aceita');
         return this.prisma.ajustePonto.delete({
             where: { id, usuarioId: usuarioId },
         });

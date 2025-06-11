@@ -11,12 +11,16 @@ import {
 	UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { FuncaoUsuario } from 'generated/prisma';
+import { Role } from 'src/common/decorators/role.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
+import { RolesGuard } from 'src/common/guards/roles.guard';
 import { RequestWithUser } from '../auth/interfaces/request-with-user.interface';
 import { AjustePontoService } from './ajuste-ponto.service';
 import { CreateAjustePontoDto } from './dto/create-ajuste-ponto.dto';
-import { AjustePontoEntity } from './entities/ajuste-ponto.entity';
 import { UpdateAjustePontoDto } from './dto/update-ajuste-ponto.dto';
+import { AjustePontoEntity } from './entities/ajuste-ponto.entity';
+import { UpdateGerenciamentoPontoDto } from './dto/update-gerenciamento-ajuste.dto';
 
 @ApiTags('ajuste-ponto')
 @ApiBearerAuth('access-token')
@@ -65,6 +69,19 @@ export class AjustePontoController {
 	) {
 		const usuarioId = req.user['id'];
 		return this.ajustePontoService.update(updateAjustePontoDto, id, usuarioId);
+	}
+
+	@Patch('/gerenciamento/:id')
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@Role(FuncaoUsuario.RH)
+	@ApiResponse({ status: 200, type: AjustePontoEntity })
+	updateRh(
+		@Param('id', ParseIntPipe) id: number,
+		@Body() updateAjustePontoDto: UpdateGerenciamentoPontoDto,
+		@Req() req: RequestWithUser,
+	) {
+		const usuarioId = req.user['id'];
+		return this.ajustePontoService.updateRh(updateAjustePontoDto, id, usuarioId);
 	}
 
 	@Delete(':id')

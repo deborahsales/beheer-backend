@@ -32,10 +32,10 @@ let PontoService = class PontoService {
     async findAll(funcaoUsuario, usuarioId) {
         let pontos;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
-            pontos = await this.prisma.ponto.findMany();
+            pontos = await this.prisma.ponto.findMany({ where: { ativo: true } });
         }
         else {
-            pontos = await this.prisma.ponto.findMany({ where: { usuarioId } });
+            pontos = await this.prisma.ponto.findMany({ where: { usuarioId, ativo: true } });
         }
         return pontos;
     }

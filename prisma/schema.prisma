@@ -45,7 +45,7 @@ model Usuario {
   assinaturasUsuario Assinatura[] @relation("AssinaturaUsuario")
   documentosUsuario Documento[] @relation("UsuarioDocumento")
   ajustesUsuario AjustePonto[] @relation("UsuarioAjuste")
-  ajustesGerenciados GerenciamentoAjsutePonto[] @relation("UsuarioGerenciamentoPonto")
+  ajustesGerenciados GerenciamentoAjustePonto[] @relation("UsuarioGerenciamentoPonto")
   avisosUsuario AvisoUsuario[] @relation("UsuarioAviso")
   gruposUsuario UsuarioGrupo[] @relation("GruposUsuario")
   gruposGestor GrupoGestor[] @relation("GruposGestor")
@@ -140,6 +140,7 @@ model Ponto {
   imagem String  
   latitude Float
   longitude Float
+  ativo Boolean @default(true)
 
   usuarioId Int
   usuario Usuario @relation("PontoUsuario", fields: [usuarioId], references: [id], onDelete: Cascade)
@@ -239,12 +240,13 @@ model Documento{
 
 enum MotivoAjuste {
   ERRO
-  DUPLICAÇÃO
+  DUPLICADO
 }
 
 enum StatusAjuste {
   AJUSTADO
   PENDENTE
+  RECUSADO
 }
 
 model AjustePonto {
@@ -260,10 +262,10 @@ model AjustePonto {
   pontoId Int @unique
   ponto Ponto @relation("PontoAjuste", fields: [pontoId], references: [id], onDelete: Cascade)
 
-  gerenciamentoAjuste GerenciamentoAjsutePonto[] @relation("PontoAjustado")
+  gerenciamentoAjuste GerenciamentoAjustePonto[] @relation("PontoAjustado")
 }
 
-model GerenciamentoAjsutePonto {
+model GerenciamentoAjustePonto {
   status StatusAjuste
   dateTimestamp DateTime @default(now())
 

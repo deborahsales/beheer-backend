@@ -15,11 +15,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AjustePontoController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
+const prisma_1 = require("../../../generated/prisma/index.js");
+const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
+const roles_guard_1 = require("../../common/guards/roles.guard");
 const ajuste_ponto_service_1 = require("./ajuste-ponto.service");
 const create_ajuste_ponto_dto_1 = require("./dto/create-ajuste-ponto.dto");
-const ajuste_ponto_entity_1 = require("./entities/ajuste-ponto.entity");
 const update_ajuste_ponto_dto_1 = require("./dto/update-ajuste-ponto.dto");
+const ajuste_ponto_entity_1 = require("./entities/ajuste-ponto.entity");
+const update_gerenciamento_ajuste_dto_1 = require("./dto/update-gerenciamento-ajuste.dto");
 let AjustePontoController = class AjustePontoController {
     ajustePontoService;
     constructor(ajustePontoService) {
@@ -42,6 +46,10 @@ let AjustePontoController = class AjustePontoController {
     update(id, updateAjustePontoDto, req) {
         const usuarioId = req.user['id'];
         return this.ajustePontoService.update(updateAjustePontoDto, id, usuarioId);
+    }
+    updateRh(id, updateAjustePontoDto, req) {
+        const usuarioId = req.user['id'];
+        return this.ajustePontoService.updateRh(updateAjustePontoDto, id, usuarioId);
     }
     delete(id, req) {
         const usuarioId = req.user['id'];
@@ -90,6 +98,18 @@ __decorate([
     __metadata("design:paramtypes", [Number, update_ajuste_ponto_dto_1.UpdateAjustePontoDto, Object]),
     __metadata("design:returntype", void 0)
 ], AjustePontoController.prototype, "update", null);
+__decorate([
+    (0, common_1.Patch)('/gerenciamento/:id'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
+    (0, role_decorator_1.Role)(prisma_1.FuncaoUsuario.RH),
+    (0, swagger_1.ApiResponse)({ status: 200, type: ajuste_ponto_entity_1.AjustePontoEntity }),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, update_gerenciamento_ajuste_dto_1.UpdateGerenciamentoPontoDto, Object]),
+    __metadata("design:returntype", void 0)
+], AjustePontoController.prototype, "updateRh", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),

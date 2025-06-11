@@ -185,6 +185,7 @@ exports.Prisma.PontoScalarFieldEnum = {
   imagem: 'imagem',
   latitude: 'latitude',
   longitude: 'longitude',
+  ativo: 'ativo',
   usuarioId: 'usuarioId'
 };
 
@@ -248,7 +249,7 @@ exports.Prisma.AjustePontoScalarFieldEnum = {
   pontoId: 'pontoId'
 };
 
-exports.Prisma.GerenciamentoAjsutePontoScalarFieldEnum = {
+exports.Prisma.GerenciamentoAjustePontoScalarFieldEnum = {
   status: 'status',
   dateTimestamp: 'dateTimestamp',
   ajustePontoId: 'ajustePontoId',
@@ -342,12 +343,13 @@ exports.StatusDocumento = exports.$Enums.StatusDocumento = {
 
 exports.MotivoAjuste = exports.$Enums.MotivoAjuste = {
   ERRO: 'ERRO',
-  DUPLICAÇÃO: 'DUPLICAÇÃO'
+  DUPLICADO: 'DUPLICADO'
 };
 
 exports.StatusAjuste = exports.$Enums.StatusAjuste = {
   AJUSTADO: 'AJUSTADO',
-  PENDENTE: 'PENDENTE'
+  PENDENTE: 'PENDENTE',
+  RECUSADO: 'RECUSADO'
 };
 
 exports.StatusAviso = exports.$Enums.StatusAviso = {
@@ -369,7 +371,7 @@ exports.Prisma.ModelName = {
   CertificadoDigital: 'CertificadoDigital',
   Documento: 'Documento',
   AjustePonto: 'AjustePonto',
-  GerenciamentoAjsutePonto: 'GerenciamentoAjsutePonto',
+  GerenciamentoAjustePonto: 'GerenciamentoAjustePonto',
   AvisoUsuario: 'AvisoUsuario',
   UsuarioGrupo: 'UsuarioGrupo',
   GrupoGestor: 'GrupoGestor',

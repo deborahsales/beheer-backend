@@ -12,4 +12,6 @@ export class PontoEntity {
 	longitude: number;
 
 	usuarioId: number;
+
+	ativo: boolean;
 }
