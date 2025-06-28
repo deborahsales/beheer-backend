@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuarioService = void 0;
 const common_1 = require("@nestjs/common");
 const bcrypt = require("bcrypt");
+const prisma_1 = require("../../../generated/prisma/index.js");
 const prisma_service_1 = require("../prisma/prisma.service");
 let UsuarioService = class UsuarioService {
     prisma;
@@ -43,6 +44,23 @@ let UsuarioService = class UsuarioService {
                 cargo: true,
                 funcao: true,
             },
+        });
+    }
+    findColaboradores() {
+        return this.prisma.usuario.findMany({
+            select: {
+                id: true,
+                cpf: true,
+                nome: true,
+                email: true,
+                telefone: true,
+                dataNascimento: true,
+                dataAdmissao: true,
+                dataDesligamento: true,
+                cargo: true,
+                funcao: true,
+            },
+            where: { funcao: prisma_1.FuncaoUsuario.COLABORADOR },
         });
     }
     async findOne(id) {
