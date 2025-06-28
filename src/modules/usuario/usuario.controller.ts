@@ -43,6 +43,20 @@ export class UsuarioController {
 		return this.usuarioService.findAll();
 	}
 
+	@Get('colaboradores')
+	@UseGuards(JwtAuthGuard)
+	@ApiResponse({ status: 200, type: [UsuarioEntity] })
+	findColaboradores() {
+		return this.usuarioService.findColaboradores();
+	}
+
+	@Get('gestores')
+	@UseGuards(JwtAuthGuard)
+	@ApiResponse({ status: 200, type: [UsuarioEntity] })
+	findGestores() {
+		return this.usuarioService.findGestores();
+	}
+
 	@Get(':id')
 	@UseGuards(JwtAuthGuard)
 	@ApiResponse({ status: 200, type: [UsuarioEntity] })

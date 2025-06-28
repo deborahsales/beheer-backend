@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
+import { FuncaoUsuario } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
@@ -36,6 +37,42 @@ export class UsuarioService {
 				cargo: true,
 				funcao: true,
 			},
+		});
+	}
+
+	findColaboradores() {
+		return this.prisma.usuario.findMany({
+			select: {
+				id: true,
+				cpf: true,
+				nome: true,
+				email: true,
+				telefone: true,
+				dataNascimento: true,
+				dataAdmissao: true,
+				dataDesligamento: true,
+				cargo: true,
+				funcao: true,
+			},
+			where: { funcao: FuncaoUsuario.COLABORADOR },
+		});
+	}
+
+	findGestores() {
+		return this.prisma.usuario.findMany({
+			select: {
+				id: true,
+				cpf: true,
+				nome: true,
+				email: true,
+				telefone: true,
+				dataNascimento: true,
+				dataAdmissao: true,
+				dataDesligamento: true,
+				cargo: true,
+				funcao: true,
+			},
+			where: { funcao: FuncaoUsuario.GESTOR },
 		});
 	}
 

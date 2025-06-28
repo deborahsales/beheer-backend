@@ -30,6 +30,30 @@ export declare class UsuarioController {
         dataDesligamento: Date | null;
         cargo: string;
     }[]>;
+    findColaboradores(): import("generated/prisma").Prisma.PrismaPromise<{
+        id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        cpf: string;
+        nome: string;
+        email: string;
+        telefone: string;
+        dataNascimento: Date;
+        dataAdmissao: Date;
+        dataDesligamento: Date | null;
+        cargo: string;
+    }[]>;
+    findGestores(): import("generated/prisma").Prisma.PrismaPromise<{
+        id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        cpf: string;
+        nome: string;
+        email: string;
+        telefone: string;
+        dataNascimento: Date;
+        dataAdmissao: Date;
+        dataDesligamento: Date | null;
+        cargo: string;
+    }[]>;
     findOne(id: number): Promise<{
         id: number;
         dateTimestamp: Date;
