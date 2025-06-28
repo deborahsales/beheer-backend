@@ -37,6 +37,9 @@ let UsuarioController = class UsuarioController {
     findColaboradores() {
         return this.usuarioService.findColaboradores();
     }
+    findGestores() {
+        return this.usuarioService.findGestores();
+    }
     findOne(id) {
         return this.usuarioService.findOne(id);
     }
@@ -78,6 +81,14 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "findColaboradores", null);
+__decorate([
+    (0, common_1.Get)('gestores'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, swagger_1.ApiResponse)({ status: 200, type: [usuario_entity_1.UsuarioEntity] }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "findGestores", null);
 __decorate([
     (0, common_1.Get)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),

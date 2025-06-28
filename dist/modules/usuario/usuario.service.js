@@ -63,6 +63,23 @@ let UsuarioService = class UsuarioService {
             where: { funcao: prisma_1.FuncaoUsuario.COLABORADOR },
         });
     }
+    findGestores() {
+        return this.prisma.usuario.findMany({
+            select: {
+                id: true,
+                cpf: true,
+                nome: true,
+                email: true,
+                telefone: true,
+                dataNascimento: true,
+                dataAdmissao: true,
+                dataDesligamento: true,
+                cargo: true,
+                funcao: true,
+            },
+            where: { funcao: prisma_1.FuncaoUsuario.GESTOR },
+        });
+    }
     async findOne(id) {
         const usuario = await this.prisma.usuario.findUnique({ where: { id: id } });
         if (!usuario)

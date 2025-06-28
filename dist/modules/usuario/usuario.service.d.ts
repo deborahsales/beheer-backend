@@ -6,6 +6,8 @@ export declare class UsuarioService {
     constructor(prisma: PrismaService);
     create(dto: CreateUsuarioDto): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -14,11 +16,10 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     findAll(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -27,10 +28,10 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findColaboradores(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -39,10 +40,23 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+    }[]>;
+    findGestores(): import("generated/prisma").Prisma.PrismaPromise<{
+        id: number;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        cpf: string;
+        nome: string;
+        email: string;
+        telefone: string;
+        dataNascimento: Date;
+        dataAdmissao: Date;
+        dataDesligamento: Date | null;
+        cargo: string;
     }[]>;
     findOne(id: number): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -51,11 +65,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     findByEmail(email: string): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -65,11 +79,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     update(id: number, dto: UpdateUsuarioDto): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -78,11 +92,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     remove(id: number): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -92,7 +106,5 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
 }

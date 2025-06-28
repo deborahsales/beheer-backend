@@ -58,6 +58,24 @@ export class UsuarioService {
 		});
 	}
 
+	findGestores() {
+		return this.prisma.usuario.findMany({
+			select: {
+				id: true,
+				cpf: true,
+				nome: true,
+				email: true,
+				telefone: true,
+				dataNascimento: true,
+				dataAdmissao: true,
+				dataDesligamento: true,
+				cargo: true,
+				funcao: true,
+			},
+			where: { funcao: FuncaoUsuario.GESTOR },
+		});
+	}
+
 	async findOne(id: number) {
 		const usuario = await this.prisma.usuario.findUnique({ where: { id: id } });
 		if (!usuario) throw new NotFoundException('Usuário não encontrado');
