@@ -18,6 +18,10 @@ export declare class AvisoService {
             dataLeitura: Date;
             avisoId: number;
         }[];
+        gestor: {
+            id: number;
+            nome: string;
+        };
     } & {
         id: number;
         dateTimestamp: Date;

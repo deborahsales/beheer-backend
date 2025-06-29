@@ -55,6 +55,12 @@ let AvisoService = class AvisoService {
                         usuarioId: usuarioId,
                     },
                 },
+                gestor: {
+                    select: {
+                        id: true,
+                        nome: true,
+                    },
+                },
             },
         });
     }

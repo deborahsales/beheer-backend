@@ -19,6 +19,10 @@ export declare class AvisoController {
             dataLeitura: Date;
             avisoId: number;
         }[];
+        gestor: {
+            id: number;
+            nome: string;
+        };
     } & {
         id: number;
         dateTimestamp: Date;
