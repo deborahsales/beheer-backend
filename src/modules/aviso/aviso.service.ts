@@ -34,20 +34,13 @@ export class AvisoService {
 		});
 	}
 
-	findAll(usuarioId: number) {
-		return this.prisma.aviso.findMany({
+	async findAll(usuarioId: number) {
+		const avisos = await this.prisma.aviso.findMany({
 			where: {
-				OR: [
-					{ avisoUsuario: { some: { usuarioId: usuarioId } } },
-					{ gestorRhUsuarioId: usuarioId },
-				],
+				OR: [{ avisoUsuario: { some: { usuarioId } } }, { gestorRhUsuarioId: usuarioId }],
 			},
 			include: {
-				avisoUsuario: {
-					where: {
-						usuarioId: usuarioId,
-					},
-				},
+				avisoUsuario: true,
 				gestor: {
 					select: {
 						id: true,
@@ -55,6 +48,17 @@ export class AvisoService {
 					},
 				},
 			},
+		});
+
+		return avisos.map((aviso) => {
+			const isCriador = aviso.gestorRhUsuarioId === usuarioId;
+
+			return {
+				...aviso,
+				avisoUsuario: isCriador
+					? aviso.avisoUsuario
+					: aviso.avisoUsuario.filter((a) => a.usuarioId === usuarioId),
+			};
 		});
 	}
 
@@ -68,11 +72,7 @@ export class AvisoService {
 				],
 			},
 			include: {
-				avisoUsuario: {
-					where: {
-						usuarioId: usuarioId,
-					},
-				},
+				avisoUsuario: true,
 				gestor: {
 					select: {
 						id: true,
@@ -84,7 +84,14 @@ export class AvisoService {
 
 		if (!aviso) throw new NotFoundException('Aviso não encontrado ou acesso não autorizado');
 
-		return aviso;
+		const isCriador = aviso.gestorRhUsuarioId === usuarioId;
+
+		return {
+			...aviso,
+			avisoUsuario: isCriador
+				? aviso.avisoUsuario // mostra todos
+				: aviso.avisoUsuario.filter((a) => a.usuarioId === usuarioId), // mostra só o dele
+		};
 	}
 
 	async updateLido(avisoId: number, usuarioId: number) {
