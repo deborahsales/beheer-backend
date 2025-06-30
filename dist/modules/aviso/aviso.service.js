@@ -41,20 +41,13 @@ let AvisoService = class AvisoService {
             },
         });
     }
-    findAll(usuarioId) {
-        return this.prisma.aviso.findMany({
+    async findAll(usuarioId) {
+        const avisos = await this.prisma.aviso.findMany({
             where: {
-                OR: [
-                    { avisoUsuario: { some: { usuarioId: usuarioId } } },
-                    { gestorRhUsuarioId: usuarioId },
-                ],
+                OR: [{ avisoUsuario: { some: { usuarioId } } }, { gestorRhUsuarioId: usuarioId }],
             },
             include: {
-                avisoUsuario: {
-                    where: {
-                        usuarioId: usuarioId,
-                    },
-                },
+                avisoUsuario: true,
                 gestor: {
                     select: {
                         id: true,
@@ -62,6 +55,15 @@ let AvisoService = class AvisoService {
                     },
                 },
             },
+        });
+        return avisos.map((aviso) => {
+            const isCriador = aviso.gestorRhUsuarioId === usuarioId;
+            return {
+                ...aviso,
+                avisoUsuario: isCriador
+                    ? aviso.avisoUsuario
+                    : aviso.avisoUsuario.filter((a) => a.usuarioId === usuarioId),
+            };
         });
     }
     async findOne(avisoId, usuarioId) {
@@ -74,11 +76,7 @@ let AvisoService = class AvisoService {
                 ],
             },
             include: {
-                avisoUsuario: {
-                    where: {
-                        usuarioId: usuarioId,
-                    },
-                },
+                avisoUsuario: true,
                 gestor: {
                     select: {
                         id: true,
@@ -89,7 +87,13 @@ let AvisoService = class AvisoService {
         });
         if (!aviso)
             throw new common_1.NotFoundException('Aviso não encontrado ou acesso não autorizado');
-        return aviso;
+        const isCriador = aviso.gestorRhUsuarioId === usuarioId;
+        return {
+            ...aviso,
+            avisoUsuario: isCriador
+                ? aviso.avisoUsuario
+                : aviso.avisoUsuario.filter((a) => a.usuarioId === usuarioId),
+        };
     }
     async updateLido(avisoId, usuarioId) {
         await this.findOne(avisoId, usuarioId);
