@@ -44,6 +44,23 @@ let UsuarioService = class UsuarioService {
                 cargo: true,
                 funcao: true,
             },
+            where: { dataDesligamento: null },
+        });
+    }
+    findAllRh() {
+        return this.prisma.usuario.findMany({
+            select: {
+                id: true,
+                cpf: true,
+                nome: true,
+                email: true,
+                telefone: true,
+                dataNascimento: true,
+                dataAdmissao: true,
+                dataDesligamento: true,
+                cargo: true,
+                funcao: true,
+            },
         });
     }
     findColaboradores() {
@@ -60,7 +77,7 @@ let UsuarioService = class UsuarioService {
                 cargo: true,
                 funcao: true,
             },
-            where: { funcao: prisma_1.FuncaoUsuario.COLABORADOR },
+            where: { funcao: prisma_1.FuncaoUsuario.COLABORADOR, dataDesligamento: null },
         });
     }
     findGestores() {
@@ -77,7 +94,7 @@ let UsuarioService = class UsuarioService {
                 cargo: true,
                 funcao: true,
             },
-            where: { funcao: prisma_1.FuncaoUsuario.GESTOR },
+            where: { funcao: prisma_1.FuncaoUsuario.GESTOR, dataDesligamento: null },
         });
     }
     async findOne(id) {
