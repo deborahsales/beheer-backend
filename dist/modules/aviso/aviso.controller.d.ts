@@ -7,16 +7,16 @@ export declare class AvisoController {
     constructor(avisoService: AvisoService);
     create(createAvisoDto: CreateAvisoDto, req: RequestWithUser): Promise<{
         id: number;
+        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
-        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }>;
     findAll(req: RequestWithUser): Promise<{
         avisoUsuario: {
             status: import("generated/prisma").$Enums.StatusAviso;
-            dataLeitura: Date;
             usuarioId: number;
+            dataLeitura: Date;
             avisoId: number;
         }[];
         gestor: {
@@ -24,20 +24,21 @@ export declare class AvisoController {
             nome: string;
         };
         id: number;
+        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
-        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }[]>;
     findOne(avisoId: number, req: RequestWithUser): Promise<{
         avisoUsuario: ({
             usuario: {
                 nome: string;
+                email: string;
             };
         } & {
             status: import("generated/prisma").$Enums.StatusAviso;
-            dataLeitura: Date;
             usuarioId: number;
+            dataLeitura: Date;
             avisoId: number;
         })[];
         gestor: {
@@ -45,29 +46,29 @@ export declare class AvisoController {
             nome: string;
         };
         id: number;
+        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
-        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }>;
     updateLido(avisoId: number, req: RequestWithUser): Promise<{
         status: import("generated/prisma").$Enums.StatusAviso;
-        dataLeitura: Date;
         usuarioId: number;
+        dataLeitura: Date;
         avisoId: number;
     }>;
     update(avisoId: number, updateAvisoDto: UpdateAvisoDto, req: RequestWithUser): Promise<{
         id: number;
+        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
-        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     } | null>;
     delete(avisoId: number, req: RequestWithUser): Promise<{
         id: number;
+        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
-        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }>;
 }
