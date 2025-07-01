@@ -29,7 +29,7 @@ export declare class UsuarioService {
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
-    findAllRh(): import("generated/prisma").Prisma.PrismaPromise<{
+    findAllAdmin(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
         cpf: string;
         nome: string;

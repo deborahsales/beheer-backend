@@ -47,7 +47,7 @@ let UsuarioService = class UsuarioService {
             where: { dataDesligamento: null },
         });
     }
-    findAllRh() {
+    findAllAdmin() {
         return this.prisma.usuario.findMany({
             select: {
                 id: true,
