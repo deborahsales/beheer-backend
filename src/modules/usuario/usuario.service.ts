@@ -37,6 +37,24 @@ export class UsuarioService {
 				cargo: true,
 				funcao: true,
 			},
+			where: { dataDesligamento: null },
+		});
+	}
+
+	findAllRh() {
+		return this.prisma.usuario.findMany({
+			select: {
+				id: true,
+				cpf: true,
+				nome: true,
+				email: true,
+				telefone: true,
+				dataNascimento: true,
+				dataAdmissao: true,
+				dataDesligamento: true,
+				cargo: true,
+				funcao: true,
+			},
 		});
 	}
 
@@ -54,7 +72,7 @@ export class UsuarioService {
 				cargo: true,
 				funcao: true,
 			},
-			where: { funcao: FuncaoUsuario.COLABORADOR },
+			where: { funcao: FuncaoUsuario.COLABORADOR, dataDesligamento: null },
 		});
 	}
 
@@ -72,7 +90,7 @@ export class UsuarioService {
 				cargo: true,
 				funcao: true,
 			},
-			where: { funcao: FuncaoUsuario.GESTOR },
+			where: { funcao: FuncaoUsuario.GESTOR, dataDesligamento: null },
 		});
 	}
 

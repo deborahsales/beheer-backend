@@ -31,7 +31,10 @@ let UsuarioController = class UsuarioController {
     create(createUsuarioDto) {
         return this.usuarioService.create(createUsuarioDto);
     }
-    findAll() {
+    findAllRh(req) {
+        return this.usuarioService.findAllRh();
+    }
+    findAll(req) {
         return this.usuarioService.findAll();
     }
     findColaboradores() {
@@ -66,11 +69,21 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "create", null);
 __decorate([
+    (0, common_1.Get)('/rh'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, swagger_1.ApiResponse)({ status: 200, type: [usuario_entity_1.UsuarioEntity] }),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "findAllRh", null);
+__decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: [usuario_entity_1.UsuarioEntity] }),
+    __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "findAll", null);
 __decorate([
