@@ -57,6 +57,32 @@ export declare class GrupoController {
         nome: string;
         descricao: string;
     })[]>;
+    findAllByUser(id: number): import("generated/prisma").Prisma.PrismaPromise<({
+        gestores: ({
+            usuario: {
+                nome: string;
+                email: string;
+                cargo: string;
+            };
+        } & {
+            usuarioId: number;
+            grupoId: number;
+        })[];
+        usuarios: ({
+            usuario: {
+                nome: string;
+                email: string;
+                cargo: string;
+            };
+        } & {
+            usuarioId: number;
+            grupoId: number;
+        })[];
+    } & {
+        id: number;
+        nome: string;
+        descricao: string;
+    })[]>;
     findOne(id: number): Promise<{
         gestores: ({
             usuario: {

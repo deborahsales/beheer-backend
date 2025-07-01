@@ -44,6 +44,13 @@ export class GrupoController {
 		return this.grupoService.findAll(usuarioId);
 	}
 
+	@Get('/usuario/:id')
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@ApiResponse({ status: 200, type: GrupoEntity })
+	findAllByUser(@Param('id', ParseIntPipe) id: number) {
+		return this.grupoService.findAll(id);
+	}
+
 	@Get(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: GrupoEntity })

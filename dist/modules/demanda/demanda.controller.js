@@ -37,6 +37,9 @@ let DemandaController = class DemandaController {
         const usuarioId = req.user['id'];
         return this.demandaService.findAll(usuarioId, filterDemandasDto);
     }
+    findAllByUser(filterDemandasDto, userId) {
+        return this.demandaService.findAll(userId, filterDemandasDto);
+    }
     findAllByGroup(filterDemandasDto, groupId) {
         return this.demandaService.findAllByGroup(groupId, filterDemandasDto);
     }
@@ -74,6 +77,16 @@ __decorate([
     __metadata("design:paramtypes", [filter_demanda_dto_1.FilterDemandasDto, Object]),
     __metadata("design:returntype", void 0)
 ], DemandaController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('/usuario/:id'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
+    (0, swagger_1.ApiResponse)({ status: 200, type: demanda_entity_1.DemandaEntity }),
+    __param(0, (0, common_1.Query)()),
+    __param(1, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [filter_demanda_dto_1.FilterDemandasDto, Number]),
+    __metadata("design:returntype", void 0)
+], DemandaController.prototype, "findAllByUser", null);
 __decorate([
     (0, common_1.Get)('/grupo/:id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
