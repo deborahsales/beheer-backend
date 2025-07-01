@@ -7,6 +7,8 @@ export declare class UsuarioController {
     constructor(usuarioService: UsuarioService);
     create(createUsuarioDto: CreateUsuarioDto): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -15,11 +17,10 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     findAllAdmin(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -28,10 +29,10 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -40,10 +41,10 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findColaboradores(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -52,10 +53,10 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findGestores(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -64,10 +65,11 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findOne(id: number): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -76,11 +78,11 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     update(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -89,11 +91,11 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     remove(id: number, req: RequestWithUser): Promise<{
         id: number;
+        dateTimestamp: Date;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -103,7 +105,5 @@ export declare class UsuarioController {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
 }

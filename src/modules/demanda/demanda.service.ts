@@ -69,6 +69,26 @@ export class DemandaService {
 		});
 	}
 
+	async findAllByGroup(groupId: number, filters: FilterDemandasDto) {
+		const { status, prioridade } = filters;
+
+		return this.prisma.demanda.findMany({
+			where: {
+				OR: [
+					{
+						gruposDemanda: {
+							some: {
+								grupoId: groupId,
+							},
+						},
+					},
+				],
+				status: status ? { equals: status } : undefined,
+				prioridade: prioridade ? { equals: prioridade } : undefined,
+			},
+		});
+	}
+
 	async findOne(id: number, gestorId?: number) {
 		const demanda = await this.prisma.demanda.findFirst({
 			where: {
@@ -146,7 +166,7 @@ export class DemandaService {
 		if (dto.gruposDemanda) {
 			const gruposValidos = await this.prisma.grupo.findMany({
 				where: {
-					id: { in: dto.usuariosDemanda },
+					id: { in: dto.gruposDemanda },
 				},
 				select: { id: true },
 			});
