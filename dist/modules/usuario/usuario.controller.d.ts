@@ -18,7 +18,7 @@ export declare class UsuarioController {
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         dateTimestamp: Date;
     }>;
-    findAllRh(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<{
+    findAllAdmin(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
         cpf: string;
         nome: string;

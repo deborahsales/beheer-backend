@@ -41,7 +41,7 @@ export class UsuarioService {
 		});
 	}
 
-	findAllRh() {
+	findAllAdmin() {
 		return this.prisma.usuario.findMany({
 			select: {
 				id: true,

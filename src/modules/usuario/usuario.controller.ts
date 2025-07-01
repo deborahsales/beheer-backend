@@ -36,11 +36,12 @@ export class UsuarioController {
 		return this.usuarioService.create(createUsuarioDto);
 	}
 
-	@Get('/rh')
-	@UseGuards(JwtAuthGuard)
+	@Get('/admin')
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@Role(FuncaoUsuario.ADMINISTRADOR)
 	@ApiResponse({ status: 200, type: [UsuarioEntity] })
-	findAllRh(@Req() req: RequestWithUser) {
-		return this.usuarioService.findAllRh();
+	findAllAdmin(@Req() req: RequestWithUser) {
+		return this.usuarioService.findAllAdmin();
 	}
 
 	@Get()
