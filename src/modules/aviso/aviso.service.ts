@@ -75,7 +75,7 @@ export class AvisoService {
 				avisoUsuario: {
 					include: {
 						usuario: {
-							select: { nome: true },
+							select: { nome: true, email: true },
 						},
 					},
 				},
