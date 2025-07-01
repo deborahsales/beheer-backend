@@ -46,6 +46,16 @@ export class DemandaController {
 		return this.demandaService.findAll(usuarioId, filterDemandasDto);
 	}
 
+	@Get('/grupo/:id')
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@ApiResponse({ status: 200, type: DemandaEntity })
+	findAllByGroup(
+		@Query() filterDemandasDto: FilterDemandasDto,
+		@Param('id', ParseIntPipe) groupId: number,
+	) {
+		return this.demandaService.findAllByGroup(groupId, filterDemandasDto);
+	}
+
 	@Get(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: DemandaEntity })
