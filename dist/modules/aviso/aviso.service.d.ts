@@ -29,12 +29,16 @@ export declare class AvisoService {
         gestorRhUsuarioId: number;
     }[]>;
     findOne(avisoId: number, usuarioId: number): Promise<{
-        avisoUsuario: {
+        avisoUsuario: ({
+            usuario: {
+                nome: string;
+            };
+        } & {
             status: import("generated/prisma").$Enums.StatusAviso;
             dataLeitura: Date;
             usuarioId: number;
             avisoId: number;
-        }[];
+        })[];
         gestor: {
             id: number;
             nome: string;

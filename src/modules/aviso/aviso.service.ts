@@ -72,7 +72,13 @@ export class AvisoService {
 				],
 			},
 			include: {
-				avisoUsuario: true,
+				avisoUsuario: {
+					include: {
+						usuario: {
+							select: { nome: true },
+						},
+					},
+				},
 				gestor: {
 					select: {
 						id: true,
@@ -89,8 +95,8 @@ export class AvisoService {
 		return {
 			...aviso,
 			avisoUsuario: isCriador
-				? aviso.avisoUsuario // mostra todos
-				: aviso.avisoUsuario.filter((a) => a.usuarioId === usuarioId), // mostra só o dele
+				? aviso.avisoUsuario
+				: aviso.avisoUsuario.filter((a) => a.usuarioId === usuarioId),
 		};
 	}
 

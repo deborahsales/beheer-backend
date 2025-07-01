@@ -30,12 +30,16 @@ export declare class AvisoController {
         gestorRhUsuarioId: number;
     }[]>;
     findOne(avisoId: number, req: RequestWithUser): Promise<{
-        avisoUsuario: {
+        avisoUsuario: ({
+            usuario: {
+                nome: string;
+            };
+        } & {
             status: import("generated/prisma").$Enums.StatusAviso;
             dataLeitura: Date;
             usuarioId: number;
             avisoId: number;
-        }[];
+        })[];
         gestor: {
             id: number;
             nome: string;

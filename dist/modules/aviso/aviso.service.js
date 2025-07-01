@@ -76,7 +76,13 @@ let AvisoService = class AvisoService {
                 ],
             },
             include: {
-                avisoUsuario: true,
+                avisoUsuario: {
+                    include: {
+                        usuario: {
+                            select: { nome: true },
+                        },
+                    },
+                },
                 gestor: {
                     select: {
                         id: true,
