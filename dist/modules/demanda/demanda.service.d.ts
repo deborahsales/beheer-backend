@@ -5,44 +5,44 @@ import { UpdateDemandaDto } from './dto/update-demanda.dto';
 export declare class DemandaService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(dto: CreateDemandaDto, gestorId: number): import("generated/prisma").Prisma.Prisma__DemandaClient<{
-        status: import("generated/prisma").$Enums.StatusDemanda;
+    create(dto: CreateDemandaDto, gestorId: number): Promise<{
         id: number;
-        dateTimestamp: Date;
         titulo: string;
         descricao: string;
         prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        dateTimestamp: Date;
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
     findAll(usuarioId: number, filters: FilterDemandasDto): Promise<({
         gruposDemanda: {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         }[];
         usuariosDemanda: {
             usuarioId: number;
             demandaId: number;
         }[];
     } & {
-        status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
-        dateTimestamp: Date;
         titulo: string;
         descricao: string;
         prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        dateTimestamp: Date;
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
     })[]>;
     findAllByGroup(groupId: number, filters: FilterDemandasDto): Promise<{
-        status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
-        dateTimestamp: Date;
         titulo: string;
         descricao: string;
         prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        dateTimestamp: Date;
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
@@ -55,8 +55,8 @@ export declare class DemandaService {
             id: number;
             dateTimestamp: Date;
             usuarioId: number;
-            conteudo: string;
             demandaId: number;
+            conteudo: string;
             dataAlteracao: Date | null;
         }[];
         gruposDemanda: ({
@@ -64,8 +64,8 @@ export declare class DemandaService {
                 nome: string;
             };
         } & {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         })[];
         usuariosDemanda: ({
             usuario: {
@@ -76,12 +76,12 @@ export declare class DemandaService {
             demandaId: number;
         })[];
     } & {
-        status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
-        dateTimestamp: Date;
         titulo: string;
         descricao: string;
         prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        dateTimestamp: Date;
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
@@ -94,8 +94,8 @@ export declare class DemandaService {
             id: number;
             dateTimestamp: Date;
             usuarioId: number;
-            conteudo: string;
             demandaId: number;
+            conteudo: string;
             dataAlteracao: Date | null;
         }[];
         gruposDemanda: ({
@@ -103,8 +103,8 @@ export declare class DemandaService {
                 nome: string;
             };
         } & {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         })[];
         usuariosDemanda: ({
             usuario: {
@@ -115,23 +115,23 @@ export declare class DemandaService {
             demandaId: number;
         })[];
     } & {
-        status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
-        dateTimestamp: Date;
         titulo: string;
         descricao: string;
         prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        dateTimestamp: Date;
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
     }>;
     remove(id: number, gestorId: number): Promise<{
-        status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
-        dateTimestamp: Date;
         titulo: string;
         descricao: string;
         prazo: Date | null;
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        dateTimestamp: Date;
         prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
         cronogramaId: number | null;
         gestorUsuarioId: number;
