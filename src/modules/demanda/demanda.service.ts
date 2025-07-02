@@ -10,9 +10,44 @@ import { UpdateDemandaDto } from './dto/update-demanda.dto';
 export class DemandaService {
 	constructor(private prisma: PrismaService) {}
 
-	create(dto: CreateDemandaDto, gestorId: number) {
+	async create(dto: CreateDemandaDto, gestorId: number) {
+		const usuarios = dto.usuariosDemanda?.length
+			? await this.prisma.usuario.findMany({
+					where: {
+						id: { in: dto.usuariosDemanda },
+					},
+					select: { id: true },
+				})
+			: [];
+
+		const usuariosIds = usuarios.map((u) => u.id);
+
+		const grupos = dto.gruposDemanda?.length
+			? await this.prisma.grupo.findMany({
+					where: {
+						id: { in: dto.gruposDemanda },
+					},
+					select: { id: true },
+				})
+			: [];
+
+		const gruposIds = grupos.map((u) => u.id);
+
 		return this.prisma.demanda.create({
-			data: { ...dto, gestorUsuarioId: gestorId },
+			data: {
+				...dto,
+				gestorUsuarioId: gestorId,
+				usuariosDemanda: usuariosIds.length
+					? {
+							create: usuariosIds.map((id) => ({ usuarioId: id })),
+						}
+					: undefined,
+				gruposDemanda: gruposIds.length
+					? {
+							create: gruposIds.map((id) => ({ grupoId: id })),
+						}
+					: undefined,
+			},
 		});
 	}
 

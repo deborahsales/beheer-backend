@@ -20,6 +20,8 @@ class CreateDemandaDto {
     status;
     prioridade;
     cronogramaId;
+    usuariosDemanda;
+    gruposDemanda;
 }
 exports.CreateDemandaDto = CreateDemandaDto;
 __decorate([
@@ -58,4 +60,18 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", Number)
 ], CreateDemandaDto.prototype, "cronogramaId", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ type: [Number], example: [2, 3] }),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsInt)({ each: true }),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateDemandaDto.prototype, "usuariosDemanda", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ type: [Number], example: [2, 3] }),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsInt)({ each: true }),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateDemandaDto.prototype, "gruposDemanda", void 0);
 //# sourceMappingURL=create-demanda.dto.js.map
