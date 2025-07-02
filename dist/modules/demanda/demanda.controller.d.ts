@@ -77,14 +77,22 @@ export declare class DemandaController {
             demandaId: number;
             dataAlteracao: Date | null;
         }[];
-        gruposDemanda: {
+        gruposDemanda: ({
+            grupo: {
+                nome: string;
+            };
+        } & {
             demandaId: number;
             grupoId: number;
-        }[];
-        usuariosDemanda: {
+        })[];
+        usuariosDemanda: ({
+            usuario: {
+                nome: string;
+            };
+        } & {
             usuarioId: number;
             demandaId: number;
-        }[];
+        })[];
     } & {
         status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
@@ -105,14 +113,22 @@ export declare class DemandaController {
             demandaId: number;
             dataAlteracao: Date | null;
         }[];
-        gruposDemanda: {
+        gruposDemanda: ({
+            grupo: {
+                nome: string;
+            };
+        } & {
             demandaId: number;
             grupoId: number;
-        }[];
-        usuariosDemanda: {
+        })[];
+        usuariosDemanda: ({
+            usuario: {
+                nome: string;
+            };
+        } & {
             usuarioId: number;
             demandaId: number;
-        }[];
+        })[];
     } & {
         status: import("generated/prisma").$Enums.StatusDemanda;
         id: number;
