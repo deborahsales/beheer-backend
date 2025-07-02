@@ -29503,7 +29503,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
@@ -29518,7 +29518,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -29562,7 +29562,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -34397,7 +34397,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
@@ -34411,7 +34411,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -35634,7 +35634,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     gestor: UsuarioCreateNestedOneWithoutDemandasGerenciadasInput
@@ -35648,7 +35648,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     gestorUsuarioId: number
@@ -36037,7 +36037,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
@@ -36051,7 +36051,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -38632,7 +38632,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
@@ -38646,7 +38646,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -38748,7 +38748,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronograma?: CronogramaCreateNestedOneWithoutDemandasCronogramaInput
@@ -38762,7 +38762,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -38964,7 +38964,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     cronogramaId?: number | null
@@ -39530,7 +39530,7 @@ export namespace Prisma {
     titulo: string
     descricao: string
     prazo?: Date | string | null
-    status: $Enums.StatusDemanda
+    status?: $Enums.StatusDemanda
     dateTimestamp?: Date | string
     prioridade: $Enums.PrioridadeDemanda
     gestorUsuarioId: number

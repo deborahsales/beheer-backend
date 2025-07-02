@@ -72,7 +72,7 @@ model Demanda {
   titulo String
   descricao String
   prazo DateTime?
-  status StatusDemanda
+  status StatusDemanda @default(CRIADA)
   dateTimestamp DateTime @default(now()) 
   prioridade PrioridadeDemanda
 
