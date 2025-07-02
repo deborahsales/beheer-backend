@@ -101,6 +101,7 @@ export class DemandaService {
 				usuariosDemanda: { include: { usuario: { select: { nome: true } } } },
 				gruposDemanda: { include: { grupo: { select: { nome: true } } } },
 				comentariosDemanda: true,
+				gestor: { select: { nome: true } },
 			},
 		});
 

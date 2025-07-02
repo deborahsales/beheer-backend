@@ -48,6 +48,9 @@ export declare class DemandaService {
         gestorUsuarioId: number;
     }[]>;
     findOne(id: number, gestorId?: number): Promise<{
+        gestor: {
+            nome: string;
+        };
         comentariosDemanda: {
             id: number;
             dateTimestamp: Date;
@@ -84,6 +87,9 @@ export declare class DemandaService {
         gestorUsuarioId: number;
     }>;
     update(id: number, dto: UpdateDemandaDto, gestorId: number): Promise<{
+        gestor: {
+            nome: string;
+        };
         comentariosDemanda: {
             id: number;
             dateTimestamp: Date;
