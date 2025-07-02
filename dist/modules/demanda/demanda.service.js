@@ -100,8 +100,8 @@ let DemandaService = class DemandaService {
                 }),
             },
             include: {
-                usuariosDemanda: true,
-                gruposDemanda: true,
+                usuariosDemanda: { include: { usuario: { select: { nome: true } } } },
+                gruposDemanda: { include: { grupo: { select: { nome: true } } } },
                 comentariosDemanda: true,
             },
         });
