@@ -30,13 +30,13 @@ let PrestacaoContasService = class PrestacaoContasService {
         let prestacoes;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             prestacoes = this.prisma.prestacaoContas.findMany({
-                include: { gerenciamentoPrestacao: true },
+                include: { gerenciamentoPrestacao: true, usuario: { select: { nome: true } } },
             });
         }
         else {
             prestacoes = this.prisma.prestacaoContas.findMany({
                 where: { usuarioId },
-                include: { gerenciamentoPrestacao: true },
+                include: { gerenciamentoPrestacao: true, usuario: { select: { nome: true } } },
             });
         }
         return prestacoes;
@@ -46,13 +46,13 @@ let PrestacaoContasService = class PrestacaoContasService {
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             prestacao = this.prisma.prestacaoContas.findFirst({
                 where: { id },
-                include: { gerenciamentoPrestacao: true },
+                include: { gerenciamentoPrestacao: true, usuario: { select: { nome: true } } },
             });
         }
         else {
             prestacao = this.prisma.prestacaoContas.findFirst({
                 where: { id, usuarioId },
-                include: { gerenciamentoPrestacao: true },
+                include: { gerenciamentoPrestacao: true, usuario: { select: { nome: true } } },
             });
         }
         if (!prestacao)

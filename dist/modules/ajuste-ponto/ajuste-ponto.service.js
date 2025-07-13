@@ -34,13 +34,13 @@ let AjustePontoService = class AjustePontoService {
         let ajustes;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             ajustes = this.prisma.ajustePonto.findMany({
-                include: { gerenciamentoAjuste: true },
+                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
             });
         }
         else {
             ajustes = this.prisma.ajustePonto.findMany({
                 where: { usuarioId },
-                include: { gerenciamentoAjuste: true },
+                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
             });
         }
         return ajustes;
@@ -50,13 +50,13 @@ let AjustePontoService = class AjustePontoService {
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             ajustes = this.prisma.ajustePonto.findFirst({
                 where: { id },
-                include: { gerenciamentoAjuste: true },
+                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
             });
         }
         else {
             ajustes = this.prisma.ajustePonto.findFirst({
                 where: { id, usuarioId },
-                include: { gerenciamentoAjuste: true },
+                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
             });
         }
         if (!ajustes)
