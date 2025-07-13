@@ -7,7 +7,6 @@ export declare class UsuarioService {
     create(dto: CreateUsuarioDto): Promise<{
         id: number;
         dateTimestamp: Date;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -16,10 +15,10 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }>;
     findAll(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -28,10 +27,10 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findAllAdmin(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -40,10 +39,10 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findColaboradores(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -52,10 +51,10 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findGestores(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -64,11 +63,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }[]>;
     findOne(id: number): Promise<{
         id: number;
         dateTimestamp: Date;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -77,11 +76,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }>;
     findByEmail(email: string): Promise<{
         id: number;
         dateTimestamp: Date;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -91,11 +90,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }>;
     update(id: number, dto: UpdateUsuarioDto): Promise<{
         id: number;
         dateTimestamp: Date;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -104,11 +103,11 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }>;
     remove(id: number): Promise<{
         id: number;
         dateTimestamp: Date;
-        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         cpf: string;
         nome: string;
         email: string;
@@ -118,5 +117,6 @@ export declare class UsuarioService {
         dataAdmissao: Date;
         dataDesligamento: Date | null;
         cargo: string;
+        funcao: import("generated/prisma").$Enums.FuncaoUsuario;
     }>;
 }

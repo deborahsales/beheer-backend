@@ -32,20 +32,32 @@ let PontoService = class PontoService {
     async findAll(funcaoUsuario, usuarioId) {
         let pontos;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
-            pontos = await this.prisma.ponto.findMany({ where: { ativo: true } });
+            pontos = await this.prisma.ponto.findMany({
+                where: { ativo: true },
+                include: { usuario: { select: { nome: true } } },
+            });
         }
         else {
-            pontos = await this.prisma.ponto.findMany({ where: { usuarioId, ativo: true } });
+            pontos = await this.prisma.ponto.findMany({
+                where: { usuarioId, ativo: true },
+                include: { usuario: { select: { nome: true } } },
+            });
         }
         return pontos;
     }
     async findOne(id, funcaoUsuario, usuarioId) {
         let ponto;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
-            ponto = await this.prisma.ponto.findFirst({ where: { id } });
+            ponto = await this.prisma.ponto.findFirst({
+                where: { id },
+                include: { usuario: { select: { nome: true } } },
+            });
         }
         else {
-            ponto = await this.prisma.ponto.findFirst({ where: { id, usuarioId } });
+            ponto = await this.prisma.ponto.findFirst({
+                where: { id, usuarioId },
+                include: { usuario: { select: { nome: true } } },
+            });
         }
         if (!ponto)
             throw new common_1.NotFoundException('Ponto não encontrado ou acesso não autorizado');

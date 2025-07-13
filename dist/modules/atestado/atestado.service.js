@@ -34,7 +34,7 @@ let AtestadoService = class AtestadoService {
         else {
             atestados = this.prisma.atestado.findMany({
                 where: { usuarioId },
-                include: { gerenciamentoAtestado: true },
+                include: { gerenciamentoAtestado: true, usuario: { select: { nome: true } } },
             });
         }
         return atestados;
@@ -44,13 +44,13 @@ let AtestadoService = class AtestadoService {
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             atestado = this.prisma.atestado.findFirst({
                 where: { id },
-                include: { gerenciamentoAtestado: true },
+                include: { gerenciamentoAtestado: true, usuario: { select: { nome: true } } },
             });
         }
         else {
             atestado = this.prisma.atestado.findFirst({
                 where: { id, usuarioId },
-                include: { gerenciamentoAtestado: true },
+                include: { gerenciamentoAtestado: true, usuario: { select: { nome: true } } },
             });
         }
         if (!atestado)
