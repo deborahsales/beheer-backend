@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsString } from 'class-validator';
+import { IsArray, IsInt, IsOptional, IsString } from 'class-validator';
 
 export class CreateCronogramaDto {
 	@ApiProperty({ type: String, example: 'Cronograma' })
@@ -9,4 +9,10 @@ export class CreateCronogramaDto {
 	@ApiPropertyOptional({ type: String, example: 'Descricao do cronograma' })
 	@IsString()
 	descricao: string;
+
+	@ApiPropertyOptional({ type: [Number], example: [2, 3] })
+	@IsArray()
+	@IsInt({ each: true })
+	@IsOptional()
+	demandasCronograma?: number[];
 }

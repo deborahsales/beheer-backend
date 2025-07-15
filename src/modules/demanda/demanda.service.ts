@@ -124,6 +124,22 @@ export class DemandaService {
 		});
 	}
 
+	async findAllByTimeline(timelineId: number, filters: FilterDemandasDto) {
+		const { status, prioridade } = filters;
+
+		return this.prisma.demanda.findMany({
+			where: {
+				OR: [
+					{
+						cronogramaId: timelineId,
+					},
+				],
+				status: status ? { equals: status } : undefined,
+				prioridade: prioridade ? { equals: prioridade } : undefined,
+			},
+		});
+	}
+
 	async findOne(id: number, gestorId?: number) {
 		const demanda = await this.prisma.demanda.findFirst({
 			where: {
