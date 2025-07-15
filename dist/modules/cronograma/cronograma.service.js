@@ -53,7 +53,7 @@ let CronogramaService = class CronogramaService {
     }
     async update(dto, cronogramaId, gestorId) {
         await this.findOne(cronogramaId, gestorId);
-        this.prisma.cronograma.update({
+        await this.prisma.cronograma.update({
             where: { id: cronogramaId },
             data: { titulo: dto.titulo, descricao: dto.descricao },
         });
