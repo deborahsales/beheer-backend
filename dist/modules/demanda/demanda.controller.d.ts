@@ -68,6 +68,17 @@ export declare class DemandaController {
         cronogramaId: number | null;
         gestorUsuarioId: number;
     }[]>;
+    findAllByTimeline(filterDemandasDto: FilterDemandasDto, timelineId: number): Promise<{
+        status: import("generated/prisma").$Enums.StatusDemanda;
+        id: number;
+        dateTimestamp: Date;
+        titulo: string;
+        descricao: string;
+        prazo: Date | null;
+        prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
+        cronogramaId: number | null;
+        gestorUsuarioId: number;
+    }[]>;
     findOne(id: number): Promise<{
         gestor: {
             nome: string;

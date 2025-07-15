@@ -66,6 +66,16 @@ export class DemandaController {
 		return this.demandaService.findAllByGroup(groupId, filterDemandasDto);
 	}
 
+	@Get('/cronograma/:id')
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@ApiResponse({ status: 200, type: DemandaEntity })
+	findAllByTimeline(
+		@Query() filterDemandasDto: FilterDemandasDto,
+		@Param('id', ParseIntPipe) timelineId: number,
+	) {
+		return this.demandaService.findAllByTimeline(timelineId, filterDemandasDto);
+	}
+
 	@Get(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: DemandaEntity })

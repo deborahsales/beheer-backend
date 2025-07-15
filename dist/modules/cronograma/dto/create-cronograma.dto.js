@@ -15,6 +15,7 @@ const class_validator_1 = require("class-validator");
 class CreateCronogramaDto {
     titulo;
     descricao;
+    demandasCronograma;
 }
 exports.CreateCronogramaDto = CreateCronogramaDto;
 __decorate([
@@ -27,4 +28,11 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateCronogramaDto.prototype, "descricao", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ type: [Number], example: [2, 3] }),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsInt)({ each: true }),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateCronogramaDto.prototype, "demandasCronograma", void 0);
 //# sourceMappingURL=create-cronograma.dto.js.map
