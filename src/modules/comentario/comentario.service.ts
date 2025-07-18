@@ -25,6 +25,7 @@ export class ComentarioService {
 				...dto,
 				usuarioId: usuarioId,
 			},
+			include: { usuario: { select: { id: true, nome: true } } },
 		});
 	}
 

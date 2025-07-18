@@ -6,6 +6,11 @@ export declare class ComentarioController {
     private comentarioService;
     constructor(comentarioService: ComentarioService);
     create(createComentarioDto: CreateComentarioDto, req: RequestWithUser): Promise<{
+        usuario: {
+            id: number;
+            nome: string;
+        };
+    } & {
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
