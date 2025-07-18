@@ -13,14 +13,19 @@ export declare class ComentarioController {
         demandaId: number;
         dataAlteracao: Date | null;
     }>;
-    findAll(demandaId: number, req: RequestWithUser): Promise<{
+    findAll(demandaId: number, req: RequestWithUser): Promise<({
+        usuario: {
+            id: number;
+            nome: string;
+        };
+    } & {
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
         conteudo: string;
         demandaId: number;
         dataAlteracao: Date | null;
-    }[]>;
+    })[]>;
     findOne(comentarioId: number): Promise<{
         id: number;
         dateTimestamp: Date;
