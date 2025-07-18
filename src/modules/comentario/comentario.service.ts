@@ -40,7 +40,10 @@ export class ComentarioService {
 		});
 		if (!demanda) throw new NotFoundException('Demanda não encontrada ou acesso não autorizado');
 
-		return this.prisma.comentario.findMany({ where: { demandaId: demandaId } });
+		return this.prisma.comentario.findMany({
+			where: { demandaId: demandaId },
+			include: { usuario: { select: { id: true, nome: true } } },
+		});
 	}
 
 	async findOne(comentarioId: number) {

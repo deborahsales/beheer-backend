@@ -12,14 +12,19 @@ export declare class ComentarioService {
         demandaId: number;
         dataAlteracao: Date | null;
     }>;
-    findAll(demandaId: number, usuarioId: number): Promise<{
+    findAll(demandaId: number, usuarioId: number): Promise<({
+        usuario: {
+            id: number;
+            nome: string;
+        };
+    } & {
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
         conteudo: string;
         demandaId: number;
         dataAlteracao: Date | null;
-    }[]>;
+    })[]>;
     findOne(comentarioId: number): Promise<{
         id: number;
         dateTimestamp: Date;
