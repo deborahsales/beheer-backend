@@ -5,6 +5,11 @@ export declare class ComentarioService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateComentarioDto, usuarioId: number): Promise<{
+        usuario: {
+            id: number;
+            nome: string;
+        };
+    } & {
         id: number;
         dateTimestamp: Date;
         usuarioId: number;
