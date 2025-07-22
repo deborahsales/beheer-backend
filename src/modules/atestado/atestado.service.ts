@@ -22,7 +22,9 @@ export class AtestadoService {
 		let atestados;
 
 		if (funcaoUsuario === FuncaoUsuario.RH) {
-			atestados = this.prisma.atestado.findMany({ include: { gerenciamentoAtestado: true } });
+			atestados = this.prisma.atestado.findMany({
+				include: { gerenciamentoAtestado: true, usuario: { select: { nome: true } } },
+			});
 		} else {
 			atestados = this.prisma.atestado.findMany({
 				where: { usuarioId },
