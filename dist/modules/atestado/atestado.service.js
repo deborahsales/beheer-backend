@@ -29,7 +29,9 @@ let AtestadoService = class AtestadoService {
     findAll(funcaoUsuario, usuarioId) {
         let atestados;
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
-            atestados = this.prisma.atestado.findMany({ include: { gerenciamentoAtestado: true } });
+            atestados = this.prisma.atestado.findMany({
+                include: { gerenciamentoAtestado: true, usuario: { select: { nome: true } } },
+            });
         }
         else {
             atestados = this.prisma.atestado.findMany({
