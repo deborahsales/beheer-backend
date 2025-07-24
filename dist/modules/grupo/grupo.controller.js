@@ -39,8 +39,9 @@ let GrupoController = class GrupoController {
     findAllByUser(id) {
         return this.grupoService.findAll(id);
     }
-    findOne(id) {
-        return this.grupoService.findOne(id);
+    findOne(id, req) {
+        const usuarioId = req.user['id'];
+        return this.grupoService.findOne(id, usuarioId);
     }
     update(id, updateGrupoDto, req) {
         const gestorId = req.user['id'];
@@ -86,8 +87,9 @@ __decorate([
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiResponse)({ status: 200, type: grupo_entity_1.GrupoEntity }),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", void 0)
 ], GrupoController.prototype, "findOne", null);
 __decorate([

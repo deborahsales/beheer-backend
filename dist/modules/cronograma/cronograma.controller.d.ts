@@ -12,13 +12,25 @@ export declare class CronogramaController {
         descricao: string | null;
         gestorUsuarioId: number;
     }>;
-    findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<{
+    findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<({
+        demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            prazo: Date | null;
+            prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
+            cronogramaId: number | null;
+            gestorUsuarioId: number;
+        }[];
+    } & {
         id: number;
         dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
         gestorUsuarioId: number;
-    }[]>;
+    })[]>;
     findOne(cronogramaId: number, req: RequestWithUser): Promise<{
         demandasCronograma: {
             status: import("generated/prisma").$Enums.StatusDemanda;
@@ -38,13 +50,25 @@ export declare class CronogramaController {
         descricao: string | null;
         gestorUsuarioId: number;
     }>;
-    update(cronogramaId: number, updateCronogramaDto: UpdateCronogramaDto, req: RequestWithUser): Promise<{
+    update(cronogramaId: number, updateCronogramaDto: UpdateCronogramaDto, req: RequestWithUser): Promise<({
+        demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            prazo: Date | null;
+            prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
+            cronogramaId: number | null;
+            gestorUsuarioId: number;
+        }[];
+    } & {
         id: number;
         dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
         gestorUsuarioId: number;
-    } | null>;
+    }) | null>;
     delete(cronogramaId: number, req: RequestWithUser): Promise<{
         id: number;
         dateTimestamp: Date;

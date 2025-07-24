@@ -11,13 +11,25 @@ export declare class CronogramaService {
         descricao: string | null;
         gestorUsuarioId: number;
     }>;
-    findAll(gestorId: number): import("generated/prisma").Prisma.PrismaPromise<{
+    findAll(gestorId: number): import("generated/prisma").Prisma.PrismaPromise<({
+        demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            prazo: Date | null;
+            prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
+            cronogramaId: number | null;
+            gestorUsuarioId: number;
+        }[];
+    } & {
         id: number;
         dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
         gestorUsuarioId: number;
-    }[]>;
+    })[]>;
     findOne(cronogramaId: number, gestorId: number): Promise<{
         demandasCronograma: {
             status: import("generated/prisma").$Enums.StatusDemanda;
@@ -37,13 +49,25 @@ export declare class CronogramaService {
         descricao: string | null;
         gestorUsuarioId: number;
     }>;
-    update(dto: UpdateCronogramaDto, cronogramaId: number, gestorId: number): Promise<{
+    update(dto: UpdateCronogramaDto, cronogramaId: number, gestorId: number): Promise<({
+        demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            prazo: Date | null;
+            prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
+            cronogramaId: number | null;
+            gestorUsuarioId: number;
+        }[];
+    } & {
         id: number;
         dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
         gestorUsuarioId: number;
-    } | null>;
+    }) | null>;
     remove(cronogramaId: number, gestorId: number): Promise<{
         id: number;
         dateTimestamp: Date;

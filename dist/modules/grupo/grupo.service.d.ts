@@ -5,7 +5,7 @@ export declare class GrupoService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateGrupoDto, gestorId: number): Promise<{
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -15,7 +15,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -31,7 +31,7 @@ export declare class GrupoService {
         descricao: string;
     }>;
     findAll(usuarioId: number): import("generated/prisma").Prisma.PrismaPromise<({
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -41,7 +41,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -56,8 +56,8 @@ export declare class GrupoService {
         nome: string;
         descricao: string;
     })[]>;
-    findOne(id: number, gestorId?: number): Promise<{
-        gestores: ({
+    findOne(id: number, usuarioId: number): Promise<{
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -67,7 +67,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -83,7 +83,7 @@ export declare class GrupoService {
         descricao: string;
     }>;
     update(id: number, dto: UpdateGrupoDto, gestorId: number): Promise<{
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -93,7 +93,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;

@@ -54,8 +54,9 @@ export class GrupoController {
 	@Get(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: GrupoEntity })
-	findOne(@Param('id', ParseIntPipe) id: number) {
-		return this.grupoService.findOne(id);
+	findOne(@Param('id', ParseIntPipe) id: number, @Req() req: RequestWithUser) {
+		const usuarioId = req.user['id'];
+		return this.grupoService.findOne(id, usuarioId);
 	}
 
 	@Patch(':id')
