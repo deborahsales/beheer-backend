@@ -53,6 +53,10 @@ let DemandaController = class DemandaController {
         const gestorId = req.user['id'];
         return this.demandaService.update(id, updateDemandaDto, gestorId);
     }
+    updateStatus(id, updateDemandaDto, req) {
+        const usuarioId = req.user['id'];
+        return this.demandaService.updateStatus(id, updateDemandaDto, usuarioId);
+    }
     delete(id, req) {
         const gestorId = req.user['id'];
         return this.demandaService.remove(id, gestorId);
@@ -131,6 +135,17 @@ __decorate([
     __metadata("design:paramtypes", [Number, update_demanda_dto_1.UpdateDemandaDto, Object]),
     __metadata("design:returntype", void 0)
 ], DemandaController.prototype, "update", null);
+__decorate([
+    (0, common_1.Patch)('/status/:id'),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),
+    (0, swagger_1.ApiResponse)({ status: 200, type: demanda_entity_1.DemandaEntity }),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, update_demanda_dto_1.UpdateDemandaDto, Object]),
+    __metadata("design:returntype", void 0)
+], DemandaController.prototype, "updateStatus", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, roles_guard_1.RolesGuard),

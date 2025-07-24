@@ -96,6 +96,18 @@ export class DemandaController {
 		return this.demandaService.update(id, updateDemandaDto, gestorId);
 	}
 
+	@Patch('/status/:id')
+	@UseGuards(JwtAuthGuard, RolesGuard)
+	@ApiResponse({ status: 200, type: DemandaEntity })
+	updateStatus(
+		@Param('id', ParseIntPipe) id: number,
+		@Body() updateDemandaDto: UpdateDemandaDto,
+		@Req() req: RequestWithUser,
+	) {
+		const usuarioId = req.user['id'];
+		return this.demandaService.updateStatus(id, updateDemandaDto, usuarioId);
+	}
+
 	@Delete(':id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@Role(FuncaoUsuario.GESTOR)
