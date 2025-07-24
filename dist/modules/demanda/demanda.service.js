@@ -155,6 +155,15 @@ let DemandaService = class DemandaService {
             throw new common_1.NotFoundException('Demanda não encontrada ou acesso não autorizado');
         return demanda;
     }
+    async updateStatus(id, dto, usuarioId) {
+        await this.findOne(id);
+        return this.prisma.demanda.update({
+            where: { id: id },
+            data: {
+                status: dto.status,
+            },
+        });
+    }
     async update(id, dto, gestorId) {
         await this.findOne(id, gestorId);
         await this.prisma.demanda.update({

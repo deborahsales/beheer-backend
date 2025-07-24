@@ -161,6 +161,17 @@ export class DemandaService {
 		return demanda;
 	}
 
+	async updateStatus(id: number, dto: UpdateDemandaDto, usuarioId: number) {
+		await this.findOne(id);
+
+		return this.prisma.demanda.update({
+			where: { id: id },
+			data: {
+				status: dto.status,
+			},
+		});
+	}
+
 	async update(id: number, dto: UpdateDemandaDto, gestorId: number) {
 		await this.findOne(id, gestorId);
 
