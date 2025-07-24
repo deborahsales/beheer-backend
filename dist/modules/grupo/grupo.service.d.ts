@@ -56,7 +56,7 @@ export declare class GrupoService {
         nome: string;
         descricao: string;
     })[]>;
-    findOne(id: number, gestorId?: number): Promise<{
+    findOne(id: number, usuarioId: number): Promise<{
         usuarios: ({
             usuario: {
                 nome: string;

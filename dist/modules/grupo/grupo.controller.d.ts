@@ -83,7 +83,7 @@ export declare class GrupoController {
         nome: string;
         descricao: string;
     })[]>;
-    findOne(id: number): Promise<{
+    findOne(id: number, req: RequestWithUser): Promise<{
         usuarios: ({
             usuario: {
                 nome: string;

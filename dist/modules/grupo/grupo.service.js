@@ -95,17 +95,22 @@ let GrupoService = class GrupoService {
             },
         });
     }
-    async findOne(id, gestorId) {
+    async findOne(id, usuarioId) {
         const grupo = await this.prisma.grupo.findFirst({
             where: {
                 id: id,
-                ...(gestorId && {
-                    gestores: {
-                        some: {
-                            usuarioId: gestorId,
+                OR: [
+                    {
+                        gestores: {
+                            some: { usuarioId },
                         },
                     },
-                }),
+                    {
+                        usuarios: {
+                            some: { usuarioId },
+                        },
+                    },
+                ],
             },
             include: {
                 gestores: {
@@ -181,7 +186,9 @@ let GrupoService = class GrupoService {
                 select: { usuarioId: true },
             });
             const idsAtuaisGestores = gestoresAtuais.map((u) => u.usuarioId);
-            const removerGestores = idsAtuaisGestores.filter((id) => !novosGestores.includes(id));
+            const removerGestores = idsAtuaisGestores
+                .filter((id) => !novosGestores.includes(id))
+                .filter((id) => id !== gestorId);
             const adicionarGestores = novosGestores.filter((id) => !idsAtuaisGestores.includes(id));
             if (removerGestores.length) {
                 await this.prisma.grupoGestor.deleteMany({
@@ -198,7 +205,7 @@ let GrupoService = class GrupoService {
                 });
             }
         }
-        return this.findOne(id);
+        return this.findOne(id, gestorId);
     }
     async remove(id, gestorId) {
         await this.findOne(id, gestorId);

@@ -7,73 +7,73 @@ export declare class CronogramaController {
     constructor(cronogramaService: CronogramaService);
     create(createCronogramaDto: CreateCronogramaDto, req: RequestWithUser): Promise<{
         id: number;
+        dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
-        dateTimestamp: Date;
         gestorUsuarioId: number;
     }>;
     findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<({
         demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
+            dateTimestamp: Date;
             titulo: string;
             descricao: string;
-            dateTimestamp: Date;
-            gestorUsuarioId: number;
             prazo: Date | null;
-            status: import("generated/prisma").$Enums.StatusDemanda;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
+            gestorUsuarioId: number;
         }[];
     } & {
         id: number;
+        dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
-        dateTimestamp: Date;
         gestorUsuarioId: number;
     })[]>;
     findOne(cronogramaId: number, req: RequestWithUser): Promise<{
         demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
+            dateTimestamp: Date;
             titulo: string;
             descricao: string;
-            dateTimestamp: Date;
-            gestorUsuarioId: number;
             prazo: Date | null;
-            status: import("generated/prisma").$Enums.StatusDemanda;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
+            gestorUsuarioId: number;
         }[];
     } & {
         id: number;
+        dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
-        dateTimestamp: Date;
         gestorUsuarioId: number;
     }>;
     update(cronogramaId: number, updateCronogramaDto: UpdateCronogramaDto, req: RequestWithUser): Promise<({
         demandasCronograma: {
+            status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
+            dateTimestamp: Date;
             titulo: string;
             descricao: string;
-            dateTimestamp: Date;
-            gestorUsuarioId: number;
             prazo: Date | null;
-            status: import("generated/prisma").$Enums.StatusDemanda;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
+            gestorUsuarioId: number;
         }[];
     } & {
         id: number;
+        dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
-        dateTimestamp: Date;
         gestorUsuarioId: number;
     }) | null>;
     delete(cronogramaId: number, req: RequestWithUser): Promise<{
         id: number;
+        dateTimestamp: Date;
         titulo: string;
         descricao: string | null;
-        dateTimestamp: Date;
         gestorUsuarioId: number;
     }>;
 }
