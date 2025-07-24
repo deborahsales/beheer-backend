@@ -33,7 +33,10 @@ export class CronogramaService {
 	}
 
 	findAll(gestorId: number) {
-		return this.prisma.cronograma.findMany({ where: { gestorUsuarioId: gestorId } });
+		return this.prisma.cronograma.findMany({
+			where: { gestorUsuarioId: gestorId },
+			include: { demandasCronograma: true },
+		});
 	}
 
 	async findOne(cronogramaId: number, gestorId: number) {
@@ -70,9 +73,7 @@ export class CronogramaService {
 				where: { cronogramaId: cronogramaId },
 			});
 
-			const idsAtuais = demandasAtuais
-				.map((d) => d.cronogramaId)
-				.filter((id): id is number => id !== null);
+			const idsAtuais = demandasAtuais.map((d) => d.id).filter((id): id is number => id !== null);
 
 			const remover = idsAtuais.filter((id) => !novasDemandas.includes(id));
 			const adicionar = novasDemandas.filter((id) => !idsAtuais.includes(id));
@@ -100,7 +101,10 @@ export class CronogramaService {
 			}
 		}
 
-		return this.prisma.cronograma.findFirst({ where: { id: cronogramaId } });
+		return this.prisma.cronograma.findFirst({
+			where: { id: cronogramaId },
+			include: { demandasCronograma: true },
+		});
 	}
 
 	async remove(cronogramaId: number, gestorId: number) {
