@@ -1,11 +1,25 @@
 import { PrismaService } from '../prisma/prisma.service';
-import { CreateAtestadoDto } from './dto/create-atestado.dto';
 import { UpdateAtestadoDto } from './dto/update-atestado.dto';
 import { UpdateGerenciamentoAtestadoDto } from './dto/update-gerenciamento-atestado';
 export declare class AtestadoService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(dto: CreateAtestadoDto, usuarioId: number): import("generated/prisma").Prisma.Prisma__AtestadoClient<{
+    create(dto: any, usuarioId: number): import("generated/prisma").Prisma.Prisma__AtestadoClient<{
+        usuario: {
+            id: number;
+            dateTimestamp: Date;
+            cpf: string;
+            nome: string;
+            email: string;
+            senha: string;
+            telefone: string;
+            dataNascimento: Date;
+            dataAdmissao: Date;
+            dataDesligamento: Date | null;
+            cargo: string;
+            funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        };
+    } & {
         status: import("generated/prisma").$Enums.StatusAtestado;
         id: number;
         dateTimestamp: Date;

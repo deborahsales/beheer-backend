@@ -13,8 +13,4 @@ export class CreatePrestacaoContasDto {
 	@ApiProperty({ type: Number, example: 99.99 })
 	@IsNumber()
 	valor: number;
-
-	// @ApiProperty({ type: String, example: 'data:image/png;base64,iVBORw0' })
-	// @IsString()
-	// imagem: string;
 }

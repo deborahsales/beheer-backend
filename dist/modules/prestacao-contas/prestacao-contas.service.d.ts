@@ -5,6 +5,21 @@ export declare class PrestacaoContasService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: any, usuarioId: number): import("generated/prisma").Prisma.Prisma__PrestacaoContasClient<{
+        usuario: {
+            id: number;
+            dateTimestamp: Date;
+            cpf: string;
+            nome: string;
+            email: string;
+            senha: string;
+            telefone: string;
+            dataNascimento: Date;
+            dataAdmissao: Date;
+            dataDesligamento: Date | null;
+            cargo: string;
+            funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        };
+    } & {
         status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
         dateTimestamp: Date;

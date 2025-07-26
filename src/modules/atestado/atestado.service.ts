@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { FuncaoUsuario, StatusAtestado } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
-import { CreateAtestadoDto } from './dto/create-atestado.dto';
 import { UpdateAtestadoDto } from './dto/update-atestado.dto';
 import { UpdateGerenciamentoAtestadoDto } from './dto/update-gerenciamento-atestado';
 
@@ -9,11 +8,14 @@ import { UpdateGerenciamentoAtestadoDto } from './dto/update-gerenciamento-atest
 export class AtestadoService {
 	constructor(private prisma: PrismaService) {}
 
-	create(dto: CreateAtestadoDto, usuarioId: number) {
+	create(dto: any, usuarioId: number) {
 		return this.prisma.atestado.create({
 			data: {
 				...dto,
 				usuarioId,
+			},
+			include: {
+				usuario: true,
 			},
 		});
 	}

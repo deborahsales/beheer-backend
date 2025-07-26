@@ -14,6 +14,9 @@ export class PrestacaoContasService {
 				...dto,
 				usuarioId,
 			},
+			include: {
+				usuario: true,
+			},
 		});
 	}
 

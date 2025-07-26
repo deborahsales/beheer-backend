@@ -4,5 +4,4 @@ export declare class CreateAtestadoDto {
     horaInicio: Date;
     horaTermino: Date;
     diaInteiro: DiaInteiro;
-    imagem: string;
 }

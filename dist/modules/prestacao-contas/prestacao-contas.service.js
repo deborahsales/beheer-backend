@@ -24,6 +24,9 @@ let PrestacaoContasService = class PrestacaoContasService {
                 ...dto,
                 usuarioId,
             },
+            include: {
+                usuario: true,
+            },
         });
     }
     findAll(funcaoUsuario, usuarioId) {

@@ -24,6 +24,9 @@ let AtestadoService = class AtestadoService {
                 ...dto,
                 usuarioId,
             },
+            include: {
+                usuario: true,
+            },
         });
     }
     findAll(funcaoUsuario, usuarioId) {
