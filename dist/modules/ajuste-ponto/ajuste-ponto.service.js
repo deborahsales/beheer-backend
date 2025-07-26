@@ -50,13 +50,13 @@ let AjustePontoService = class AjustePontoService {
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             ajustes = this.prisma.ajustePonto.findFirst({
                 where: { id },
-                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
+                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } }, ponto: true },
             });
         }
         else {
             ajustes = this.prisma.ajustePonto.findFirst({
                 where: { id, usuarioId },
-                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
+                include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } }, ponto: true },
             });
         }
         if (!ajustes)
