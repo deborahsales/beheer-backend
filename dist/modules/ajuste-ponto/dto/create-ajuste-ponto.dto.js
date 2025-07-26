@@ -19,7 +19,7 @@ class CreateAjustePontoDto {
 }
 exports.CreateAjustePontoDto = CreateAjustePontoDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, format: 'date-time' }),
+    (0, swagger_1.ApiPropertyOptional)({ type: String, format: 'date-time' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", Date)
 ], CreateAjustePontoDto.prototype, "dateTimestampAjustado", void 0);

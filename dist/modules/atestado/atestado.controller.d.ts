@@ -9,17 +9,7 @@ export declare class AtestadoController {
     create(dto: CreateAtestadoDto, imagem: Express.Multer.File, req: RequestWithUser): import("generated/prisma").Prisma.Prisma__AtestadoClient<{
         usuario: {
             id: number;
-            dateTimestamp: Date;
-            cpf: string;
             nome: string;
-            email: string;
-            senha: string;
-            telefone: string;
-            dataNascimento: Date;
-            dataAdmissao: Date;
-            dataDesligamento: Date | null;
-            cargo: string;
-            funcao: import("generated/prisma").$Enums.FuncaoUsuario;
         };
     } & {
         status: import("generated/prisma").$Enums.StatusAtestado;

@@ -11,26 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatePontoDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 class CreatePontoDto {
-    imagem;
     latitude;
     longitude;
 }
 exports.CreatePontoDto = CreatePontoDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: 'data:image/png;base64,iVBORw0' }),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreatePontoDto.prototype, "imagem", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({ type: Number, example: -10.123456 }),
+    (0, swagger_1.ApiProperty)({ type: Number, example: -10.92259 }),
     (0, class_validator_1.IsLatitude)(),
+    (0, class_transformer_1.Type)(() => Number),
     __metadata("design:type", Number)
 ], CreatePontoDto.prototype, "latitude", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: Number, example: -48.123456 }),
+    (0, swagger_1.ApiProperty)({ type: Number, example: -37.10378 }),
     (0, class_validator_1.IsLongitude)(),
+    (0, class_transformer_1.Type)(() => Number),
     __metadata("design:type", Number)
 ], CreatePontoDto.prototype, "longitude", void 0);
 //# sourceMappingURL=create-ponto.dto.js.map

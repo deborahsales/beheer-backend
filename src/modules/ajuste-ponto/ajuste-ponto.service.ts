@@ -101,7 +101,7 @@ export class AjustePontoService {
 			await this.prisma.ponto.update({
 				where: { id: ajuste.pontoId },
 				data: {
-					dateTimestamp: ajuste.dateTimestampAjustado,
+					dateTimestamp: ajuste.dateTimestampAjustado!,
 				},
 			});
 		}
