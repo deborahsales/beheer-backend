@@ -18,7 +18,6 @@ class CreateAtestadoDto {
     horaInicio;
     horaTermino;
     diaInteiro;
-    imagem;
 }
 exports.CreateAtestadoDto = CreateAtestadoDto;
 __decorate([
@@ -44,9 +43,4 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CreateAtestadoDto.prototype, "diaInteiro", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: 'data:image/png;base64,iVBORw0' }),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateAtestadoDto.prototype, "imagem", void 0);
 //# sourceMappingURL=create-atestado.dto.js.map

@@ -8,10 +8,14 @@ import {
 	Patch,
 	Post,
 	Req,
+	UploadedFile,
 	UseGuards,
+	UseInterceptors,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiBearerAuth, ApiBody, ApiConsumes, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { FuncaoUsuario } from 'generated/prisma';
+import { storage } from 'src/common/cloudinary/cloudinary.storage';
 import { Role } from 'src/common/decorators/role.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
@@ -30,10 +34,39 @@ export class AtestadoController {
 
 	@Post()
 	@UseGuards(JwtAuthGuard)
+	@UseInterceptors(
+		FileInterceptor('imagem', {
+			storage,
+			limits: { fileSize: 10 * 1024 * 1024 },
+		}),
+	)
+	@ApiConsumes('multipart/form-data')
+	@ApiBody({
+		schema: {
+			type: 'object',
+			properties: {
+				dataAtestado: { type: 'string', format: 'date-time' },
+				horaInicio: { type: 'string', format: 'date-time' },
+				horaTermino: { type: 'string', format: 'date-time' },
+				diaInteiro: { type: 'string' },
+				imagem: { type: 'string', format: 'binary' },
+			},
+		},
+	})
 	@ApiResponse({ status: 201, type: AtestadoEntity })
-	create(@Body() createAtestadoDto: CreateAtestadoDto, @Req() req: RequestWithUser) {
+	create(
+		@Body() dto: CreateAtestadoDto,
+		@UploadedFile() imagem: Express.Multer.File,
+		@Req() req: RequestWithUser,
+	) {
 		const usuarioId = req.user['id'];
-		return this.atestadoService.create(createAtestadoDto, usuarioId);
+		return this.atestadoService.create(
+			{
+				...dto,
+				imagem: imagem.path,
+			},
+			usuarioId,
+		);
 	}
 
 	@Get()

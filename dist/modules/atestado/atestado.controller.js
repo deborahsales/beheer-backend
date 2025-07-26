@@ -14,8 +14,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AtestadoController = void 0;
 const common_1 = require("@nestjs/common");
+const platform_express_1 = require("@nestjs/platform-express");
 const swagger_1 = require("@nestjs/swagger");
 const prisma_1 = require("../../../generated/prisma/index.js");
+const cloudinary_storage_1 = require("../../common/cloudinary/cloudinary.storage");
 const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
@@ -29,9 +31,12 @@ let AtestadoController = class AtestadoController {
     constructor(atestadoService) {
         this.atestadoService = atestadoService;
     }
-    create(createAtestadoDto, req) {
+    create(dto, imagem, req) {
         const usuarioId = req.user['id'];
-        return this.atestadoService.create(createAtestadoDto, usuarioId);
+        return this.atestadoService.create({
+            ...dto,
+            imagem: imagem.path,
+        }, usuarioId);
     }
     findAll(req) {
         const usuarioId = req.user['id'];
@@ -60,11 +65,29 @@ exports.AtestadoController = AtestadoController;
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagem', {
+        storage: cloudinary_storage_1.storage,
+        limits: { fileSize: 10 * 1024 * 1024 },
+    })),
+    (0, swagger_1.ApiConsumes)('multipart/form-data'),
+    (0, swagger_1.ApiBody)({
+        schema: {
+            type: 'object',
+            properties: {
+                dataAtestado: { type: 'string', format: 'date-time' },
+                horaInicio: { type: 'string', format: 'date-time' },
+                horaTermino: { type: 'string', format: 'date-time' },
+                diaInteiro: { type: 'string' },
+                imagem: { type: 'string', format: 'binary' },
+            },
+        },
+    }),
     (0, swagger_1.ApiResponse)({ status: 201, type: atestado_entity_dto_1.AtestadoEntity }),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_atestado_dto_1.CreateAtestadoDto, Object]),
+    __metadata("design:paramtypes", [create_atestado_dto_1.CreateAtestadoDto, Object, Object]),
     __metadata("design:returntype", void 0)
 ], AtestadoController.prototype, "create", null);
 __decorate([

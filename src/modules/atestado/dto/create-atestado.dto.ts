@@ -21,8 +21,4 @@ export class CreateAtestadoDto {
 		example: DiaInteiro.SIM,
 	})
 	diaInteiro: DiaInteiro;
-
-	@ApiProperty({ type: String, example: 'data:image/png;base64,iVBORw0' })
-	@IsString()
-	imagem: string;
 }
