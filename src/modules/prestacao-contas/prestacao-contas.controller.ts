@@ -15,8 +15,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { FuncaoUsuario } from 'generated/prisma';
-import { diskStorage } from 'multer';
-import { extname } from 'path';
+import { storage } from 'src/common/cloudinary/cloudinary.storage';
 import { Role } from 'src/common/decorators/role.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
@@ -37,14 +36,8 @@ export class PrestacaoContasController {
 	@UseGuards(JwtAuthGuard)
 	@UseInterceptors(
 		FileInterceptor('imagem', {
-			storage: diskStorage({
-				destination: './uploads/prestacoes',
-				filename: (req, file, cb) => {
-					const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-					cb(null, uniqueSuffix + extname(file.originalname));
-				},
-			}),
-			limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+			storage,
+			limits: { fileSize: 10 * 1024 * 1024 },
 		}),
 	)
 	@ApiConsumes('multipart/form-data')
@@ -70,7 +63,7 @@ export class PrestacaoContasController {
 		return this.prestacaoContasService.create(
 			{
 				...dto,
-				imagem: imagem.filename,
+				imagem: imagem.path,
 			},
 			usuarioId,
 		);
