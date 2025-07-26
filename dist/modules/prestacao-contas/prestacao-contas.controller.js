@@ -17,8 +17,7 @@ const common_1 = require("@nestjs/common");
 const platform_express_1 = require("@nestjs/platform-express");
 const swagger_1 = require("@nestjs/swagger");
 const prisma_1 = require("../../../generated/prisma/index.js");
-const multer_1 = require("multer");
-const path_1 = require("path");
+const cloudinary_storage_1 = require("../../common/cloudinary/cloudinary.storage");
 const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
@@ -36,7 +35,7 @@ let PrestacaoContasController = class PrestacaoContasController {
         const usuarioId = req.user['id'];
         return this.prestacaoContasService.create({
             ...dto,
-            imagem: imagem.filename,
+            imagem: imagem.path,
         }, usuarioId);
     }
     findAll(req) {
@@ -67,13 +66,7 @@ __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagem', {
-        storage: (0, multer_1.diskStorage)({
-            destination: './uploads/prestacoes',
-            filename: (req, file, cb) => {
-                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-                cb(null, uniqueSuffix + (0, path_1.extname)(file.originalname));
-            },
-        }),
+        storage: cloudinary_storage_1.storage,
         limits: { fileSize: 10 * 1024 * 1024 },
     })),
     (0, swagger_1.ApiConsumes)('multipart/form-data'),
