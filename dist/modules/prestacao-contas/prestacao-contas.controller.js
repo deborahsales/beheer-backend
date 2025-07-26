@@ -14,8 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PrestacaoContasController = void 0;
 const common_1 = require("@nestjs/common");
+const platform_express_1 = require("@nestjs/platform-express");
 const swagger_1 = require("@nestjs/swagger");
 const prisma_1 = require("../../../generated/prisma/index.js");
+const multer_1 = require("multer");
+const path_1 = require("path");
 const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
@@ -29,9 +32,12 @@ let PrestacaoContasController = class PrestacaoContasController {
     constructor(prestacaoContasService) {
         this.prestacaoContasService = prestacaoContasService;
     }
-    create(createPrestacaoContasDto, req) {
+    create(dto, imagem, req) {
         const usuarioId = req.user['id'];
-        return this.prestacaoContasService.create(createPrestacaoContasDto, usuarioId);
+        return this.prestacaoContasService.create({
+            ...dto,
+            imagem: imagem.filename,
+        }, usuarioId);
     }
     findAll(req) {
         const usuarioId = req.user['id'];
@@ -60,11 +66,34 @@ exports.PrestacaoContasController = PrestacaoContasController;
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagem', {
+        storage: (0, multer_1.diskStorage)({
+            destination: './uploads/prestacoes',
+            filename: (req, file, cb) => {
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+                cb(null, uniqueSuffix + (0, path_1.extname)(file.originalname));
+            },
+        }),
+        limits: { fileSize: 10 * 1024 * 1024 },
+    })),
+    (0, swagger_1.ApiConsumes)('multipart/form-data'),
+    (0, swagger_1.ApiBody)({
+        schema: {
+            type: 'object',
+            properties: {
+                descricao: { type: 'string' },
+                data: { type: 'string', format: 'date-time' },
+                valor: { type: 'number' },
+                imagem: { type: 'string', format: 'binary' },
+            },
+        },
+    }),
     (0, swagger_1.ApiResponse)({ status: 201, type: prestacao_contas_entity_1.PrestacaoContasEntity }),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_prstacao_contas_dto_1.CreatePrestacaoContasDto, Object]),
+    __metadata("design:paramtypes", [create_prstacao_contas_dto_1.CreatePrestacaoContasDto, Object, Object]),
     __metadata("design:returntype", void 0)
 ], PrestacaoContasController.prototype, "create", null);
 __decorate([

@@ -6,7 +6,7 @@ import { PrestacaoContasService } from './prestacao-contas.service';
 export declare class PrestacaoContasController {
     private prestacaoContasService;
     constructor(prestacaoContasService: PrestacaoContasService);
-    create(createPrestacaoContasDto: CreatePrestacaoContasDto, req: RequestWithUser): import("generated/prisma").Prisma.Prisma__PrestacaoContasClient<{
+    create(dto: CreatePrestacaoContasDto, imagem: Express.Multer.File, req: RequestWithUser): import("generated/prisma").Prisma.Prisma__PrestacaoContasClient<{
         status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
         dateTimestamp: Date;

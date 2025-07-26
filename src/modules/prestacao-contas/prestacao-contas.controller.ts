@@ -8,10 +8,15 @@ import {
 	Patch,
 	Post,
 	Req,
+	UploadedFile,
 	UseGuards,
+	UseInterceptors,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiBearerAuth, ApiBody, ApiConsumes, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { FuncaoUsuario } from 'generated/prisma';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
 import { Role } from 'src/common/decorators/role.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
@@ -30,10 +35,45 @@ export class PrestacaoContasController {
 
 	@Post()
 	@UseGuards(JwtAuthGuard)
+	@UseInterceptors(
+		FileInterceptor('imagem', {
+			storage: diskStorage({
+				destination: './uploads/prestacoes',
+				filename: (req, file, cb) => {
+					const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+					cb(null, uniqueSuffix + extname(file.originalname));
+				},
+			}),
+			limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+		}),
+	)
+	@ApiConsumes('multipart/form-data')
+	@ApiBody({
+		schema: {
+			type: 'object',
+			properties: {
+				descricao: { type: 'string' },
+				data: { type: 'string', format: 'date-time' },
+				valor: { type: 'number' },
+				imagem: { type: 'string', format: 'binary' },
+			},
+		},
+	})
 	@ApiResponse({ status: 201, type: PrestacaoContasEntity })
-	create(@Body() createPrestacaoContasDto: CreatePrestacaoContasDto, @Req() req: RequestWithUser) {
+	create(
+		@Body() dto: CreatePrestacaoContasDto,
+		@UploadedFile() imagem: Express.Multer.File,
+		@Req() req: RequestWithUser,
+	) {
 		const usuarioId = req.user['id'];
-		return this.prestacaoContasService.create(createPrestacaoContasDto, usuarioId);
+
+		return this.prestacaoContasService.create(
+			{
+				...dto,
+				imagem: imagem.filename,
+			},
+			usuarioId,
+		);
 	}
 
 	@Get()

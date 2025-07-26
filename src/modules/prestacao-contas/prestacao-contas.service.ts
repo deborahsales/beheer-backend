@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { FuncaoUsuario, StatusPrestacao } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
-import { CreatePrestacaoContasDto } from './dto/create-prstacao-contas.dto';
 import { UpdateGerenciamentoPrestacaoDto } from './dto/update-gerenciamento-prestacao.dto';
 import { UpdatePrestacaoContasDto } from './dto/update-prestacao-contas.dto';
 
@@ -9,7 +8,7 @@ import { UpdatePrestacaoContasDto } from './dto/update-prestacao-contas.dto';
 export class PrestacaoContasService {
 	constructor(private prisma: PrismaService) {}
 
-	create(dto: CreatePrestacaoContasDto, usuarioId: number) {
+	create(dto: any, usuarioId: number) {
 		return this.prisma.prestacaoContas.create({
 			data: {
 				...dto,
