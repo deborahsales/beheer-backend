@@ -1,10 +1,12 @@
 import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as Express from 'express';
+import { join } from 'path';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
+	const app = await NestFactory.create<NestExpressApplication>(AppModule);
 	(app.getHttpAdapter().getInstance() as Express.Application).set('trust proxy', 1);
 
 	// Configuração do Swagger
@@ -34,6 +36,10 @@ async function bootstrap() {
 	});
 
 	app.enableCors();
+
+	app.useStaticAssets(join(process.cwd(), 'uploads'), {
+		prefix: '/uploads/',
+	});
 
 	await app.listen(process.env.PORT ?? 3000);
 }

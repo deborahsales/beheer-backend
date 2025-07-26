@@ -16,7 +16,6 @@ class CreatePrestacaoContasDto {
     descricao;
     data;
     valor;
-    imagem;
 }
 exports.CreatePrestacaoContasDto = CreatePrestacaoContasDto;
 __decorate([
@@ -34,9 +33,4 @@ __decorate([
     (0, class_validator_1.IsNumber)(),
     __metadata("design:type", Number)
 ], CreatePrestacaoContasDto.prototype, "valor", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: 'data:image/png;base64,iVBORw0' }),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreatePrestacaoContasDto.prototype, "imagem", void 0);
 //# sourceMappingURL=create-prstacao-contas.dto.js.map

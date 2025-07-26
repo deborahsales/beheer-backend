@@ -1,11 +1,10 @@
 import { PrismaService } from '../prisma/prisma.service';
-import { CreatePrestacaoContasDto } from './dto/create-prstacao-contas.dto';
 import { UpdateGerenciamentoPrestacaoDto } from './dto/update-gerenciamento-prestacao.dto';
 import { UpdatePrestacaoContasDto } from './dto/update-prestacao-contas.dto';
 export declare class PrestacaoContasService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(dto: CreatePrestacaoContasDto, usuarioId: number): import("generated/prisma").Prisma.Prisma__PrestacaoContasClient<{
+    create(dto: any, usuarioId: number): import("generated/prisma").Prisma.Prisma__PrestacaoContasClient<{
         status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
         dateTimestamp: Date;
