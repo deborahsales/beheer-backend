@@ -46,12 +46,12 @@ export class AjustePontoService {
 		if (funcaoUsuario === FuncaoUsuario.RH) {
 			ajustes = this.prisma.ajustePonto.findFirst({
 				where: { id },
-				include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
+				include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } }, ponto: true },
 			});
 		} else {
 			ajustes = this.prisma.ajustePonto.findFirst({
 				where: { id, usuarioId },
-				include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } } },
+				include: { gerenciamentoAjuste: true, usuario: { select: { nome: true } }, ponto: true },
 			});
 		}
 
