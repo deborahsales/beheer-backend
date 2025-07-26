@@ -5,7 +5,12 @@ import { PontoService } from './ponto.service';
 export declare class PontoController {
     private pontoService;
     constructor(pontoService: PontoService);
-    create(createPontoDto: CreatePontoDto, req: RequestWithUser): import("generated/prisma").Prisma.Prisma__PontoClient<{
+    create(dto: CreatePontoDto, imagem: Express.Multer.File, req: RequestWithUser): import("generated/prisma").Prisma.Prisma__PontoClient<{
+        usuario: {
+            id: number;
+            nome: string;
+        };
+    } & {
         id: number;
         dateTimestamp: Date;
         ip: string;

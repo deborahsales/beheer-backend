@@ -15,7 +15,7 @@ export class PrestacaoContasService {
 				usuarioId,
 			},
 			include: {
-				usuario: true,
+				usuario: { select: { id: true, nome: true } },
 			},
 		});
 	}

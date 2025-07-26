@@ -1,14 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { FuncaoUsuario } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
-import { CreatePontoDto } from './dto/create-ponto.dto';
 import { UpdatePontoDto } from './dto/update-ponto.dto';
 
 @Injectable()
 export class PontoService {
 	constructor(private prisma: PrismaService) {}
 
-	create(dto: CreatePontoDto, usuarioId: number, ip: string) {
+	create(dto: any, usuarioId: number, ip: string) {
 		if (!ip?.trim()) throw new NotFoundException('Endereço ip não identificado');
 
 		return this.prisma.ponto.create({
@@ -16,6 +15,9 @@ export class PontoService {
 				...dto,
 				usuarioId,
 				ip,
+			},
+			include: {
+				usuario: { select: { id: true, nome: true } },
 			},
 		});
 	}

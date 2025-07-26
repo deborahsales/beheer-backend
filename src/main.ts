@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -36,6 +37,12 @@ async function bootstrap() {
 	});
 
 	app.enableCors();
+
+	app.useGlobalPipes(
+		new ValidationPipe({
+			transform: true,
+		}),
+	);
 
 	app.useStaticAssets(join(process.cwd(), 'uploads'), {
 		prefix: '/uploads/',

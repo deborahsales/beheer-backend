@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const common_1 = require("@nestjs/common");
 const core_1 = require("@nestjs/core");
 const swagger_1 = require("@nestjs/swagger");
 const path_1 = require("path");
@@ -27,6 +28,9 @@ async function bootstrap() {
         ],
     });
     app.enableCors();
+    app.useGlobalPipes(new common_1.ValidationPipe({
+        transform: true,
+    }));
     app.useStaticAssets((0, path_1.join)(process.cwd(), 'uploads'), {
         prefix: '/uploads/',
     });

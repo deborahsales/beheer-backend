@@ -14,8 +14,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PontoController = void 0;
 const common_1 = require("@nestjs/common");
+const platform_express_1 = require("@nestjs/platform-express");
 const swagger_1 = require("@nestjs/swagger");
 const prisma_1 = require("../../../generated/prisma/index.js");
+const cloudinary_storage_1 = require("../../common/cloudinary/cloudinary.storage");
 const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
@@ -28,10 +30,13 @@ let PontoController = class PontoController {
     constructor(pontoService) {
         this.pontoService = pontoService;
     }
-    create(createPontoDto, req) {
+    create(dto, imagem, req) {
         const usuarioId = req.user['id'];
         const ip = req.ip || '';
-        return this.pontoService.create(createPontoDto, usuarioId, ip);
+        return this.pontoService.create({
+            ...dto,
+            imagem: imagem.path,
+        }, usuarioId, ip);
     }
     findAll(req) {
         const usuarioId = req.user['id'];
@@ -54,11 +59,27 @@ exports.PontoController = PontoController;
 __decorate([
     (0, common_1.Post)(),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagem', {
+        storage: cloudinary_storage_1.storage,
+        limits: { fileSize: 10 * 1024 * 1024 },
+    })),
+    (0, swagger_1.ApiConsumes)('multipart/form-data'),
+    (0, swagger_1.ApiBody)({
+        schema: {
+            type: 'object',
+            properties: {
+                latitude: { type: 'number' },
+                longitude: { type: 'number' },
+                imagem: { type: 'string', format: 'binary' },
+            },
+        },
+    }),
     (0, swagger_1.ApiResponse)({ status: 201, type: ponto_entity_1.PontoEntity }),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Req)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_ponto_dto_1.CreatePontoDto, Object]),
+    __metadata("design:paramtypes", [create_ponto_dto_1.CreatePontoDto, Object, Object]),
     __metadata("design:returntype", void 0)
 ], PontoController.prototype, "create", null);
 __decorate([

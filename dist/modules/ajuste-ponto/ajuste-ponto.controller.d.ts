@@ -7,10 +7,10 @@ export declare class AjustePontoController {
     private ajustePontoService;
     constructor(ajustePontoService: AjustePontoService);
     create(pontoId: number, createAjustePontoDto: CreateAjustePontoDto, req: RequestWithUser): Promise<{
-        dateTimestampAjustado: Date;
+        id: number;
+        dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;
@@ -18,28 +18,28 @@ export declare class AjustePontoController {
     findAll(req: RequestWithUser): any;
     findOne(id: number, req: RequestWithUser): any;
     update(id: number, updateAjustePontoDto: UpdateAjustePontoDto, req: RequestWithUser): Promise<{
-        dateTimestampAjustado: Date;
+        id: number;
+        dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;
     }>;
     updateRh(id: number, updateAjustePontoDto: UpdateGerenciamentoPontoDto, req: RequestWithUser): Promise<{
-        dateTimestampAjustado: Date;
+        id: number;
+        dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;
     }>;
     delete(id: number, req: RequestWithUser): Promise<{
-        dateTimestampAjustado: Date;
+        id: number;
+        dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;

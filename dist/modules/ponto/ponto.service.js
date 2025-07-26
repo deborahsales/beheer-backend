@@ -27,6 +27,9 @@ let PontoService = class PontoService {
                 usuarioId,
                 ip,
             },
+            include: {
+                usuario: { select: { id: true, nome: true } },
+            },
         });
     }
     async findAll(funcaoUsuario, usuarioId) {
