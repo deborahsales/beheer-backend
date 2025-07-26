@@ -28,12 +28,12 @@ export class PontoService {
 		if (funcaoUsuario === FuncaoUsuario.RH) {
 			pontos = await this.prisma.ponto.findMany({
 				where: { ativo: true },
-				include: { usuario: { select: { nome: true } } },
+				include: { usuario: { select: { nome: true } }, ajuste: true },
 			});
 		} else {
 			pontos = await this.prisma.ponto.findMany({
 				where: { usuarioId, ativo: true },
-				include: { usuario: { select: { nome: true } } },
+				include: { usuario: { select: { nome: true } }, ajuste: true },
 			});
 		}
 
@@ -46,12 +46,12 @@ export class PontoService {
 		if (funcaoUsuario === FuncaoUsuario.RH) {
 			ponto = await this.prisma.ponto.findFirst({
 				where: { id },
-				include: { usuario: { select: { nome: true } } },
+				include: { usuario: { select: { nome: true } }, ajuste: true },
 			});
 		} else {
 			ponto = await this.prisma.ponto.findFirst({
 				where: { id, usuarioId },
-				include: { usuario: { select: { nome: true } } },
+				include: { usuario: { select: { nome: true } }, ajuste: true },
 			});
 		}
 
