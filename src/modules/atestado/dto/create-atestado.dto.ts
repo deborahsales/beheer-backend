@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsString } from 'class-validator';
+import { IsEnum, IsOptional, IsString } from 'class-validator';
 import { DiaInteiro } from 'generated/prisma';
 
 export class CreateAtestadoDto {
@@ -8,11 +8,11 @@ export class CreateAtestadoDto {
 	dataAtestado: Date;
 
 	@ApiPropertyOptional({ type: String, format: 'date-time' })
-	@IsString()
+	@IsOptional()
 	horaInicio: Date;
 
 	@ApiPropertyOptional({ type: String, format: 'date-time' })
-	@IsString()
+	@IsOptional()
 	horaTermino: Date;
 
 	@IsEnum(DiaInteiro)

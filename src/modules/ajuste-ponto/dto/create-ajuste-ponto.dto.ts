@@ -1,10 +1,10 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsString } from 'class-validator';
+import { IsEnum, IsOptional } from 'class-validator';
 import { MotivoAjuste } from 'generated/prisma';
 
 export class CreateAjustePontoDto {
 	@ApiPropertyOptional({ type: String, format: 'date-time' })
-	@IsString()
+	@IsOptional()
 	dateTimestampAjustado: Date;
 
 	@IsEnum(MotivoAjuste)
