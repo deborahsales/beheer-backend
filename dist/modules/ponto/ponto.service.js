@@ -37,13 +37,13 @@ let PontoService = class PontoService {
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             pontos = await this.prisma.ponto.findMany({
                 where: { ativo: true },
-                include: { usuario: { select: { nome: true } } },
+                include: { usuario: { select: { nome: true } }, ajuste: true },
             });
         }
         else {
             pontos = await this.prisma.ponto.findMany({
                 where: { usuarioId, ativo: true },
-                include: { usuario: { select: { nome: true } } },
+                include: { usuario: { select: { nome: true } }, ajuste: true },
             });
         }
         return pontos;
@@ -53,13 +53,13 @@ let PontoService = class PontoService {
         if (funcaoUsuario === prisma_1.FuncaoUsuario.RH) {
             ponto = await this.prisma.ponto.findFirst({
                 where: { id },
-                include: { usuario: { select: { nome: true } } },
+                include: { usuario: { select: { nome: true } }, ajuste: true },
             });
         }
         else {
             ponto = await this.prisma.ponto.findFirst({
                 where: { id, usuarioId },
-                include: { usuario: { select: { nome: true } } },
+                include: { usuario: { select: { nome: true } }, ajuste: true },
             });
         }
         if (!ponto)
