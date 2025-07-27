@@ -9,11 +9,11 @@ export class CreateAtestadoDto {
 
 	@ApiPropertyOptional({ type: String, format: 'date-time' })
 	@IsOptional()
-	horaInicio: Date;
+	horaInicio?: string;
 
 	@ApiPropertyOptional({ type: String, format: 'date-time' })
 	@IsOptional()
-	horaTermino: Date;
+	horaTermino?: string;
 
 	@IsEnum(DiaInteiro)
 	@ApiProperty({
