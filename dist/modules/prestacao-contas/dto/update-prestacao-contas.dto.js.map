@@ -1,1 +1,1 @@
-{"version":3,"file":"update-prestacao-contas.dto.js","sourceRoot":"","sources":["../../../../src/modules/prestacao-contas/dto/update-prestacao-contas.dto.ts"],"names":[],"mappings":";;;AAAA,6CAA8C;AAC9C,6EAAwE;AAExE,MAAa,wBAAyB,SAAQ,IAAA,qBAAW,EAAC,qDAAwB,CAAC;CAAG;AAAtF,4DAAsF"}
+{"version":3,"file":"update-prestacao-contas.dto.js","sourceRoot":"","sources":["../../../../src/modules/prestacao-contas/dto/update-prestacao-contas.dto.ts"],"names":[],"mappings":";;;AAAA,6CAA8C;AAC9C,+EAAyE;AAEzE,MAAa,wBAAyB,SAAQ,IAAA,qBAAW,EAAC,sDAAwB,CAAC;CAAG;AAAtF,4DAAsF"}

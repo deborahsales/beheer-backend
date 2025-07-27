@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreatePrestacaoContasDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const class_transformer_1 = require("class-transformer");
 const class_validator_1 = require("class-validator");
 class CreatePrestacaoContasDto {
     descricao;
@@ -31,6 +32,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({ type: Number, example: 99.99 }),
     (0, class_validator_1.IsNumber)(),
+    (0, class_transformer_1.Type)(() => Number),
     __metadata("design:type", Number)
 ], CreatePrestacaoContasDto.prototype, "valor", void 0);
 //# sourceMappingURL=create-prstacao-contas.dto.js.map
