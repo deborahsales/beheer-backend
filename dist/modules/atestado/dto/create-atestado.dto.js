@@ -28,12 +28,12 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ type: String, format: 'date-time' }),
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], CreateAtestadoDto.prototype, "horaInicio", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ type: String, format: 'date-time' }),
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", Date)
+    __metadata("design:type", String)
 ], CreateAtestadoDto.prototype, "horaTermino", void 0);
 __decorate([
     (0, class_validator_1.IsEnum)(prisma_1.DiaInteiro),

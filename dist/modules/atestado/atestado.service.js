@@ -23,6 +23,8 @@ let AtestadoService = class AtestadoService {
             data: {
                 ...dto,
                 usuarioId,
+                horaInicio: dto.horaInicio === '' ? null : dto.horaInicio,
+                horaTermino: dto.horaTermino === '' ? null : dto.horaTermino,
             },
             include: {
                 usuario: { select: { id: true, nome: true } },
