@@ -25,6 +25,7 @@ __decorate([
         enum: prisma_1.StatusDemanda,
         example: prisma_1.StatusDemanda.CRIADA,
     }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], FilterDemandasDto.prototype, "status", void 0);
 __decorate([
@@ -34,6 +35,7 @@ __decorate([
         enum: prisma_1.PrioridadeDemanda,
         example: prisma_1.PrioridadeDemanda.BAIXA,
     }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], FilterDemandasDto.prototype, "prioridade", void 0);
 //# sourceMappingURL=filter-demanda.dto.js.map

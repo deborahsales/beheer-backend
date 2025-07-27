@@ -14,6 +14,7 @@ export class ComentarioService {
 				OR: [
 					{ usuariosDemanda: { some: { usuarioId: usuarioId } } },
 					{ gestorUsuarioId: usuarioId },
+					{ gruposDemanda: { some: { grupo: { usuarios: { some: { usuarioId: usuarioId } } } } } },
 				],
 			},
 		});
@@ -36,6 +37,7 @@ export class ComentarioService {
 				OR: [
 					{ usuariosDemanda: { some: { usuarioId: usuarioId } } },
 					{ gestorUsuarioId: usuarioId },
+					{ gruposDemanda: { some: { grupo: { usuarios: { some: { usuarioId: usuarioId } } } } } },
 				],
 			},
 		});

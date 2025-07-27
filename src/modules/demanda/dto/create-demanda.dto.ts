@@ -16,10 +16,11 @@ export class CreateDemandaDto {
 	prazo?: Date;
 
 	@IsEnum(StatusDemanda)
-	@ApiProperty({
+	@ApiPropertyOptional({
 		enum: StatusDemanda,
 		example: StatusDemanda.CRIADA,
 	})
+	@IsOptional()
 	status: StatusDemanda;
 
 	@IsEnum(PrioridadeDemanda)
@@ -31,6 +32,7 @@ export class CreateDemandaDto {
 
 	@ApiPropertyOptional({ type: Number, example: 1 })
 	@IsString()
+	@IsOptional()
 	cronogramaId: number;
 
 	@ApiPropertyOptional({ type: [Number], example: [2, 3] })

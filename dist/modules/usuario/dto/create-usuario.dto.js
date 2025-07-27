@@ -27,27 +27,27 @@ class CreateUsuarioDto {
 }
 exports.CreateUsuarioDto = CreateUsuarioDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: "12345678900" }),
+    (0, swagger_1.ApiProperty)({ type: String, example: '12345678900' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "cpf", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: "Jane Doe" }),
+    (0, swagger_1.ApiProperty)({ type: String, example: 'Jane Doe' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "nome", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: "janedoe@email.com" }),
+    (0, swagger_1.ApiProperty)({ type: String, example: 'janedoe@email.com' }),
     (0, class_validator_1.IsEmail)(),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "email", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: "123456" }),
+    (0, swagger_1.ApiProperty)({ type: String, example: '123456' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "senha", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: "79999654387" }),
+    (0, swagger_1.ApiProperty)({ type: String, example: '79999654387' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "telefone", void 0);
@@ -64,11 +64,12 @@ __decorate([
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiPropertyOptional)({ type: String, format: 'date-time' }),
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", Date)
 ], CreateUsuarioDto.prototype, "dataDesligamento", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ type: String, example: "Analista" }),
+    (0, swagger_1.ApiProperty)({ type: String, example: 'Analista' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateUsuarioDto.prototype, "cargo", void 0);

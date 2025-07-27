@@ -12,11 +12,11 @@ export declare class ComentarioController {
         };
     } & {
         id: number;
-        dateTimestamp: Date;
-        usuarioId: number;
         conteudo: string;
-        demandaId: number;
+        dateTimestamp: Date;
         dataAlteracao: Date | null;
+        demandaId: number;
+        usuarioId: number;
     }>;
     findAll(demandaId: number, req: RequestWithUser): Promise<({
         usuario: {
@@ -25,34 +25,34 @@ export declare class ComentarioController {
         };
     } & {
         id: number;
-        dateTimestamp: Date;
-        usuarioId: number;
         conteudo: string;
-        demandaId: number;
+        dateTimestamp: Date;
         dataAlteracao: Date | null;
+        demandaId: number;
+        usuarioId: number;
     })[]>;
     findOne(comentarioId: number): Promise<{
         id: number;
-        dateTimestamp: Date;
-        usuarioId: number;
         conteudo: string;
-        demandaId: number;
+        dateTimestamp: Date;
         dataAlteracao: Date | null;
+        demandaId: number;
+        usuarioId: number;
     }>;
     update(comentarioId: number, updateComentarioDto: UpdateComentarioDto, req: RequestWithUser): Promise<{
         id: number;
-        dateTimestamp: Date;
-        usuarioId: number;
         conteudo: string;
-        demandaId: number;
+        dateTimestamp: Date;
         dataAlteracao: Date | null;
+        demandaId: number;
+        usuarioId: number;
     }>;
     delete(comentarioId: number, req: RequestWithUser): Promise<{
         id: number;
-        dateTimestamp: Date;
-        usuarioId: number;
         conteudo: string;
-        demandaId: number;
+        dateTimestamp: Date;
         dataAlteracao: Date | null;
+        demandaId: number;
+        usuarioId: number;
     }>;
 }

@@ -41,10 +41,11 @@ __decorate([
 ], CreateDemandaDto.prototype, "prazo", void 0);
 __decorate([
     (0, class_validator_1.IsEnum)(prisma_1.StatusDemanda),
-    (0, swagger_1.ApiProperty)({
+    (0, swagger_1.ApiPropertyOptional)({
         enum: prisma_1.StatusDemanda,
         example: prisma_1.StatusDemanda.CRIADA,
     }),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateDemandaDto.prototype, "status", void 0);
 __decorate([
@@ -58,6 +59,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ type: Number, example: 1 }),
     (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateDemandaDto.prototype, "cronogramaId", void 0);
 __decorate([
