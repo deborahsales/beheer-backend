@@ -21,7 +21,7 @@ const cloudinary_storage_1 = require("../../common/cloudinary/cloudinary.storage
 const role_decorator_1 = require("../../common/decorators/role.decorator");
 const jwt_auth_guard_1 = require("../../common/guards/jwt-auth.guard");
 const roles_guard_1 = require("../../common/guards/roles.guard");
-const create_prstacao_contas_dto_1 = require("./dto/create-prstacao-contas.dto");
+const create_prestacao_contas_dto_1 = require("./dto/create-prestacao-contas.dto");
 const update_gerenciamento_prestacao_dto_1 = require("./dto/update-gerenciamento-prestacao.dto");
 const update_prestacao_contas_dto_1 = require("./dto/update-prestacao-contas.dto");
 const prestacao_contas_entity_1 = require("./entities/prestacao-contas.entity");
@@ -86,7 +86,7 @@ __decorate([
     __param(1, (0, common_1.UploadedFile)()),
     __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_prstacao_contas_dto_1.CreatePrestacaoContasDto, Object, Object]),
+    __metadata("design:paramtypes", [create_prestacao_contas_dto_1.CreatePrestacaoContasDto, Object, Object]),
     __metadata("design:returntype", void 0)
 ], PrestacaoContasController.prototype, "create", null);
 __decorate([

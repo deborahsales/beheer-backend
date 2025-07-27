@@ -11,11 +11,11 @@ export declare class ComentarioService {
         };
     } & {
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        conteudo: string;
+        demandaId: number;
+        dataAlteracao: Date | null;
     }>;
     findAll(demandaId: number, usuarioId: number): Promise<({
         usuario: {
@@ -24,34 +24,34 @@ export declare class ComentarioService {
         };
     } & {
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        conteudo: string;
+        demandaId: number;
+        dataAlteracao: Date | null;
     })[]>;
     findOne(comentarioId: number): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        conteudo: string;
+        demandaId: number;
+        dataAlteracao: Date | null;
     }>;
     update(dto: UpdateComentarioDto, comentarioId: number, usuarioId: number): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        conteudo: string;
+        demandaId: number;
+        dataAlteracao: Date | null;
     }>;
     remove(comentarioId: number, usuarioId: number): Promise<{
         id: number;
-        conteudo: string;
         dateTimestamp: Date;
-        dataAlteracao: Date | null;
-        demandaId: number;
         usuarioId: number;
+        conteudo: string;
+        demandaId: number;
+        dataAlteracao: Date | null;
     }>;
 }

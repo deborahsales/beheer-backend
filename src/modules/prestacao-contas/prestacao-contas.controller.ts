@@ -20,7 +20,7 @@ import { Role } from 'src/common/decorators/role.decorator';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { RequestWithUser } from '../auth/interfaces/request-with-user.interface';
-import { CreatePrestacaoContasDto } from './dto/create-prstacao-contas.dto';
+import { CreatePrestacaoContasDto } from './dto/create-prestacao-contas.dto';
 import { UpdateGerenciamentoPrestacaoDto } from './dto/update-gerenciamento-prestacao.dto';
 import { UpdatePrestacaoContasDto } from './dto/update-prestacao-contas.dto';
 import { PrestacaoContasEntity } from './entities/prestacao-contas.entity';

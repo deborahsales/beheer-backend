@@ -10,45 +10,45 @@ export declare class PrestacaoContasService {
             nome: string;
         };
     } & {
-        status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
-        dateTimestamp: Date;
-        imagem: string;
-        usuarioId: number;
-        data: Date;
         descricao: string;
+        data: Date;
         valor: import("generated/prisma/runtime/library").Decimal;
+        imagem: string;
+        dateTimestamp: Date;
+        status: import("generated/prisma").$Enums.StatusPrestacao;
+        usuarioId: number;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(funcaoUsuario: string, usuarioId: number): any;
     findOne(id: number, funcaoUsuario: string, usuarioId: number): any;
     update(dto: UpdatePrestacaoContasDto, id: number, usuarioId: number): Promise<{
-        status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
-        dateTimestamp: Date;
-        imagem: string;
-        usuarioId: number;
-        data: Date;
         descricao: string;
+        data: Date;
         valor: import("generated/prisma/runtime/library").Decimal;
+        imagem: string;
+        dateTimestamp: Date;
+        status: import("generated/prisma").$Enums.StatusPrestacao;
+        usuarioId: number;
     }>;
     updateRh(dto: UpdateGerenciamentoPrestacaoDto, id: number, usuarioId: number): Promise<{
-        status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
-        dateTimestamp: Date;
-        imagem: string;
-        usuarioId: number;
-        data: Date;
         descricao: string;
+        data: Date;
         valor: import("generated/prisma/runtime/library").Decimal;
+        imagem: string;
+        dateTimestamp: Date;
+        status: import("generated/prisma").$Enums.StatusPrestacao;
+        usuarioId: number;
     }>;
     remove(id: number, usuarioId: number): Promise<{
-        status: import("generated/prisma").$Enums.StatusPrestacao;
         id: number;
-        dateTimestamp: Date;
-        imagem: string;
-        usuarioId: number;
-        data: Date;
         descricao: string;
+        data: Date;
         valor: import("generated/prisma/runtime/library").Decimal;
+        imagem: string;
+        dateTimestamp: Date;
+        status: import("generated/prisma").$Enums.StatusPrestacao;
+        usuarioId: number;
     }>;
 }
