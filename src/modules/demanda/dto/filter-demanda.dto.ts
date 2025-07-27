@@ -9,6 +9,7 @@ export class FilterDemandasDto {
 		enum: StatusDemanda,
 		example: StatusDemanda.CRIADA,
 	})
+	@IsOptional()
 	status: StatusDemanda;
 
 	@IsOptional()
@@ -17,5 +18,6 @@ export class FilterDemandasDto {
 		enum: PrioridadeDemanda,
 		example: PrioridadeDemanda.BAIXA,
 	})
+	@IsOptional()
 	prioridade: PrioridadeDemanda;
 }
