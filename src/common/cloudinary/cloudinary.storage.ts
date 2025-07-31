@@ -5,7 +5,6 @@ export const storage = new CloudinaryStorage({
 	cloudinary,
 	params: (req, file) => {
 		let folder = 'outros';
-
 		const url = req.originalUrl || '';
 
 		if (url.includes('prestacao-contas')) {
@@ -16,10 +15,14 @@ export const storage = new CloudinaryStorage({
 			folder = 'pontos';
 		}
 
+		const timestamp = Date.now();
+		const isPdf = file.originalname.toLowerCase().endsWith('.pdf');
+
 		return {
 			folder,
-			allowed_formats: ['jpg', 'jpeg', 'png'],
-			public_id: `${Date.now()}-${file.originalname}`,
+			allowed_formats: ['jpg', 'jpeg', 'png', 'pdf'],
+			public_id: `${timestamp}-${file.originalname}`,
+			resource_type: isPdf ? 'raw' : 'image',
 		};
 	},
 });

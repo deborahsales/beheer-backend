@@ -85,25 +85,63 @@ export class AjustePontoService {
 			throw new NotFoundException('Ajuste não encontrado');
 		}
 
+		const ponto = await this.prisma.ponto.findUnique({ where: { id: ajuste.pontoId } });
+
+		if (!ponto) {
+			throw new NotFoundException('Ponto não encontrado');
+		}
+
 		const ajusteAtualizado = await this.prisma.ajustePonto.update({
 			where: { id },
 			data: { status: dto.status },
 		});
 
-		if (ajuste.motivo === MotivoAjuste.DUPLICADO) {
-			await this.prisma.ponto.update({
-				where: { id: ajuste.pontoId },
-				data: {
-					ativo: false,
-				},
-			});
+		if (ajuste.status === StatusAjuste.PENDENTE) {
+			if (ajuste.motivo === MotivoAjuste.DUPLICADO) {
+				await this.prisma.ponto.update({
+					where: { id: ajuste.pontoId },
+					data: {
+						ativo: false,
+					},
+				});
+			} else {
+				await this.prisma.ponto.update({
+					where: { id: ajuste.pontoId },
+					data: {
+						dateTimestampAjustado: ajuste.dateTimestampAjustado!,
+					},
+				});
+			}
 		} else {
-			await this.prisma.ponto.update({
-				where: { id: ajuste.pontoId },
-				data: {
-					dateTimestamp: ajuste.dateTimestampAjustado!,
-				},
-			});
+			if (ajuste.motivo === MotivoAjuste.DUPLICADO && dto.status === StatusAjuste.AJUSTADO) {
+				await this.prisma.ponto.update({
+					where: { id: ajuste.pontoId },
+					data: {
+						ativo: false,
+					},
+				});
+			} else if (ajuste.motivo === MotivoAjuste.DUPLICADO && dto.status === StatusAjuste.RECUSADO) {
+				await this.prisma.ponto.update({
+					where: { id: ajuste.pontoId },
+					data: {
+						ativo: true,
+					},
+				});
+			} else if (ajuste.motivo === MotivoAjuste.ERRO && dto.status === StatusAjuste.RECUSADO) {
+				await this.prisma.ponto.update({
+					where: { id: ajuste.pontoId },
+					data: {
+						dateTimestampAjustado: ponto.dateTimestamp,
+					},
+				});
+			} else if (ajuste.motivo === MotivoAjuste.ERRO && dto.status === StatusAjuste.AJUSTADO) {
+				await this.prisma.ponto.update({
+					where: { id: ajuste.pontoId },
+					data: {
+						dateTimestampAjustado: ajuste.dateTimestampAjustado!,
+					},
+				});
+			}
 		}
 
 		await this.prisma.gerenciamentoAjustePonto.create({

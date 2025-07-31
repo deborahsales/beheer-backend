@@ -11,6 +11,7 @@ export declare class PontoController {
             nome: string;
         };
     } & {
+        dateTimestampAjustado: Date | null;
         id: number;
         dateTimestamp: Date;
         ip: string;
@@ -23,6 +24,7 @@ export declare class PontoController {
     findAll(req: RequestWithUser): Promise<any>;
     findOne(id: number, req: RequestWithUser): Promise<any>;
     update(id: number, updatePontoDto: UpdatePontoDto): Promise<{
+        dateTimestampAjustado: Date | null;
         id: number;
         dateTimestamp: Date;
         ip: string;
@@ -33,6 +35,7 @@ export declare class PontoController {
         usuarioId: number;
     }>;
     delete(id: number): Promise<{
+        dateTimestampAjustado: Date | null;
         id: number;
         dateTimestamp: Date;
         ip: string;

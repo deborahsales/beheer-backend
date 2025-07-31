@@ -80,25 +80,65 @@ let AjustePontoService = class AjustePontoService {
         if (!ajuste) {
             throw new common_1.NotFoundException('Ajuste não encontrado');
         }
+        const ponto = await this.prisma.ponto.findUnique({ where: { id: ajuste.pontoId } });
+        if (!ponto) {
+            throw new common_1.NotFoundException('Ponto não encontrado');
+        }
         const ajusteAtualizado = await this.prisma.ajustePonto.update({
             where: { id },
             data: { status: dto.status },
         });
-        if (ajuste.motivo === prisma_1.MotivoAjuste.DUPLICADO) {
-            await this.prisma.ponto.update({
-                where: { id: ajuste.pontoId },
-                data: {
-                    ativo: false,
-                },
-            });
+        if (ajuste.status === prisma_1.StatusAjuste.PENDENTE) {
+            if (ajuste.motivo === prisma_1.MotivoAjuste.DUPLICADO) {
+                await this.prisma.ponto.update({
+                    where: { id: ajuste.pontoId },
+                    data: {
+                        ativo: false,
+                    },
+                });
+            }
+            else {
+                await this.prisma.ponto.update({
+                    where: { id: ajuste.pontoId },
+                    data: {
+                        dateTimestampAjustado: ajuste.dateTimestampAjustado,
+                    },
+                });
+            }
         }
         else {
-            await this.prisma.ponto.update({
-                where: { id: ajuste.pontoId },
-                data: {
-                    dateTimestamp: ajuste.dateTimestampAjustado,
-                },
-            });
+            if (ajuste.motivo === prisma_1.MotivoAjuste.DUPLICADO && dto.status === prisma_1.StatusAjuste.AJUSTADO) {
+                await this.prisma.ponto.update({
+                    where: { id: ajuste.pontoId },
+                    data: {
+                        ativo: false,
+                    },
+                });
+            }
+            else if (ajuste.motivo === prisma_1.MotivoAjuste.DUPLICADO && dto.status === prisma_1.StatusAjuste.RECUSADO) {
+                await this.prisma.ponto.update({
+                    where: { id: ajuste.pontoId },
+                    data: {
+                        ativo: true,
+                    },
+                });
+            }
+            else if (ajuste.motivo === prisma_1.MotivoAjuste.ERRO && dto.status === prisma_1.StatusAjuste.RECUSADO) {
+                await this.prisma.ponto.update({
+                    where: { id: ajuste.pontoId },
+                    data: {
+                        dateTimestampAjustado: ponto.dateTimestamp,
+                    },
+                });
+            }
+            else if (ajuste.motivo === prisma_1.MotivoAjuste.ERRO && dto.status === prisma_1.StatusAjuste.AJUSTADO) {
+                await this.prisma.ponto.update({
+                    where: { id: ajuste.pontoId },
+                    data: {
+                        dateTimestampAjustado: ajuste.dateTimestampAjustado,
+                    },
+                });
+            }
         }
         await this.prisma.gerenciamentoAjustePonto.create({
             data: {

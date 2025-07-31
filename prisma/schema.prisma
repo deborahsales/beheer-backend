@@ -138,8 +138,9 @@ model Comentario{
 model Ponto {
   id Int @id @default(autoincrement())
   dateTimestamp DateTime @default(now())
+  dateTimestampAjustado DateTime?
   ip String
-  imagem String  
+  imagem String
   latitude Float
   longitude Float
   ativo Boolean @default(true)
@@ -286,6 +287,7 @@ model AjustePonto {
 }
 
 model GerenciamentoAjustePonto {
+  id Int @id @default(autoincrement())
   dateTimestamp DateTime @default(now())
 
   ajustePontoId Int
@@ -294,10 +296,10 @@ model GerenciamentoAjustePonto {
   rhUsuarioId Int
   usuarioRh Usuario @relation("UsuarioGerenciamentoPonto", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
-  @@id([ajustePontoId, rhUsuarioId])
 }
 
 model GerenciamentoAtestado {
+  id Int @id @default(autoincrement())
   dateTimestamp DateTime @default(now())
 
   atestadoId Int
@@ -306,10 +308,10 @@ model GerenciamentoAtestado {
   rhUsuarioId Int
   usuarioRh Usuario @relation("UsuarioGerenciamentoAtestado", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
-  @@id([atestadoId, rhUsuarioId])
 }
 
 model GerenciamentoPrestacao {
+  id Int @id @default(autoincrement())
   dateTimestamp DateTime @default(now())
 
   prestacaoId Int
@@ -318,7 +320,6 @@ model GerenciamentoPrestacao {
   rhUsuarioId Int
   usuarioRh Usuario @relation("UsuarioGerenciamentoPrestacao", fields: [rhUsuarioId], references: [id], onDelete: Cascade)
 
-  @@id([prestacaoId, rhUsuarioId])
 }
 
 enum StatusAviso {

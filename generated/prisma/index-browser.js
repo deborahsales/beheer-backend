@@ -181,6 +181,7 @@ exports.Prisma.ComentarioScalarFieldEnum = {
 exports.Prisma.PontoScalarFieldEnum = {
   id: 'id',
   dateTimestamp: 'dateTimestamp',
+  dateTimestampAjustado: 'dateTimestampAjustado',
   ip: 'ip',
   imagem: 'imagem',
   latitude: 'latitude',
@@ -252,18 +253,21 @@ exports.Prisma.AjustePontoScalarFieldEnum = {
 };
 
 exports.Prisma.GerenciamentoAjustePontoScalarFieldEnum = {
+  id: 'id',
   dateTimestamp: 'dateTimestamp',
   ajustePontoId: 'ajustePontoId',
   rhUsuarioId: 'rhUsuarioId'
 };
 
 exports.Prisma.GerenciamentoAtestadoScalarFieldEnum = {
+  id: 'id',
   dateTimestamp: 'dateTimestamp',
   atestadoId: 'atestadoId',
   rhUsuarioId: 'rhUsuarioId'
 };
 
 exports.Prisma.GerenciamentoPrestacaoScalarFieldEnum = {
+  id: 'id',
   dateTimestamp: 'dateTimestamp',
   prestacaoId: 'prestacaoId',
   rhUsuarioId: 'rhUsuarioId'
