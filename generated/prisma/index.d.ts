@@ -10752,6 +10752,7 @@ export namespace Prisma {
   export type PontoMinAggregateOutputType = {
     id: number | null
     dateTimestamp: Date | null
+    dateTimestampAjustado: Date | null
     ip: string | null
     imagem: string | null
     latitude: number | null
@@ -10763,6 +10764,7 @@ export namespace Prisma {
   export type PontoMaxAggregateOutputType = {
     id: number | null
     dateTimestamp: Date | null
+    dateTimestampAjustado: Date | null
     ip: string | null
     imagem: string | null
     latitude: number | null
@@ -10774,6 +10776,7 @@ export namespace Prisma {
   export type PontoCountAggregateOutputType = {
     id: number
     dateTimestamp: number
+    dateTimestampAjustado: number
     ip: number
     imagem: number
     latitude: number
@@ -10801,6 +10804,7 @@ export namespace Prisma {
   export type PontoMinAggregateInputType = {
     id?: true
     dateTimestamp?: true
+    dateTimestampAjustado?: true
     ip?: true
     imagem?: true
     latitude?: true
@@ -10812,6 +10816,7 @@ export namespace Prisma {
   export type PontoMaxAggregateInputType = {
     id?: true
     dateTimestamp?: true
+    dateTimestampAjustado?: true
     ip?: true
     imagem?: true
     latitude?: true
@@ -10823,6 +10828,7 @@ export namespace Prisma {
   export type PontoCountAggregateInputType = {
     id?: true
     dateTimestamp?: true
+    dateTimestampAjustado?: true
     ip?: true
     imagem?: true
     latitude?: true
@@ -10921,6 +10927,7 @@ export namespace Prisma {
   export type PontoGroupByOutputType = {
     id: number
     dateTimestamp: Date
+    dateTimestampAjustado: Date | null
     ip: string
     imagem: string
     latitude: number
@@ -10951,6 +10958,7 @@ export namespace Prisma {
   export type PontoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     dateTimestamp?: boolean
+    dateTimestampAjustado?: boolean
     ip?: boolean
     imagem?: boolean
     latitude?: boolean
@@ -10964,6 +10972,7 @@ export namespace Prisma {
   export type PontoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     dateTimestamp?: boolean
+    dateTimestampAjustado?: boolean
     ip?: boolean
     imagem?: boolean
     latitude?: boolean
@@ -10976,6 +10985,7 @@ export namespace Prisma {
   export type PontoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     dateTimestamp?: boolean
+    dateTimestampAjustado?: boolean
     ip?: boolean
     imagem?: boolean
     latitude?: boolean
@@ -10988,6 +10998,7 @@ export namespace Prisma {
   export type PontoSelectScalar = {
     id?: boolean
     dateTimestamp?: boolean
+    dateTimestampAjustado?: boolean
     ip?: boolean
     imagem?: boolean
     latitude?: boolean
@@ -10996,7 +11007,7 @@ export namespace Prisma {
     usuarioId?: boolean
   }
 
-  export type PontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "ip" | "imagem" | "latitude" | "longitude" | "ativo" | "usuarioId", ExtArgs["result"]["ponto"]>
+  export type PontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "dateTimestampAjustado" | "ip" | "imagem" | "latitude" | "longitude" | "ativo" | "usuarioId", ExtArgs["result"]["ponto"]>
   export type PontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
     ajuste?: boolean | Ponto$ajusteArgs<ExtArgs>
@@ -11017,6 +11028,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       dateTimestamp: Date
+      dateTimestampAjustado: Date | null
       ip: string
       imagem: string
       latitude: number
@@ -11450,6 +11462,7 @@ export namespace Prisma {
   interface PontoFieldRefs {
     readonly id: FieldRef<"Ponto", 'Int'>
     readonly dateTimestamp: FieldRef<"Ponto", 'DateTime'>
+    readonly dateTimestampAjustado: FieldRef<"Ponto", 'DateTime'>
     readonly ip: FieldRef<"Ponto", 'String'>
     readonly imagem: FieldRef<"Ponto", 'String'>
     readonly latitude: FieldRef<"Ponto", 'Float'>
@@ -18821,28 +18834,33 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoAvgAggregateOutputType = {
+    id: number | null
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAjustePontoSumAggregateOutputType = {
+    id: number | null
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAjustePontoMinAggregateOutputType = {
+    id: number | null
     dateTimestamp: Date | null
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAjustePontoMaxAggregateOutputType = {
+    id: number | null
     dateTimestamp: Date | null
     ajustePontoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAjustePontoCountAggregateOutputType = {
+    id: number
     dateTimestamp: number
     ajustePontoId: number
     rhUsuarioId: number
@@ -18851,28 +18869,33 @@ export namespace Prisma {
 
 
   export type GerenciamentoAjustePontoAvgAggregateInputType = {
+    id?: true
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAjustePontoSumAggregateInputType = {
+    id?: true
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAjustePontoMinAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAjustePontoMaxAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     ajustePontoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAjustePontoCountAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     ajustePontoId?: true
     rhUsuarioId?: true
@@ -18966,6 +18989,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoGroupByOutputType = {
+    id: number
     dateTimestamp: Date
     ajustePontoId: number
     rhUsuarioId: number
@@ -18991,6 +19015,7 @@ export namespace Prisma {
 
 
   export type GerenciamentoAjustePontoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
@@ -18999,6 +19024,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
 
   export type GerenciamentoAjustePontoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
@@ -19007,6 +19033,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
 
   export type GerenciamentoAjustePontoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
@@ -19015,12 +19042,13 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoAjustePonto"]>
 
   export type GerenciamentoAjustePontoSelectScalar = {
+    id?: boolean
     dateTimestamp?: boolean
     ajustePontoId?: boolean
     rhUsuarioId?: boolean
   }
 
-  export type GerenciamentoAjustePontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"dateTimestamp" | "ajustePontoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoAjustePonto"]>
+  export type GerenciamentoAjustePontoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "ajustePontoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoAjustePonto"]>
   export type GerenciamentoAjustePontoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ajustePonto?: boolean | AjustePontoDefaultArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -19041,6 +19069,7 @@ export namespace Prisma {
       usuarioRh: Prisma.$UsuarioPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: number
       dateTimestamp: Date
       ajustePontoId: number
       rhUsuarioId: number
@@ -19127,8 +19156,8 @@ export namespace Prisma {
      * // Get first 10 GerenciamentoAjustePontos
      * const gerenciamentoAjustePontos = await prisma.gerenciamentoAjustePonto.findMany({ take: 10 })
      * 
-     * // Only select the `dateTimestamp`
-     * const gerenciamentoAjustePontoWithDateTimestampOnly = await prisma.gerenciamentoAjustePonto.findMany({ select: { dateTimestamp: true } })
+     * // Only select the `id`
+     * const gerenciamentoAjustePontoWithIdOnly = await prisma.gerenciamentoAjustePonto.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends GerenciamentoAjustePontoFindManyArgs>(args?: SelectSubset<T, GerenciamentoAjustePontoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAjustePontoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -19172,9 +19201,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many GerenciamentoAjustePontos and only return the `dateTimestamp`
-     * const gerenciamentoAjustePontoWithDateTimestampOnly = await prisma.gerenciamentoAjustePonto.createManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Create many GerenciamentoAjustePontos and only return the `id`
+     * const gerenciamentoAjustePontoWithIdOnly = await prisma.gerenciamentoAjustePonto.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -19263,9 +19292,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more GerenciamentoAjustePontos and only return the `dateTimestamp`
-     * const gerenciamentoAjustePontoWithDateTimestampOnly = await prisma.gerenciamentoAjustePonto.updateManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Update zero or more GerenciamentoAjustePontos and only return the `id`
+     * const gerenciamentoAjustePontoWithIdOnly = await prisma.gerenciamentoAjustePonto.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -19469,6 +19498,7 @@ export namespace Prisma {
    * Fields of the GerenciamentoAjustePonto model
    */
   interface GerenciamentoAjustePontoFieldRefs {
+    readonly id: FieldRef<"GerenciamentoAjustePonto", 'Int'>
     readonly dateTimestamp: FieldRef<"GerenciamentoAjustePonto", 'DateTime'>
     readonly ajustePontoId: FieldRef<"GerenciamentoAjustePonto", 'Int'>
     readonly rhUsuarioId: FieldRef<"GerenciamentoAjustePonto", 'Int'>
@@ -19899,28 +19929,33 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoAvgAggregateOutputType = {
+    id: number | null
     atestadoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAtestadoSumAggregateOutputType = {
+    id: number | null
     atestadoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAtestadoMinAggregateOutputType = {
+    id: number | null
     dateTimestamp: Date | null
     atestadoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAtestadoMaxAggregateOutputType = {
+    id: number | null
     dateTimestamp: Date | null
     atestadoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoAtestadoCountAggregateOutputType = {
+    id: number
     dateTimestamp: number
     atestadoId: number
     rhUsuarioId: number
@@ -19929,28 +19964,33 @@ export namespace Prisma {
 
 
   export type GerenciamentoAtestadoAvgAggregateInputType = {
+    id?: true
     atestadoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAtestadoSumAggregateInputType = {
+    id?: true
     atestadoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAtestadoMinAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     atestadoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAtestadoMaxAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     atestadoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoAtestadoCountAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     atestadoId?: true
     rhUsuarioId?: true
@@ -20044,6 +20084,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoGroupByOutputType = {
+    id: number
     dateTimestamp: Date
     atestadoId: number
     rhUsuarioId: number
@@ -20069,6 +20110,7 @@ export namespace Prisma {
 
 
   export type GerenciamentoAtestadoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     atestadoId?: boolean
     rhUsuarioId?: boolean
@@ -20077,6 +20119,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoAtestado"]>
 
   export type GerenciamentoAtestadoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     atestadoId?: boolean
     rhUsuarioId?: boolean
@@ -20085,6 +20128,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoAtestado"]>
 
   export type GerenciamentoAtestadoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     atestadoId?: boolean
     rhUsuarioId?: boolean
@@ -20093,12 +20137,13 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoAtestado"]>
 
   export type GerenciamentoAtestadoSelectScalar = {
+    id?: boolean
     dateTimestamp?: boolean
     atestadoId?: boolean
     rhUsuarioId?: boolean
   }
 
-  export type GerenciamentoAtestadoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"dateTimestamp" | "atestadoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoAtestado"]>
+  export type GerenciamentoAtestadoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "atestadoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoAtestado"]>
   export type GerenciamentoAtestadoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     atestado?: boolean | GerenciamentoAtestado$atestadoArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -20119,6 +20164,7 @@ export namespace Prisma {
       usuarioRh: Prisma.$UsuarioPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: number
       dateTimestamp: Date
       atestadoId: number
       rhUsuarioId: number
@@ -20205,8 +20251,8 @@ export namespace Prisma {
      * // Get first 10 GerenciamentoAtestados
      * const gerenciamentoAtestados = await prisma.gerenciamentoAtestado.findMany({ take: 10 })
      * 
-     * // Only select the `dateTimestamp`
-     * const gerenciamentoAtestadoWithDateTimestampOnly = await prisma.gerenciamentoAtestado.findMany({ select: { dateTimestamp: true } })
+     * // Only select the `id`
+     * const gerenciamentoAtestadoWithIdOnly = await prisma.gerenciamentoAtestado.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends GerenciamentoAtestadoFindManyArgs>(args?: SelectSubset<T, GerenciamentoAtestadoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoAtestadoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -20250,9 +20296,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many GerenciamentoAtestados and only return the `dateTimestamp`
-     * const gerenciamentoAtestadoWithDateTimestampOnly = await prisma.gerenciamentoAtestado.createManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Create many GerenciamentoAtestados and only return the `id`
+     * const gerenciamentoAtestadoWithIdOnly = await prisma.gerenciamentoAtestado.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -20341,9 +20387,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more GerenciamentoAtestados and only return the `dateTimestamp`
-     * const gerenciamentoAtestadoWithDateTimestampOnly = await prisma.gerenciamentoAtestado.updateManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Update zero or more GerenciamentoAtestados and only return the `id`
+     * const gerenciamentoAtestadoWithIdOnly = await prisma.gerenciamentoAtestado.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20547,6 +20593,7 @@ export namespace Prisma {
    * Fields of the GerenciamentoAtestado model
    */
   interface GerenciamentoAtestadoFieldRefs {
+    readonly id: FieldRef<"GerenciamentoAtestado", 'Int'>
     readonly dateTimestamp: FieldRef<"GerenciamentoAtestado", 'DateTime'>
     readonly atestadoId: FieldRef<"GerenciamentoAtestado", 'Int'>
     readonly rhUsuarioId: FieldRef<"GerenciamentoAtestado", 'Int'>
@@ -20996,28 +21043,33 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoAvgAggregateOutputType = {
+    id: number | null
     prestacaoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoPrestacaoSumAggregateOutputType = {
+    id: number | null
     prestacaoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoPrestacaoMinAggregateOutputType = {
+    id: number | null
     dateTimestamp: Date | null
     prestacaoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoPrestacaoMaxAggregateOutputType = {
+    id: number | null
     dateTimestamp: Date | null
     prestacaoId: number | null
     rhUsuarioId: number | null
   }
 
   export type GerenciamentoPrestacaoCountAggregateOutputType = {
+    id: number
     dateTimestamp: number
     prestacaoId: number
     rhUsuarioId: number
@@ -21026,28 +21078,33 @@ export namespace Prisma {
 
 
   export type GerenciamentoPrestacaoAvgAggregateInputType = {
+    id?: true
     prestacaoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoPrestacaoSumAggregateInputType = {
+    id?: true
     prestacaoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoPrestacaoMinAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     prestacaoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoPrestacaoMaxAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     prestacaoId?: true
     rhUsuarioId?: true
   }
 
   export type GerenciamentoPrestacaoCountAggregateInputType = {
+    id?: true
     dateTimestamp?: true
     prestacaoId?: true
     rhUsuarioId?: true
@@ -21141,6 +21198,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoGroupByOutputType = {
+    id: number
     dateTimestamp: Date
     prestacaoId: number
     rhUsuarioId: number
@@ -21166,6 +21224,7 @@ export namespace Prisma {
 
 
   export type GerenciamentoPrestacaoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     prestacaoId?: boolean
     rhUsuarioId?: boolean
@@ -21174,6 +21233,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoPrestacao"]>
 
   export type GerenciamentoPrestacaoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     prestacaoId?: boolean
     rhUsuarioId?: boolean
@@ -21182,6 +21242,7 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoPrestacao"]>
 
   export type GerenciamentoPrestacaoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     dateTimestamp?: boolean
     prestacaoId?: boolean
     rhUsuarioId?: boolean
@@ -21190,12 +21251,13 @@ export namespace Prisma {
   }, ExtArgs["result"]["gerenciamentoPrestacao"]>
 
   export type GerenciamentoPrestacaoSelectScalar = {
+    id?: boolean
     dateTimestamp?: boolean
     prestacaoId?: boolean
     rhUsuarioId?: boolean
   }
 
-  export type GerenciamentoPrestacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"dateTimestamp" | "prestacaoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoPrestacao"]>
+  export type GerenciamentoPrestacaoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "dateTimestamp" | "prestacaoId" | "rhUsuarioId", ExtArgs["result"]["gerenciamentoPrestacao"]>
   export type GerenciamentoPrestacaoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     prestacao?: boolean | GerenciamentoPrestacao$prestacaoArgs<ExtArgs>
     usuarioRh?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -21216,6 +21278,7 @@ export namespace Prisma {
       usuarioRh: Prisma.$UsuarioPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: number
       dateTimestamp: Date
       prestacaoId: number
       rhUsuarioId: number
@@ -21302,8 +21365,8 @@ export namespace Prisma {
      * // Get first 10 GerenciamentoPrestacaos
      * const gerenciamentoPrestacaos = await prisma.gerenciamentoPrestacao.findMany({ take: 10 })
      * 
-     * // Only select the `dateTimestamp`
-     * const gerenciamentoPrestacaoWithDateTimestampOnly = await prisma.gerenciamentoPrestacao.findMany({ select: { dateTimestamp: true } })
+     * // Only select the `id`
+     * const gerenciamentoPrestacaoWithIdOnly = await prisma.gerenciamentoPrestacao.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends GerenciamentoPrestacaoFindManyArgs>(args?: SelectSubset<T, GerenciamentoPrestacaoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GerenciamentoPrestacaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -21347,9 +21410,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many GerenciamentoPrestacaos and only return the `dateTimestamp`
-     * const gerenciamentoPrestacaoWithDateTimestampOnly = await prisma.gerenciamentoPrestacao.createManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Create many GerenciamentoPrestacaos and only return the `id`
+     * const gerenciamentoPrestacaoWithIdOnly = await prisma.gerenciamentoPrestacao.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -21438,9 +21501,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more GerenciamentoPrestacaos and only return the `dateTimestamp`
-     * const gerenciamentoPrestacaoWithDateTimestampOnly = await prisma.gerenciamentoPrestacao.updateManyAndReturn({
-     *   select: { dateTimestamp: true },
+     * // Update zero or more GerenciamentoPrestacaos and only return the `id`
+     * const gerenciamentoPrestacaoWithIdOnly = await prisma.gerenciamentoPrestacao.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21644,6 +21707,7 @@ export namespace Prisma {
    * Fields of the GerenciamentoPrestacao model
    */
   interface GerenciamentoPrestacaoFieldRefs {
+    readonly id: FieldRef<"GerenciamentoPrestacao", 'Int'>
     readonly dateTimestamp: FieldRef<"GerenciamentoPrestacao", 'DateTime'>
     readonly prestacaoId: FieldRef<"GerenciamentoPrestacao", 'Int'>
     readonly rhUsuarioId: FieldRef<"GerenciamentoPrestacao", 'Int'>
@@ -27524,6 +27588,7 @@ export namespace Prisma {
   export const PontoScalarFieldEnum: {
     id: 'id',
     dateTimestamp: 'dateTimestamp',
+    dateTimestampAjustado: 'dateTimestampAjustado',
     ip: 'ip',
     imagem: 'imagem',
     latitude: 'latitude',
@@ -27616,6 +27681,7 @@ export namespace Prisma {
 
 
   export const GerenciamentoAjustePontoScalarFieldEnum: {
+    id: 'id',
     dateTimestamp: 'dateTimestamp',
     ajustePontoId: 'ajustePontoId',
     rhUsuarioId: 'rhUsuarioId'
@@ -27625,6 +27691,7 @@ export namespace Prisma {
 
 
   export const GerenciamentoAtestadoScalarFieldEnum: {
+    id: 'id',
     dateTimestamp: 'dateTimestamp',
     atestadoId: 'atestadoId',
     rhUsuarioId: 'rhUsuarioId'
@@ -27634,6 +27701,7 @@ export namespace Prisma {
 
 
   export const GerenciamentoPrestacaoScalarFieldEnum: {
+    id: 'id',
     dateTimestamp: 'dateTimestamp',
     prestacaoId: 'prestacaoId',
     rhUsuarioId: 'rhUsuarioId'
@@ -28434,6 +28502,7 @@ export namespace Prisma {
     NOT?: PontoWhereInput | PontoWhereInput[]
     id?: IntFilter<"Ponto"> | number
     dateTimestamp?: DateTimeFilter<"Ponto"> | Date | string
+    dateTimestampAjustado?: DateTimeNullableFilter<"Ponto"> | Date | string | null
     ip?: StringFilter<"Ponto"> | string
     imagem?: StringFilter<"Ponto"> | string
     latitude?: FloatFilter<"Ponto"> | number
@@ -28447,6 +28516,7 @@ export namespace Prisma {
   export type PontoOrderByWithRelationInput = {
     id?: SortOrder
     dateTimestamp?: SortOrder
+    dateTimestampAjustado?: SortOrderInput | SortOrder
     ip?: SortOrder
     imagem?: SortOrder
     latitude?: SortOrder
@@ -28463,6 +28533,7 @@ export namespace Prisma {
     OR?: PontoWhereInput[]
     NOT?: PontoWhereInput | PontoWhereInput[]
     dateTimestamp?: DateTimeFilter<"Ponto"> | Date | string
+    dateTimestampAjustado?: DateTimeNullableFilter<"Ponto"> | Date | string | null
     ip?: StringFilter<"Ponto"> | string
     imagem?: StringFilter<"Ponto"> | string
     latitude?: FloatFilter<"Ponto"> | number
@@ -28476,6 +28547,7 @@ export namespace Prisma {
   export type PontoOrderByWithAggregationInput = {
     id?: SortOrder
     dateTimestamp?: SortOrder
+    dateTimestampAjustado?: SortOrderInput | SortOrder
     ip?: SortOrder
     imagem?: SortOrder
     latitude?: SortOrder
@@ -28495,6 +28567,7 @@ export namespace Prisma {
     NOT?: PontoScalarWhereWithAggregatesInput | PontoScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Ponto"> | number
     dateTimestamp?: DateTimeWithAggregatesFilter<"Ponto"> | Date | string
+    dateTimestampAjustado?: DateTimeNullableWithAggregatesFilter<"Ponto"> | Date | string | null
     ip?: StringWithAggregatesFilter<"Ponto"> | string
     imagem?: StringWithAggregatesFilter<"Ponto"> | string
     latitude?: FloatWithAggregatesFilter<"Ponto"> | number
@@ -28940,6 +29013,7 @@ export namespace Prisma {
     AND?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
     OR?: GerenciamentoAjustePontoWhereInput[]
     NOT?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
+    id?: IntFilter<"GerenciamentoAjustePonto"> | number
     dateTimestamp?: DateTimeFilter<"GerenciamentoAjustePonto"> | Date | string
     ajustePontoId?: IntFilter<"GerenciamentoAjustePonto"> | number
     rhUsuarioId?: IntFilter<"GerenciamentoAjustePonto"> | number
@@ -28948,6 +29022,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoOrderByWithRelationInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
@@ -28956,7 +29031,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoWhereUniqueInput = Prisma.AtLeast<{
-    ajustePontoId_rhUsuarioId?: GerenciamentoAjustePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput
+    id?: number
     AND?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
     OR?: GerenciamentoAjustePontoWhereInput[]
     NOT?: GerenciamentoAjustePontoWhereInput | GerenciamentoAjustePontoWhereInput[]
@@ -28965,9 +29040,10 @@ export namespace Prisma {
     rhUsuarioId?: IntFilter<"GerenciamentoAjustePonto"> | number
     ajustePonto?: XOR<AjustePontoScalarRelationFilter, AjustePontoWhereInput>
     usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-  }, "ajustePontoId_rhUsuarioId">
+  }, "id">
 
   export type GerenciamentoAjustePontoOrderByWithAggregationInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
@@ -28982,6 +29058,7 @@ export namespace Prisma {
     AND?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput | GerenciamentoAjustePontoScalarWhereWithAggregatesInput[]
     OR?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput[]
     NOT?: GerenciamentoAjustePontoScalarWhereWithAggregatesInput | GerenciamentoAjustePontoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"GerenciamentoAjustePonto"> | number
     dateTimestamp?: DateTimeWithAggregatesFilter<"GerenciamentoAjustePonto"> | Date | string
     ajustePontoId?: IntWithAggregatesFilter<"GerenciamentoAjustePonto"> | number
     rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoAjustePonto"> | number
@@ -28991,6 +29068,7 @@ export namespace Prisma {
     AND?: GerenciamentoAtestadoWhereInput | GerenciamentoAtestadoWhereInput[]
     OR?: GerenciamentoAtestadoWhereInput[]
     NOT?: GerenciamentoAtestadoWhereInput | GerenciamentoAtestadoWhereInput[]
+    id?: IntFilter<"GerenciamentoAtestado"> | number
     dateTimestamp?: DateTimeFilter<"GerenciamentoAtestado"> | Date | string
     atestadoId?: IntFilter<"GerenciamentoAtestado"> | number
     rhUsuarioId?: IntFilter<"GerenciamentoAtestado"> | number
@@ -28999,6 +29077,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoOrderByWithRelationInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
@@ -29007,7 +29086,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoWhereUniqueInput = Prisma.AtLeast<{
-    atestadoId_rhUsuarioId?: GerenciamentoAtestadoAtestadoIdRhUsuarioIdCompoundUniqueInput
+    id?: number
     AND?: GerenciamentoAtestadoWhereInput | GerenciamentoAtestadoWhereInput[]
     OR?: GerenciamentoAtestadoWhereInput[]
     NOT?: GerenciamentoAtestadoWhereInput | GerenciamentoAtestadoWhereInput[]
@@ -29016,9 +29095,10 @@ export namespace Prisma {
     rhUsuarioId?: IntFilter<"GerenciamentoAtestado"> | number
     atestado?: XOR<AtestadoNullableScalarRelationFilter, AtestadoWhereInput> | null
     usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-  }, "atestadoId_rhUsuarioId">
+  }, "id">
 
   export type GerenciamentoAtestadoOrderByWithAggregationInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
@@ -29033,6 +29113,7 @@ export namespace Prisma {
     AND?: GerenciamentoAtestadoScalarWhereWithAggregatesInput | GerenciamentoAtestadoScalarWhereWithAggregatesInput[]
     OR?: GerenciamentoAtestadoScalarWhereWithAggregatesInput[]
     NOT?: GerenciamentoAtestadoScalarWhereWithAggregatesInput | GerenciamentoAtestadoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"GerenciamentoAtestado"> | number
     dateTimestamp?: DateTimeWithAggregatesFilter<"GerenciamentoAtestado"> | Date | string
     atestadoId?: IntWithAggregatesFilter<"GerenciamentoAtestado"> | number
     rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoAtestado"> | number
@@ -29042,6 +29123,7 @@ export namespace Prisma {
     AND?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
     OR?: GerenciamentoPrestacaoWhereInput[]
     NOT?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
+    id?: IntFilter<"GerenciamentoPrestacao"> | number
     dateTimestamp?: DateTimeFilter<"GerenciamentoPrestacao"> | Date | string
     prestacaoId?: IntFilter<"GerenciamentoPrestacao"> | number
     rhUsuarioId?: IntFilter<"GerenciamentoPrestacao"> | number
@@ -29050,6 +29132,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoOrderByWithRelationInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
@@ -29058,7 +29141,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoWhereUniqueInput = Prisma.AtLeast<{
-    prestacaoId_rhUsuarioId?: GerenciamentoPrestacaoPrestacaoIdRhUsuarioIdCompoundUniqueInput
+    id?: number
     AND?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
     OR?: GerenciamentoPrestacaoWhereInput[]
     NOT?: GerenciamentoPrestacaoWhereInput | GerenciamentoPrestacaoWhereInput[]
@@ -29067,9 +29150,10 @@ export namespace Prisma {
     rhUsuarioId?: IntFilter<"GerenciamentoPrestacao"> | number
     prestacao?: XOR<PrestacaoContasNullableScalarRelationFilter, PrestacaoContasWhereInput> | null
     usuarioRh?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-  }, "prestacaoId_rhUsuarioId">
+  }, "id">
 
   export type GerenciamentoPrestacaoOrderByWithAggregationInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
@@ -29084,6 +29168,7 @@ export namespace Prisma {
     AND?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput | GerenciamentoPrestacaoScalarWhereWithAggregatesInput[]
     OR?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput[]
     NOT?: GerenciamentoPrestacaoScalarWhereWithAggregatesInput | GerenciamentoPrestacaoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"GerenciamentoPrestacao"> | number
     dateTimestamp?: DateTimeWithAggregatesFilter<"GerenciamentoPrestacao"> | Date | string
     prestacaoId?: IntWithAggregatesFilter<"GerenciamentoPrestacao"> | number
     rhUsuarioId?: IntWithAggregatesFilter<"GerenciamentoPrestacao"> | number
@@ -29813,6 +29898,7 @@ export namespace Prisma {
 
   export type PontoCreateInput = {
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -29825,6 +29911,7 @@ export namespace Prisma {
   export type PontoUncheckedCreateInput = {
     id?: number
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -29836,6 +29923,7 @@ export namespace Prisma {
 
   export type PontoUpdateInput = {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -29848,6 +29936,7 @@ export namespace Prisma {
   export type PontoUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -29860,6 +29949,7 @@ export namespace Prisma {
   export type PontoCreateManyInput = {
     id?: number
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -29870,6 +29960,7 @@ export namespace Prisma {
 
   export type PontoUpdateManyMutationInput = {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -29880,6 +29971,7 @@ export namespace Prisma {
   export type PontoUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -30323,6 +30415,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedCreateInput = {
+    id?: number
     dateTimestamp?: Date | string
     ajustePontoId: number
     rhUsuarioId: number
@@ -30335,12 +30428,14 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAjustePontoCreateManyInput = {
+    id?: number
     dateTimestamp?: Date | string
     ajustePontoId: number
     rhUsuarioId: number
@@ -30351,6 +30446,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
@@ -30363,6 +30459,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedCreateInput = {
+    id?: number
     dateTimestamp?: Date | string
     atestadoId: number
     rhUsuarioId: number
@@ -30375,12 +30472,14 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     atestadoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAtestadoCreateManyInput = {
+    id?: number
     dateTimestamp?: Date | string
     atestadoId: number
     rhUsuarioId: number
@@ -30391,6 +30490,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     atestadoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
@@ -30403,6 +30503,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedCreateInput = {
+    id?: number
     dateTimestamp?: Date | string
     prestacaoId: number
     rhUsuarioId: number
@@ -30415,12 +30516,14 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prestacaoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoPrestacaoCreateManyInput = {
+    id?: number
     dateTimestamp?: Date | string
     prestacaoId: number
     rhUsuarioId: number
@@ -30431,6 +30534,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prestacaoId?: IntFieldUpdateOperationsInput | number
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
@@ -31298,6 +31402,7 @@ export namespace Prisma {
   export type PontoCountOrderByAggregateInput = {
     id?: SortOrder
     dateTimestamp?: SortOrder
+    dateTimestampAjustado?: SortOrder
     ip?: SortOrder
     imagem?: SortOrder
     latitude?: SortOrder
@@ -31316,6 +31421,7 @@ export namespace Prisma {
   export type PontoMaxOrderByAggregateInput = {
     id?: SortOrder
     dateTimestamp?: SortOrder
+    dateTimestampAjustado?: SortOrder
     ip?: SortOrder
     imagem?: SortOrder
     latitude?: SortOrder
@@ -31327,6 +31433,7 @@ export namespace Prisma {
   export type PontoMinOrderByAggregateInput = {
     id?: SortOrder
     dateTimestamp?: SortOrder
+    dateTimestampAjustado?: SortOrder
     ip?: SortOrder
     imagem?: SortOrder
     latitude?: SortOrder
@@ -31806,35 +31913,35 @@ export namespace Prisma {
     isNot?: AjustePontoWhereInput
   }
 
-  export type GerenciamentoAjustePontoAjustePontoIdRhUsuarioIdCompoundUniqueInput = {
-    ajustePontoId: number
-    rhUsuarioId: number
-  }
-
   export type GerenciamentoAjustePontoCountOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAjustePontoAvgOrderByAggregateInput = {
+    id?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAjustePontoMaxOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAjustePontoMinOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAjustePontoSumOrderByAggregateInput = {
+    id?: SortOrder
     ajustePontoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
@@ -31844,35 +31951,35 @@ export namespace Prisma {
     isNot?: AtestadoWhereInput | null
   }
 
-  export type GerenciamentoAtestadoAtestadoIdRhUsuarioIdCompoundUniqueInput = {
-    atestadoId: number
-    rhUsuarioId: number
-  }
-
   export type GerenciamentoAtestadoCountOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAtestadoAvgOrderByAggregateInput = {
+    id?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAtestadoMaxOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAtestadoMinOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoAtestadoSumOrderByAggregateInput = {
+    id?: SortOrder
     atestadoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
@@ -31882,35 +31989,35 @@ export namespace Prisma {
     isNot?: PrestacaoContasWhereInput | null
   }
 
-  export type GerenciamentoPrestacaoPrestacaoIdRhUsuarioIdCompoundUniqueInput = {
-    prestacaoId: number
-    rhUsuarioId: number
-  }
-
   export type GerenciamentoPrestacaoCountOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoPrestacaoAvgOrderByAggregateInput = {
+    id?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoPrestacaoMaxOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoPrestacaoMinOrderByAggregateInput = {
+    id?: SortOrder
     dateTimestamp?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
 
   export type GerenciamentoPrestacaoSumOrderByAggregateInput = {
+    id?: SortOrder
     prestacaoId?: SortOrder
     rhUsuarioId?: SortOrder
   }
@@ -34482,6 +34589,7 @@ export namespace Prisma {
 
   export type PontoCreateWithoutUsuarioInput = {
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -34493,6 +34601,7 @@ export namespace Prisma {
   export type PontoUncheckedCreateWithoutUsuarioInput = {
     id?: number
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -34668,6 +34777,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedCreateWithoutUsuarioRhInput = {
+    id?: number
     dateTimestamp?: Date | string
     ajustePontoId: number
   }
@@ -34688,6 +34798,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedCreateWithoutUsuarioRhInput = {
+    id?: number
     dateTimestamp?: Date | string
     atestadoId: number
   }
@@ -34708,6 +34819,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedCreateWithoutUsuarioRhInput = {
+    id?: number
     dateTimestamp?: Date | string
     prestacaoId: number
   }
@@ -34933,6 +35045,7 @@ export namespace Prisma {
     NOT?: PontoScalarWhereInput | PontoScalarWhereInput[]
     id?: IntFilter<"Ponto"> | number
     dateTimestamp?: DateTimeFilter<"Ponto"> | Date | string
+    dateTimestampAjustado?: DateTimeNullableFilter<"Ponto"> | Date | string | null
     ip?: StringFilter<"Ponto"> | string
     imagem?: StringFilter<"Ponto"> | string
     latitude?: FloatFilter<"Ponto"> | number
@@ -35110,6 +35223,7 @@ export namespace Prisma {
     AND?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
     OR?: GerenciamentoAjustePontoScalarWhereInput[]
     NOT?: GerenciamentoAjustePontoScalarWhereInput | GerenciamentoAjustePontoScalarWhereInput[]
+    id?: IntFilter<"GerenciamentoAjustePonto"> | number
     dateTimestamp?: DateTimeFilter<"GerenciamentoAjustePonto"> | Date | string
     ajustePontoId?: IntFilter<"GerenciamentoAjustePonto"> | number
     rhUsuarioId?: IntFilter<"GerenciamentoAjustePonto"> | number
@@ -35135,6 +35249,7 @@ export namespace Prisma {
     AND?: GerenciamentoAtestadoScalarWhereInput | GerenciamentoAtestadoScalarWhereInput[]
     OR?: GerenciamentoAtestadoScalarWhereInput[]
     NOT?: GerenciamentoAtestadoScalarWhereInput | GerenciamentoAtestadoScalarWhereInput[]
+    id?: IntFilter<"GerenciamentoAtestado"> | number
     dateTimestamp?: DateTimeFilter<"GerenciamentoAtestado"> | Date | string
     atestadoId?: IntFilter<"GerenciamentoAtestado"> | number
     rhUsuarioId?: IntFilter<"GerenciamentoAtestado"> | number
@@ -35160,6 +35275,7 @@ export namespace Prisma {
     AND?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
     OR?: GerenciamentoPrestacaoScalarWhereInput[]
     NOT?: GerenciamentoPrestacaoScalarWhereInput | GerenciamentoPrestacaoScalarWhereInput[]
+    id?: IntFilter<"GerenciamentoPrestacao"> | number
     dateTimestamp?: DateTimeFilter<"GerenciamentoPrestacao"> | Date | string
     prestacaoId?: IntFilter<"GerenciamentoPrestacao"> | number
     rhUsuarioId?: IntFilter<"GerenciamentoPrestacao"> | number
@@ -36505,6 +36621,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedCreateWithoutPrestacaoInput = {
+    id?: number
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
@@ -36679,6 +36796,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedCreateWithoutAtestadoInput = {
+    id?: number
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
@@ -37324,6 +37442,7 @@ export namespace Prisma {
 
   export type PontoCreateWithoutAjusteInput = {
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -37335,6 +37454,7 @@ export namespace Prisma {
   export type PontoUncheckedCreateWithoutAjusteInput = {
     id?: number
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -37354,6 +37474,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedCreateWithoutAjustePontoInput = {
+    id?: number
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
@@ -37453,6 +37574,7 @@ export namespace Prisma {
 
   export type PontoUpdateWithoutAjusteInput = {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -37464,6 +37586,7 @@ export namespace Prisma {
   export type PontoUncheckedUpdateWithoutAjusteInput = {
     id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -38988,6 +39111,7 @@ export namespace Prisma {
   export type PontoCreateManyUsuarioInput = {
     id?: number
     dateTimestamp?: Date | string
+    dateTimestampAjustado?: Date | string | null
     ip: string
     imagem: string
     latitude: number
@@ -39045,16 +39169,19 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoCreateManyUsuarioRhInput = {
+    id?: number
     dateTimestamp?: Date | string
     ajustePontoId: number
   }
 
   export type GerenciamentoAtestadoCreateManyUsuarioRhInput = {
+    id?: number
     dateTimestamp?: Date | string
     atestadoId: number
   }
 
   export type GerenciamentoPrestacaoCreateManyUsuarioRhInput = {
+    id?: number
     dateTimestamp?: Date | string
     prestacaoId: number
   }
@@ -39184,6 +39311,7 @@ export namespace Prisma {
 
   export type PontoUpdateWithoutUsuarioInput = {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -39195,6 +39323,7 @@ export namespace Prisma {
   export type PontoUncheckedUpdateWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -39206,6 +39335,7 @@ export namespace Prisma {
   export type PontoUncheckedUpdateManyWithoutUsuarioInput = {
     id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    dateTimestampAjustado?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ip?: StringFieldUpdateOperationsInput | string
     imagem?: StringFieldUpdateOperationsInput | string
     latitude?: FloatFieldUpdateOperationsInput | number
@@ -39369,11 +39499,13 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedUpdateWithoutUsuarioRhInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAjustePontoUncheckedUpdateManyWithoutUsuarioRhInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     ajustePontoId?: IntFieldUpdateOperationsInput | number
   }
@@ -39384,11 +39516,13 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedUpdateWithoutUsuarioRhInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     atestadoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAtestadoUncheckedUpdateManyWithoutUsuarioRhInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     atestadoId?: IntFieldUpdateOperationsInput | number
   }
@@ -39399,11 +39533,13 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedUpdateWithoutUsuarioRhInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prestacaoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoPrestacaoUncheckedUpdateManyWithoutUsuarioRhInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     prestacaoId?: IntFieldUpdateOperationsInput | number
   }
@@ -39647,6 +39783,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoCreateManyPrestacaoInput = {
+    id?: number
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
@@ -39657,16 +39794,19 @@ export namespace Prisma {
   }
 
   export type GerenciamentoPrestacaoUncheckedUpdateWithoutPrestacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoPrestacaoUncheckedUpdateManyWithoutPrestacaoInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAtestadoCreateManyAtestadoInput = {
+    id?: number
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
@@ -39677,11 +39817,13 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAtestadoUncheckedUpdateWithoutAtestadoInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAtestadoUncheckedUpdateManyWithoutAtestadoInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -39726,6 +39868,7 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoCreateManyAjustePontoInput = {
+    id?: number
     dateTimestamp?: Date | string
     rhUsuarioId: number
   }
@@ -39736,11 +39879,13 @@ export namespace Prisma {
   }
 
   export type GerenciamentoAjustePontoUncheckedUpdateWithoutAjustePontoInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoAjustePontoUncheckedUpdateManyWithoutAjustePontoInput = {
+    id?: IntFieldUpdateOperationsInput | number
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     rhUsuarioId?: IntFieldUpdateOperationsInput | number
   }

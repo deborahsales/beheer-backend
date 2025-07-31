@@ -17,10 +17,13 @@ exports.storage = new multer_storage_cloudinary_1.CloudinaryStorage({
         else if (url.includes('ponto')) {
             folder = 'pontos';
         }
+        const timestamp = Date.now();
+        const isPdf = file.originalname.toLowerCase().endsWith('.pdf');
         return {
             folder,
-            allowed_formats: ['jpg', 'jpeg', 'png'],
-            public_id: `${Date.now()}-${file.originalname}`,
+            allowed_formats: ['jpg', 'jpeg', 'png', 'pdf'],
+            public_id: `${timestamp}-${file.originalname}`,
+            resource_type: isPdf ? 'raw' : 'image',
         };
     },
 });

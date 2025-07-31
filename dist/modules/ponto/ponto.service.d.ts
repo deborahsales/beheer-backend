@@ -9,6 +9,7 @@ export declare class PontoService {
             nome: string;
         };
     } & {
+        dateTimestampAjustado: Date | null;
         id: number;
         dateTimestamp: Date;
         ip: string;
@@ -21,6 +22,7 @@ export declare class PontoService {
     findAll(funcaoUsuario: string, usuarioId: number): Promise<any>;
     findOne(id: number, funcaoUsuario: string, usuarioId: number): Promise<any>;
     update(dto: UpdatePontoDto, id: number): Promise<{
+        dateTimestampAjustado: Date | null;
         id: number;
         dateTimestamp: Date;
         ip: string;
@@ -31,6 +33,7 @@ export declare class PontoService {
         usuarioId: number;
     }>;
     remove(id: number): Promise<{
+        dateTimestampAjustado: Date | null;
         id: number;
         dateTimestamp: Date;
         ip: string;
