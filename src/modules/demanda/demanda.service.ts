@@ -1,5 +1,6 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { FuncaoUsuario } from 'generated/prisma';
+import { toDateOnly } from 'src/common/utils/to-date-only';
 import { PrismaService } from '../prisma/prisma.service';
 import { userSelect } from '../usuario/types/user-select.type';
 import { CreateDemandaDto } from './dto/create-demanda.dto';
@@ -11,6 +12,24 @@ export class DemandaService {
 	constructor(private prisma: PrismaService) {}
 
 	async create(dto: CreateDemandaDto, gestorId: number) {
+		if (dto.cronogramaId) {
+			const cronograma = await this.prisma.cronograma.findUnique({
+				where: { id: dto.cronogramaId },
+			});
+
+			if (!cronograma) throw new NotFoundException('Conograma não encontrado!');
+
+			if (dto.prazo) {
+				const dataInicio = toDateOnly(new Date(cronograma.dataInicio));
+				const dataTermino = toDateOnly(new Date(cronograma.dataTermino));
+				const prazo = toDateOnly(new Date(dto.prazo));
+
+				if (prazo < dataInicio || prazo > dataTermino) {
+					throw new ForbiddenException('O prazo da demanda não é compatível com o cronograma');
+				}
+			}
+		}
+
 		const usuarios = dto.usuariosDemanda?.length
 			? await this.prisma.usuario.findMany({
 					where: {
@@ -51,6 +70,22 @@ export class DemandaService {
 		});
 	}
 
+	async atualizarDemandasAtrasadasPorFiltro(whereFilter: any) {
+		const hoje = new Date();
+		hoje.setHours(0, 0, 0, 0);
+
+		await this.prisma.demanda.updateMany({
+			where: {
+				AND: [
+					whereFilter,
+					{ prazo: { lt: hoje.toISOString() } },
+					{ status: { notIn: ['ATRASADA', 'FINALIZADA'] } },
+				],
+			},
+			data: { status: 'ATRASADA' },
+		});
+	}
+
 	async findAll(usuarioId: number, filters: FilterDemandasDto) {
 		const gruposUsuario = await this.prisma.grupo.findMany({
 			where: {
@@ -73,30 +108,20 @@ export class DemandaService {
 
 		const { status, prioridade } = filters;
 
+		const filtroWhere = {
+			OR: [
+				{ gestorUsuarioId: usuarioId },
+				{ usuariosDemanda: { some: { usuarioId: usuarioId } } },
+				{ gruposDemanda: { some: { grupoId: { in: grupoIds } } } },
+			],
+			...(status ? { status: status } : {}),
+			...(prioridade ? { prioridade: prioridade } : {}),
+		};
+
+		await this.atualizarDemandasAtrasadasPorFiltro(filtroWhere);
+
 		return this.prisma.demanda.findMany({
-			where: {
-				OR: [
-					{
-						gestorUsuarioId: usuarioId,
-					},
-					{
-						usuariosDemanda: {
-							some: { usuarioId: usuarioId },
-						},
-					},
-					{
-						gruposDemanda: {
-							some: {
-								grupoId: {
-									in: grupoIds,
-								},
-							},
-						},
-					},
-				],
-				status: status ? { equals: status } : undefined,
-				prioridade: prioridade ? { equals: prioridade } : undefined,
-			},
+			where: filtroWhere,
 			include: {
 				usuariosDemanda: true,
 				gruposDemanda: true,
@@ -107,36 +132,32 @@ export class DemandaService {
 	async findAllByGroup(groupId: number, filters: FilterDemandasDto) {
 		const { status, prioridade } = filters;
 
+		const filtroWhere = {
+			OR: [{ gruposDemanda: { some: { grupoId: groupId } } }],
+			...(status ? { status: status } : {}),
+			...(prioridade ? { prioridade: prioridade } : {}),
+		};
+
+		await this.atualizarDemandasAtrasadasPorFiltro(filtroWhere);
+
 		return this.prisma.demanda.findMany({
-			where: {
-				OR: [
-					{
-						gruposDemanda: {
-							some: {
-								grupoId: groupId,
-							},
-						},
-					},
-				],
-				status: status ? { equals: status } : undefined,
-				prioridade: prioridade ? { equals: prioridade } : undefined,
-			},
+			where: filtroWhere,
 		});
 	}
 
 	async findAllByTimeline(timelineId: number, filters: FilterDemandasDto) {
 		const { status, prioridade } = filters;
 
+		const filtroWhere = {
+			OR: [{ cronogramaId: timelineId }],
+			...(status ? { status: status } : {}),
+			...(prioridade ? { prioridade: prioridade } : {}),
+		};
+
+		await this.atualizarDemandasAtrasadasPorFiltro(filtroWhere);
+
 		return this.prisma.demanda.findMany({
-			where: {
-				OR: [
-					{
-						cronogramaId: timelineId,
-					},
-				],
-				status: status ? { equals: status } : undefined,
-				prioridade: prioridade ? { equals: prioridade } : undefined,
-			},
+			where: filtroWhere,
 		});
 	}
 
@@ -153,6 +174,7 @@ export class DemandaService {
 				gruposDemanda: { include: { grupo: { select: { nome: true } } } },
 				comentariosDemanda: true,
 				gestor: { select: { nome: true } },
+				cronograma: true,
 			},
 		});
 
@@ -174,6 +196,24 @@ export class DemandaService {
 
 	async update(id: number, dto: UpdateDemandaDto, gestorId: number) {
 		await this.findOne(id, gestorId);
+
+		if (dto.cronogramaId) {
+			const cronograma = await this.prisma.cronograma.findUnique({
+				where: { id: dto.cronogramaId },
+			});
+
+			if (!cronograma) throw new NotFoundException('Conograma não encontrado!');
+
+			if (dto.prazo) {
+				const dataInicio = toDateOnly(new Date(cronograma.dataInicio));
+				const dataTermino = toDateOnly(new Date(cronograma.dataTermino));
+				const prazo = toDateOnly(new Date(dto.prazo));
+
+				if (prazo < dataInicio || prazo > dataTermino) {
+					throw new ForbiddenException('O prazo da demanda não é compatível com o cronograma');
+				}
+			}
+		}
 
 		await this.prisma.demanda.update({
 			where: { id: id },

@@ -19,8 +19,8 @@ export declare class DemandaController {
     }>;
     findAll(filterDemandasDto: FilterDemandasDto, req: RequestWithUser): Promise<({
         gruposDemanda: {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         }[];
         usuariosDemanda: {
             usuarioId: number;
@@ -39,8 +39,8 @@ export declare class DemandaController {
     })[]>;
     findAllByUser(filterDemandasDto: FilterDemandasDto, userId: number): Promise<({
         gruposDemanda: {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         }[];
         usuariosDemanda: {
             usuarioId: number;
@@ -80,6 +80,15 @@ export declare class DemandaController {
         gestorUsuarioId: number;
     }[]>;
     findOne(id: number): Promise<{
+        cronograma: {
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            gestorUsuarioId: number;
+            dataInicio: Date;
+            dataTermino: Date;
+        } | null;
         gestor: {
             nome: string;
         };
@@ -96,8 +105,8 @@ export declare class DemandaController {
                 nome: string;
             };
         } & {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         })[];
         usuariosDemanda: ({
             usuario: {
@@ -119,6 +128,15 @@ export declare class DemandaController {
         gestorUsuarioId: number;
     }>;
     update(id: number, updateDemandaDto: UpdateDemandaDto, req: RequestWithUser): Promise<{
+        cronograma: {
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            gestorUsuarioId: number;
+            dataInicio: Date;
+            dataTermino: Date;
+        } | null;
         gestor: {
             nome: string;
         };
@@ -135,8 +153,8 @@ export declare class DemandaController {
                 nome: string;
             };
         } & {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         })[];
         usuariosDemanda: ({
             usuario: {

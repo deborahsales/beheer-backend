@@ -90,7 +90,9 @@ model Demanda {
 model Cronograma {
   id            Int      @id @default(autoincrement())
   titulo        String
-  descricao     String?
+  descricao     String
+  dataInicio    DateTime
+  dataTermino   DateTime
   dateTimestamp DateTime @default(now())
 
   gestorUsuarioId Int
@@ -109,6 +111,7 @@ model Aviso {
   gestor            Usuario @relation("GestorRHAviso", fields: [gestorRhUsuarioId], references: [id], onDelete: Cascade)
 
   avisoUsuario AvisoUsuario[] @relation("AvisoUsuario")
+  gruposAviso  GruposAviso[]  @relation("GruposAviso")
 }
 
 model Grupo {
@@ -116,9 +119,10 @@ model Grupo {
   nome      String
   descricao String
 
-  usuarios UsuarioGrupo[] @relation("UsuariosGrupo")
-  gestores GrupoGestor[]  @relation("GestoresGrupo")
-  demandas DemandaGrupo[] @relation("DemandasGrupo")
+  usuarios    UsuarioGrupo[] @relation("UsuariosGrupo")
+  gestores    GrupoGestor[]  @relation("GestoresGrupo")
+  demandas    DemandaGrupo[] @relation("DemandasGrupo")
+  avisosGrupo GruposAviso[]  @relation("AvisosGrupo")
 }
 
 model Comentario {
@@ -334,6 +338,16 @@ model AvisoUsuario {
   aviso   Aviso @relation("AvisoUsuario", fields: [avisoId], references: [id], onDelete: Cascade)
 
   @@id([usuarioId, avisoId])
+}
+
+model GruposAviso {
+  grupoId Int
+  grupo   Grupo @relation("AvisosGrupo", fields: [grupoId], references: [id], onDelete: Cascade)
+
+  avisoId Int
+  aviso   Aviso @relation("GruposAviso", fields: [avisoId], references: [id], onDelete: Cascade)
+
+  @@id([grupoId, avisoId])
 }
 
 model UsuarioGrupo {

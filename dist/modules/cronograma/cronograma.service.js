@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CronogramaService = void 0;
 const common_1 = require("@nestjs/common");
+const to_date_only_1 = require("../../common/utils/to-date-only");
 const prisma_service_1 = require("../prisma/prisma.service");
 let CronogramaService = class CronogramaService {
     prisma;
@@ -18,6 +19,10 @@ let CronogramaService = class CronogramaService {
         this.prisma = prisma;
     }
     async create(dto, gestorId) {
+        const dataInicio = (0, to_date_only_1.toDateOnly)(new Date(dto.dataInicio));
+        const dataTermino = (0, to_date_only_1.toDateOnly)(new Date(dto.dataTermino));
+        if (dataTermino < dataInicio)
+            throw new common_1.ForbiddenException('A data de término deve acontecer após a data de início!');
         const demandas = dto.demandasCronograma?.length
             ? await this.prisma.demanda.findMany({
                 where: {

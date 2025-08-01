@@ -1,4 +1,5 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { toDateOnly } from 'src/common/utils/to-date-only';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCronogramaDto } from './dto/create-cronograma.dto';
 import { UpdateCronogramaDto } from './dto/update-cronograma.dto';
@@ -8,6 +9,12 @@ export class CronogramaService {
 	constructor(private prisma: PrismaService) {}
 
 	async create(dto: CreateCronogramaDto, gestorId: number) {
+		const dataInicio = toDateOnly(new Date(dto.dataInicio));
+		const dataTermino = toDateOnly(new Date(dto.dataTermino));
+
+		if (dataTermino < dataInicio)
+			throw new ForbiddenException('A data de término deve acontecer após a data de início!');
+
 		const demandas = dto.demandasCronograma?.length
 			? await this.prisma.demanda.findMany({
 					where: {

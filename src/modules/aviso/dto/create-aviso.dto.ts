@@ -15,4 +15,10 @@ export class CreateAvisoDto {
 	@IsInt({ each: true })
 	@IsOptional()
 	avisoUsuario?: number[];
+
+	@ApiPropertyOptional({ type: [Number], example: [2, 3] })
+	@IsArray()
+	@IsInt({ each: true })
+	@IsOptional()
+	gruposAviso?: number[];
 }

@@ -6,9 +6,17 @@ export class CreateCronogramaDto {
 	@IsString()
 	titulo: string;
 
-	@ApiPropertyOptional({ type: String, example: 'Descricao do cronograma' })
+	@ApiProperty({ type: String, example: 'Descricao do cronograma' })
 	@IsString()
 	descricao: string;
+
+	@ApiPropertyOptional({ type: String, format: 'date-time' })
+	@IsString()
+	dataInicio: string;
+
+	@ApiPropertyOptional({ type: String, format: 'date-time' })
+	@IsString()
+	dataTermino: string;
 
 	@ApiPropertyOptional({ type: [Number], example: [2, 3] })
 	@IsArray()

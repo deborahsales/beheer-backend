@@ -99,6 +99,11 @@ export type GerenciamentoPrestacao = $Result.DefaultSelection<Prisma.$Gerenciame
  */
 export type AvisoUsuario = $Result.DefaultSelection<Prisma.$AvisoUsuarioPayload>
 /**
+ * Model GruposAviso
+ * 
+ */
+export type GruposAviso = $Result.DefaultSelection<Prisma.$GruposAvisoPayload>
+/**
  * Model UsuarioGrupo
  * 
  */
@@ -574,6 +579,16 @@ export class PrismaClient<
     * ```
     */
   get avisoUsuario(): Prisma.AvisoUsuarioDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.gruposAviso`: Exposes CRUD operations for the **GruposAviso** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GruposAvisos
+    * const gruposAvisos = await prisma.gruposAviso.findMany()
+    * ```
+    */
+  get gruposAviso(): Prisma.GruposAvisoDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.usuarioGrupo`: Exposes CRUD operations for the **UsuarioGrupo** model.
@@ -1071,6 +1086,7 @@ export namespace Prisma {
     GerenciamentoAtestado: 'GerenciamentoAtestado',
     GerenciamentoPrestacao: 'GerenciamentoPrestacao',
     AvisoUsuario: 'AvisoUsuario',
+    GruposAviso: 'GruposAviso',
     UsuarioGrupo: 'UsuarioGrupo',
     GrupoGestor: 'GrupoGestor',
     DemandaGrupo: 'DemandaGrupo',
@@ -1093,7 +1109,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjustePonto" | "gerenciamentoAtestado" | "gerenciamentoPrestacao" | "avisoUsuario" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
+      modelProps: "usuario" | "demanda" | "cronograma" | "aviso" | "grupo" | "comentario" | "ponto" | "prestacaoContas" | "atestado" | "assinatura" | "certificadoDigital" | "documento" | "ajustePonto" | "gerenciamentoAjustePonto" | "gerenciamentoAtestado" | "gerenciamentoPrestacao" | "avisoUsuario" | "gruposAviso" | "usuarioGrupo" | "grupoGestor" | "demandaGrupo" | "demandaUsuario"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2355,6 +2371,80 @@ export namespace Prisma {
           }
         }
       }
+      GruposAviso: {
+        payload: Prisma.$GruposAvisoPayload<ExtArgs>
+        fields: Prisma.GruposAvisoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GruposAvisoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GruposAvisoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>
+          }
+          findFirst: {
+            args: Prisma.GruposAvisoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GruposAvisoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>
+          }
+          findMany: {
+            args: Prisma.GruposAvisoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>[]
+          }
+          create: {
+            args: Prisma.GruposAvisoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>
+          }
+          createMany: {
+            args: Prisma.GruposAvisoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.GruposAvisoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>[]
+          }
+          delete: {
+            args: Prisma.GruposAvisoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>
+          }
+          update: {
+            args: Prisma.GruposAvisoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>
+          }
+          deleteMany: {
+            args: Prisma.GruposAvisoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GruposAvisoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.GruposAvisoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>[]
+          }
+          upsert: {
+            args: Prisma.GruposAvisoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GruposAvisoPayload>
+          }
+          aggregate: {
+            args: Prisma.GruposAvisoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGruposAviso>
+          }
+          groupBy: {
+            args: Prisma.GruposAvisoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GruposAvisoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.GruposAvisoCountArgs<ExtArgs>
+            result: $Utils.Optional<GruposAvisoCountAggregateOutputType> | number
+          }
+        }
+      }
       UsuarioGrupo: {
         payload: Prisma.$UsuarioGrupoPayload<ExtArgs>
         fields: Prisma.UsuarioGrupoFieldRefs
@@ -2752,6 +2842,7 @@ export namespace Prisma {
     gerenciamentoAtestado?: GerenciamentoAtestadoOmit
     gerenciamentoPrestacao?: GerenciamentoPrestacaoOmit
     avisoUsuario?: AvisoUsuarioOmit
+    gruposAviso?: GruposAvisoOmit
     usuarioGrupo?: UsuarioGrupoOmit
     grupoGestor?: GrupoGestorOmit
     demandaGrupo?: DemandaGrupoOmit
@@ -3106,10 +3197,12 @@ export namespace Prisma {
 
   export type AvisoCountOutputType = {
     avisoUsuario: number
+    gruposAviso: number
   }
 
   export type AvisoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     avisoUsuario?: boolean | AvisoCountOutputTypeCountAvisoUsuarioArgs
+    gruposAviso?: boolean | AvisoCountOutputTypeCountGruposAvisoArgs
   }
 
   // Custom InputTypes
@@ -3130,6 +3223,13 @@ export namespace Prisma {
     where?: AvisoUsuarioWhereInput
   }
 
+  /**
+   * AvisoCountOutputType without action
+   */
+  export type AvisoCountOutputTypeCountGruposAvisoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GruposAvisoWhereInput
+  }
+
 
   /**
    * Count Type GrupoCountOutputType
@@ -3139,12 +3239,14 @@ export namespace Prisma {
     usuarios: number
     gestores: number
     demandas: number
+    avisosGrupo: number
   }
 
   export type GrupoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     usuarios?: boolean | GrupoCountOutputTypeCountUsuariosArgs
     gestores?: boolean | GrupoCountOutputTypeCountGestoresArgs
     demandas?: boolean | GrupoCountOutputTypeCountDemandasArgs
+    avisosGrupo?: boolean | GrupoCountOutputTypeCountAvisosGrupoArgs
   }
 
   // Custom InputTypes
@@ -3177,6 +3279,13 @@ export namespace Prisma {
    */
   export type GrupoCountOutputTypeCountDemandasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DemandaGrupoWhereInput
+  }
+
+  /**
+   * GrupoCountOutputType without action
+   */
+  export type GrupoCountOutputTypeCountAvisosGrupoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GruposAvisoWhereInput
   }
 
 
@@ -6242,6 +6351,8 @@ export namespace Prisma {
     id: number | null
     titulo: string | null
     descricao: string | null
+    dataInicio: Date | null
+    dataTermino: Date | null
     dateTimestamp: Date | null
     gestorUsuarioId: number | null
   }
@@ -6250,6 +6361,8 @@ export namespace Prisma {
     id: number | null
     titulo: string | null
     descricao: string | null
+    dataInicio: Date | null
+    dataTermino: Date | null
     dateTimestamp: Date | null
     gestorUsuarioId: number | null
   }
@@ -6258,6 +6371,8 @@ export namespace Prisma {
     id: number
     titulo: number
     descricao: number
+    dataInicio: number
+    dataTermino: number
     dateTimestamp: number
     gestorUsuarioId: number
     _all: number
@@ -6278,6 +6393,8 @@ export namespace Prisma {
     id?: true
     titulo?: true
     descricao?: true
+    dataInicio?: true
+    dataTermino?: true
     dateTimestamp?: true
     gestorUsuarioId?: true
   }
@@ -6286,6 +6403,8 @@ export namespace Prisma {
     id?: true
     titulo?: true
     descricao?: true
+    dataInicio?: true
+    dataTermino?: true
     dateTimestamp?: true
     gestorUsuarioId?: true
   }
@@ -6294,6 +6413,8 @@ export namespace Prisma {
     id?: true
     titulo?: true
     descricao?: true
+    dataInicio?: true
+    dataTermino?: true
     dateTimestamp?: true
     gestorUsuarioId?: true
     _all?: true
@@ -6388,7 +6509,9 @@ export namespace Prisma {
   export type CronogramaGroupByOutputType = {
     id: number
     titulo: string
-    descricao: string | null
+    descricao: string
+    dataInicio: Date
+    dataTermino: Date
     dateTimestamp: Date
     gestorUsuarioId: number
     _count: CronogramaCountAggregateOutputType | null
@@ -6416,6 +6539,8 @@ export namespace Prisma {
     id?: boolean
     titulo?: boolean
     descricao?: boolean
+    dataInicio?: boolean
+    dataTermino?: boolean
     dateTimestamp?: boolean
     gestorUsuarioId?: boolean
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -6427,6 +6552,8 @@ export namespace Prisma {
     id?: boolean
     titulo?: boolean
     descricao?: boolean
+    dataInicio?: boolean
+    dataTermino?: boolean
     dateTimestamp?: boolean
     gestorUsuarioId?: boolean
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -6436,6 +6563,8 @@ export namespace Prisma {
     id?: boolean
     titulo?: boolean
     descricao?: boolean
+    dataInicio?: boolean
+    dataTermino?: boolean
     dateTimestamp?: boolean
     gestorUsuarioId?: boolean
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -6445,11 +6574,13 @@ export namespace Prisma {
     id?: boolean
     titulo?: boolean
     descricao?: boolean
+    dataInicio?: boolean
+    dataTermino?: boolean
     dateTimestamp?: boolean
     gestorUsuarioId?: boolean
   }
 
-  export type CronogramaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "descricao" | "dateTimestamp" | "gestorUsuarioId", ExtArgs["result"]["cronograma"]>
+  export type CronogramaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "titulo" | "descricao" | "dataInicio" | "dataTermino" | "dateTimestamp" | "gestorUsuarioId", ExtArgs["result"]["cronograma"]>
   export type CronogramaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
     demandasCronograma?: boolean | Cronograma$demandasCronogramaArgs<ExtArgs>
@@ -6471,7 +6602,9 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       titulo: string
-      descricao: string | null
+      descricao: string
+      dataInicio: Date
+      dataTermino: Date
       dateTimestamp: Date
       gestorUsuarioId: number
     }, ExtArgs["result"]["cronograma"]>
@@ -6902,6 +7035,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Cronograma", 'Int'>
     readonly titulo: FieldRef<"Cronograma", 'String'>
     readonly descricao: FieldRef<"Cronograma", 'String'>
+    readonly dataInicio: FieldRef<"Cronograma", 'DateTime'>
+    readonly dataTermino: FieldRef<"Cronograma", 'DateTime'>
     readonly dateTimestamp: FieldRef<"Cronograma", 'DateTime'>
     readonly gestorUsuarioId: FieldRef<"Cronograma", 'Int'>
   }
@@ -7546,6 +7681,7 @@ export namespace Prisma {
     gestorRhUsuarioId?: boolean
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
     avisoUsuario?: boolean | Aviso$avisoUsuarioArgs<ExtArgs>
+    gruposAviso?: boolean | Aviso$gruposAvisoArgs<ExtArgs>
     _count?: boolean | AvisoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["aviso"]>
 
@@ -7579,6 +7715,7 @@ export namespace Prisma {
   export type AvisoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     gestor?: boolean | UsuarioDefaultArgs<ExtArgs>
     avisoUsuario?: boolean | Aviso$avisoUsuarioArgs<ExtArgs>
+    gruposAviso?: boolean | Aviso$gruposAvisoArgs<ExtArgs>
     _count?: boolean | AvisoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AvisoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7593,6 +7730,7 @@ export namespace Prisma {
     objects: {
       gestor: Prisma.$UsuarioPayload<ExtArgs>
       avisoUsuario: Prisma.$AvisoUsuarioPayload<ExtArgs>[]
+      gruposAviso: Prisma.$GruposAvisoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7996,6 +8134,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     gestor<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     avisoUsuario<T extends Aviso$avisoUsuarioArgs<ExtArgs> = {}>(args?: Subset<T, Aviso$avisoUsuarioArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AvisoUsuarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    gruposAviso<T extends Aviso$gruposAvisoArgs<ExtArgs> = {}>(args?: Subset<T, Aviso$gruposAvisoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8450,6 +8589,30 @@ export namespace Prisma {
   }
 
   /**
+   * Aviso.gruposAviso
+   */
+  export type Aviso$gruposAvisoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    where?: GruposAvisoWhereInput
+    orderBy?: GruposAvisoOrderByWithRelationInput | GruposAvisoOrderByWithRelationInput[]
+    cursor?: GruposAvisoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GruposAvisoScalarFieldEnum | GruposAvisoScalarFieldEnum[]
+  }
+
+  /**
    * Aviso without action
    */
   export type AvisoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8653,6 +8816,7 @@ export namespace Prisma {
     usuarios?: boolean | Grupo$usuariosArgs<ExtArgs>
     gestores?: boolean | Grupo$gestoresArgs<ExtArgs>
     demandas?: boolean | Grupo$demandasArgs<ExtArgs>
+    avisosGrupo?: boolean | Grupo$avisosGrupoArgs<ExtArgs>
     _count?: boolean | GrupoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["grupo"]>
 
@@ -8679,6 +8843,7 @@ export namespace Prisma {
     usuarios?: boolean | Grupo$usuariosArgs<ExtArgs>
     gestores?: boolean | Grupo$gestoresArgs<ExtArgs>
     demandas?: boolean | Grupo$demandasArgs<ExtArgs>
+    avisosGrupo?: boolean | Grupo$avisosGrupoArgs<ExtArgs>
     _count?: boolean | GrupoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type GrupoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -8690,6 +8855,7 @@ export namespace Prisma {
       usuarios: Prisma.$UsuarioGrupoPayload<ExtArgs>[]
       gestores: Prisma.$GrupoGestorPayload<ExtArgs>[]
       demandas: Prisma.$DemandaGrupoPayload<ExtArgs>[]
+      avisosGrupo: Prisma.$GruposAvisoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -9092,6 +9258,7 @@ export namespace Prisma {
     usuarios<T extends Grupo$usuariosArgs<ExtArgs> = {}>(args?: Subset<T, Grupo$usuariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsuarioGrupoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     gestores<T extends Grupo$gestoresArgs<ExtArgs> = {}>(args?: Subset<T, Grupo$gestoresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GrupoGestorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     demandas<T extends Grupo$demandasArgs<ExtArgs> = {}>(args?: Subset<T, Grupo$demandasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DemandaGrupoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    avisosGrupo<T extends Grupo$avisosGrupoArgs<ExtArgs> = {}>(args?: Subset<T, Grupo$avisosGrupoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9581,6 +9748,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DemandaGrupoScalarFieldEnum | DemandaGrupoScalarFieldEnum[]
+  }
+
+  /**
+   * Grupo.avisosGrupo
+   */
+  export type Grupo$avisosGrupoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    where?: GruposAvisoWhereInput
+    orderBy?: GruposAvisoOrderByWithRelationInput | GruposAvisoOrderByWithRelationInput[]
+    cursor?: GruposAvisoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GruposAvisoScalarFieldEnum | GruposAvisoScalarFieldEnum[]
   }
 
   /**
@@ -23236,6 +23427,1071 @@ export namespace Prisma {
 
 
   /**
+   * Model GruposAviso
+   */
+
+  export type AggregateGruposAviso = {
+    _count: GruposAvisoCountAggregateOutputType | null
+    _avg: GruposAvisoAvgAggregateOutputType | null
+    _sum: GruposAvisoSumAggregateOutputType | null
+    _min: GruposAvisoMinAggregateOutputType | null
+    _max: GruposAvisoMaxAggregateOutputType | null
+  }
+
+  export type GruposAvisoAvgAggregateOutputType = {
+    grupoId: number | null
+    avisoId: number | null
+  }
+
+  export type GruposAvisoSumAggregateOutputType = {
+    grupoId: number | null
+    avisoId: number | null
+  }
+
+  export type GruposAvisoMinAggregateOutputType = {
+    grupoId: number | null
+    avisoId: number | null
+  }
+
+  export type GruposAvisoMaxAggregateOutputType = {
+    grupoId: number | null
+    avisoId: number | null
+  }
+
+  export type GruposAvisoCountAggregateOutputType = {
+    grupoId: number
+    avisoId: number
+    _all: number
+  }
+
+
+  export type GruposAvisoAvgAggregateInputType = {
+    grupoId?: true
+    avisoId?: true
+  }
+
+  export type GruposAvisoSumAggregateInputType = {
+    grupoId?: true
+    avisoId?: true
+  }
+
+  export type GruposAvisoMinAggregateInputType = {
+    grupoId?: true
+    avisoId?: true
+  }
+
+  export type GruposAvisoMaxAggregateInputType = {
+    grupoId?: true
+    avisoId?: true
+  }
+
+  export type GruposAvisoCountAggregateInputType = {
+    grupoId?: true
+    avisoId?: true
+    _all?: true
+  }
+
+  export type GruposAvisoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GruposAviso to aggregate.
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GruposAvisos to fetch.
+     */
+    orderBy?: GruposAvisoOrderByWithRelationInput | GruposAvisoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GruposAvisoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GruposAvisos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GruposAvisos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GruposAvisos
+    **/
+    _count?: true | GruposAvisoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GruposAvisoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GruposAvisoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GruposAvisoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GruposAvisoMaxAggregateInputType
+  }
+
+  export type GetGruposAvisoAggregateType<T extends GruposAvisoAggregateArgs> = {
+        [P in keyof T & keyof AggregateGruposAviso]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGruposAviso[P]>
+      : GetScalarType<T[P], AggregateGruposAviso[P]>
+  }
+
+
+
+
+  export type GruposAvisoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GruposAvisoWhereInput
+    orderBy?: GruposAvisoOrderByWithAggregationInput | GruposAvisoOrderByWithAggregationInput[]
+    by: GruposAvisoScalarFieldEnum[] | GruposAvisoScalarFieldEnum
+    having?: GruposAvisoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GruposAvisoCountAggregateInputType | true
+    _avg?: GruposAvisoAvgAggregateInputType
+    _sum?: GruposAvisoSumAggregateInputType
+    _min?: GruposAvisoMinAggregateInputType
+    _max?: GruposAvisoMaxAggregateInputType
+  }
+
+  export type GruposAvisoGroupByOutputType = {
+    grupoId: number
+    avisoId: number
+    _count: GruposAvisoCountAggregateOutputType | null
+    _avg: GruposAvisoAvgAggregateOutputType | null
+    _sum: GruposAvisoSumAggregateOutputType | null
+    _min: GruposAvisoMinAggregateOutputType | null
+    _max: GruposAvisoMaxAggregateOutputType | null
+  }
+
+  type GetGruposAvisoGroupByPayload<T extends GruposAvisoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GruposAvisoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GruposAvisoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GruposAvisoGroupByOutputType[P]>
+            : GetScalarType<T[P], GruposAvisoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GruposAvisoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    grupoId?: boolean
+    avisoId?: boolean
+    grupo?: boolean | GrupoDefaultArgs<ExtArgs>
+    aviso?: boolean | AvisoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gruposAviso"]>
+
+  export type GruposAvisoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    grupoId?: boolean
+    avisoId?: boolean
+    grupo?: boolean | GrupoDefaultArgs<ExtArgs>
+    aviso?: boolean | AvisoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gruposAviso"]>
+
+  export type GruposAvisoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    grupoId?: boolean
+    avisoId?: boolean
+    grupo?: boolean | GrupoDefaultArgs<ExtArgs>
+    aviso?: boolean | AvisoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["gruposAviso"]>
+
+  export type GruposAvisoSelectScalar = {
+    grupoId?: boolean
+    avisoId?: boolean
+  }
+
+  export type GruposAvisoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"grupoId" | "avisoId", ExtArgs["result"]["gruposAviso"]>
+  export type GruposAvisoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    grupo?: boolean | GrupoDefaultArgs<ExtArgs>
+    aviso?: boolean | AvisoDefaultArgs<ExtArgs>
+  }
+  export type GruposAvisoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    grupo?: boolean | GrupoDefaultArgs<ExtArgs>
+    aviso?: boolean | AvisoDefaultArgs<ExtArgs>
+  }
+  export type GruposAvisoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    grupo?: boolean | GrupoDefaultArgs<ExtArgs>
+    aviso?: boolean | AvisoDefaultArgs<ExtArgs>
+  }
+
+  export type $GruposAvisoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GruposAviso"
+    objects: {
+      grupo: Prisma.$GrupoPayload<ExtArgs>
+      aviso: Prisma.$AvisoPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      grupoId: number
+      avisoId: number
+    }, ExtArgs["result"]["gruposAviso"]>
+    composites: {}
+  }
+
+  type GruposAvisoGetPayload<S extends boolean | null | undefined | GruposAvisoDefaultArgs> = $Result.GetResult<Prisma.$GruposAvisoPayload, S>
+
+  type GruposAvisoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GruposAvisoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GruposAvisoCountAggregateInputType | true
+    }
+
+  export interface GruposAvisoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GruposAviso'], meta: { name: 'GruposAviso' } }
+    /**
+     * Find zero or one GruposAviso that matches the filter.
+     * @param {GruposAvisoFindUniqueArgs} args - Arguments to find a GruposAviso
+     * @example
+     * // Get one GruposAviso
+     * const gruposAviso = await prisma.gruposAviso.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GruposAvisoFindUniqueArgs>(args: SelectSubset<T, GruposAvisoFindUniqueArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GruposAviso that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GruposAvisoFindUniqueOrThrowArgs} args - Arguments to find a GruposAviso
+     * @example
+     * // Get one GruposAviso
+     * const gruposAviso = await prisma.gruposAviso.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GruposAvisoFindUniqueOrThrowArgs>(args: SelectSubset<T, GruposAvisoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GruposAviso that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoFindFirstArgs} args - Arguments to find a GruposAviso
+     * @example
+     * // Get one GruposAviso
+     * const gruposAviso = await prisma.gruposAviso.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GruposAvisoFindFirstArgs>(args?: SelectSubset<T, GruposAvisoFindFirstArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GruposAviso that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoFindFirstOrThrowArgs} args - Arguments to find a GruposAviso
+     * @example
+     * // Get one GruposAviso
+     * const gruposAviso = await prisma.gruposAviso.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GruposAvisoFindFirstOrThrowArgs>(args?: SelectSubset<T, GruposAvisoFindFirstOrThrowArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GruposAvisos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GruposAvisos
+     * const gruposAvisos = await prisma.gruposAviso.findMany()
+     * 
+     * // Get first 10 GruposAvisos
+     * const gruposAvisos = await prisma.gruposAviso.findMany({ take: 10 })
+     * 
+     * // Only select the `grupoId`
+     * const gruposAvisoWithGrupoIdOnly = await prisma.gruposAviso.findMany({ select: { grupoId: true } })
+     * 
+     */
+    findMany<T extends GruposAvisoFindManyArgs>(args?: SelectSubset<T, GruposAvisoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GruposAviso.
+     * @param {GruposAvisoCreateArgs} args - Arguments to create a GruposAviso.
+     * @example
+     * // Create one GruposAviso
+     * const GruposAviso = await prisma.gruposAviso.create({
+     *   data: {
+     *     // ... data to create a GruposAviso
+     *   }
+     * })
+     * 
+     */
+    create<T extends GruposAvisoCreateArgs>(args: SelectSubset<T, GruposAvisoCreateArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GruposAvisos.
+     * @param {GruposAvisoCreateManyArgs} args - Arguments to create many GruposAvisos.
+     * @example
+     * // Create many GruposAvisos
+     * const gruposAviso = await prisma.gruposAviso.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GruposAvisoCreateManyArgs>(args?: SelectSubset<T, GruposAvisoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many GruposAvisos and returns the data saved in the database.
+     * @param {GruposAvisoCreateManyAndReturnArgs} args - Arguments to create many GruposAvisos.
+     * @example
+     * // Create many GruposAvisos
+     * const gruposAviso = await prisma.gruposAviso.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many GruposAvisos and only return the `grupoId`
+     * const gruposAvisoWithGrupoIdOnly = await prisma.gruposAviso.createManyAndReturn({
+     *   select: { grupoId: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends GruposAvisoCreateManyAndReturnArgs>(args?: SelectSubset<T, GruposAvisoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a GruposAviso.
+     * @param {GruposAvisoDeleteArgs} args - Arguments to delete one GruposAviso.
+     * @example
+     * // Delete one GruposAviso
+     * const GruposAviso = await prisma.gruposAviso.delete({
+     *   where: {
+     *     // ... filter to delete one GruposAviso
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GruposAvisoDeleteArgs>(args: SelectSubset<T, GruposAvisoDeleteArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GruposAviso.
+     * @param {GruposAvisoUpdateArgs} args - Arguments to update one GruposAviso.
+     * @example
+     * // Update one GruposAviso
+     * const gruposAviso = await prisma.gruposAviso.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GruposAvisoUpdateArgs>(args: SelectSubset<T, GruposAvisoUpdateArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GruposAvisos.
+     * @param {GruposAvisoDeleteManyArgs} args - Arguments to filter GruposAvisos to delete.
+     * @example
+     * // Delete a few GruposAvisos
+     * const { count } = await prisma.gruposAviso.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GruposAvisoDeleteManyArgs>(args?: SelectSubset<T, GruposAvisoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GruposAvisos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GruposAvisos
+     * const gruposAviso = await prisma.gruposAviso.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GruposAvisoUpdateManyArgs>(args: SelectSubset<T, GruposAvisoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GruposAvisos and returns the data updated in the database.
+     * @param {GruposAvisoUpdateManyAndReturnArgs} args - Arguments to update many GruposAvisos.
+     * @example
+     * // Update many GruposAvisos
+     * const gruposAviso = await prisma.gruposAviso.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more GruposAvisos and only return the `grupoId`
+     * const gruposAvisoWithGrupoIdOnly = await prisma.gruposAviso.updateManyAndReturn({
+     *   select: { grupoId: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends GruposAvisoUpdateManyAndReturnArgs>(args: SelectSubset<T, GruposAvisoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one GruposAviso.
+     * @param {GruposAvisoUpsertArgs} args - Arguments to update or create a GruposAviso.
+     * @example
+     * // Update or create a GruposAviso
+     * const gruposAviso = await prisma.gruposAviso.upsert({
+     *   create: {
+     *     // ... data to create a GruposAviso
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GruposAviso we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GruposAvisoUpsertArgs>(args: SelectSubset<T, GruposAvisoUpsertArgs<ExtArgs>>): Prisma__GruposAvisoClient<$Result.GetResult<Prisma.$GruposAvisoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of GruposAvisos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoCountArgs} args - Arguments to filter GruposAvisos to count.
+     * @example
+     * // Count the number of GruposAvisos
+     * const count = await prisma.gruposAviso.count({
+     *   where: {
+     *     // ... the filter for the GruposAvisos we want to count
+     *   }
+     * })
+    **/
+    count<T extends GruposAvisoCountArgs>(
+      args?: Subset<T, GruposAvisoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GruposAvisoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GruposAviso.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GruposAvisoAggregateArgs>(args: Subset<T, GruposAvisoAggregateArgs>): Prisma.PrismaPromise<GetGruposAvisoAggregateType<T>>
+
+    /**
+     * Group by GruposAviso.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GruposAvisoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GruposAvisoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GruposAvisoGroupByArgs['orderBy'] }
+        : { orderBy?: GruposAvisoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GruposAvisoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGruposAvisoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GruposAviso model
+   */
+  readonly fields: GruposAvisoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GruposAviso.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GruposAvisoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    grupo<T extends GrupoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GrupoDefaultArgs<ExtArgs>>): Prisma__GrupoClient<$Result.GetResult<Prisma.$GrupoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    aviso<T extends AvisoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AvisoDefaultArgs<ExtArgs>>): Prisma__AvisoClient<$Result.GetResult<Prisma.$AvisoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GruposAviso model
+   */
+  interface GruposAvisoFieldRefs {
+    readonly grupoId: FieldRef<"GruposAviso", 'Int'>
+    readonly avisoId: FieldRef<"GruposAviso", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GruposAviso findUnique
+   */
+  export type GruposAvisoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * Filter, which GruposAviso to fetch.
+     */
+    where: GruposAvisoWhereUniqueInput
+  }
+
+  /**
+   * GruposAviso findUniqueOrThrow
+   */
+  export type GruposAvisoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * Filter, which GruposAviso to fetch.
+     */
+    where: GruposAvisoWhereUniqueInput
+  }
+
+  /**
+   * GruposAviso findFirst
+   */
+  export type GruposAvisoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * Filter, which GruposAviso to fetch.
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GruposAvisos to fetch.
+     */
+    orderBy?: GruposAvisoOrderByWithRelationInput | GruposAvisoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GruposAvisos.
+     */
+    cursor?: GruposAvisoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GruposAvisos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GruposAvisos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GruposAvisos.
+     */
+    distinct?: GruposAvisoScalarFieldEnum | GruposAvisoScalarFieldEnum[]
+  }
+
+  /**
+   * GruposAviso findFirstOrThrow
+   */
+  export type GruposAvisoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * Filter, which GruposAviso to fetch.
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GruposAvisos to fetch.
+     */
+    orderBy?: GruposAvisoOrderByWithRelationInput | GruposAvisoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GruposAvisos.
+     */
+    cursor?: GruposAvisoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GruposAvisos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GruposAvisos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GruposAvisos.
+     */
+    distinct?: GruposAvisoScalarFieldEnum | GruposAvisoScalarFieldEnum[]
+  }
+
+  /**
+   * GruposAviso findMany
+   */
+  export type GruposAvisoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * Filter, which GruposAvisos to fetch.
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GruposAvisos to fetch.
+     */
+    orderBy?: GruposAvisoOrderByWithRelationInput | GruposAvisoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GruposAvisos.
+     */
+    cursor?: GruposAvisoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GruposAvisos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GruposAvisos.
+     */
+    skip?: number
+    distinct?: GruposAvisoScalarFieldEnum | GruposAvisoScalarFieldEnum[]
+  }
+
+  /**
+   * GruposAviso create
+   */
+  export type GruposAvisoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GruposAviso.
+     */
+    data: XOR<GruposAvisoCreateInput, GruposAvisoUncheckedCreateInput>
+  }
+
+  /**
+   * GruposAviso createMany
+   */
+  export type GruposAvisoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GruposAvisos.
+     */
+    data: GruposAvisoCreateManyInput | GruposAvisoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * GruposAviso createManyAndReturn
+   */
+  export type GruposAvisoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * The data used to create many GruposAvisos.
+     */
+    data: GruposAvisoCreateManyInput | GruposAvisoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * GruposAviso update
+   */
+  export type GruposAvisoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GruposAviso.
+     */
+    data: XOR<GruposAvisoUpdateInput, GruposAvisoUncheckedUpdateInput>
+    /**
+     * Choose, which GruposAviso to update.
+     */
+    where: GruposAvisoWhereUniqueInput
+  }
+
+  /**
+   * GruposAviso updateMany
+   */
+  export type GruposAvisoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GruposAvisos.
+     */
+    data: XOR<GruposAvisoUpdateManyMutationInput, GruposAvisoUncheckedUpdateManyInput>
+    /**
+     * Filter which GruposAvisos to update
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * Limit how many GruposAvisos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GruposAviso updateManyAndReturn
+   */
+  export type GruposAvisoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * The data used to update GruposAvisos.
+     */
+    data: XOR<GruposAvisoUpdateManyMutationInput, GruposAvisoUncheckedUpdateManyInput>
+    /**
+     * Filter which GruposAvisos to update
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * Limit how many GruposAvisos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * GruposAviso upsert
+   */
+  export type GruposAvisoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GruposAviso to update in case it exists.
+     */
+    where: GruposAvisoWhereUniqueInput
+    /**
+     * In case the GruposAviso found by the `where` argument doesn't exist, create a new GruposAviso with this data.
+     */
+    create: XOR<GruposAvisoCreateInput, GruposAvisoUncheckedCreateInput>
+    /**
+     * In case the GruposAviso was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GruposAvisoUpdateInput, GruposAvisoUncheckedUpdateInput>
+  }
+
+  /**
+   * GruposAviso delete
+   */
+  export type GruposAvisoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+    /**
+     * Filter which GruposAviso to delete.
+     */
+    where: GruposAvisoWhereUniqueInput
+  }
+
+  /**
+   * GruposAviso deleteMany
+   */
+  export type GruposAvisoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GruposAvisos to delete
+     */
+    where?: GruposAvisoWhereInput
+    /**
+     * Limit how many GruposAvisos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GruposAviso without action
+   */
+  export type GruposAvisoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GruposAviso
+     */
+    select?: GruposAvisoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GruposAviso
+     */
+    omit?: GruposAvisoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GruposAvisoInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model UsuarioGrupo
    */
 
@@ -27546,6 +28802,8 @@ export namespace Prisma {
     id: 'id',
     titulo: 'titulo',
     descricao: 'descricao',
+    dataInicio: 'dataInicio',
+    dataTermino: 'dataTermino',
     dateTimestamp: 'dateTimestamp',
     gestorUsuarioId: 'gestorUsuarioId'
   };
@@ -27718,6 +28976,14 @@ export namespace Prisma {
   };
 
   export type AvisoUsuarioScalarFieldEnum = (typeof AvisoUsuarioScalarFieldEnum)[keyof typeof AvisoUsuarioScalarFieldEnum]
+
+
+  export const GruposAvisoScalarFieldEnum: {
+    grupoId: 'grupoId',
+    avisoId: 'avisoId'
+  };
+
+  export type GruposAvisoScalarFieldEnum = (typeof GruposAvisoScalarFieldEnum)[keyof typeof GruposAvisoScalarFieldEnum]
 
 
   export const UsuarioGrupoScalarFieldEnum: {
@@ -28264,7 +29530,9 @@ export namespace Prisma {
     NOT?: CronogramaWhereInput | CronogramaWhereInput[]
     id?: IntFilter<"Cronograma"> | number
     titulo?: StringFilter<"Cronograma"> | string
-    descricao?: StringNullableFilter<"Cronograma"> | string | null
+    descricao?: StringFilter<"Cronograma"> | string
+    dataInicio?: DateTimeFilter<"Cronograma"> | Date | string
+    dataTermino?: DateTimeFilter<"Cronograma"> | Date | string
     dateTimestamp?: DateTimeFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntFilter<"Cronograma"> | number
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
@@ -28274,7 +29542,9 @@ export namespace Prisma {
   export type CronogramaOrderByWithRelationInput = {
     id?: SortOrder
     titulo?: SortOrder
-    descricao?: SortOrderInput | SortOrder
+    descricao?: SortOrder
+    dataInicio?: SortOrder
+    dataTermino?: SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
     gestor?: UsuarioOrderByWithRelationInput
@@ -28287,7 +29557,9 @@ export namespace Prisma {
     OR?: CronogramaWhereInput[]
     NOT?: CronogramaWhereInput | CronogramaWhereInput[]
     titulo?: StringFilter<"Cronograma"> | string
-    descricao?: StringNullableFilter<"Cronograma"> | string | null
+    descricao?: StringFilter<"Cronograma"> | string
+    dataInicio?: DateTimeFilter<"Cronograma"> | Date | string
+    dataTermino?: DateTimeFilter<"Cronograma"> | Date | string
     dateTimestamp?: DateTimeFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntFilter<"Cronograma"> | number
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
@@ -28297,7 +29569,9 @@ export namespace Prisma {
   export type CronogramaOrderByWithAggregationInput = {
     id?: SortOrder
     titulo?: SortOrder
-    descricao?: SortOrderInput | SortOrder
+    descricao?: SortOrder
+    dataInicio?: SortOrder
+    dataTermino?: SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
     _count?: CronogramaCountOrderByAggregateInput
@@ -28313,7 +29587,9 @@ export namespace Prisma {
     NOT?: CronogramaScalarWhereWithAggregatesInput | CronogramaScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Cronograma"> | number
     titulo?: StringWithAggregatesFilter<"Cronograma"> | string
-    descricao?: StringNullableWithAggregatesFilter<"Cronograma"> | string | null
+    descricao?: StringWithAggregatesFilter<"Cronograma"> | string
+    dataInicio?: DateTimeWithAggregatesFilter<"Cronograma"> | Date | string
+    dataTermino?: DateTimeWithAggregatesFilter<"Cronograma"> | Date | string
     dateTimestamp?: DateTimeWithAggregatesFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntWithAggregatesFilter<"Cronograma"> | number
   }
@@ -28329,6 +29605,7 @@ export namespace Prisma {
     gestorRhUsuarioId?: IntFilter<"Aviso"> | number
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     avisoUsuario?: AvisoUsuarioListRelationFilter
+    gruposAviso?: GruposAvisoListRelationFilter
   }
 
   export type AvisoOrderByWithRelationInput = {
@@ -28339,6 +29616,7 @@ export namespace Prisma {
     gestorRhUsuarioId?: SortOrder
     gestor?: UsuarioOrderByWithRelationInput
     avisoUsuario?: AvisoUsuarioOrderByRelationAggregateInput
+    gruposAviso?: GruposAvisoOrderByRelationAggregateInput
   }
 
   export type AvisoWhereUniqueInput = Prisma.AtLeast<{
@@ -28352,6 +29630,7 @@ export namespace Prisma {
     gestorRhUsuarioId?: IntFilter<"Aviso"> | number
     gestor?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
     avisoUsuario?: AvisoUsuarioListRelationFilter
+    gruposAviso?: GruposAvisoListRelationFilter
   }, "id">
 
   export type AvisoOrderByWithAggregationInput = {
@@ -28388,6 +29667,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoListRelationFilter
     gestores?: GrupoGestorListRelationFilter
     demandas?: DemandaGrupoListRelationFilter
+    avisosGrupo?: GruposAvisoListRelationFilter
   }
 
   export type GrupoOrderByWithRelationInput = {
@@ -28397,6 +29677,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoOrderByRelationAggregateInput
     gestores?: GrupoGestorOrderByRelationAggregateInput
     demandas?: DemandaGrupoOrderByRelationAggregateInput
+    avisosGrupo?: GruposAvisoOrderByRelationAggregateInput
   }
 
   export type GrupoWhereUniqueInput = Prisma.AtLeast<{
@@ -28409,6 +29690,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoListRelationFilter
     gestores?: GrupoGestorListRelationFilter
     demandas?: DemandaGrupoListRelationFilter
+    avisosGrupo?: GruposAvisoListRelationFilter
   }, "id">
 
   export type GrupoOrderByWithAggregationInput = {
@@ -29230,6 +30512,52 @@ export namespace Prisma {
     avisoId?: IntWithAggregatesFilter<"AvisoUsuario"> | number
   }
 
+  export type GruposAvisoWhereInput = {
+    AND?: GruposAvisoWhereInput | GruposAvisoWhereInput[]
+    OR?: GruposAvisoWhereInput[]
+    NOT?: GruposAvisoWhereInput | GruposAvisoWhereInput[]
+    grupoId?: IntFilter<"GruposAviso"> | number
+    avisoId?: IntFilter<"GruposAviso"> | number
+    grupo?: XOR<GrupoScalarRelationFilter, GrupoWhereInput>
+    aviso?: XOR<AvisoScalarRelationFilter, AvisoWhereInput>
+  }
+
+  export type GruposAvisoOrderByWithRelationInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
+    grupo?: GrupoOrderByWithRelationInput
+    aviso?: AvisoOrderByWithRelationInput
+  }
+
+  export type GruposAvisoWhereUniqueInput = Prisma.AtLeast<{
+    grupoId_avisoId?: GruposAvisoGrupoIdAvisoIdCompoundUniqueInput
+    AND?: GruposAvisoWhereInput | GruposAvisoWhereInput[]
+    OR?: GruposAvisoWhereInput[]
+    NOT?: GruposAvisoWhereInput | GruposAvisoWhereInput[]
+    grupoId?: IntFilter<"GruposAviso"> | number
+    avisoId?: IntFilter<"GruposAviso"> | number
+    grupo?: XOR<GrupoScalarRelationFilter, GrupoWhereInput>
+    aviso?: XOR<AvisoScalarRelationFilter, AvisoWhereInput>
+  }, "grupoId_avisoId">
+
+  export type GruposAvisoOrderByWithAggregationInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
+    _count?: GruposAvisoCountOrderByAggregateInput
+    _avg?: GruposAvisoAvgOrderByAggregateInput
+    _max?: GruposAvisoMaxOrderByAggregateInput
+    _min?: GruposAvisoMinOrderByAggregateInput
+    _sum?: GruposAvisoSumOrderByAggregateInput
+  }
+
+  export type GruposAvisoScalarWhereWithAggregatesInput = {
+    AND?: GruposAvisoScalarWhereWithAggregatesInput | GruposAvisoScalarWhereWithAggregatesInput[]
+    OR?: GruposAvisoScalarWhereWithAggregatesInput[]
+    NOT?: GruposAvisoScalarWhereWithAggregatesInput | GruposAvisoScalarWhereWithAggregatesInput[]
+    grupoId?: IntWithAggregatesFilter<"GruposAviso"> | number
+    avisoId?: IntWithAggregatesFilter<"GruposAviso"> | number
+  }
+
   export type UsuarioGrupoWhereInput = {
     AND?: UsuarioGrupoWhereInput | UsuarioGrupoWhereInput[]
     OR?: UsuarioGrupoWhereInput[]
@@ -29677,7 +31005,9 @@ export namespace Prisma {
 
   export type CronogramaCreateInput = {
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutCronogramasGerenciadosInput
     demandasCronograma?: DemandaCreateNestedManyWithoutCronogramaInput
@@ -29686,7 +31016,9 @@ export namespace Prisma {
   export type CronogramaUncheckedCreateInput = {
     id?: number
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     gestorUsuarioId: number
     demandasCronograma?: DemandaUncheckedCreateNestedManyWithoutCronogramaInput
@@ -29694,7 +31026,9 @@ export namespace Prisma {
 
   export type CronogramaUpdateInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestor?: UsuarioUpdateOneRequiredWithoutCronogramasGerenciadosNestedInput
     demandasCronograma?: DemandaUpdateManyWithoutCronogramaNestedInput
@@ -29703,7 +31037,9 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
     demandasCronograma?: DemandaUncheckedUpdateManyWithoutCronogramaNestedInput
@@ -29712,21 +31048,27 @@ export namespace Prisma {
   export type CronogramaCreateManyInput = {
     id?: number
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     gestorUsuarioId: number
   }
 
   export type CronogramaUpdateManyMutationInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CronogramaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -29737,6 +31079,7 @@ export namespace Prisma {
     dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutAvisosGerenciadosInput
     avisoUsuario?: AvisoUsuarioCreateNestedManyWithoutAvisoInput
+    gruposAviso?: GruposAvisoCreateNestedManyWithoutAvisoInput
   }
 
   export type AvisoUncheckedCreateInput = {
@@ -29746,6 +31089,7 @@ export namespace Prisma {
     dateTimestamp?: Date | string
     gestorRhUsuarioId: number
     avisoUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutAvisoInput
+    gruposAviso?: GruposAvisoUncheckedCreateNestedManyWithoutAvisoInput
   }
 
   export type AvisoUpdateInput = {
@@ -29754,6 +31098,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestor?: UsuarioUpdateOneRequiredWithoutAvisosGerenciadosNestedInput
     avisoUsuario?: AvisoUsuarioUpdateManyWithoutAvisoNestedInput
+    gruposAviso?: GruposAvisoUpdateManyWithoutAvisoNestedInput
   }
 
   export type AvisoUncheckedUpdateInput = {
@@ -29763,6 +31108,7 @@ export namespace Prisma {
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorRhUsuarioId?: IntFieldUpdateOperationsInput | number
     avisoUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutAvisoNestedInput
+    gruposAviso?: GruposAvisoUncheckedUpdateManyWithoutAvisoNestedInput
   }
 
   export type AvisoCreateManyInput = {
@@ -29793,6 +31139,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoCreateNestedManyWithoutGrupoInput
     gestores?: GrupoGestorCreateNestedManyWithoutGrupoInput
     demandas?: DemandaGrupoCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoUncheckedCreateInput = {
@@ -29802,6 +31149,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoUncheckedCreateNestedManyWithoutGrupoInput
     gestores?: GrupoGestorUncheckedCreateNestedManyWithoutGrupoInput
     demandas?: DemandaGrupoUncheckedCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoUncheckedCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoUpdateInput = {
@@ -29810,6 +31158,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoUpdateManyWithoutGrupoNestedInput
     gestores?: GrupoGestorUpdateManyWithoutGrupoNestedInput
     demandas?: DemandaGrupoUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUpdateManyWithoutGrupoNestedInput
   }
 
   export type GrupoUncheckedUpdateInput = {
@@ -29819,6 +31168,7 @@ export namespace Prisma {
     usuarios?: UsuarioGrupoUncheckedUpdateManyWithoutGrupoNestedInput
     gestores?: GrupoGestorUncheckedUpdateManyWithoutGrupoNestedInput
     demandas?: DemandaGrupoUncheckedUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUncheckedUpdateManyWithoutGrupoNestedInput
   }
 
   export type GrupoCreateManyInput = {
@@ -30587,6 +31937,40 @@ export namespace Prisma {
     avisoId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type GruposAvisoCreateInput = {
+    grupo: GrupoCreateNestedOneWithoutAvisosGrupoInput
+    aviso: AvisoCreateNestedOneWithoutGruposAvisoInput
+  }
+
+  export type GruposAvisoUncheckedCreateInput = {
+    grupoId: number
+    avisoId: number
+  }
+
+  export type GruposAvisoUpdateInput = {
+    grupo?: GrupoUpdateOneRequiredWithoutAvisosGrupoNestedInput
+    aviso?: AvisoUpdateOneRequiredWithoutGruposAvisoNestedInput
+  }
+
+  export type GruposAvisoUncheckedUpdateInput = {
+    grupoId?: IntFieldUpdateOperationsInput | number
+    avisoId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GruposAvisoCreateManyInput = {
+    grupoId: number
+    avisoId: number
+  }
+
+  export type GruposAvisoUpdateManyMutationInput = {
+
+  }
+
+  export type GruposAvisoUncheckedUpdateManyInput = {
+    grupoId?: IntFieldUpdateOperationsInput | number
+    avisoId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type UsuarioGrupoCreateInput = {
     usuario: UsuarioCreateNestedOneWithoutGruposUsuarioInput
     grupo: GrupoCreateNestedOneWithoutUsuariosInput
@@ -31207,25 +32591,12 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type CronogramaCountOrderByAggregateInput = {
     id?: SortOrder
     titulo?: SortOrder
     descricao?: SortOrder
+    dataInicio?: SortOrder
+    dataTermino?: SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
   }
@@ -31239,6 +32610,8 @@ export namespace Prisma {
     id?: SortOrder
     titulo?: SortOrder
     descricao?: SortOrder
+    dataInicio?: SortOrder
+    dataTermino?: SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
   }
@@ -31247,6 +32620,8 @@ export namespace Prisma {
     id?: SortOrder
     titulo?: SortOrder
     descricao?: SortOrder
+    dataInicio?: SortOrder
+    dataTermino?: SortOrder
     dateTimestamp?: SortOrder
     gestorUsuarioId?: SortOrder
   }
@@ -31256,22 +32631,14 @@ export namespace Prisma {
     gestorUsuarioId?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+  export type GruposAvisoListRelationFilter = {
+    every?: GruposAvisoWhereInput
+    some?: GruposAvisoWhereInput
+    none?: GruposAvisoWhereInput
+  }
+
+  export type GruposAvisoOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type AvisoCountOrderByAggregateInput = {
@@ -32083,6 +33450,36 @@ export namespace Prisma {
   export type GrupoScalarRelationFilter = {
     is?: GrupoWhereInput
     isNot?: GrupoWhereInput
+  }
+
+  export type GruposAvisoGrupoIdAvisoIdCompoundUniqueInput = {
+    grupoId: number
+    avisoId: number
+  }
+
+  export type GruposAvisoCountOrderByAggregateInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
+  }
+
+  export type GruposAvisoAvgOrderByAggregateInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
+  }
+
+  export type GruposAvisoMaxOrderByAggregateInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
+  }
+
+  export type GruposAvisoMinOrderByAggregateInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
+  }
+
+  export type GruposAvisoSumOrderByAggregateInput = {
+    grupoId?: SortOrder
+    avisoId?: SortOrder
   }
 
   export type UsuarioGrupoUsuarioIdGrupoIdCompoundUniqueInput = {
@@ -33135,10 +34532,6 @@ export namespace Prisma {
     connect?: DemandaWhereUniqueInput | DemandaWhereUniqueInput[]
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type UsuarioUpdateOneRequiredWithoutCronogramasGerenciadosNestedInput = {
     create?: XOR<UsuarioCreateWithoutCronogramasGerenciadosInput, UsuarioUncheckedCreateWithoutCronogramasGerenciadosInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutCronogramasGerenciadosInput
@@ -33188,11 +34581,25 @@ export namespace Prisma {
     connect?: AvisoUsuarioWhereUniqueInput | AvisoUsuarioWhereUniqueInput[]
   }
 
+  export type GruposAvisoCreateNestedManyWithoutAvisoInput = {
+    create?: XOR<GruposAvisoCreateWithoutAvisoInput, GruposAvisoUncheckedCreateWithoutAvisoInput> | GruposAvisoCreateWithoutAvisoInput[] | GruposAvisoUncheckedCreateWithoutAvisoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutAvisoInput | GruposAvisoCreateOrConnectWithoutAvisoInput[]
+    createMany?: GruposAvisoCreateManyAvisoInputEnvelope
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+  }
+
   export type AvisoUsuarioUncheckedCreateNestedManyWithoutAvisoInput = {
     create?: XOR<AvisoUsuarioCreateWithoutAvisoInput, AvisoUsuarioUncheckedCreateWithoutAvisoInput> | AvisoUsuarioCreateWithoutAvisoInput[] | AvisoUsuarioUncheckedCreateWithoutAvisoInput[]
     connectOrCreate?: AvisoUsuarioCreateOrConnectWithoutAvisoInput | AvisoUsuarioCreateOrConnectWithoutAvisoInput[]
     createMany?: AvisoUsuarioCreateManyAvisoInputEnvelope
     connect?: AvisoUsuarioWhereUniqueInput | AvisoUsuarioWhereUniqueInput[]
+  }
+
+  export type GruposAvisoUncheckedCreateNestedManyWithoutAvisoInput = {
+    create?: XOR<GruposAvisoCreateWithoutAvisoInput, GruposAvisoUncheckedCreateWithoutAvisoInput> | GruposAvisoCreateWithoutAvisoInput[] | GruposAvisoUncheckedCreateWithoutAvisoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutAvisoInput | GruposAvisoCreateOrConnectWithoutAvisoInput[]
+    createMany?: GruposAvisoCreateManyAvisoInputEnvelope
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
   }
 
   export type UsuarioUpdateOneRequiredWithoutAvisosGerenciadosNestedInput = {
@@ -33217,6 +34624,20 @@ export namespace Prisma {
     deleteMany?: AvisoUsuarioScalarWhereInput | AvisoUsuarioScalarWhereInput[]
   }
 
+  export type GruposAvisoUpdateManyWithoutAvisoNestedInput = {
+    create?: XOR<GruposAvisoCreateWithoutAvisoInput, GruposAvisoUncheckedCreateWithoutAvisoInput> | GruposAvisoCreateWithoutAvisoInput[] | GruposAvisoUncheckedCreateWithoutAvisoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutAvisoInput | GruposAvisoCreateOrConnectWithoutAvisoInput[]
+    upsert?: GruposAvisoUpsertWithWhereUniqueWithoutAvisoInput | GruposAvisoUpsertWithWhereUniqueWithoutAvisoInput[]
+    createMany?: GruposAvisoCreateManyAvisoInputEnvelope
+    set?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    disconnect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    delete?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    update?: GruposAvisoUpdateWithWhereUniqueWithoutAvisoInput | GruposAvisoUpdateWithWhereUniqueWithoutAvisoInput[]
+    updateMany?: GruposAvisoUpdateManyWithWhereWithoutAvisoInput | GruposAvisoUpdateManyWithWhereWithoutAvisoInput[]
+    deleteMany?: GruposAvisoScalarWhereInput | GruposAvisoScalarWhereInput[]
+  }
+
   export type AvisoUsuarioUncheckedUpdateManyWithoutAvisoNestedInput = {
     create?: XOR<AvisoUsuarioCreateWithoutAvisoInput, AvisoUsuarioUncheckedCreateWithoutAvisoInput> | AvisoUsuarioCreateWithoutAvisoInput[] | AvisoUsuarioUncheckedCreateWithoutAvisoInput[]
     connectOrCreate?: AvisoUsuarioCreateOrConnectWithoutAvisoInput | AvisoUsuarioCreateOrConnectWithoutAvisoInput[]
@@ -33229,6 +34650,20 @@ export namespace Prisma {
     update?: AvisoUsuarioUpdateWithWhereUniqueWithoutAvisoInput | AvisoUsuarioUpdateWithWhereUniqueWithoutAvisoInput[]
     updateMany?: AvisoUsuarioUpdateManyWithWhereWithoutAvisoInput | AvisoUsuarioUpdateManyWithWhereWithoutAvisoInput[]
     deleteMany?: AvisoUsuarioScalarWhereInput | AvisoUsuarioScalarWhereInput[]
+  }
+
+  export type GruposAvisoUncheckedUpdateManyWithoutAvisoNestedInput = {
+    create?: XOR<GruposAvisoCreateWithoutAvisoInput, GruposAvisoUncheckedCreateWithoutAvisoInput> | GruposAvisoCreateWithoutAvisoInput[] | GruposAvisoUncheckedCreateWithoutAvisoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutAvisoInput | GruposAvisoCreateOrConnectWithoutAvisoInput[]
+    upsert?: GruposAvisoUpsertWithWhereUniqueWithoutAvisoInput | GruposAvisoUpsertWithWhereUniqueWithoutAvisoInput[]
+    createMany?: GruposAvisoCreateManyAvisoInputEnvelope
+    set?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    disconnect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    delete?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    update?: GruposAvisoUpdateWithWhereUniqueWithoutAvisoInput | GruposAvisoUpdateWithWhereUniqueWithoutAvisoInput[]
+    updateMany?: GruposAvisoUpdateManyWithWhereWithoutAvisoInput | GruposAvisoUpdateManyWithWhereWithoutAvisoInput[]
+    deleteMany?: GruposAvisoScalarWhereInput | GruposAvisoScalarWhereInput[]
   }
 
   export type UsuarioGrupoCreateNestedManyWithoutGrupoInput = {
@@ -33252,6 +34687,13 @@ export namespace Prisma {
     connect?: DemandaGrupoWhereUniqueInput | DemandaGrupoWhereUniqueInput[]
   }
 
+  export type GruposAvisoCreateNestedManyWithoutGrupoInput = {
+    create?: XOR<GruposAvisoCreateWithoutGrupoInput, GruposAvisoUncheckedCreateWithoutGrupoInput> | GruposAvisoCreateWithoutGrupoInput[] | GruposAvisoUncheckedCreateWithoutGrupoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutGrupoInput | GruposAvisoCreateOrConnectWithoutGrupoInput[]
+    createMany?: GruposAvisoCreateManyGrupoInputEnvelope
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+  }
+
   export type UsuarioGrupoUncheckedCreateNestedManyWithoutGrupoInput = {
     create?: XOR<UsuarioGrupoCreateWithoutGrupoInput, UsuarioGrupoUncheckedCreateWithoutGrupoInput> | UsuarioGrupoCreateWithoutGrupoInput[] | UsuarioGrupoUncheckedCreateWithoutGrupoInput[]
     connectOrCreate?: UsuarioGrupoCreateOrConnectWithoutGrupoInput | UsuarioGrupoCreateOrConnectWithoutGrupoInput[]
@@ -33271,6 +34713,13 @@ export namespace Prisma {
     connectOrCreate?: DemandaGrupoCreateOrConnectWithoutGrupoInput | DemandaGrupoCreateOrConnectWithoutGrupoInput[]
     createMany?: DemandaGrupoCreateManyGrupoInputEnvelope
     connect?: DemandaGrupoWhereUniqueInput | DemandaGrupoWhereUniqueInput[]
+  }
+
+  export type GruposAvisoUncheckedCreateNestedManyWithoutGrupoInput = {
+    create?: XOR<GruposAvisoCreateWithoutGrupoInput, GruposAvisoUncheckedCreateWithoutGrupoInput> | GruposAvisoCreateWithoutGrupoInput[] | GruposAvisoUncheckedCreateWithoutGrupoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutGrupoInput | GruposAvisoCreateOrConnectWithoutGrupoInput[]
+    createMany?: GruposAvisoCreateManyGrupoInputEnvelope
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
   }
 
   export type UsuarioGrupoUpdateManyWithoutGrupoNestedInput = {
@@ -33315,6 +34764,20 @@ export namespace Prisma {
     deleteMany?: DemandaGrupoScalarWhereInput | DemandaGrupoScalarWhereInput[]
   }
 
+  export type GruposAvisoUpdateManyWithoutGrupoNestedInput = {
+    create?: XOR<GruposAvisoCreateWithoutGrupoInput, GruposAvisoUncheckedCreateWithoutGrupoInput> | GruposAvisoCreateWithoutGrupoInput[] | GruposAvisoUncheckedCreateWithoutGrupoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutGrupoInput | GruposAvisoCreateOrConnectWithoutGrupoInput[]
+    upsert?: GruposAvisoUpsertWithWhereUniqueWithoutGrupoInput | GruposAvisoUpsertWithWhereUniqueWithoutGrupoInput[]
+    createMany?: GruposAvisoCreateManyGrupoInputEnvelope
+    set?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    disconnect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    delete?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    update?: GruposAvisoUpdateWithWhereUniqueWithoutGrupoInput | GruposAvisoUpdateWithWhereUniqueWithoutGrupoInput[]
+    updateMany?: GruposAvisoUpdateManyWithWhereWithoutGrupoInput | GruposAvisoUpdateManyWithWhereWithoutGrupoInput[]
+    deleteMany?: GruposAvisoScalarWhereInput | GruposAvisoScalarWhereInput[]
+  }
+
   export type UsuarioGrupoUncheckedUpdateManyWithoutGrupoNestedInput = {
     create?: XOR<UsuarioGrupoCreateWithoutGrupoInput, UsuarioGrupoUncheckedCreateWithoutGrupoInput> | UsuarioGrupoCreateWithoutGrupoInput[] | UsuarioGrupoUncheckedCreateWithoutGrupoInput[]
     connectOrCreate?: UsuarioGrupoCreateOrConnectWithoutGrupoInput | UsuarioGrupoCreateOrConnectWithoutGrupoInput[]
@@ -33355,6 +34818,20 @@ export namespace Prisma {
     update?: DemandaGrupoUpdateWithWhereUniqueWithoutGrupoInput | DemandaGrupoUpdateWithWhereUniqueWithoutGrupoInput[]
     updateMany?: DemandaGrupoUpdateManyWithWhereWithoutGrupoInput | DemandaGrupoUpdateManyWithWhereWithoutGrupoInput[]
     deleteMany?: DemandaGrupoScalarWhereInput | DemandaGrupoScalarWhereInput[]
+  }
+
+  export type GruposAvisoUncheckedUpdateManyWithoutGrupoNestedInput = {
+    create?: XOR<GruposAvisoCreateWithoutGrupoInput, GruposAvisoUncheckedCreateWithoutGrupoInput> | GruposAvisoCreateWithoutGrupoInput[] | GruposAvisoUncheckedCreateWithoutGrupoInput[]
+    connectOrCreate?: GruposAvisoCreateOrConnectWithoutGrupoInput | GruposAvisoCreateOrConnectWithoutGrupoInput[]
+    upsert?: GruposAvisoUpsertWithWhereUniqueWithoutGrupoInput | GruposAvisoUpsertWithWhereUniqueWithoutGrupoInput[]
+    createMany?: GruposAvisoCreateManyGrupoInputEnvelope
+    set?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    disconnect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    delete?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    connect?: GruposAvisoWhereUniqueInput | GruposAvisoWhereUniqueInput[]
+    update?: GruposAvisoUpdateWithWhereUniqueWithoutGrupoInput | GruposAvisoUpdateWithWhereUniqueWithoutGrupoInput[]
+    updateMany?: GruposAvisoUpdateManyWithWhereWithoutGrupoInput | GruposAvisoUpdateManyWithWhereWithoutGrupoInput[]
+    deleteMany?: GruposAvisoScalarWhereInput | GruposAvisoScalarWhereInput[]
   }
 
   export type DemandaCreateNestedOneWithoutComentariosDemandaInput = {
@@ -33915,6 +35392,34 @@ export namespace Prisma {
     update?: XOR<XOR<AvisoUpdateToOneWithWhereWithoutAvisoUsuarioInput, AvisoUpdateWithoutAvisoUsuarioInput>, AvisoUncheckedUpdateWithoutAvisoUsuarioInput>
   }
 
+  export type GrupoCreateNestedOneWithoutAvisosGrupoInput = {
+    create?: XOR<GrupoCreateWithoutAvisosGrupoInput, GrupoUncheckedCreateWithoutAvisosGrupoInput>
+    connectOrCreate?: GrupoCreateOrConnectWithoutAvisosGrupoInput
+    connect?: GrupoWhereUniqueInput
+  }
+
+  export type AvisoCreateNestedOneWithoutGruposAvisoInput = {
+    create?: XOR<AvisoCreateWithoutGruposAvisoInput, AvisoUncheckedCreateWithoutGruposAvisoInput>
+    connectOrCreate?: AvisoCreateOrConnectWithoutGruposAvisoInput
+    connect?: AvisoWhereUniqueInput
+  }
+
+  export type GrupoUpdateOneRequiredWithoutAvisosGrupoNestedInput = {
+    create?: XOR<GrupoCreateWithoutAvisosGrupoInput, GrupoUncheckedCreateWithoutAvisosGrupoInput>
+    connectOrCreate?: GrupoCreateOrConnectWithoutAvisosGrupoInput
+    upsert?: GrupoUpsertWithoutAvisosGrupoInput
+    connect?: GrupoWhereUniqueInput
+    update?: XOR<XOR<GrupoUpdateToOneWithWhereWithoutAvisosGrupoInput, GrupoUpdateWithoutAvisosGrupoInput>, GrupoUncheckedUpdateWithoutAvisosGrupoInput>
+  }
+
+  export type AvisoUpdateOneRequiredWithoutGruposAvisoNestedInput = {
+    create?: XOR<AvisoCreateWithoutGruposAvisoInput, AvisoUncheckedCreateWithoutGruposAvisoInput>
+    connectOrCreate?: AvisoCreateOrConnectWithoutGruposAvisoInput
+    upsert?: AvisoUpsertWithoutGruposAvisoInput
+    connect?: AvisoWhereUniqueInput
+    update?: XOR<XOR<AvisoUpdateToOneWithWhereWithoutGruposAvisoInput, AvisoUpdateWithoutGruposAvisoInput>, AvisoUncheckedUpdateWithoutGruposAvisoInput>
+  }
+
   export type UsuarioCreateNestedOneWithoutGruposUsuarioInput = {
     create?: XOR<UsuarioCreateWithoutGruposUsuarioInput, UsuarioUncheckedCreateWithoutGruposUsuarioInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutGruposUsuarioInput
@@ -34235,37 +35740,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -34477,7 +35951,9 @@ export namespace Prisma {
 
   export type CronogramaCreateWithoutGestorInput = {
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     demandasCronograma?: DemandaCreateNestedManyWithoutCronogramaInput
   }
@@ -34485,7 +35961,9 @@ export namespace Prisma {
   export type CronogramaUncheckedCreateWithoutGestorInput = {
     id?: number
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     demandasCronograma?: DemandaUncheckedCreateNestedManyWithoutCronogramaInput
   }
@@ -34542,6 +36020,7 @@ export namespace Prisma {
     conteudo: string
     dateTimestamp?: Date | string
     avisoUsuario?: AvisoUsuarioCreateNestedManyWithoutAvisoInput
+    gruposAviso?: GruposAvisoCreateNestedManyWithoutAvisoInput
   }
 
   export type AvisoUncheckedCreateWithoutGestorInput = {
@@ -34550,6 +36029,7 @@ export namespace Prisma {
     conteudo: string
     dateTimestamp?: Date | string
     avisoUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutAvisoInput
+    gruposAviso?: GruposAvisoUncheckedCreateNestedManyWithoutAvisoInput
   }
 
   export type AvisoCreateOrConnectWithoutGestorInput = {
@@ -34932,7 +36412,9 @@ export namespace Prisma {
     NOT?: CronogramaScalarWhereInput | CronogramaScalarWhereInput[]
     id?: IntFilter<"Cronograma"> | number
     titulo?: StringFilter<"Cronograma"> | string
-    descricao?: StringNullableFilter<"Cronograma"> | string | null
+    descricao?: StringFilter<"Cronograma"> | string
+    dataInicio?: DateTimeFilter<"Cronograma"> | Date | string
+    dataTermino?: DateTimeFilter<"Cronograma"> | Date | string
     dateTimestamp?: DateTimeFilter<"Cronograma"> | Date | string
     gestorUsuarioId?: IntFilter<"Cronograma"> | number
   }
@@ -35381,7 +36863,9 @@ export namespace Prisma {
 
   export type CronogramaCreateWithoutDemandasCronogramaInput = {
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutCronogramasGerenciadosInput
   }
@@ -35389,7 +36873,9 @@ export namespace Prisma {
   export type CronogramaUncheckedCreateWithoutDemandasCronogramaInput = {
     id?: number
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
     gestorUsuarioId: number
   }
@@ -35539,7 +37025,9 @@ export namespace Prisma {
 
   export type CronogramaUpdateWithoutDemandasCronogramaInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestor?: UsuarioUpdateOneRequiredWithoutCronogramasGerenciadosNestedInput
   }
@@ -35547,7 +37035,9 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateWithoutDemandasCronogramaInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorUsuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -35959,6 +37449,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type GruposAvisoCreateWithoutAvisoInput = {
+    grupo: GrupoCreateNestedOneWithoutAvisosGrupoInput
+  }
+
+  export type GruposAvisoUncheckedCreateWithoutAvisoInput = {
+    grupoId: number
+  }
+
+  export type GruposAvisoCreateOrConnectWithoutAvisoInput = {
+    where: GruposAvisoWhereUniqueInput
+    create: XOR<GruposAvisoCreateWithoutAvisoInput, GruposAvisoUncheckedCreateWithoutAvisoInput>
+  }
+
+  export type GruposAvisoCreateManyAvisoInputEnvelope = {
+    data: GruposAvisoCreateManyAvisoInput | GruposAvisoCreateManyAvisoInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UsuarioUpsertWithoutAvisosGerenciadosInput = {
     update: XOR<UsuarioUpdateWithoutAvisosGerenciadosInput, UsuarioUncheckedUpdateWithoutAvisosGerenciadosInput>
     create: XOR<UsuarioCreateWithoutAvisosGerenciadosInput, UsuarioUncheckedCreateWithoutAvisosGerenciadosInput>
@@ -36047,6 +37555,30 @@ export namespace Prisma {
     data: XOR<AvisoUsuarioUpdateManyMutationInput, AvisoUsuarioUncheckedUpdateManyWithoutAvisoInput>
   }
 
+  export type GruposAvisoUpsertWithWhereUniqueWithoutAvisoInput = {
+    where: GruposAvisoWhereUniqueInput
+    update: XOR<GruposAvisoUpdateWithoutAvisoInput, GruposAvisoUncheckedUpdateWithoutAvisoInput>
+    create: XOR<GruposAvisoCreateWithoutAvisoInput, GruposAvisoUncheckedCreateWithoutAvisoInput>
+  }
+
+  export type GruposAvisoUpdateWithWhereUniqueWithoutAvisoInput = {
+    where: GruposAvisoWhereUniqueInput
+    data: XOR<GruposAvisoUpdateWithoutAvisoInput, GruposAvisoUncheckedUpdateWithoutAvisoInput>
+  }
+
+  export type GruposAvisoUpdateManyWithWhereWithoutAvisoInput = {
+    where: GruposAvisoScalarWhereInput
+    data: XOR<GruposAvisoUpdateManyMutationInput, GruposAvisoUncheckedUpdateManyWithoutAvisoInput>
+  }
+
+  export type GruposAvisoScalarWhereInput = {
+    AND?: GruposAvisoScalarWhereInput | GruposAvisoScalarWhereInput[]
+    OR?: GruposAvisoScalarWhereInput[]
+    NOT?: GruposAvisoScalarWhereInput | GruposAvisoScalarWhereInput[]
+    grupoId?: IntFilter<"GruposAviso"> | number
+    avisoId?: IntFilter<"GruposAviso"> | number
+  }
+
   export type UsuarioGrupoCreateWithoutGrupoInput = {
     usuario: UsuarioCreateNestedOneWithoutGruposUsuarioInput
   }
@@ -36101,6 +37633,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type GruposAvisoCreateWithoutGrupoInput = {
+    aviso: AvisoCreateNestedOneWithoutGruposAvisoInput
+  }
+
+  export type GruposAvisoUncheckedCreateWithoutGrupoInput = {
+    avisoId: number
+  }
+
+  export type GruposAvisoCreateOrConnectWithoutGrupoInput = {
+    where: GruposAvisoWhereUniqueInput
+    create: XOR<GruposAvisoCreateWithoutGrupoInput, GruposAvisoUncheckedCreateWithoutGrupoInput>
+  }
+
+  export type GruposAvisoCreateManyGrupoInputEnvelope = {
+    data: GruposAvisoCreateManyGrupoInput | GruposAvisoCreateManyGrupoInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UsuarioGrupoUpsertWithWhereUniqueWithoutGrupoInput = {
     where: UsuarioGrupoWhereUniqueInput
     update: XOR<UsuarioGrupoUpdateWithoutGrupoInput, UsuarioGrupoUncheckedUpdateWithoutGrupoInput>
@@ -36147,6 +37697,22 @@ export namespace Prisma {
   export type DemandaGrupoUpdateManyWithWhereWithoutGrupoInput = {
     where: DemandaGrupoScalarWhereInput
     data: XOR<DemandaGrupoUpdateManyMutationInput, DemandaGrupoUncheckedUpdateManyWithoutGrupoInput>
+  }
+
+  export type GruposAvisoUpsertWithWhereUniqueWithoutGrupoInput = {
+    where: GruposAvisoWhereUniqueInput
+    update: XOR<GruposAvisoUpdateWithoutGrupoInput, GruposAvisoUncheckedUpdateWithoutGrupoInput>
+    create: XOR<GruposAvisoCreateWithoutGrupoInput, GruposAvisoUncheckedCreateWithoutGrupoInput>
+  }
+
+  export type GruposAvisoUpdateWithWhereUniqueWithoutGrupoInput = {
+    where: GruposAvisoWhereUniqueInput
+    data: XOR<GruposAvisoUpdateWithoutGrupoInput, GruposAvisoUncheckedUpdateWithoutGrupoInput>
+  }
+
+  export type GruposAvisoUpdateManyWithWhereWithoutGrupoInput = {
+    where: GruposAvisoScalarWhereInput
+    data: XOR<GruposAvisoUpdateManyMutationInput, GruposAvisoUncheckedUpdateManyWithoutGrupoInput>
   }
 
   export type DemandaCreateWithoutComentariosDemandaInput = {
@@ -38270,6 +39836,7 @@ export namespace Prisma {
     conteudo: string
     dateTimestamp?: Date | string
     gestor: UsuarioCreateNestedOneWithoutAvisosGerenciadosInput
+    gruposAviso?: GruposAvisoCreateNestedManyWithoutAvisoInput
   }
 
   export type AvisoUncheckedCreateWithoutAvisoUsuarioInput = {
@@ -38278,6 +39845,7 @@ export namespace Prisma {
     conteudo: string
     dateTimestamp?: Date | string
     gestorRhUsuarioId: number
+    gruposAviso?: GruposAvisoUncheckedCreateNestedManyWithoutAvisoInput
   }
 
   export type AvisoCreateOrConnectWithoutAvisoUsuarioInput = {
@@ -38373,6 +39941,7 @@ export namespace Prisma {
     conteudo?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestor?: UsuarioUpdateOneRequiredWithoutAvisosGerenciadosNestedInput
+    gruposAviso?: GruposAvisoUpdateManyWithoutAvisoNestedInput
   }
 
   export type AvisoUncheckedUpdateWithoutAvisoUsuarioInput = {
@@ -38381,6 +39950,107 @@ export namespace Prisma {
     conteudo?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     gestorRhUsuarioId?: IntFieldUpdateOperationsInput | number
+    gruposAviso?: GruposAvisoUncheckedUpdateManyWithoutAvisoNestedInput
+  }
+
+  export type GrupoCreateWithoutAvisosGrupoInput = {
+    nome: string
+    descricao: string
+    usuarios?: UsuarioGrupoCreateNestedManyWithoutGrupoInput
+    gestores?: GrupoGestorCreateNestedManyWithoutGrupoInput
+    demandas?: DemandaGrupoCreateNestedManyWithoutGrupoInput
+  }
+
+  export type GrupoUncheckedCreateWithoutAvisosGrupoInput = {
+    id?: number
+    nome: string
+    descricao: string
+    usuarios?: UsuarioGrupoUncheckedCreateNestedManyWithoutGrupoInput
+    gestores?: GrupoGestorUncheckedCreateNestedManyWithoutGrupoInput
+    demandas?: DemandaGrupoUncheckedCreateNestedManyWithoutGrupoInput
+  }
+
+  export type GrupoCreateOrConnectWithoutAvisosGrupoInput = {
+    where: GrupoWhereUniqueInput
+    create: XOR<GrupoCreateWithoutAvisosGrupoInput, GrupoUncheckedCreateWithoutAvisosGrupoInput>
+  }
+
+  export type AvisoCreateWithoutGruposAvisoInput = {
+    assunto: string
+    conteudo: string
+    dateTimestamp?: Date | string
+    gestor: UsuarioCreateNestedOneWithoutAvisosGerenciadosInput
+    avisoUsuario?: AvisoUsuarioCreateNestedManyWithoutAvisoInput
+  }
+
+  export type AvisoUncheckedCreateWithoutGruposAvisoInput = {
+    id?: number
+    assunto: string
+    conteudo: string
+    dateTimestamp?: Date | string
+    gestorRhUsuarioId: number
+    avisoUsuario?: AvisoUsuarioUncheckedCreateNestedManyWithoutAvisoInput
+  }
+
+  export type AvisoCreateOrConnectWithoutGruposAvisoInput = {
+    where: AvisoWhereUniqueInput
+    create: XOR<AvisoCreateWithoutGruposAvisoInput, AvisoUncheckedCreateWithoutGruposAvisoInput>
+  }
+
+  export type GrupoUpsertWithoutAvisosGrupoInput = {
+    update: XOR<GrupoUpdateWithoutAvisosGrupoInput, GrupoUncheckedUpdateWithoutAvisosGrupoInput>
+    create: XOR<GrupoCreateWithoutAvisosGrupoInput, GrupoUncheckedCreateWithoutAvisosGrupoInput>
+    where?: GrupoWhereInput
+  }
+
+  export type GrupoUpdateToOneWithWhereWithoutAvisosGrupoInput = {
+    where?: GrupoWhereInput
+    data: XOR<GrupoUpdateWithoutAvisosGrupoInput, GrupoUncheckedUpdateWithoutAvisosGrupoInput>
+  }
+
+  export type GrupoUpdateWithoutAvisosGrupoInput = {
+    nome?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    usuarios?: UsuarioGrupoUpdateManyWithoutGrupoNestedInput
+    gestores?: GrupoGestorUpdateManyWithoutGrupoNestedInput
+    demandas?: DemandaGrupoUpdateManyWithoutGrupoNestedInput
+  }
+
+  export type GrupoUncheckedUpdateWithoutAvisosGrupoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    usuarios?: UsuarioGrupoUncheckedUpdateManyWithoutGrupoNestedInput
+    gestores?: GrupoGestorUncheckedUpdateManyWithoutGrupoNestedInput
+    demandas?: DemandaGrupoUncheckedUpdateManyWithoutGrupoNestedInput
+  }
+
+  export type AvisoUpsertWithoutGruposAvisoInput = {
+    update: XOR<AvisoUpdateWithoutGruposAvisoInput, AvisoUncheckedUpdateWithoutGruposAvisoInput>
+    create: XOR<AvisoCreateWithoutGruposAvisoInput, AvisoUncheckedCreateWithoutGruposAvisoInput>
+    where?: AvisoWhereInput
+  }
+
+  export type AvisoUpdateToOneWithWhereWithoutGruposAvisoInput = {
+    where?: AvisoWhereInput
+    data: XOR<AvisoUpdateWithoutGruposAvisoInput, AvisoUncheckedUpdateWithoutGruposAvisoInput>
+  }
+
+  export type AvisoUpdateWithoutGruposAvisoInput = {
+    assunto?: StringFieldUpdateOperationsInput | string
+    conteudo?: StringFieldUpdateOperationsInput | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    gestor?: UsuarioUpdateOneRequiredWithoutAvisosGerenciadosNestedInput
+    avisoUsuario?: AvisoUsuarioUpdateManyWithoutAvisoNestedInput
+  }
+
+  export type AvisoUncheckedUpdateWithoutGruposAvisoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    assunto?: StringFieldUpdateOperationsInput | string
+    conteudo?: StringFieldUpdateOperationsInput | string
+    dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    gestorRhUsuarioId?: IntFieldUpdateOperationsInput | number
+    avisoUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutAvisoNestedInput
   }
 
   export type UsuarioCreateWithoutGruposUsuarioInput = {
@@ -38454,6 +40124,7 @@ export namespace Prisma {
     descricao: string
     gestores?: GrupoGestorCreateNestedManyWithoutGrupoInput
     demandas?: DemandaGrupoCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoUncheckedCreateWithoutUsuariosInput = {
@@ -38462,6 +40133,7 @@ export namespace Prisma {
     descricao: string
     gestores?: GrupoGestorUncheckedCreateNestedManyWithoutGrupoInput
     demandas?: DemandaGrupoUncheckedCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoUncheckedCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoCreateOrConnectWithoutUsuariosInput = {
@@ -38557,6 +40229,7 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     gestores?: GrupoGestorUpdateManyWithoutGrupoNestedInput
     demandas?: DemandaGrupoUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUpdateManyWithoutGrupoNestedInput
   }
 
   export type GrupoUncheckedUpdateWithoutUsuariosInput = {
@@ -38565,6 +40238,7 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     gestores?: GrupoGestorUncheckedUpdateManyWithoutGrupoNestedInput
     demandas?: DemandaGrupoUncheckedUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUncheckedUpdateManyWithoutGrupoNestedInput
   }
 
   export type UsuarioCreateWithoutGruposGestorInput = {
@@ -38638,6 +40312,7 @@ export namespace Prisma {
     descricao: string
     usuarios?: UsuarioGrupoCreateNestedManyWithoutGrupoInput
     demandas?: DemandaGrupoCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoUncheckedCreateWithoutGestoresInput = {
@@ -38646,6 +40321,7 @@ export namespace Prisma {
     descricao: string
     usuarios?: UsuarioGrupoUncheckedCreateNestedManyWithoutGrupoInput
     demandas?: DemandaGrupoUncheckedCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoUncheckedCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoCreateOrConnectWithoutGestoresInput = {
@@ -38741,6 +40417,7 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     usuarios?: UsuarioGrupoUpdateManyWithoutGrupoNestedInput
     demandas?: DemandaGrupoUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUpdateManyWithoutGrupoNestedInput
   }
 
   export type GrupoUncheckedUpdateWithoutGestoresInput = {
@@ -38749,6 +40426,7 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     usuarios?: UsuarioGrupoUncheckedUpdateManyWithoutGrupoNestedInput
     demandas?: DemandaGrupoUncheckedUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUncheckedUpdateManyWithoutGrupoNestedInput
   }
 
   export type DemandaCreateWithoutGruposDemandaInput = {
@@ -38788,6 +40466,7 @@ export namespace Prisma {
     descricao: string
     usuarios?: UsuarioGrupoCreateNestedManyWithoutGrupoInput
     gestores?: GrupoGestorCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoUncheckedCreateWithoutDemandasInput = {
@@ -38796,6 +40475,7 @@ export namespace Prisma {
     descricao: string
     usuarios?: UsuarioGrupoUncheckedCreateNestedManyWithoutGrupoInput
     gestores?: GrupoGestorUncheckedCreateNestedManyWithoutGrupoInput
+    avisosGrupo?: GruposAvisoUncheckedCreateNestedManyWithoutGrupoInput
   }
 
   export type GrupoCreateOrConnectWithoutDemandasInput = {
@@ -38857,6 +40537,7 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     usuarios?: UsuarioGrupoUpdateManyWithoutGrupoNestedInput
     gestores?: GrupoGestorUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUpdateManyWithoutGrupoNestedInput
   }
 
   export type GrupoUncheckedUpdateWithoutDemandasInput = {
@@ -38865,6 +40546,7 @@ export namespace Prisma {
     descricao?: StringFieldUpdateOperationsInput | string
     usuarios?: UsuarioGrupoUncheckedUpdateManyWithoutGrupoNestedInput
     gestores?: GrupoGestorUncheckedUpdateManyWithoutGrupoNestedInput
+    avisosGrupo?: GruposAvisoUncheckedUpdateManyWithoutGrupoNestedInput
   }
 
   export type DemandaCreateWithoutUsuariosDemandaInput = {
@@ -39078,7 +40760,9 @@ export namespace Prisma {
   export type CronogramaCreateManyGestorInput = {
     id?: number
     titulo: string
-    descricao?: string | null
+    descricao: string
+    dataInicio: Date | string
+    dataTermino: Date | string
     dateTimestamp?: Date | string
   }
 
@@ -39206,7 +40890,9 @@ export namespace Prisma {
 
   export type CronogramaUpdateWithoutGestorInput = {
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     demandasCronograma?: DemandaUpdateManyWithoutCronogramaNestedInput
   }
@@ -39214,7 +40900,9 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateWithoutGestorInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     demandasCronograma?: DemandaUncheckedUpdateManyWithoutCronogramaNestedInput
   }
@@ -39222,7 +40910,9 @@ export namespace Prisma {
   export type CronogramaUncheckedUpdateManyWithoutGestorInput = {
     id?: IntFieldUpdateOperationsInput | number
     titulo?: StringFieldUpdateOperationsInput | string
-    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    descricao?: StringFieldUpdateOperationsInput | string
+    dataInicio?: DateTimeFieldUpdateOperationsInput | Date | string
+    dataTermino?: DateTimeFieldUpdateOperationsInput | Date | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -39269,6 +40959,7 @@ export namespace Prisma {
     conteudo?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     avisoUsuario?: AvisoUsuarioUpdateManyWithoutAvisoNestedInput
+    gruposAviso?: GruposAvisoUpdateManyWithoutAvisoNestedInput
   }
 
   export type AvisoUncheckedUpdateWithoutGestorInput = {
@@ -39277,6 +40968,7 @@ export namespace Prisma {
     conteudo?: StringFieldUpdateOperationsInput | string
     dateTimestamp?: DateTimeFieldUpdateOperationsInput | Date | string
     avisoUsuario?: AvisoUsuarioUncheckedUpdateManyWithoutAvisoNestedInput
+    gruposAviso?: GruposAvisoUncheckedUpdateManyWithoutAvisoNestedInput
   }
 
   export type AvisoUncheckedUpdateManyWithoutGestorInput = {
@@ -39716,6 +41408,10 @@ export namespace Prisma {
     usuarioId: number
   }
 
+  export type GruposAvisoCreateManyAvisoInput = {
+    grupoId: number
+  }
+
   export type AvisoUsuarioUpdateWithoutAvisoInput = {
     status?: EnumStatusAvisoFieldUpdateOperationsInput | $Enums.StatusAviso
     dataLeitura?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39734,6 +41430,18 @@ export namespace Prisma {
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type GruposAvisoUpdateWithoutAvisoInput = {
+    grupo?: GrupoUpdateOneRequiredWithoutAvisosGrupoNestedInput
+  }
+
+  export type GruposAvisoUncheckedUpdateWithoutAvisoInput = {
+    grupoId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GruposAvisoUncheckedUpdateManyWithoutAvisoInput = {
+    grupoId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type UsuarioGrupoCreateManyGrupoInput = {
     usuarioId: number
   }
@@ -39744,6 +41452,10 @@ export namespace Prisma {
 
   export type DemandaGrupoCreateManyGrupoInput = {
     demandaId: number
+  }
+
+  export type GruposAvisoCreateManyGrupoInput = {
+    avisoId: number
   }
 
   export type UsuarioGrupoUpdateWithoutGrupoInput = {
@@ -39780,6 +41492,18 @@ export namespace Prisma {
 
   export type DemandaGrupoUncheckedUpdateManyWithoutGrupoInput = {
     demandaId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GruposAvisoUpdateWithoutGrupoInput = {
+    aviso?: AvisoUpdateOneRequiredWithoutGruposAvisoNestedInput
+  }
+
+  export type GruposAvisoUncheckedUpdateWithoutGrupoInput = {
+    avisoId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type GruposAvisoUncheckedUpdateManyWithoutGrupoInput = {
+    avisoId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GerenciamentoPrestacaoCreateManyPrestacaoInput = {

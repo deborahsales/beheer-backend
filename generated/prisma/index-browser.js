@@ -151,6 +151,8 @@ exports.Prisma.CronogramaScalarFieldEnum = {
   id: 'id',
   titulo: 'titulo',
   descricao: 'descricao',
+  dataInicio: 'dataInicio',
+  dataTermino: 'dataTermino',
   dateTimestamp: 'dateTimestamp',
   gestorUsuarioId: 'gestorUsuarioId'
 };
@@ -280,6 +282,11 @@ exports.Prisma.AvisoUsuarioScalarFieldEnum = {
   avisoId: 'avisoId'
 };
 
+exports.Prisma.GruposAvisoScalarFieldEnum = {
+  grupoId: 'grupoId',
+  avisoId: 'avisoId'
+};
+
 exports.Prisma.UsuarioGrupoScalarFieldEnum = {
   usuarioId: 'usuarioId',
   grupoId: 'grupoId'
@@ -404,6 +411,7 @@ exports.Prisma.ModelName = {
   GerenciamentoAtestado: 'GerenciamentoAtestado',
   GerenciamentoPrestacao: 'GerenciamentoPrestacao',
   AvisoUsuario: 'AvisoUsuario',
+  GruposAviso: 'GruposAviso',
   UsuarioGrupo: 'UsuarioGrupo',
   GrupoGestor: 'GrupoGestor',
   DemandaGrupo: 'DemandaGrupo',

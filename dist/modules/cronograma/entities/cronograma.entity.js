@@ -15,6 +15,8 @@ class CronogramaEntity {
     id;
     titulo;
     descricao;
+    dataInicio;
+    dataTermino;
     gestorUsuarioId;
     demandasCronograma;
 }
@@ -31,6 +33,14 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], CronogramaEntity.prototype, "descricao", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CronogramaEntity.prototype, "dataInicio", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    __metadata("design:type", String)
+], CronogramaEntity.prototype, "dataTermino", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Number)

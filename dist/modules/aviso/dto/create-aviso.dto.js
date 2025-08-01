@@ -16,6 +16,7 @@ class CreateAvisoDto {
     assunto;
     conteudo;
     avisoUsuario;
+    gruposAviso;
 }
 exports.CreateAvisoDto = CreateAvisoDto;
 __decorate([
@@ -35,4 +36,11 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Array)
 ], CreateAvisoDto.prototype, "avisoUsuario", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ type: [Number], example: [2, 3] }),
+    (0, class_validator_1.IsArray)(),
+    (0, class_validator_1.IsInt)({ each: true }),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateAvisoDto.prototype, "gruposAviso", void 0);
 //# sourceMappingURL=create-aviso.dto.js.map
