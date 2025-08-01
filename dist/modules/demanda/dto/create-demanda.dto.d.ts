@@ -5,7 +5,7 @@ export declare class CreateDemandaDto {
     prazo?: Date;
     status: StatusDemanda;
     prioridade: PrioridadeDemanda;
-    cronogramaId: number;
+    cronogramaId?: number;
     usuariosDemanda?: number[];
     gruposDemanda?: number[];
 }

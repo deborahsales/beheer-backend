@@ -12,6 +12,12 @@ export class CronogramaEntity {
 	descricao: string;
 
 	@ApiProperty()
+	dataInicio: string;
+
+	@ApiProperty()
+	dataTermino: string;
+
+	@ApiProperty()
 	gestorUsuarioId: number;
 
 	@ApiProperty()

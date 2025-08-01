@@ -31,9 +31,9 @@ export class CreateDemandaDto {
 	prioridade: PrioridadeDemanda;
 
 	@ApiPropertyOptional({ type: Number, example: 1 })
-	@IsString()
+	@IsInt()
 	@IsOptional()
-	cronogramaId: number;
+	cronogramaId?: number;
 
 	@ApiPropertyOptional({ type: [Number], example: [2, 3] })
 	@IsArray()

@@ -8,8 +8,10 @@ export declare class CronogramaService {
         id: number;
         dateTimestamp: Date;
         titulo: string;
-        descricao: string | null;
+        descricao: string;
         gestorUsuarioId: number;
+        dataInicio: Date;
+        dataTermino: Date;
     }>;
     findAll(gestorId: number): import("generated/prisma").Prisma.PrismaPromise<({
         demandasCronograma: {
@@ -27,8 +29,10 @@ export declare class CronogramaService {
         id: number;
         dateTimestamp: Date;
         titulo: string;
-        descricao: string | null;
+        descricao: string;
         gestorUsuarioId: number;
+        dataInicio: Date;
+        dataTermino: Date;
     })[]>;
     findOne(cronogramaId: number, gestorId: number): Promise<{
         demandasCronograma: {
@@ -46,8 +50,10 @@ export declare class CronogramaService {
         id: number;
         dateTimestamp: Date;
         titulo: string;
-        descricao: string | null;
+        descricao: string;
         gestorUsuarioId: number;
+        dataInicio: Date;
+        dataTermino: Date;
     }>;
     update(dto: UpdateCronogramaDto, cronogramaId: number, gestorId: number): Promise<({
         demandasCronograma: {
@@ -65,14 +71,18 @@ export declare class CronogramaService {
         id: number;
         dateTimestamp: Date;
         titulo: string;
-        descricao: string | null;
+        descricao: string;
         gestorUsuarioId: number;
+        dataInicio: Date;
+        dataTermino: Date;
     }) | null>;
     remove(cronogramaId: number, gestorId: number): Promise<{
         id: number;
         dateTimestamp: Date;
         titulo: string;
-        descricao: string | null;
+        descricao: string;
         gestorUsuarioId: number;
+        dataInicio: Date;
+        dataTermino: Date;
     }>;
 }

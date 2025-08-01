@@ -58,7 +58,7 @@ __decorate([
 ], CreateDemandaDto.prototype, "prioridade", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ type: Number, example: 1 }),
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsInt)(),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateDemandaDto.prototype, "cronogramaId", void 0);

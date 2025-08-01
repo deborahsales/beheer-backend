@@ -9,7 +9,7 @@ export class AvisoService {
 	constructor(private prisma: PrismaService) {}
 
 	async create(dto: CreateAvisoDto, usuarioId: number) {
-		const usuarios = dto.avisoUsuario?.length
+		const usuariosIndividuais = dto.avisoUsuario?.length
 			? await this.prisma.usuario.findMany({
 					where: {
 						id: { in: dto.avisoUsuario },
@@ -18,7 +18,19 @@ export class AvisoService {
 				})
 			: [];
 
-		const usuariosIds = usuarios.map((u) => u.id);
+		const usuariosDosGrupos = dto.gruposAviso?.length
+			? await this.prisma.usuarioGrupo.findMany({
+					where: {
+						grupoId: { in: dto.gruposAviso },
+					},
+					select: { usuarioId: true },
+				})
+			: [];
+
+		const idsIndividuais = usuariosIndividuais.map((u) => u.id);
+		const idsDosGrupos = usuariosDosGrupos.map((ug) => ug.usuarioId);
+
+		const usuariosIds = Array.from(new Set([...idsIndividuais, ...idsDosGrupos]));
 
 		return this.prisma.aviso.create({
 			data: {

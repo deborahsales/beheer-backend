@@ -16,10 +16,11 @@ export declare class DemandaService {
         cronogramaId: number | null;
         gestorUsuarioId: number;
     }>;
+    atualizarDemandasAtrasadasPorFiltro(whereFilter: any): Promise<void>;
     findAll(usuarioId: number, filters: FilterDemandasDto): Promise<({
         gruposDemanda: {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         }[];
         usuariosDemanda: {
             usuarioId: number;
@@ -59,6 +60,15 @@ export declare class DemandaService {
         gestorUsuarioId: number;
     }[]>;
     findOne(id: number, gestorId?: number): Promise<{
+        cronograma: {
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            gestorUsuarioId: number;
+            dataInicio: Date;
+            dataTermino: Date;
+        } | null;
         gestor: {
             nome: string;
         };
@@ -75,8 +85,8 @@ export declare class DemandaService {
                 nome: string;
             };
         } & {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         })[];
         usuariosDemanda: ({
             usuario: {
@@ -109,6 +119,15 @@ export declare class DemandaService {
         gestorUsuarioId: number;
     }>;
     update(id: number, dto: UpdateDemandaDto, gestorId: number): Promise<{
+        cronograma: {
+            id: number;
+            dateTimestamp: Date;
+            titulo: string;
+            descricao: string;
+            gestorUsuarioId: number;
+            dataInicio: Date;
+            dataTermino: Date;
+        } | null;
         gestor: {
             nome: string;
         };
@@ -125,8 +144,8 @@ export declare class DemandaService {
                 nome: string;
             };
         } & {
-            demandaId: number;
             grupoId: number;
+            demandaId: number;
         })[];
         usuariosDemanda: ({
             usuario: {

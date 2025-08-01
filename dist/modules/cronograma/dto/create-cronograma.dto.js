@@ -15,6 +15,8 @@ const class_validator_1 = require("class-validator");
 class CreateCronogramaDto {
     titulo;
     descricao;
+    dataInicio;
+    dataTermino;
     demandasCronograma;
 }
 exports.CreateCronogramaDto = CreateCronogramaDto;
@@ -24,10 +26,20 @@ __decorate([
     __metadata("design:type", String)
 ], CreateCronogramaDto.prototype, "titulo", void 0);
 __decorate([
-    (0, swagger_1.ApiPropertyOptional)({ type: String, example: 'Descricao do cronograma' }),
+    (0, swagger_1.ApiProperty)({ type: String, example: 'Descricao do cronograma' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateCronogramaDto.prototype, "descricao", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ type: String, format: 'date-time' }),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateCronogramaDto.prototype, "dataInicio", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ type: String, format: 'date-time' }),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateCronogramaDto.prototype, "dataTermino", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ type: [Number], example: [2, 3] }),
     (0, class_validator_1.IsArray)(),
