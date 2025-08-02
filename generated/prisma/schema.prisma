@@ -77,7 +77,7 @@ model Demanda {
   prioridade    PrioridadeDemanda
 
   cronogramaId Int?
-  cronograma   Cronograma? @relation("CronogramaDemanda", fields: [cronogramaId], references: [id], onDelete: Cascade)
+  cronograma   Cronograma? @relation("CronogramaDemanda", fields: [cronogramaId], references: [id], onDelete: SetNull)
 
   gestorUsuarioId Int
   gestor          Usuario @relation("GestorDemanda", fields: [gestorUsuarioId], references: [id], onDelete: Cascade)

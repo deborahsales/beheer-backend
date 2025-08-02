@@ -6,15 +6,15 @@ export declare class AvisoService {
     constructor(prisma: PrismaService);
     create(dto: CreateAvisoDto, usuarioId: number): Promise<{
         id: number;
-        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
+        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }>;
     findAll(usuarioId: number): Promise<{
         avisoUsuario: {
-            status: import("generated/prisma").$Enums.StatusAviso;
             usuarioId: number;
+            status: import("generated/prisma").$Enums.StatusAviso;
             dataLeitura: Date;
             avisoId: number;
         }[];
@@ -23,9 +23,9 @@ export declare class AvisoService {
             nome: string;
         };
         id: number;
-        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
+        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }[]>;
     findOne(avisoId: number, usuarioId: number): Promise<{
@@ -35,8 +35,8 @@ export declare class AvisoService {
                 email: string;
             };
         } & {
-            status: import("generated/prisma").$Enums.StatusAviso;
             usuarioId: number;
+            status: import("generated/prisma").$Enums.StatusAviso;
             dataLeitura: Date;
             avisoId: number;
         })[];
@@ -44,30 +44,38 @@ export declare class AvisoService {
             id: number;
             nome: string;
         };
+        gruposAviso: ({
+            grupo: {
+                nome: string;
+            };
+        } & {
+            grupoId: number;
+            avisoId: number;
+        })[];
         id: number;
-        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
+        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }>;
     updateLido(avisoId: number, usuarioId: number): Promise<{
-        status: import("generated/prisma").$Enums.StatusAviso;
         usuarioId: number;
+        status: import("generated/prisma").$Enums.StatusAviso;
         dataLeitura: Date;
         avisoId: number;
     }>;
     update(dto: UpdateAvisoDto, avisoId: number, usuarioId: number): Promise<{
         id: number;
-        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
+        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     } | null>;
     remove(avisoId: number, usuarioId: number): Promise<{
         id: number;
-        dateTimestamp: Date;
         assunto: string;
         conteudo: string;
+        dateTimestamp: Date;
         gestorRhUsuarioId: number;
     }>;
 }

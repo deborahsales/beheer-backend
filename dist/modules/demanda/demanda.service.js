@@ -200,6 +200,7 @@ let DemandaService = class DemandaService {
                 prazo: dto.prazo,
                 status: dto.status,
                 prioridade: dto.prioridade,
+                cronogramaId: dto.cronogramaId,
             },
         });
         if (dto.usuariosDemanda) {

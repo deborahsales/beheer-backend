@@ -223,6 +223,7 @@ export class DemandaService {
 				prazo: dto.prazo,
 				status: dto.status,
 				prioridade: dto.prioridade,
+				cronogramaId: dto.cronogramaId,
 			},
 		});
 
