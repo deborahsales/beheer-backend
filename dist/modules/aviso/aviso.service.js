@@ -48,6 +48,11 @@ let AvisoService = class AvisoService {
                         create: usuariosIds.map((id) => ({ usuarioId: id })),
                     }
                     : undefined,
+                gruposAviso: dto.gruposAviso?.length
+                    ? {
+                        create: dto.gruposAviso.map((id) => ({ grupoId: id })),
+                    }
+                    : undefined,
             },
         });
     }
@@ -97,6 +102,13 @@ let AvisoService = class AvisoService {
                     select: {
                         id: true,
                         nome: true,
+                    },
+                },
+                gruposAviso: {
+                    include: {
+                        grupo: {
+                            select: { nome: true },
+                        },
                     },
                 },
             },
