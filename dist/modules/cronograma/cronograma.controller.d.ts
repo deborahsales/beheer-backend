@@ -8,8 +8,8 @@ export declare class CronogramaController {
     create(createCronogramaDto: CreateCronogramaDto, req: RequestWithUser): Promise<{
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -19,8 +19,8 @@ export declare class CronogramaController {
             status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
             dateTimestamp: Date;
-            titulo: string;
             descricao: string;
+            titulo: string;
             prazo: Date | null;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
@@ -29,8 +29,8 @@ export declare class CronogramaController {
     } & {
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -40,8 +40,8 @@ export declare class CronogramaController {
             status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
             dateTimestamp: Date;
-            titulo: string;
             descricao: string;
+            titulo: string;
             prazo: Date | null;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
@@ -50,8 +50,8 @@ export declare class CronogramaController {
     } & {
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -61,8 +61,8 @@ export declare class CronogramaController {
             status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
             dateTimestamp: Date;
-            titulo: string;
             descricao: string;
+            titulo: string;
             prazo: Date | null;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
@@ -71,8 +71,8 @@ export declare class CronogramaController {
     } & {
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -80,8 +80,8 @@ export declare class CronogramaController {
     delete(cronogramaId: number, req: RequestWithUser): Promise<{
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;

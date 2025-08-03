@@ -6,7 +6,6 @@ export declare class UsuarioService {
     constructor(prisma: PrismaService);
     create(dto: CreateUsuarioDto): Promise<{
         id: number;
-        dateTimestamp: Date;
         cpf: string;
         nome: string;
         email: string;
@@ -16,6 +15,7 @@ export declare class UsuarioService {
         dataDesligamento: Date | null;
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        dateTimestamp: Date;
     }>;
     findAll(): import("generated/prisma").Prisma.PrismaPromise<{
         id: number;
@@ -67,7 +67,6 @@ export declare class UsuarioService {
     }[]>;
     findOne(id: number): Promise<{
         id: number;
-        dateTimestamp: Date;
         cpf: string;
         nome: string;
         email: string;
@@ -77,10 +76,10 @@ export declare class UsuarioService {
         dataDesligamento: Date | null;
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        dateTimestamp: Date;
     }>;
     findByEmail(email: string): Promise<{
         id: number;
-        dateTimestamp: Date;
         cpf: string;
         nome: string;
         email: string;
@@ -91,10 +90,10 @@ export declare class UsuarioService {
         dataDesligamento: Date | null;
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        dateTimestamp: Date;
     }>;
     update(id: number, dto: UpdateUsuarioDto): Promise<{
         id: number;
-        dateTimestamp: Date;
         cpf: string;
         nome: string;
         email: string;
@@ -104,10 +103,10 @@ export declare class UsuarioService {
         dataDesligamento: Date | null;
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        dateTimestamp: Date;
     }>;
     remove(id: number): Promise<{
         id: number;
-        dateTimestamp: Date;
         cpf: string;
         nome: string;
         email: string;
@@ -118,5 +117,6 @@ export declare class UsuarioService {
         dataDesligamento: Date | null;
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
+        dateTimestamp: Date;
     }>;
 }

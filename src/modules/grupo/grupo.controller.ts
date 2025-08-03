@@ -41,14 +41,15 @@ export class GrupoController {
 	@ApiResponse({ status: 200, type: [GrupoEntity] })
 	findAll(@Req() req: RequestWithUser) {
 		const usuarioId = req.user['id'];
-		return this.grupoService.findAll(usuarioId);
+		const funcaoUsuario = req.user['funcao'];
+		return this.grupoService.findAll(usuarioId, funcaoUsuario);
 	}
 
 	@Get('/usuario/:id')
 	@UseGuards(JwtAuthGuard, RolesGuard)
 	@ApiResponse({ status: 200, type: GrupoEntity })
 	findAllByUser(@Param('id', ParseIntPipe) id: number) {
-		return this.grupoService.findAll(id);
+		return this.grupoService.findAll(id, '');
 	}
 
 	@Get(':id')
