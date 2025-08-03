@@ -6,7 +6,7 @@ export declare class GrupoController {
     private readonly grupoService;
     constructor(grupoService: GrupoService);
     create(createGrupoDto: CreateGrupoDto, req: RequestWithUser): Promise<{
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -16,7 +16,7 @@ export declare class GrupoController {
             usuarioId: number;
             grupoId: number;
         })[];
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -42,7 +42,7 @@ export declare class GrupoController {
         descricao: string;
     }[]>;
     findOne(id: number, req: RequestWithUser): Promise<{
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -52,7 +52,7 @@ export declare class GrupoController {
             usuarioId: number;
             grupoId: number;
         })[];
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -68,7 +68,7 @@ export declare class GrupoController {
         descricao: string;
     }>;
     update(id: number, updateGrupoDto: UpdateGrupoDto, req: RequestWithUser): Promise<{
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -78,7 +78,7 @@ export declare class GrupoController {
             usuarioId: number;
             grupoId: number;
         })[];
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;

@@ -151,7 +151,7 @@ export class AjustePontoService {
 			},
 		});
 
-		return ajusteAtualizado;
+		return this.prisma.ajustePonto.findFirst({ where: { id }, include: { ponto: true } });
 	}
 
 	async remove(id: number, usuarioId: number) {

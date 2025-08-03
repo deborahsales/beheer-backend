@@ -6,10 +6,10 @@ export declare class AjustePontoService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateAjustePontoDto, pontoId: number, usuarioId: number): Promise<{
+        id: number;
         dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;
@@ -17,28 +17,40 @@ export declare class AjustePontoService {
     findAll(funcaoUsuario: string, usuarioId: number): any;
     findOne(id: number, funcaoUsuario: string, usuarioId: number): any;
     update(dto: UpdateAjustePontoDto, id: number, usuarioId: number): Promise<{
+        id: number;
         dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;
     }>;
-    updateRh(dto: UpdateGerenciamentoPontoDto, id: number, usuarioId: number): Promise<{
+    updateRh(dto: UpdateGerenciamentoPontoDto, id: number, usuarioId: number): Promise<({
+        ponto: {
+            id: number;
+            dateTimestampAjustado: Date | null;
+            dateTimestamp: Date;
+            usuarioId: number;
+            ip: string;
+            imagem: string;
+            latitude: number;
+            longitude: number;
+            ativo: boolean;
+        };
+    } & {
+        id: number;
         dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;
-    }>;
+    }) | null>;
     remove(id: number, usuarioId: number): Promise<{
+        id: number;
         dateTimestampAjustado: Date | null;
         motivo: import("generated/prisma").$Enums.MotivoAjuste;
         status: import("generated/prisma").$Enums.StatusAjuste;
-        id: number;
         dateTimestamp: Date;
         usuarioId: number;
         pontoId: number;

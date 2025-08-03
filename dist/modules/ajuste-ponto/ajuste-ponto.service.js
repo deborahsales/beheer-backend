@@ -146,7 +146,7 @@ let AjustePontoService = class AjustePontoService {
                 rhUsuarioId: usuarioId,
             },
         });
-        return ajusteAtualizado;
+        return this.prisma.ajustePonto.findFirst({ where: { id }, include: { ponto: true } });
     }
     async remove(id, usuarioId) {
         const ajuste = await this.prisma.ajustePonto.findFirst({ where: { id, usuarioId } });
