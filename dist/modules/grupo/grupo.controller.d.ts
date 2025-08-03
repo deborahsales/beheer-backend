@@ -6,7 +6,7 @@ export declare class GrupoController {
     private readonly grupoService;
     constructor(grupoService: GrupoService);
     create(createGrupoDto: CreateGrupoDto, req: RequestWithUser): Promise<{
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -16,7 +16,7 @@ export declare class GrupoController {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -31,60 +31,18 @@ export declare class GrupoController {
         nome: string;
         descricao: string;
     }>;
-    findAll(req: RequestWithUser): import("generated/prisma").Prisma.PrismaPromise<({
-        gestores: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-        usuarios: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-    } & {
+    findAll(req: RequestWithUser): Promise<{
         id: number;
         nome: string;
         descricao: string;
-    })[]>;
-    findAllByUser(id: number): import("generated/prisma").Prisma.PrismaPromise<({
-        gestores: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-        usuarios: ({
-            usuario: {
-                nome: string;
-                email: string;
-                cargo: string;
-            };
-        } & {
-            usuarioId: number;
-            grupoId: number;
-        })[];
-    } & {
+    }[]>;
+    findAllByUser(id: number): Promise<{
         id: number;
         nome: string;
         descricao: string;
-    })[]>;
+    }[]>;
     findOne(id: number, req: RequestWithUser): Promise<{
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -94,7 +52,7 @@ export declare class GrupoController {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -110,7 +68,7 @@ export declare class GrupoController {
         descricao: string;
     }>;
     update(id: number, updateGrupoDto: UpdateGrupoDto, req: RequestWithUser): Promise<{
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -120,7 +78,7 @@ export declare class GrupoController {
             usuarioId: number;
             grupoId: number;
         })[];
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;

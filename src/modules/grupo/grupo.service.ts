@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { FuncaoUsuario } from 'generated/prisma';
+import { FuncaoUsuario, Grupo } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
 import { userSelect } from '../usuario/types/user-select.type';
 import { CreateGrupoDto } from './dto/create-grupo.dto';
@@ -54,26 +54,17 @@ export class GrupoService {
 		});
 	}
 
-	findAll(usuarioId: number) {
+	async findAll(usuarioId: number, funcao: string): Promise<Grupo[]> {
+		const isAdmin = funcao === 'ADMINISTRADOR' || funcao === 'RH';
+
+		const where = isAdmin
+			? undefined
+			: {
+					OR: [{ gestores: { some: { usuarioId } } }, { usuarios: { some: { usuarioId } } }],
+				};
+
 		return this.prisma.grupo.findMany({
-			where: {
-				OR: [
-					{
-						gestores: {
-							some: {
-								usuarioId: usuarioId,
-							},
-						},
-					},
-					{
-						usuarios: {
-							some: {
-								usuarioId: usuarioId,
-							},
-						},
-					},
-				],
-			},
+			where,
 			include: {
 				gestores: {
 					include: {

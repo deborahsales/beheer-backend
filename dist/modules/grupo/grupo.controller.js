@@ -34,10 +34,11 @@ let GrupoController = class GrupoController {
     }
     findAll(req) {
         const usuarioId = req.user['id'];
-        return this.grupoService.findAll(usuarioId);
+        const funcaoUsuario = req.user['funcao'];
+        return this.grupoService.findAll(usuarioId, funcaoUsuario);
     }
     findAllByUser(id) {
-        return this.grupoService.findAll(id);
+        return this.grupoService.findAll(id, '');
     }
     findOne(id, req) {
         const usuarioId = req.user['id'];

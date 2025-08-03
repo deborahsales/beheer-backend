@@ -7,8 +7,8 @@ export declare class CronogramaService {
     create(dto: CreateCronogramaDto, gestorId: number): Promise<{
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -18,8 +18,8 @@ export declare class CronogramaService {
             status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
             dateTimestamp: Date;
-            titulo: string;
             descricao: string;
+            titulo: string;
             prazo: Date | null;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
@@ -28,8 +28,8 @@ export declare class CronogramaService {
     } & {
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -39,8 +39,8 @@ export declare class CronogramaService {
             status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
             dateTimestamp: Date;
-            titulo: string;
             descricao: string;
+            titulo: string;
             prazo: Date | null;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
@@ -49,8 +49,8 @@ export declare class CronogramaService {
     } & {
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -60,8 +60,8 @@ export declare class CronogramaService {
             status: import("generated/prisma").$Enums.StatusDemanda;
             id: number;
             dateTimestamp: Date;
-            titulo: string;
             descricao: string;
+            titulo: string;
             prazo: Date | null;
             prioridade: import("generated/prisma").$Enums.PrioridadeDemanda;
             cronogramaId: number | null;
@@ -70,8 +70,8 @@ export declare class CronogramaService {
     } & {
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;
@@ -79,8 +79,8 @@ export declare class CronogramaService {
     remove(cronogramaId: number, gestorId: number): Promise<{
         id: number;
         dateTimestamp: Date;
-        titulo: string;
         descricao: string;
+        titulo: string;
         gestorUsuarioId: number;
         dataInicio: Date;
         dataTermino: Date;

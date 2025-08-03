@@ -61,26 +61,15 @@ let GrupoService = class GrupoService {
             },
         });
     }
-    findAll(usuarioId) {
+    async findAll(usuarioId, funcao) {
+        const isAdmin = funcao === 'ADMINISTRADOR' || funcao === 'RH';
+        const where = isAdmin
+            ? undefined
+            : {
+                OR: [{ gestores: { some: { usuarioId } } }, { usuarios: { some: { usuarioId } } }],
+            };
         return this.prisma.grupo.findMany({
-            where: {
-                OR: [
-                    {
-                        gestores: {
-                            some: {
-                                usuarioId: usuarioId,
-                            },
-                        },
-                    },
-                    {
-                        usuarios: {
-                            some: {
-                                usuarioId: usuarioId,
-                            },
-                        },
-                    },
-                ],
-            },
+            where,
             include: {
                 gestores: {
                     include: {
