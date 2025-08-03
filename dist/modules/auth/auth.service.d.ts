@@ -6,6 +6,7 @@ export declare class AuthService {
     constructor(usuarioService: UsuarioService, jwtService: JwtService);
     validateUser(email: string, senha: string): Promise<{
         id: number;
+        dateTimestamp: Date;
         cpf: string;
         nome: string;
         email: string;
@@ -15,7 +16,6 @@ export declare class AuthService {
         dataDesligamento: Date | null;
         cargo: string;
         funcao: import("generated/prisma").$Enums.FuncaoUsuario;
-        dateTimestamp: Date;
     }>;
     login(usuario: any): Promise<{
         access_token: string;

@@ -6,7 +6,7 @@ export declare class GrupoService {
     private prisma;
     constructor(prisma: PrismaService);
     create(dto: CreateGrupoDto, gestorId: number): Promise<{
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -16,7 +16,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -33,7 +33,7 @@ export declare class GrupoService {
     }>;
     findAll(usuarioId: number, funcao: string): Promise<Grupo[]>;
     findOne(id: number, usuarioId: number): Promise<{
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -43,7 +43,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -59,7 +59,7 @@ export declare class GrupoService {
         descricao: string;
     }>;
     update(id: number, dto: UpdateGrupoDto, gestorId: number): Promise<{
-        usuarios: ({
+        gestores: ({
             usuario: {
                 nome: string;
                 email: string;
@@ -69,7 +69,7 @@ export declare class GrupoService {
             usuarioId: number;
             grupoId: number;
         })[];
-        gestores: ({
+        usuarios: ({
             usuario: {
                 nome: string;
                 email: string;
