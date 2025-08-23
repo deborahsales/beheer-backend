@@ -432,7 +432,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://beheer:beheer2025@beheer.cjmcm2so8k0i.us-east-1.rds.amazonaws.com:5432/postgres"
+        "value": "postgresql://beheer:beheer2025@beheer-rds.cqrokihv1m1m.us-east-1.rds.amazonaws.com:5432/beheer"
       }
     }
   },
